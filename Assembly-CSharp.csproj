@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C7D96985-0B4F-F6BD-3B7E-9242296D76C1}</ProjectGuid>
+    <ProjectGuid>{88038430-F456-2075-B1A2-AA3B73BBAA95}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,7 +53,7 @@
     <UnityVersion>2022.1.15f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\BlurManager.cs" />
@@ -74,15 +74,16 @@
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\ButtonAnimationFix.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\GolpeEspejismoStateMachine.cs" />
+    <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\Scripts\Function Manager\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreDeathBehavior.cs" />
     <Compile Include="Assets\UiMenuInicial.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\CandelaProyectiles.cs" />
     <Compile Include="Assets\Scripts\Function Manager\SpellMove.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\CanvasManager.cs" />
-    <Compile Include="Assets\FootstepScript.cs" />
-    <Compile Include="Assets\CandelaDeath.cs" />
-    <Compile Include="Assets\ContenedorEmpresario.cs" />
+    <Compile Include="Assets\Scripts\Player\FootstepScript.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Candela\CandelaDeath.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Empresario\ContenedorEmpresario.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\GroundSlashDamage.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\HorizontalAnimBehavior.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\BackgroundFilter.cs" />
@@ -90,23 +91,23 @@
     <Compile Include="Assets\SaddieHeath.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Input\GamepadScrollEvent.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\armoreActivateBehavior.cs" />
-    <Compile Include="Assets\EmpresarioScript.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Empresario\EmpresarioScript.cs" />
     <Compile Include="Assets\Scripts\Function Manager\ActiveWeapon.cs" />
     <Compile Include="Assets\Scripts\Function Manager\DamageCollider.cs" />
     <Compile Include="Assets\Scripts\LucesPrimerNivel\LightMotion.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\ScrollForMore.cs" />
-    <Compile Include="Assets\CorrerEmpresarioStateMachine.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Empresario\CorrerEmpresarioStateMachine.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManagerImage.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\ButtonManager.cs" />
     <Compile Include="Assets\proyectile Testing\Scripts\Projectile_Test.cs" />
     <Compile Include="Assets\Scripts\Function Manager\MoveTornado.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Events\PressKeyEvent.cs" />
-    <Compile Include="Assets\ContenedorPuppet.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Puppet\ContenedorPuppet.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\Ripple.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\ExitToSystem.cs" />
     <Compile Include="Assets\Scripts\Function Manager\GroundSlash.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\IdleB.cs" />
-    <Compile Include="Assets\AtaqueEmpresarioStateMachine.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Empresario\AtaqueEmpresarioStateMachine.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\LayoutGroupFix.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreAction.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHealBreak.cs" />
@@ -130,8 +131,9 @@
     <Compile Include="Assets\Animation\Controllers\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogManager.cs" />
     <Compile Include="Assets\ControladorSonidos.cs" />
-    <Compile Include="Assets\PlataformEffect.cs" />
+    <Compile Include="Assets\Scripts\Interaction\PlataformEffect.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
+    <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\DanceC.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\Leave.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Editor Handlers\DarkUIEditorHandler.cs" />
@@ -139,7 +141,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetIdle.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\DanceB.cs" />
     <Compile Include="Assets\Scripts\Keys &amp; Doors\Door.cs" />
-    <Compile Include="Assets\PatrolEmpresarioStateMachine.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Empresario\PatrolEmpresarioStateMachine.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHitmeBehavior.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManagerText.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogueTrigger.cs" />
@@ -161,8 +163,11 @@
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\IdleStateFinalBoss.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\UIGradient.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManager.cs" />
+    <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
     <Compile Include="Assets\Scripts\Traps\LaserScript.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\EditorDemoPositionFix.cs" />
+    <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreBlockBehavior.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\Candela.cs" />
     <Compile Include="Assets\Scripts\Function Manager\sceneActivator.cs" />
@@ -179,7 +184,7 @@
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\Ataque1StateMachine.cs" />
     <Compile Include="Assets\Scripts\Traps\CrosBow.cs" />
     <Compile Include="Assets\Scripts\Keys &amp; Doors\Key.cs" />
-    <Compile Include="Assets\CenterProyectile.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Happynes\CenterProyectile.cs" />
     <Compile Include="Assets\Scripts\Interaction\Interaction.cs" />
     <Compile Include="Assets\Scripts\Sounds\SfxHolder.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\SwitchManager.cs" />
@@ -188,61 +193,67 @@
     <Compile Include="Assets\proyectile Testing\Scripts\Holder.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\AtaqueTornadoStateMachine.cs" />
     <Compile Include="Assets\Scripts\Sounds\SfxInstance.cs" />
-    <Compile Include="Assets\SpellDamage.cs" />
+    <Compile Include="Assets\Scripts\Player\SpellDamage.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\Ballerinas.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\BattleStartCandela.cs" />
     <Compile Include="Assets\SadieA2.cs" />
-    <Compile Include="Assets\CortesSalvajes.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\BossFinal\CortesSalvajes.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetAttack.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\RotatingStarScript.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\IdleC.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Events\PointerEnterEvents.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManagerBackground.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\Hitted.cs" />
+    <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\UIParticleRenderer.cs" />
+    <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHealBehavior.cs" />
     <Compile Include="Assets\proyectile Testing\Scripts\Gun_Test.cs" />
+    <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Input\ScrollRectElement.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\Recuperación2seg.cs" />
-    <Compile Include="Assets\Toon Water URP\Scripts\PlanarReflectionsRenderer.cs" />
+    <Compile Include="Assets\Imported\Toon Water URP\Scripts\PlanarReflectionsRenderer.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\HappyHitme.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\SadieAtackAnim2.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\Toon Water URP\Functions\OtherLightsInfo.cginc" />
-    <None Include="Assets\Toon Water URP\README.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Imported\Toon Water URP\Functions\OtherLightsInfo.cginc" />
+    <None Include="Assets\Imported\Toon Water URP\README.txt" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\DOTween.XML" />
     <None Include="Assets\Imported\Dark - Complete Horror UI\Shaders\UI Particle Additive.shader" />
     <None Include="Assets\Imported\Dark - Complete Horror UI\Shaders\Fast UI Blur.shader" />
-    <None Include="Assets\EffectProjectiles\packs\StylizedProjectilePack1\Tips &amp; DocumentationsStylizedProjectilePack1.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\Toon Water URP\Functions\ClipValues.cginc" />
-    <None Include="Assets\Toon Water URP\Functions\DirLightInfo.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Efectos y Shaders\EffectProjectiles\packs\StylizedProjectilePack1\Tips &amp; DocumentationsStylizedProjectilePack1.txt" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Imported\Toon Water URP\Functions\ClipValues.cginc" />
+    <None Include="Assets\Imported\Toon Water URP\Functions\DirLightInfo.cginc" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Imported\Dark - Complete Horror UI\Shaders\UI Dissolve Effect.shader" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\Imported\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\DOTween.dll" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\Imported\Dark - Complete Horror UI\Read Me.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Imported\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Imported\Dark - Complete Horror UI\Documentation\Documentation.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Imported\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\readme.txt" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\Imported\Dark - Complete Horror UI\Shaders\Masked UI Blur.shader" />
-    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Imported\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\Imported\Dark - Complete Horror UI\Shaders\UI Blur.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -508,25 +519,13 @@
       <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
+      <HintPath>Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="clipper_library">
       <HintPath>Library\PackageCache\com.unity.cinemachine@2.8.6\Runtime\ThirdParty\clipper_library.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.15f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.15f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Android.Types">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.15f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Android.Gradle">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.15f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.15f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -1043,10 +1042,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{3ECC7EBA-436F-4243-3612-3734EBB0C27C}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
