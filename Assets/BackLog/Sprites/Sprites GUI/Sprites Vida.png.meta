@@ -1,0 +1,431 @@
+fileFormatVersion: 2
+guid: 35dcbd9862cf1154aa0a5d9089ae26e2
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sprites Vida_0
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 3288
+        width: 1615
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552cc6fdfcfe80e4c890e6688111e1f5
+      internalID: 129047962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites Vida_5
+      rect:
+        serializedVersion: 2
+        x: 2141
+        y: 3270
+        width: 1665
+        height: 639
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9d79d6f00e50274fae5a5a43daf54ba
+      internalID: -10866414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites Vida_6
+      rect:
+        serializedVersion: 2
+        x: 6468
+        y: 3270
+        width: 1666
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d92648ebebd59964d97922ea80c154b7
+      internalID: 1957149766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites Vida_8
+      rect:
+        serializedVersion: 2
+        x: 4367
+        y: 3275
+        width: 1323
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d401370ccc336449803c37753d5298
+      internalID: 2101976705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites Vida_14
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 2191
+        width: 1682
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d0a65a1bb730c942b994512aa48d589
+      internalID: -1904219462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites Vida_15
+      rect:
+        serializedVersion: 2
+        x: 2115
+        y: 2214
+        width: 1680
+        height: 664
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9601088120894243bb58f5afca7f885
+      internalID: -337559459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites Vida_17
+      rect:
+        serializedVersion: 2
+        x: 6448
+        y: 2191
+        width: 1530
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6075485cc4cf1444eac5dc10d553f1e7
+      internalID: -1464117383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites Vida_21
+      rect:
+        serializedVersion: 2
+        x: 4340
+        y: 2191
+        width: 1404
+        height: 537
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30bb8e00a72444748b3accc6605b16ee
+      internalID: 60241035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites Vida_24
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 1103
+        width: 1601
+        height: 571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa969fae9fb33e6478e3838554a585dc
+      internalID: 1993387156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites Vida_25
+      rect:
+        serializedVersion: 2
+        x: 2114
+        y: 1104
+        width: 1499
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ffa2930999f6040b8c9deb56eff1ee
+      internalID: -1195009397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites Vida_27
+      rect:
+        serializedVersion: 2
+        x: 4342
+        y: 1103
+        width: 1526
+        height: 481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 482ac004f45497344b8f379c1ecbfa99
+      internalID: 1474881390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites Vida_32
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 178
+        width: 273
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c455dffd400378458b0974c542beb0e
+      internalID: 2106876604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites Vida_33
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 348
+        width: 855
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09238c68bddab424bb90cded47a35bda
+      internalID: -1794436912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fe9befacf138ce54fab6e83bb42e7ae8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Sprites Vida_24: 1993387156
+      Sprites Vida_29: -1571865895
+      Sprites Vida_33: -1794436912
+      Sprites Vida_22: -567996421
+      Sprites Vida_31: -529100723
+      Sprites Vida_30: 1321183420
+      Sprites Vida_28: -330015715
+      Sprites Vida_26: 1278440529
+      Sprites Vida_3: -992916410
+      Sprites Vida_25: -1195009397
+      Sprites Vida_6: 1957149766
+      Sprites Vida_1: 553671856
+      Sprites Vida_23: -1589017699
+      Sprites Vida_8: 2101976705
+      Sprites Vida_4: -1055827614
+      Sprites Vida_27: 1474881390
+      Sprites Vida_2: -928270806
+      Sprites Vida_32: 2106876604
+      Sprites Vida_12: -2008718940
+      Sprites Vida_19: 1805353163
+      Sprites Vida_18: 1202287825
+      Sprites Vida_11: 484056605
+      Sprites Vida_16: -454244829
+      Sprites Vida_20: -212702646
+      Sprites Vida_17: -1464117383
+      Sprites Vida_10: 2065128889
+      Sprites Vida_5: -10866414
+      Sprites Vida_15: -337559459
+      Sprites Vida_0: 129047962
+      Sprites Vida_9: 1472670290
+      Sprites Vida_13: 1030321344
+      Sprites Vida_14: -1904219462
+      Sprites Vida_7: 1517158194
+      Sprites Vida_21: 60241035
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

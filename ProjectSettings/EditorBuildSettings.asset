@@ -6,82 +6,82 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MenuInicial.unity
+    path: Assets/_VerticalSlice/Scenes/MenuInicial.unity
     guid: 8da992e57c005134882ee1b7750e4c6c
   - enabled: 1
-    path: Assets/Scenes/Cinematic_2.unity
+    path: Assets/_VerticalSlice/Scenes/Cinematic_2.unity
     guid: 3a499654a397a7047b9f9166e2bdcef3
   - enabled: 1
-    path: Assets/Scenes/Bosque3.unity
+    path: Assets/_VerticalSlice/Scenes/BosqueTutorial.unity
     guid: afda642deb8c56346a52ba8e4bedd25f
   - enabled: 0
     path: Assets/Scenes/Bosque1.unity
     guid: 96078b7ff91deb1498c1a66d6bd4f74a
   - enabled: 1
-    path: "Assets/Scenes/Castillo/Andr\xE9s/Castillo1.unity"
+    path: Assets/_VerticalSlice/Scenes/Castillo1.unity
     guid: 07d30df00f32d3d46aa2d9403eacaa7b
   - enabled: 1
-    path: "Assets/Scenes/Castillo/Andr\xE9s/Castillo2.unity"
+    path: Assets/_VerticalSlice/Scenes/Castillo2.unity
     guid: 9173195852a249542ac2d38019a05ee8
   - enabled: 1
-    path: "Assets/Scenes/Castillo/Andr\xE9s/Castillo3.unity"
+    path: Assets/_VerticalSlice/Scenes/Castillo3.unity
     guid: 1743676e8a342bf48b6d5ce2903ef047
   - enabled: 1
-    path: "Assets/Scenes/Castillo/Andr\xE9s/Castillo4.unity"
+    path: Assets/_VerticalSlice/Scenes/Castillo4.unity
     guid: 7d0d49f0b1976854195930588cda486c
   - enabled: 1
-    path: "Assets/Scenes/Castillo/Andr\xE9s/Castillo5.unity"
+    path: Assets/_VerticalSlice/Scenes/Castillo5.unity
     guid: d567da9f5d2d94641bf59b6d4d888fa7
   - enabled: 1
-    path: Assets/Scenes/Castillo/Eva/Castillo6.unity
+    path: Assets/_VerticalSlice/Scenes/Castillo6.unity
     guid: 3511a9aa4905fcc44b9f96e6121c0652
   - enabled: 1
-    path: Assets/Scenes/Castillo/Eva/Castillo7.unity
+    path: Assets/_VerticalSlice/Scenes/Castillo7.unity
     guid: 7eabbebca0723554d923f8eb5b590a06
   - enabled: 1
-    path: Assets/Scenes/Castillo/Eva/Castillo8.unity
+    path: Assets/_VerticalSlice/Scenes/Castillo8.unity
     guid: a2ab47627e245c24baca271d29c93706
   - enabled: 1
-    path: Assets/Scenes/Cueva 1.9.unity
+    path: Assets/BackLog/Scenes/RehacerCueva.unity
     guid: 8ae050ba5b477d7459331974cff4c4ec
   - enabled: 1
-    path: Assets/Scenes/IASadie.unity
+    path: Assets/BackLog/Scenes/IASadie.unity
     guid: 34d1779bab6690b4ab091c22df2f6383
   - enabled: 1
-    path: Assets/Scenes/Teatro/Sergio/Teatro 1.10 1.unity
+    path: Assets/BackLog/Scenes/Teatro 1.10 1.unity
     guid: a3f8b04efdb2f8c47aaba28af4c1bc5c
   - enabled: 1
-    path: Assets/Scenes/Teatro/Sergio/Teatro 2.11.unity
+    path: Assets/BackLog/Scenes/Teatro 2.11.unity
     guid: cb4998b244924514498b0257eb132b41
   - enabled: 1
-    path: Assets/Scenes/Teatro/Sergio/Teatro1 3 .12 1.unity
+    path: Assets/BackLog/Scenes/Teatro1 3 .12 1.unity
     guid: f008b26e04ebc7946b03a14ed42d42df
   - enabled: 1
-    path: Assets/Scenes/Teatro/GinScenes/Teatro1 4.13.unity
+    path: Assets/BackLog/Scenes/Teatro1 4.13.unity
     guid: a047d1985f9ed0f4fab7f8673ee68c06
   - enabled: 1
-    path: Assets/Scenes/Teatro/GinScenes/Teatro1 5.14.unity
+    path: Assets/BackLog/Scenes/Teatro1 5.14.unity
     guid: f77fe8d90ab163d429aac8ea9dcf5714
   - enabled: 1
-    path: Assets/Scenes/Teatro/GinScenes/Teatro1 6.15.unity
+    path: Assets/BackLog/Scenes/Teatro1 6.15.unity
     guid: 73b9f3c31712cd34b8a7266a93d7438d
   - enabled: 1
-    path: Assets/Scenes/Teatro/Alvaro/Teatro1 8.16.unity
+    path: Assets/BackLog/Scenes/Teatro1 8.16.unity
     guid: a5bd58dca035e8e4b8bfb12859534deb
   - enabled: 1
-    path: Assets/Scenes/Teatro/Alvaro/Teatro1 7.17.unity
+    path: Assets/BackLog/Scenes/Teatro1 7.17.unity
     guid: d24c9813531b607409351a3e2469008a
   - enabled: 1
-    path: Assets/Scenes/Teatro/Alvaro/Teatro1 9.18.unity
+    path: Assets/BackLog/Scenes/Teatro1 9.18.unity
     guid: 062dece79a913634dab60b1c95259810
   - enabled: 1
-    path: Assets/Scenes/Teatro/Alvaro/Teatro1 10.19.unity
+    path: Assets/BackLog/Scenes/Teatro1 10.19.unity
     guid: ce81e9a8cdad2f04e9e1d3e68475fddf
   - enabled: 1
-    path: Assets/Scenes/IAHapynes 1.unity
+    path: Assets/_VerticalSlice/Scenes/BossHapyness 1.unity
     guid: d3d49716cc43c6b4e8a57f842bde88ce
   - enabled: 1
-    path: Assets/Scenes/BossFinal.unity
+    path: Assets/BackLog/Scenes/BossFinal.unity
     guid: c4a233d645916e345be0956f7b7f1f95
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c982fa5c459bbd94eba1a579fabc03a5,

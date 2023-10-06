@@ -1,0 +1,260 @@
+fileFormatVersion: 2
+guid: 1a3c66929569aba4ba3fa4617a865f1b
+ModelImporter:
+  serializedVersion: 22103
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'LeftUpperArm' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips:
+  - 1376c61df9d97054aade1212d359bb16
+  - 8efea3a1b5d6d9d4abdae478f755fa1b
+  - eedb92609d46cfd4faedab0623f3cfbe
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: ApePelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ApeLLeg1
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ApeRLeg1
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ApeLLeg2
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ApeRLeg2
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ApeLLegPalm
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ApeRLegPalm
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ApeRibcage
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ApeNeck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ApeHead
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: miniboss triste objecto final(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ApePelvis
+      parentName: miniboss triste objecto final(Clone)
+      position: {x: -0.003738044, y: 0.37680024, z: -0.084199175}
+      rotation: {x: 0.57357216, y: -0.41353968, z: -0.5735721, w: 0.4135396}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: ApeLLeg1
+      parentName: ApePelvis
+      position: {x: -0, y: 0.000000012111664, z: 0.042683728}
+      rotation: {x: -0.27677417, y: 0.95176834, z: 0.09838656, w: 0.08861797}
+      scale: {x: 1.0000011, y: 1.0000001, z: 1.0000001}
+    - name: ApeLLeg2
+      parentName: ApeLLeg1
+      position: {x: -0.15024664, y: -0.000000009083748, z: 0}
+      rotation: {x: -0.2840392, y: -0.013939688, z: 0.2727859, w: 0.91908395}
+      scale: {x: 0.99999654, y: 0.9999985, z: 1.000005}
+    - name: ApeLLegPalm
+      parentName: ApeLLeg2
+      position: {x: -0.2097776, y: -0.000000003027916, z: -0.000000012111664}
+      rotation: {x: 0.18903068, y: 0.28787485, z: -0.744158, w: 0.5723848}
+      scale: {x: 0.99999636, y: 1.0000014, z: 1.0000029}
+    - name: ApeRLeg1
+      parentName: ApePelvis
+      position: {x: -0, y: -0.000000012111664, z: -0.04268373}
+      rotation: {x: -0.26287368, y: 0.9576138, z: -0.106367126, w: -0.050589547}
+      scale: {x: 1.0000007, y: 1.0000006, z: 1.0000019}
+    - name: ApeRLeg2
+      parentName: ApeRLeg1
+      position: {x: -0.15024662, y: 0.000000006055832, z: -0.000000006055832}
+      rotation: {x: 0.2351734, y: 0.01591594, z: 0.26190495, w: 0.9358664}
+      scale: {x: 0.9999965, y: 0.9999986, z: 1.0000049}
+    - name: ApeRLegPalm
+      parentName: ApeRLeg2
+      position: {x: -0.2097776, y: 0.000000006055832, z: 0.000000012111664}
+      rotation: {x: -0.11548444, y: -0.19353963, z: -0.7797025, w: 0.58418304}
+      scale: {x: 0.99999684, y: 1.0000023, z: 1.0000012}
+    - name: ApeSpine
+      parentName: ApePelvis
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.000000021273994, y: -0.00000011300041, z: 0.03939641, w: 0.99922365}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000004}
+    - name: ApeRibcage
+      parentName: ApeSpine
+      position: {x: -0.43117562, y: 0, z: 0}
+      rotation: {x: 0.000000009854132, y: 0.00000007712762, z: -0.34787568, w: 0.93754065}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: ApeNeck
+      parentName: ApeRibcage
+      position: {x: -0.025240319, y: -0.023038758, z: -7.56979e-10}
+      rotation: {x: -0.000000045728292, y: 0.000000031408522, z: -0.16080001, w: 0.986987}
+      scale: {x: 1.0000001, y: 1.0000005, z: 0.9999999}
+    - name: ApeHead
+      parentName: ApeNeck
+      position: {x: -0.13939136, y: -0.00000009689331, z: 3.784895e-10}
+      rotation: {x: 0.000000028715913, y: -0.000000013009861, z: -0.18868355, w: 0.98203796}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: MASCARA_BUENA CON MATERIAL
+      parentName: miniboss triste objecto final(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
