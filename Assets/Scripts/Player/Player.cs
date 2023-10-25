@@ -88,6 +88,8 @@ public class Player : MonoBehaviour
 
     SpellScript spellScript;
 
+    public bool lockMovement;
+
     private void Awake()
     {       
             playerGraphics = GameObject.FindGameObjectWithTag("Player").transform;       
@@ -116,6 +118,8 @@ public class Player : MonoBehaviour
       
         if (!isDodging ) MovementDirection();
         Animations();
+
+        //if (!lockMovement) PlayerRotation();
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Movement")){
             

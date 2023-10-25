@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetHitMe.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\ButtonAnimationFix.cs" />
+    <Compile Include="Assets\Scripts\Player\EnemyLock.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\GolpeEspejismoStateMachine.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\Scripts\Function Manager\HealthBar.cs" />
