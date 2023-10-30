@@ -23,7 +23,7 @@ public class PuppetAttack : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        puppet.speed = 3f;
+        puppet.speed = 2f;
 
         puppet.destination = destination.position;
 

@@ -18,7 +18,7 @@ public class PuppetNavigation : StateMachineBehaviour
     }
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        puppet.speed = 2.5f;
+        puppet.speed = 1.5f;
         puppet.destination = destination.position;
         if (Vector3.Distance(puppet.transform.position, destination.position) <= distance)
         {

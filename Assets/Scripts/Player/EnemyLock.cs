@@ -13,7 +13,7 @@ public class EnemyLock : MonoBehaviour
 
     private Transform currentTarget;       //Esta variable almacena el enemigo actualmente bloqueado
 
-    public Image markingObject; // Asigna la imagen desde el Inspector
+    public GameObject markingObject; // Asigna la imagen desde el Inspector
 
     public Camera mainCamera;
 
@@ -21,11 +21,11 @@ public class EnemyLock : MonoBehaviour
     private int currentTargetIndex = -1;
     public bool isLockOnMode = false;
     private bool firstTimeLock = false;
-    public float scrollValue;
+    private float scrollValue;
 
     public InputActionReference inputLock;
 
-
+    public Vector3 offset;
     [SerializeField]  private Animator cinemachineAnim;
     private void Awake()
     {
@@ -40,13 +40,41 @@ public class EnemyLock : MonoBehaviour
         if(isLockOnMode == false)
         {
             cinemachineAnim.Play("FollowCamera");
+            markingObject.SetActive(false);
+            
         }
-
-  
+        if (availableTargets.Length == 0)
+        {
+            cinemachineAnim.Play("FollowCamera");
+            isLockOnMode = false;
+        }
 
         if (isLockOnMode == true)
         {
             cinemachineAnim.Play("TargetCamera");
+
+            // Verificar si el objetivo actual no es nulo antes de acceder a la imagen de marcado.
+            if (currentTarget != null)
+            {
+                markingObject.SetActive(true);
+                markingObject.transform.position = mainCamera.WorldToScreenPoint(currentTarget.transform.position + offset);
+            }
+           
+        }
+
+        //if (currentTarget != null && )
+        //{
+        //    // Calcula la dirección desde el jugador al objetivo.
+        //    Vector3 directionToTarget = currentTarget.position - transform.position;
+
+        //    // Ajusta la rotación para mirar al objetivo.
+        //    transform.rotation = Quaternion.LookRotation(directionToTarget);
+        //}
+
+        if (currentTarget == null && availableTargets.Length > 0 && isLockOnMode)
+        {
+            
+            LockOn(FindClosestTarget(availableTargets));  // Encuentra el objetivo más cercano y lo bloquea.
         }
     }
 
@@ -76,7 +104,6 @@ public class EnemyLock : MonoBehaviour
         
         if (isLockOnMode == true )
         {
-
 
             if(scrollValue > 0f && availableTargets.Length > 1)
             {
@@ -113,14 +140,7 @@ public class EnemyLock : MonoBehaviour
             virtualCamera.Follow = currentTarget.transform;            //Se obtiene el transform del enemigo fijado y se le añade al un componente del cinemachine para que le siga la camara
             virtualCamera.LookAt = currentTarget.transform;
 
-            cinemachineAnim.Play("TargetCamera");               //Cambia de la camara del jugador a una camara  que fija al enemigo
-
-            markingObject.enabled = true;
-            markingObject.transform.position = mainCamera.WorldToViewportPoint(currentTarget.transform.position);
            
-
-
-
         }
     }
 
@@ -135,7 +155,8 @@ public class EnemyLock : MonoBehaviour
             isLockOnMode = false;
             currentTarget = null;
 
-            markingObject.enabled = false;
+
+            markingObject.SetActive(false);
         }
     }
 
@@ -152,7 +173,7 @@ public class EnemyLock : MonoBehaviour
         return targets;                       //Devuelve un arreglo de objetos Transform que representan los enemigos disponibles.
     }
 
-    private Transform FindClosestTarget(Transform[] targets)           //// Encuentra el objetivo más cercano a la posición del jugador.
+    private Transform FindClosestTarget(Transform[] targets)           // Encuentra el objetivo más cercano a la posición del jugador.
     {
         Transform closestTarget = null;
         float closestDistance = float.MaxValue;
