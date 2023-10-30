@@ -8,22 +8,24 @@ public class EnemyLock : MonoBehaviour
     public LayerMask targetLayer;             // La capa de objetos que se pueden bloquear.
     public float maxLockOnDistance ;    // La distancia máxima a la que se pueden bloquear los objetivos.
     public CinemachineVirtualCamera virtualCamera;  // La cámara virtual de Cinemachine.
+    ChangeCamera changeCamera;
 
-
-
-    private Transform currentTarget;       //Esta variable almacena el enemigo actualmente bloqueado
+    
+    public Transform currentTarget;       //Esta variable almacena el enemigo actualmente bloqueado
 
     public GameObject markingObject; // Asigna la imagen desde el Inspector
 
     public Camera mainCamera;
 
     public Transform[] availableTargets; // Lista de enemigos disponibles dentro del radio de bloqueo
-    private int currentTargetIndex = -1;
+    public int currentTargetIndex = -1;
     public bool isLockOnMode = false;
-    private bool firstTimeLock = false;
+    
     private float scrollValue;
 
     public InputActionReference inputLock;
+
+    public GameObject targetGroup;
 
     public Vector3 offset;
     [SerializeField]  private Animator cinemachineAnim;
@@ -31,6 +33,10 @@ public class EnemyLock : MonoBehaviour
     {
      
         inputLock.action.performed += x => scrollValue = x.action.ReadValue<float>();
+    }
+    private void Start()
+    {
+        changeCamera = GameObject.Find("TargetGroup1").GetComponent<ChangeCamera>();
     }
 
     private void Update()
@@ -137,10 +143,10 @@ public class EnemyLock : MonoBehaviour
 
         if (currentTarget != null)
         {
-            virtualCamera.Follow = currentTarget.transform;            //Se obtiene el transform del enemigo fijado y se le añade al un componente del cinemachine para que le siga la camara
-            virtualCamera.LookAt = currentTarget.transform;
+            
 
-           
+            virtualCamera.Follow = targetGroup.transform;
+            virtualCamera.LookAt = targetGroup.transform;
         }
     }
 
@@ -149,12 +155,9 @@ public class EnemyLock : MonoBehaviour
         
         if (currentTarget != null)
         {
-            virtualCamera.Follow = null;
-            virtualCamera.LookAt = null;
 
             isLockOnMode = false;
             currentTarget = null;
-
 
             markingObject.SetActive(false);
         }
