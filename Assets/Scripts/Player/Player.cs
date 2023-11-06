@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private AudioClip sfxSlash;
 
-    
+    private PauseMenu menu;
 
     private PlayerInput playerInput;
     CharacterController characterController;
@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         
-        
+        menu = GameObject.Find("UIMenu").GetComponent<PauseMenu>();
         playerInput = new PlayerInput();
         
 
@@ -392,7 +392,32 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, -angle, 0));
      
 
-    }  
+    }
+
+    public void OnMenu(InputValue input)
+    {
+        if (input.isPressed)
+        {
+            menu.GameIsPaused = true;
+            if(menu.GameIsPaused == true)
+            {
+
+                menu.Pause();
+
+            }
+            else
+            {
+
+                menu.Resume();
+
+            }
+
+        }
+
+       
+
+
+    }
     public void enableCollider()
     {
         damageCollider.SetActive(true);

@@ -17,6 +17,8 @@ public class SpellScript : MonoBehaviour
 
     Animator animator;
     [SerializeField] private AudioClip sfxShoot;
+
+    public GameObject holder;
     Player player;
 
     void Start()
@@ -46,13 +48,17 @@ public class SpellScript : MonoBehaviour
         {
             animator.SetTrigger("Spell");
         }
-       
+
         StartCoroutine(waitInstantiate());
 
-       
+
+
+
+
+
     }
 
-    
+
 
     IEnumerator waitInstantiate()
     {
@@ -62,10 +68,10 @@ public class SpellScript : MonoBehaviour
         GameObject vfx;
         GameObject effectSpawn;
 
-        if (firePoint != null && !isCooldown && player.spellOn )
+        if (firePoint != null && !isCooldown && player.spellOn)
         {
             isCooldown = true;
-            
+
             cooldownTimer = cooldownTime;
             vfx = Instantiate(proyectile, firePoint.transform.position, this.transform.rotation);
             effectSpawn = Instantiate(effectSpawnProjectile, firePoint.transform.position, this.transform.rotation);
@@ -73,8 +79,8 @@ public class SpellScript : MonoBehaviour
 
             Destroy(vfx, 2);
             Destroy(effectSpawn, 2);
-            
+
         }
-        
+
     }
 }

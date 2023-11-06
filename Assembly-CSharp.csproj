@@ -117,6 +117,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManagerLogo.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\StarDancing.cs" />
     <Compile Include="Assets\Scripts\Function Manager\UI\UiManager.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\UI\PauseMenu.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\DropdownManager.cs" />
     <Compile Include="Assets\Scripts\Interaction\GrassPosition.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\HappyParamet.cs" />
@@ -215,10 +216,10 @@
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\Recuperación2seg.cs" />
     <Compile Include="Assets\Imported\Toon Water URP\Scripts\PlanarReflectionsRenderer.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\HappyHitme.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\ChangeCamera.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\ChangeCamera.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
