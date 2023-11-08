@@ -6,20 +6,18 @@ using UnityEngine.InputSystem;
 public class SpellScript : MonoBehaviour
 {
     public GameObject firePoint;
-
-    public float cooldownTime; 
+    public float cooldownTime;
     public bool isCooldown = false;
     private float cooldownTimer = 0f;
-
-    public GameObject proyectile;
-
-    public GameObject effectSpawnProjectile;
-
+    public GameObject[] proyectiles; // Array de proyectiles
+    public GameObject[] effectSpawnProjectile;
+    public GameObject holder;
+    Player player;
     Animator animator;
     [SerializeField] private AudioClip sfxShoot;
 
-    public GameObject holder;
-    Player player;
+    private int currentProjectileIndex = 0;
+    private int currentMuzzleIndex = 0;// Índice del proyectil actual
 
     void Start()
     {
@@ -38,8 +36,6 @@ public class SpellScript : MonoBehaviour
                 isCooldown = false;
             }
         }
-
-       
     }
 
     public void OnRotate(InputValue input)
@@ -47,40 +43,38 @@ public class SpellScript : MonoBehaviour
         if (!isCooldown && !player.spellOn)
         {
             animator.SetTrigger("Spell");
+            StartCoroutine(waitInstantiate());
         }
-
-        StartCoroutine(waitInstantiate());
-
-
-
-
-
-
     }
 
-
+    public void OnChangeProyectile(InputValue input)
+    {
+        
+        currentProjectileIndex = (currentProjectileIndex + 1) % proyectiles.Length;
+       // Debug.Log("Cambiado a proyectil " + currentProjectileIndex);
+        currentMuzzleIndex = (currentMuzzleIndex + 1) % effectSpawnProjectile.Length;
+    }
 
     IEnumerator waitInstantiate()
     {
-
         yield return new WaitForSeconds(0.4f);
-
         GameObject vfx;
         GameObject effectSpawn;
 
         if (firePoint != null && !isCooldown && player.spellOn)
         {
             isCooldown = true;
-
             cooldownTimer = cooldownTime;
-            vfx = Instantiate(proyectile, firePoint.transform.position, this.transform.rotation);
-            effectSpawn = Instantiate(effectSpawnProjectile, firePoint.transform.position, this.transform.rotation);
+            // Instancia el proyectil actual
+            vfx = Instantiate(proyectiles[currentProjectileIndex], firePoint.transform.position, this.transform.rotation);
+            effectSpawn = Instantiate(effectSpawnProjectile[currentMuzzleIndex], firePoint.transform.position, this.transform.rotation);
             ControladorSonidos.Instance.EjecutarSonido(sfxShoot);
 
             Destroy(vfx, 2);
             Destroy(effectSpawn, 2);
-
         }
-
     }
 }
+
+
+

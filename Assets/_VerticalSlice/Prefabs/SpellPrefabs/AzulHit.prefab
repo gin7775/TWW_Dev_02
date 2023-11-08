@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 114400185868318470}
   - component: {fileID: 114272181970805014}
   m_Layer: 0
-  m_Name: PlasmaOceanBlue_Medium_Impact
+  m_Name: AzulHit
   m_TagString: FX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
