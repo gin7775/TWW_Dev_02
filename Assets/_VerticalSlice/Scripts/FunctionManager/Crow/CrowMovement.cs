@@ -10,8 +10,18 @@ public class CrowMovement : MonoBehaviour
     public float[] positions = { 0, 0, 0  ,2,3};
     public float speed;
     public float posX,posY,posZ;
-    //public Vector3 nextPosVector;
+    public GameObject crowSkull,player;
+    public Animator animation;
 
+    //public Vector3 nextPosVector;
+    void Start()
+    {
+
+        player = GameObject.FindGameObjectWithTag("Player");
+
+
+
+    }
     // Update is called once per frame
     void Update()
     {
