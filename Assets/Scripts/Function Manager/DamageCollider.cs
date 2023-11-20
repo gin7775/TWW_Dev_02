@@ -123,8 +123,18 @@ public class DamageCollider : MonoBehaviour
                 saddie.TakeDamage(50);
             }
         }
+        else if (other.tag == "SkullCrow")
+        {
+            SkullDamage crowSkullhit = other.GetComponent<SkullDamage>();
 
-       
+
+            if (crowSkullhit != null)
+            {
+                crowSkullhit.killCrow();
+            }
+        }
+
+
     }
 
    

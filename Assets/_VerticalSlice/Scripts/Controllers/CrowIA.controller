@@ -182,13 +182,13 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 365082073015314877}
-    m_Position: {x: 250, y: 10, z: 0}
+    m_Position: {x: 180, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6511515303376653829}
-    m_Position: {x: 280, y: 80, z: 0}
+    m_Position: {x: 260, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7148183421380250866}
-    m_Position: {x: 310, y: 160, z: 0}
+    m_Position: {x: 320, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1111284380314928057}
     m_Position: {x: 240, y: -120, z: 0}
@@ -260,6 +260,7 @@ MonoBehaviour:
   crow: {fileID: 0}
   crowSkull: {fileID: 0}
   player: {fileID: 0}
+  detectionDistance: 0
 --- !u!1101 &8374486079251093713
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

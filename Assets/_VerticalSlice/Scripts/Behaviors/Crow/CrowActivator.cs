@@ -6,6 +6,7 @@ public class CrowActivator : StateMachineBehaviour
 {
     public CrowMovement crow;
     public GameObject crowSkull,player;
+    public float detectionDistance;
     
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -20,7 +21,10 @@ public class CrowActivator : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        if (Vector3.Distance(animator.transform.position, player.transform.position) <= detectionDistance)
+        {
+            animator.SetTrigger("MoveToPosition");
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

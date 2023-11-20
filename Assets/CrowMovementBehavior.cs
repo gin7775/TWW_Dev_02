@@ -18,7 +18,7 @@ public class CrowMovementBehavior : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        crow.MoveTowards(player.transform);
+        crow.MoveTowards();
         if (Vector3.Distance(crow.transform.position, player.transform.position) <= 1f)
         {
            // animation.SetTrigger("Shoot");
