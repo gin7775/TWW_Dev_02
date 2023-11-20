@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     public float cooldownTimeDodge;
     private bool isCooldownDodge = false;
     private float cooldownTimerDodge = 0f;
-    private bool isDodging;
+    public bool isDodging;
     private float dodgeTimer;
     [SerializeField] private AnimationCurve dodgeCurve;
     public ParticleSystem particleDash;
@@ -67,10 +67,12 @@ public class Player : MonoBehaviour
     public float gravityMultiplier = 3f;
     public bool lockMovement;
     ComboAttackSystem comboAttackSystem;
+    EnemyLock enemyLock;
 
     private void Awake()
     {       
-            playerGraphics = GameObject.FindGameObjectWithTag("Player").transform; 
+            playerGraphics = GameObject.FindGameObjectWithTag("Player").transform;
+        enemyLock = GetComponent<EnemyLock>();
         
     }
 
@@ -117,7 +119,7 @@ public class Player : MonoBehaviour
     public void OnRoll(InputValue value)
     {
                                    
-            if(!isDodging && !isAttacking && !spellOn && !isCooldownDodge)
+            if(!isDodging && !comboAttackSystem.isAttacking && !spellOn && !isCooldownDodge)
             {
                 StartCoroutine(Dodge());
             ControladorSonidos.Instance.EjecutarSonido(sfxDash);
@@ -251,21 +253,36 @@ public class Player : MonoBehaviour
     {
         float t = 0;
         isDodging = true;
-        
+
         particleDash.Play();
         playerGraphics.DOScale(Vector3.zero, 0.2f);
+
+        // Obtener la orientación de la cámara
+        Vector3 cameraForward = Camera.main.transform.forward;
+        Vector3 cameraRight = Camera.main.transform.right;
+
+        cameraForward.y = 0; // Ignorar la componente Y para mantener el movimiento en el plano horizontal
+        cameraRight.y = 0;
+
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+
+        // Calcular la dirección del dash basada en las entradas del jugador y la orientación de la cámara
+        Vector3 dashDirection = (cameraForward * vertical + cameraRight * horizontal).normalized;
+
+        if (dashDirection == Vector3.zero)
+        {
+            dashDirection = transform.forward; // Usar la dirección hacia adelante del personaje si no hay entrada
+        }
+
         while (t < dashTime)
         {
-
             t += Time.deltaTime;
-            characterController.Move(transform.forward * dashSpeed * Time.deltaTime);
+            characterController.Move(dashDirection * dashSpeed * Time.deltaTime);
             yield return null;
         }
-      
-       // float startTime = Time.time;
 
-        playerGraphics.DOScale(new Vector3(1.3f,1.3f,1.3f), 0.3f).SetEase(Ease.OutBack); 
-
+        playerGraphics.DOScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f).SetEase(Ease.OutBack);
 
         isDodging = false;
     }

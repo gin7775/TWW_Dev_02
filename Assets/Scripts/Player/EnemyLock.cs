@@ -26,6 +26,7 @@ public class EnemyLock : MonoBehaviour
     public InputActionReference inputLock;
 
     public GameObject targetGroup;
+    public float rotationSpeed = 50;
 
     public Vector3 offset;
     [SerializeField]  private Animator cinemachineAnim;
@@ -68,14 +69,10 @@ public class EnemyLock : MonoBehaviour
            
         }
 
-        //if (currentTarget != null && )
-        //{
-        //    // Calcula la dirección desde el jugador al objetivo.
-        //    Vector3 directionToTarget = currentTarget.position - transform.position;
-
-        //    // Ajusta la rotación para mirar al objetivo.
-        //    transform.rotation = Quaternion.LookRotation(directionToTarget);
-        //}
+        if (isLockOnMode && currentTarget != null)
+        {
+            LookAtTarget(currentTarget.position);
+        }
 
         if (currentTarget == null && availableTargets.Length > 0 && isLockOnMode)
         {
@@ -84,7 +81,15 @@ public class EnemyLock : MonoBehaviour
         }
     }
 
-   
+    void LookAtTarget(Vector3 targetPosition)
+    {
+        Vector3 directionToLook = targetPosition - transform.position;
+        directionToLook.y = 0; // Ignora la altura para mantener la rotación en el plano horizontal
+        
+            Quaternion targetRotation = Quaternion.LookRotation(directionToLook);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+       
+    }
 
     public void OnLock(InputValue value)          //Detecta si has pulsado el botón para el lock
     {

@@ -14,27 +14,31 @@ public class ComboAttackSystem : MonoBehaviour
     public GameObject damageCollider2;
     public GameObject damageCollider3;
 
+    public float cooldownTime = 0.2f; // Tiempo de espera después del tercer ataque
+    private float cooldownTimer = 0;
     public bool isAttacking = false;
 
     public float moveDistancePerAttack = 2f;
+    public float moveDistancePerAttack2 = 2f;
     CharacterController characterController;
-
+    Player player;
     // Referencias a los sonidos
     public AudioClip[] attackSounds;
 
     private void Awake()
     {
-            DOTween.Init();
-
+        DOTween.Init();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>(); 
         characterController = GetComponent<CharacterController>();
+
+        player = GetComponent<Player>();
     
     }
 
     public void OnAttack(InputValue input)
     {
-        if (input.isPressed)
+        if (input.isPressed && (cooldownTimer <= 0) && !player.spellOn && !player.isDodging)
         {
             isAttacking = true;
             if (Time.time - lastInputTime < comboMaxDelay + gracePeriod)
@@ -57,6 +61,8 @@ public class ComboAttackSystem : MonoBehaviour
 
     private void PerformAttack(int step)
     {
+
+        ResetAllTriggers();
         if (step >= 1 && step <= 3)
         {
             // Cancela la animación anterior si se está en un combo
@@ -69,19 +75,15 @@ public class ComboAttackSystem : MonoBehaviour
 
             PlayAttackSound(step - 1);
 
-            Vector3 targetPosition = transform.position + transform.forward * moveDistancePerAttack;
-
-            if (!Physics.Raycast(transform.position, transform.forward, moveDistancePerAttack))      //Para que no atraviese paredes
-            {
-                // Si no hay colisión, mover con DOTween
-                transform.DOMove(targetPosition, comboMaxDelay).SetEase(Ease.OutExpo);
-            }
+           
         
 
             // Reinicia el combo después del tercer ataque
             if (step == 3)
             {
                 comboStep = 0;
+                cooldownTimer = cooldownTime;
+
             }
         }
     }
@@ -95,8 +97,30 @@ public class ComboAttackSystem : MonoBehaviour
         }
     }
 
+    public void TriggerMovement()
+    {
+        Vector3 targetPosition = transform.position + transform.forward * moveDistancePerAttack;
+        if (!Physics.Raycast(transform.position, transform.forward, moveDistancePerAttack))
+        {
+            transform.DOMove(targetPosition, comboMaxDelay).SetEase(Ease.OutExpo);
+        }
+    }
+
+    public void TriggerMovementCombo3()
+    {
+        Vector3 targetPosition = transform.position + transform.forward * moveDistancePerAttack2;
+        if (!Physics.Raycast(transform.position, transform.forward, moveDistancePerAttack2))
+        {
+            transform.DOMove(targetPosition, comboMaxDelay).SetEase(Ease.OutExpo);
+        }
+    }
+
     private void Update()
     {
+        if (cooldownTimer > 0)
+        {
+            cooldownTimer -= Time.deltaTime;
+        }
         // Verifica si se pasó el tiempo de gracia para resetear el combo
         if (comboStep > 0 && Time.time - lastInputTime > comboMaxDelay + gracePeriod)
         {

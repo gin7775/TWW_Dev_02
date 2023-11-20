@@ -1,4 +1,5 @@
 using Cinemachine;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,7 +33,8 @@ public class Puppet : MonoBehaviour
 
    [SerializeField] private AudioClip sfxGolpe;
 
-
+    public float knockbackDistance = 1.5f;
+    public float knockbackDuration = 0.3f; // Duración del retroceso
     public float angulo;
     
 
@@ -42,7 +44,7 @@ public class Puppet : MonoBehaviour
         playerReference = GameObject.FindGameObjectWithTag("Player");
         
         cinemachineImpulseSource = this.GetComponent<CinemachineImpulseSource>();
-       
+        DOTween.Init();
         contenedorPuppet = this.GetComponent<ContenedorPuppet>();
         player = playerReference.transform;
     }
@@ -70,10 +72,13 @@ public class Puppet : MonoBehaviour
         StartCoroutine(FrameFreeze(0.07f));
         ControladorSonidos.Instance.EjecutarSonido(sfxGolpe);
        
-        Instantiate(vfxHitEffect, vfxSpawn.transform.position, Quaternion.identity);
-       
-        Instantiate(vfxBlood, vfxSpawnBlood.transform.position, Quaternion.Euler(0,-angulo, 0));
-        
+        Vector3 attackDirection = (player.position - transform.position).normalized;
+    Vector3 oppositeDirection = -attackDirection;
+
+    // Instanciar el VFX de sangre en la dirección opuesta
+      Instantiate(vfxHitEffect, vfxSpawn.transform.position, Quaternion.identity);
+      Instantiate(vfxBlood, vfxSpawnBlood.transform.position, Quaternion.LookRotation(oppositeDirection));
+        ApplyKnockback();
 
         contenedorPuppet.animPuppet.SetTrigger("Hit");
 
@@ -94,6 +99,13 @@ public class Puppet : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    
+    private void ApplyKnockback()
+    {
+        Vector3 directionToPlayer = (player.position - transform.position).normalized;
+        Vector3 knockbackPosition = transform.position - directionToPlayer * knockbackDistance;
+
+        // Animar el movimiento de retroceso
+        transform.DOMove(knockbackPosition, knockbackDuration).SetEase(Ease.OutExpo); 
+    }
 
 }
