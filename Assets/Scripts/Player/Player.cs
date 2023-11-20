@@ -11,88 +11,67 @@ using DG.Tweening;
 public class Player : MonoBehaviour
 {
 
-    [Header("Controls")]
-
+    [Header("Player Movement")]
     public float playerSpeed;
-
-    public PlayerStats combatTrade;
-
-    public int collectedKeys,levelKeys;
-
-    public float speedMovement;
-
-    private bool isMovementPressed;
-
-    public bool spellOn;
-
     public float rotationSpeed;
-
-    public float anglee = 130;
-
-   
-    public float gravityMultiplier = 3f;
-
     private float velocity;
+    private float horizontal;
+    private float vertical;
+    private Vector3 direction;
+    public bool isMovementPressed;
 
-    public float dashTime;
-    public float dashSpeed;
-
-    public float cooldownTimeDodge;
-    public bool isCooldownDodge = false;
-    private float cooldownTimerDodge = 0f;
-
-    float horizontal;
-
-    float vertical;
-    [SerializeField] AnimationCurve dodgeCurve;
-
-    bool isDodging;
-
-    float dodgeTimer;
-
+    [Header("Combat")]
+    public PlayerStats combatTrade;
+    public float slashCoooldown;
+    public float attackignDash;
     public GameObject slashObjIzquierda;
     public GameObject slashObjDerecha;
-    public Collider[] interaction;
-
-    public float slashCoooldown;
-
-    public float attackignDash;
-
     private float lastAttackTime;
     public bool withWeapon;
     public bool isAttacking;
-    private Transform playerGraphics;
-
-    Vector3 direction;
-    Animator animator;
-
-    public Animator animSlash;
-
-    [SerializeField]
-    private AudioClip sfxDash;
-
-    [SerializeField]
-    private AudioClip sfxSlash;
-
-    private PauseMenu menu;
-
-    private PlayerInput playerInput;
-    CharacterController characterController;
+    private Coroutine attackingCoroutine;
     public GameObject damageCollider;
-
     public GameObject damageCollider2;
 
-    private Coroutine attackingCoroutine;
-    
+    [Header("Dodging")]
+    public float dashTime;
+    public float dashSpeed;
+    public float cooldownTimeDodge;
+    private bool isCooldownDodge = false;
+    private float cooldownTimerDodge = 0f;
+    private bool isDodging;
+    private float dodgeTimer;
+    [SerializeField] private AnimationCurve dodgeCurve;
     public ParticleSystem particleDash;
 
-    SpellScript spellScript;
+    [Header("Spell Casting")]
+    public bool spellOn;
+    public float anglee = 130;
+    private SpellScript spellScript;
+    private Transform playerGraphics;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip sfxDash;
+    [SerializeField] private AudioClip sfxSlash;
+
+    [Header("UI and Input")]
+    private PauseMenu menu;
+    private PlayerInput playerInput;
+
+    [Header("Miscellaneous")]
+    public Animator animSlash;
+    private Animator animator;
+    private CharacterController characterController;
+    public int collectedKeys, levelKeys;
+    public Collider[] interaction;
+    public float gravityMultiplier = 3f;
     public bool lockMovement;
+    ComboAttackSystem comboAttackSystem;
 
     private void Awake()
     {       
-            playerGraphics = GameObject.FindGameObjectWithTag("Player").transform;       
+            playerGraphics = GameObject.FindGameObjectWithTag("Player").transform; 
+        
     }
 
     private void Start()
@@ -104,7 +83,7 @@ public class Player : MonoBehaviour
         menu = GameObject.Find("UIMenu").GetComponent<PauseMenu>();
         playerInput = new PlayerInput();
         
-
+        comboAttackSystem = GetComponent<ComboAttackSystem>();
         spellScript = GetComponent<SpellScript>();
        
         //animSlash = GetComponentInChildren<Animator>();
@@ -119,31 +98,9 @@ public class Player : MonoBehaviour
         if (!isDodging ) MovementDirection();
         Animations();
 
-        //if (!lockMovement) PlayerRotation();
-
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Movement")){
-            
-            playerSpeed = 4.5f;
-            
-        }
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("SlashLeft"))
-        {
-          
-            isAttacking = true;
-        }
-        else
-        {
-            isAttacking = false;
-        }
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("SlashRight"))
-        {
-
-            isAttacking = true;
-        }
 
         AttackSpeed();
-        
-       
+               
         SpellActivate();
 
         if (isCooldownDodge)
@@ -172,45 +129,6 @@ public class Player : MonoBehaviour
     }
 
    
-
-    public void OnAttack(InputValue input)
-    {
-        if(!isDodging && !spellOn && withWeapon )
-        {
-            StartCoroutine(AttackingCoroutine());
-            StartCoroutine(dashAttacking());
-            
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("SlashLeft"))
-            {
-                
-                
-                if (attackingCoroutine != null)
-                {
-                    StopCoroutine(attackingCoroutine);
-
-                }
-                
-                animator.Play("SlashRight", 0);
-                ControladorSonidos.Instance.EjecutarSonido(sfxSlash);
-                attackingCoroutine = StartCoroutine(AttackingCoroutine());
-
-            }
-            else
-            {
-                if(Time.time > lastAttackTime + slashCoooldown)
-                {
-                   
-                    if (attackingCoroutine != null) StopCoroutine(attackingCoroutine);
-                    animator.SetTrigger("SlashLeft");
-                    animSlash.SetTrigger("SlashLeft");
-                    ControladorSonidos.Instance.EjecutarSonido(sfxSlash);
-                    attackingCoroutine = StartCoroutine(AttackingCoroutine());                 
-                    lastAttackTime = Time.time;
-
-                }               
-            }
-        }  
-    }
 
     public void OnRotate(InputValue input)
     {   
@@ -291,9 +209,13 @@ public class Player : MonoBehaviour
 
     public void AttackSpeed()
     {
-        if (isAttacking)
+        if (comboAttackSystem.isAttacking)
         {
             playerSpeed = 0;
+        }
+        else
+        {
+            playerSpeed = 4.5f;
         }
       
     }
@@ -365,16 +287,7 @@ public class Player : MonoBehaviour
        
     }
 
-    private IEnumerator AttackingCoroutine()
-    {
-                   
-        
-        playerSpeed = 0f;
-        yield return new WaitForSecondsRealtime(0.6f);
-        playerSpeed = 4.5f;
-      
-     
-    }
+   
 
     void RotatePlayer()
     {
@@ -418,28 +331,7 @@ public class Player : MonoBehaviour
 
 
     }
-    public void enableCollider()
-    {
-        damageCollider.SetActive(true);
-        
-    }
-
-    public void disableCollider()
-    {
-
-        damageCollider.SetActive(false);
-    }
-    public void enableCollider2()
-    {
-        damageCollider2.SetActive(true);
-
-    }
-
-    public void disableCollider2()
-    {
-
-        damageCollider2.SetActive(false);
-    }
+   
 
     public void ActivarSlashDerecha()
     {

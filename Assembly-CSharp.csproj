@@ -118,6 +118,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Happynes\StarDancing.cs" />
     <Compile Include="Assets\Scripts\Function Manager\UI\UiManager.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\UI\PauseMenu.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\UI\SetQuality.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\DropdownManager.cs" />
     <Compile Include="Assets\Scripts\Interaction\GrassPosition.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\HappyParamet.cs" />
@@ -206,12 +207,14 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Events\PointerEnterEvents.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManagerBackground.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\Hitted.cs" />
+    <Compile Include="Assets\CrowMovementBehavior.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\UIParticleRenderer.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\FunctionManager\Crow\CrowMovement.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHealBehavior.cs" />
     <Compile Include="Assets\BackLog\proyectile Testing\Scripts\Gun_Test.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\Behaviors\Crow\CrowActivator.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Input\ScrollRectElement.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\Recuperación2seg.cs" />
@@ -221,7 +224,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\UI\SetQuality.cs" />
+    <Compile Include="Assets\ComboAttackSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
