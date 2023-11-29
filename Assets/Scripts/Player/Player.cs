@@ -134,19 +134,7 @@ public class Player : MonoBehaviour
 
     public void OnRotate(InputValue input)
     {   
-        if(!spellScript.isCooldown)
-        {
-            StartCoroutine(rotateSpellAtack());
-            
-
-        }
-        
-        if (spellOn && !isAttacking && !isDodging && !spellScript.isCooldown )
-        {
-            
-           RotatePlayer();
-            
-        }
+       
     }
     
     public void OnMoveInput(float horizontal, float vertical)
@@ -239,15 +227,15 @@ public class Player : MonoBehaviour
         
     }
 
-    IEnumerator rotateSpellAtack()
-    {
-        spellOn = true;
+    //IEnumerator rotateSpellAtack()
+    //{
+    //    spellOn = true;
 
-        yield return new WaitForSeconds(0.4f);
+    //    yield return new WaitForSeconds(0.4f);
 
-        spellOn = false;
+    //    spellOn = false;
 
-    }
+    //}
 
     IEnumerator Dodge()
     {
@@ -306,23 +294,23 @@ public class Player : MonoBehaviour
 
    
 
-    void RotatePlayer()
-    {
+    //void RotatePlayer()
+    //{
         
-       // animator.SetTrigger("Spell");
-
-        Vector3 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
-
-        Vector3 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Mouse.current.position.ReadValue());
-
-        Vector3 direction = mouseOnScreen - positionOnScreen;
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - anglee;
-
-        transform.rotation = Quaternion.Euler(new Vector3(0, -angle, 0));
      
 
-    }
+    //    Vector3 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
+
+    //    Vector3 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Mouse.current.position.ReadValue());
+
+    //    Vector3 direction = mouseOnScreen - positionOnScreen;
+
+    //    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - anglee;
+
+    //    transform.rotation = Quaternion.Euler(new Vector3(0, -angle, 0));
+     
+
+    //}
 
     public void OnMenu(InputValue input)
     {

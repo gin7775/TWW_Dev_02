@@ -5,24 +5,44 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public Slider slider;
+    
+    public Sprite[] maskSprites; // Imágenes de la máscara en diferentes estados
+    private Image maskImage;
 
-
-
-
-    public void SetMaxHealth(int maxHealth)
+    void Start()
     {
-        slider.maxValue = maxHealth;
-        slider.value = maxHealth;
-    }
-    
-    
-    
-    public void SetCurrentHealth(int currenthealth)
-    {
-        slider.value = currenthealth;
-
+        maskImage = GetComponent<Image>();
     }
 
+    public void UpdateMaskImage(int currentHealth)
+    {
+        // Define el índice de las máscaras en función de la salud actual
+        if (currentHealth == 100)
+        {
+            maskImage.sprite = maskSprites[0]; // Máscara completa
+        }
+        else if (currentHealth < 100 && currentHealth >= 75)
+        {
+            maskImage.sprite = maskSprites[1]; // Máscara con algunos daños
+        }
+        else if (currentHealth < 75 && currentHealth >= 50)
+        {
+            maskImage.sprite = maskSprites[2]; // Máscara más dañada
+        }
+        else if (currentHealth < 50 && currentHealth >= 25)
+        {
+            maskImage.sprite = maskSprites[3]; // Máscara aún más dañada
+        }
+        else if (currentHealth < 25 && currentHealth > 0)
+        {
+            maskImage.sprite = maskSprites[4]; // Máscara casi rota
+        }
+    }
+
+    public void BreakMask()
+    {
+        // Asegúrate de que la última imagen en maskSprites es la máscara rota
+        maskImage.sprite = maskSprites[maskSprites.Length - 1];
+    }
 
 }

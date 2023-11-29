@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class SpellScript : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class SpellScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ManageCooldown();
+    }
+    private void ManageCooldown()
+    {
         if (isCooldown)
         {
             cooldownTimer -= Time.deltaTime;
@@ -45,13 +50,27 @@ public class SpellScript : MonoBehaviour
             animator.SetTrigger("Spell");
             StartCoroutine(waitInstantiate());
         }
+
+        if (isCooldown)
+        {
+            StartCoroutine(rotateSpellAtack());
+
+
+        }
+
+        if ( !player.isAttacking && !player.isDodging && !isCooldown)
+        {
+
+            RotatePlayer();
+
+        }
     }
 
     public void OnChangeProyectile(InputValue input)
     {
         
         currentProjectileIndex = (currentProjectileIndex + 1) % proyectiles.Length;
-       // Debug.Log("Cambiado a proyectil " + currentProjectileIndex);
+       
         currentMuzzleIndex = (currentMuzzleIndex + 1) % effectSpawnProjectile.Length;
     }
 
@@ -61,7 +80,7 @@ public class SpellScript : MonoBehaviour
         GameObject vfx;
         GameObject effectSpawn;
 
-        if (firePoint != null && !isCooldown && player.spellOn)
+        if (firePoint != null && !isCooldown )
         {
             isCooldown = true;
             cooldownTimer = cooldownTime;
@@ -73,6 +92,34 @@ public class SpellScript : MonoBehaviour
             Destroy(vfx, 2);
             Destroy(effectSpawn, 2);
         }
+    }
+
+    void RotatePlayer()
+    {
+
+
+
+        Vector3 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
+
+        Vector3 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Mouse.current.position.ReadValue());
+
+        Vector3 direction = mouseOnScreen - positionOnScreen;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - player.anglee;
+
+        transform.rotation = Quaternion.Euler(new Vector3(0, -angle, 0));
+
+
+    }
+
+    IEnumerator rotateSpellAtack()
+    {
+        player.spellOn = true;
+
+        yield return new WaitForSeconds(0.4f);
+
+        player.spellOn = false;
+
     }
 }
 

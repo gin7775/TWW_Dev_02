@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using Cinemachine;
+using Cinemachine.PostFX;
 
 
 public class PlayerStats : MonoBehaviour
@@ -21,14 +23,19 @@ public class PlayerStats : MonoBehaviour
 
     public HealthBar healthBar;
 
+    public CinemachineVolumeSettings[] volumeSettings;
     [SerializeField] private AudioClip sfxHeal;
     [SerializeField] private AudioClip sfxHurt;
     private Animator anim;
+
+
 
     void Start()
     {
         healLV = 1;
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
+        
+        
         maxHealth = SetMaxHealthFromHealthLevel();
         if (PlayerPrefs.HasKey("HealLV"))
         {
@@ -65,11 +72,10 @@ public class PlayerStats : MonoBehaviour
             enemyCount = 0;
             PlayerPrefs.SetInt("EnemyCount", enemyCount);
         }
+
+        healthBar.UpdateMaskImage(100);
+
        
-
-
-        healthBar.SetMaxHealth(maxHealth);
-        healthBar.SetCurrentHealth(currentHealth);
 
         Debug.Log("Guardado esta" + PlayerPrefs.GetInt("Health") + "y tiene de vida" + currentHealth);
         healInstances = healLV;
@@ -83,7 +89,7 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     private int SetMaxHealthFromHealthLevel()
@@ -97,9 +103,9 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth = currentHealth - damage;
+        currentHealth = Mathf.Max(currentHealth, 0);
 
-        healthBar.SetCurrentHealth(currentHealth);
-
+        healthBar.UpdateMaskImage(currentHealth);
         anim.SetTrigger("Hurt");
         ControladorSonidos.Instance.EjecutarSonido(sfxHurt);
         PlayerPrefs.SetInt("Health",currentHealth);
@@ -107,7 +113,7 @@ public class PlayerStats : MonoBehaviour
         if(currentHealth <= 0)
         {
             currentHealth = 0;
-            healthBar.SetCurrentHealth(currentHealth);
+           
             anim.SetTrigger("Death");
             PlayerPrefs.SetInt("firstHeal", 1);
             PlayerPrefs.DeleteKey("Health");
@@ -125,7 +131,7 @@ public class PlayerStats : MonoBehaviour
 
             currentHealth += 50;
             healInstances--;
-            healthBar.SetCurrentHealth(currentHealth);
+            healthBar.UpdateMaskImage(currentHealth);
 
             PlayerPrefs.SetInt("Health", currentHealth);
         }
