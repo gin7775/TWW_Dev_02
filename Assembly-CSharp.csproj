@@ -183,6 +183,7 @@
     <Compile Include="Assets\Scripts\Sounds\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\AnimationEvent.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieA1.cs" />
+    <Compile Include="Assets\DissolveProyectile.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\HappyDeath.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Input\GamepadChecker.cs" />
     <Compile Include="Assets\Scripts\Function Manager\SceneInfo.cs" />

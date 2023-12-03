@@ -69,6 +69,10 @@ public class Player : MonoBehaviour
     ComboAttackSystem comboAttackSystem;
     EnemyLock enemyLock;
 
+    
+    public bool IsAttacking { get; internal set; }
+    public bool IsDodging { get; internal set; }
+
     private void Awake()
     {       
             playerGraphics = GameObject.FindGameObjectWithTag("Player").transform;
@@ -103,7 +107,7 @@ public class Player : MonoBehaviour
 
         AttackSpeed();
                
-        SpellActivate();
+        
 
         if (isCooldownDodge)
         {
@@ -210,15 +214,7 @@ public class Player : MonoBehaviour
       
     }
 
-    public void SpellActivate()
-    {
-
-        if (spellOn)
-        {
-            playerSpeed = 0f;
-        }
-      
-    }
+   
     public void OnHeal(InputValue input)
     {
         Debug.Log("Curaria");
@@ -294,23 +290,6 @@ public class Player : MonoBehaviour
 
    
 
-    //void RotatePlayer()
-    //{
-        
-     
-
-    //    Vector3 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
-
-    //    Vector3 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Mouse.current.position.ReadValue());
-
-    //    Vector3 direction = mouseOnScreen - positionOnScreen;
-
-    //    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - anglee;
-
-    //    transform.rotation = Quaternion.Euler(new Vector3(0, -angle, 0));
-     
-
-    //}
 
     public void OnMenu(InputValue input)
     {

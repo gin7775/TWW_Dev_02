@@ -16,7 +16,7 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateMaskImage(int currentHealth)
     {
-        // Define el índice de las máscaras en función de la salud actual
+       
         if (currentHealth == 100)
         {
             maskImage.sprite = maskSprites[0]; // Máscara completa
@@ -41,7 +41,7 @@ public class HealthBar : MonoBehaviour
 
     public void BreakMask()
     {
-        // Asegúrate de que la última imagen en maskSprites es la máscara rota
+        
         maskImage.sprite = maskSprites[maskSprites.Length - 1];
     }
 
