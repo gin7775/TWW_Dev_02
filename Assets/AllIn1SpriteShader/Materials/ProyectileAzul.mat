@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FadeTex:
-        m_Texture: {fileID: 2800000, guid: 7aad8c583ef292e48b06af0d1f2fab97, type: 3}
+        m_Texture: {fileID: 2800000, guid: 750e2b17bac64a140ad0290f35b098f8, type: 3}
         m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 0}
     - _GlowTex:
@@ -112,9 +112,9 @@ Material:
     - _DistortTexYSpeed: 5
     - _EditorDrawers: 7
     - _FadeAmount: 0
-    - _FadeBurnGlow: 172
+    - _FadeBurnGlow: 1
     - _FadeBurnTransition: 0.075
-    - _FadeBurnWidth: 0.189
+    - _FadeBurnWidth: 0.033
     - _FishEyeUvAmount: 0
     - _FlickerAlpha: 0
     - _FlickerFreq: 0.2

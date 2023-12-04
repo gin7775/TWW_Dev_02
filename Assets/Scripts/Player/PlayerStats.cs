@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using Cinemachine;
 using Cinemachine.PostFX;
+using UnityEngine.UI;
 
 
 public class PlayerStats : MonoBehaviour
@@ -28,14 +29,15 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private AudioClip sfxHurt;
     private Animator anim;
 
-
+    public Text healCountText;
+    
 
     void Start()
     {
         healLV = 1;
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
-        
-        
+        UpdateHealCountUI();
+
         maxHealth = SetMaxHealthFromHealthLevel();
         if (PlayerPrefs.HasKey("HealLV"))
         {
@@ -132,13 +134,21 @@ public class PlayerStats : MonoBehaviour
             currentHealth += 50;
             healInstances--;
             healthBar.UpdateMaskImage(currentHealth);
-
+            UpdateHealCountUI();
             PlayerPrefs.SetInt("Health", currentHealth);
         }
      
         
        
         Debug.Log("Curaria");
+    }
+
+    private void UpdateHealCountUI()
+    {
+        if (healCountText != null)
+        {
+            healCountText.text = " " + healInstances;
+        }
     }
 
     public void increaseHeal()
