@@ -21,7 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ProBuilder Default URP
-  m_Shader: {fileID: 4800000, guid: a5e1047f27bee462089b2bc3104f90fd, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: fe0c503f2136afb47bd547803b04a232,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -44,6 +45,38 @@ Material:
         m_Offset: {x: 0, y: 0}
     - Normal_Map:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_1BEBD59E:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_28FB461A:
+        m_Texture: {fileID: 2800000, guid: 8365f958156be40489172a544e4c4cd2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_296A9D4C:
+        m_Texture: {fileID: 2800000, guid: d1aa0977019aee243b883ec2a8bb8656, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_2AA440EB:
+        m_Texture: {fileID: 2800000, guid: ba28c358339c0b3488220eb2b720d730, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_66B715D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_77E29739:
+        m_Texture: {fileID: 2800000, guid: b922fd56fb8a5174a932306a500b291a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_C7D7FF98:
+        m_Texture: {fileID: 2800000, guid: 9571edaeabcb299418b52be43e4224b7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_CEBBC96:
+        m_Texture: {fileID: 2800000, guid: 8892eec809ffb674980aabdc52ddcfe2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoBase:
@@ -152,6 +185,7 @@ Material:
     - Vector1_3632ABA2: 0
     - Vector1_45F25267: 3
     - Vector1_738B39CF: 0
+    - Vector1_7FA2B271: 4.18
     - Vector1_854A7D8C: 0.9
     - Vector1_9C73072A: 0.8
     - Vector1_A524D234: 2
