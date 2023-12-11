@@ -21,7 +21,7 @@ public class BosArmoreChoice : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         armoreAgent.destination = player.transform.position;
-        armore.ArmoreWalk(armore.speed);
+        armore.ArmoreWalk(1);
         if (armoreAgent.remainingDistance <= 2.1f)
         {
             if (armoreAgent.remainingDistance <= 1.3f)

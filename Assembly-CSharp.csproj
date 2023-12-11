@@ -233,6 +233,7 @@
     <Compile Include="Assets\BA_HitMe.cs" />
     <Compile Include="Assets\BA_Block.cs" />
     <Compile Include="Assets\BA_HorizontalAtack.cs" />
+    <Compile Include="Assets\BA_VerticalAtack.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
