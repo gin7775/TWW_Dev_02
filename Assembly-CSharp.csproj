@@ -151,6 +151,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHitmeBehavior.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManagerText.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogueTrigger.cs" />
+    <Compile Include="Assets\Scripts\Function Manager\Armore\ArmoreBoss.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Window\ModalWindowManager.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\BossFinal.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\Proyectiles.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManager.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
+    <Compile Include="Assets\BA_Block.cs" />
     <Compile Include="Assets\Scripts\Traps\LaserScript.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\EditorDemoPositionFix.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
@@ -192,6 +194,8 @@
     <Compile Include="Assets\Scripts\Traps\CrosBow.cs" />
     <Compile Include="Assets\Scripts\Keys &amp; Doors\Key.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\CenterProyectile.cs" />
+    <Compile Include="Assets\BA_HitMe.cs" />
+    <Compile Include="Assets\BA_VerticalAtack.cs" />
     <Compile Include="Assets\Scripts\Interaction\Interaction.cs" />
     <Compile Include="Assets\Scripts\Sounds\SfxHolder.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\SwitchManager.cs" />
@@ -211,11 +215,13 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Events\PointerEnterEvents.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManagerBackground.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\Hitted.cs" />
+    <Compile Include="Assets\BosArmoreChoice.cs" />
     <Compile Include="Assets\CrowMovementBehavior.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\UIParticleRenderer.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\FunctionManager\Crow\CrowMovement.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\BA_HorizontalAtack.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHealBehavior.cs" />
     <Compile Include="Assets\BackLog\proyectile Testing\Scripts\Gun_Test.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\Behaviors\Crow\CrowActivator.cs" />
@@ -228,12 +234,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\Scripts\Function Manager\Armore\ArmoreBoss.cs" />
-    <Compile Include="Assets\BosArmoreChoice.cs" />
-    <Compile Include="Assets\BA_HitMe.cs" />
-    <Compile Include="Assets\BA_Block.cs" />
-    <Compile Include="Assets\BA_HorizontalAtack.cs" />
-    <Compile Include="Assets\BA_VerticalAtack.cs" />
+    <Compile Include="Assets\BA_Shoot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
