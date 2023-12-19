@@ -135,6 +135,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\PanelInitUtil.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogManager.cs" />
+    <Compile Include="Assets\WeaponWheelController.cs" />
     <Compile Include="Assets\Scripts\Sounds\ControladorSonidos.cs" />
     <Compile Include="Assets\Scripts\Interaction\PlataformEffect.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
@@ -156,6 +157,7 @@
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\BossFinal.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\Proyectiles.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\Daño.cs" />
+    <Compile Include="Assets\WeaponWheelButton.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\CandelaActive.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\Wait.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\QualityManager.cs" />

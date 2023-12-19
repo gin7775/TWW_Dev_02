@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
     [Header("UI and Input")]
     private PauseMenu menu;
     private PlayerInput playerInput;
+    public GameObject Inventory;
 
     [Header("Miscellaneous")]
     public Animator animSlash;
@@ -68,7 +69,7 @@ public class Player : MonoBehaviour
     public bool lockMovement;
     ComboAttackSystem comboAttackSystem;
     EnemyLock enemyLock;
-
+    WeaponWheelController weaponWheelController;
     
     public bool IsAttacking { get; internal set; }
     public bool IsDodging { get; internal set; }
@@ -88,7 +89,7 @@ public class Player : MonoBehaviour
         
         menu = GameObject.Find("UIMenu").GetComponent<PauseMenu>();
         playerInput = new PlayerInput();
-        
+        weaponWheelController = GameObject.Find("WeaponWheel").GetComponent<WeaponWheelController>();
         comboAttackSystem = GetComponent<ComboAttackSystem>();
         spellScript = GetComponent<SpellScript>();
        
@@ -310,12 +311,18 @@ public class Player : MonoBehaviour
             }
 
         }
+    }
 
-       
-
+    public void OnInventory(InputValue input)
+    {
+        if (input.isPressed)
+        {
+           
+            weaponWheelController.weaponWheelSelected = ! weaponWheelController.weaponWheelSelected;
+        }
 
     }
-   
+
 
     public void ActivarSlashDerecha()
     {

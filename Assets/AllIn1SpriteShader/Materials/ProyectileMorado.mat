@@ -13,6 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - FADE_ON
+  - GLOWTEX_ON
   - OUTBASE8DIR_ON
   - WAVEUV_ON
   m_InvalidKeywords:
@@ -111,10 +112,10 @@ Material:
     - _DistortTexXSpeed: 5
     - _DistortTexYSpeed: 5
     - _EditorDrawers: 6
-    - _FadeAmount: 0
+    - _FadeAmount: 0.0097287
     - _FadeBurnGlow: 1
-    - _FadeBurnTransition: 0.075
-    - _FadeBurnWidth: 0.039
+    - _FadeBurnTransition: 0.041
+    - _FadeBurnWidth: 0.053
     - _FishEyeUvAmount: 0
     - _FlickerAlpha: 0
     - _FlickerFreq: 0.2
@@ -124,8 +125,8 @@ Material:
     - _GhostTransparency: 0
     - _GlitchAmount: 11.2
     - _GlitchSize: 1
-    - _Glow: 6.2
-    - _GlowGlobal: 2.7
+    - _Glow: 0
+    - _GlowGlobal: 9.9
     - _GlowTexUsed: 0
     - _GradBlend: 1
     - _GradBoostX: 1.2
@@ -236,8 +237,8 @@ Material:
     - _ColorSwapBlue: {r: 0.66, g: 0.66, b: 0.66, a: 1}
     - _ColorSwapGreen: {r: 14.928529, g: 3.4540517, b: 3.4540517, a: 1}
     - _ColorSwapRed: {r: 0.66, g: 0.66, b: 0.66, a: 1}
-    - _FadeBurnColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
-    - _GlowColor: {r: 0.28357193, g: 0.030526895, b: 0.9245283, a: 1}
+    - _FadeBurnColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GlowColor: {r: 0.79593945, g: 0, b: 1, a: 1}
     - _GradBotLeftCol: {r: 0, g: 0, b: 1, a: 1}
     - _GradBotRightCol: {r: 0, g: 0, b: 1, a: 1}
     - _GradTopLeftCol: {r: 1, g: 0, b: 0, a: 1}
