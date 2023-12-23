@@ -15,7 +15,7 @@ public class WeaponWheelController : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Player>();
+        player = GameObject.Find("_PlayerController").GetComponent<Player>();
     }
     void Update()
     {
