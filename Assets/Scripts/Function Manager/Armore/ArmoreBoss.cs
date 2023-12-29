@@ -34,7 +34,7 @@ public class ArmoreBoss : MonoBehaviour
 // Update is called once per frame
  void Update()
  {
-    slider.value = currentHealth;
+   // slider.value = currentHealth;
  }
  public void TakeDamage(int damage)
  {
@@ -59,7 +59,7 @@ public class ArmoreBoss : MonoBehaviour
     {
         //is bloquing
 
-        iaArmore.SetTrigger("HorizontalAtack");
+        animArmore.SetTrigger("CounterAttack");
         //animArmore.SetTrigger("Block");
         guardState = 1;
     }
