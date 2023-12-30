@@ -246,6 +246,7 @@
     <None Include="Assets\Imported\Toon Water URP\Functions\OtherLightsInfo.cginc" />
     <None Include="Assets\Imported\Lowpoly_Environments\Sources\Light cookie shader.shader" />
     <None Include="Assets\Imported\Lowpoly_Environments\Sources\Shaders\PT_Water_Shader_WebGl.shader" />
+    <None Include="Assets\_VerticalSlice\Shaders\Dreamscape_Simple_Foliage.shader" />
     <None Include="Assets\Imported\Toon Water URP\README.txt" />
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Imported\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Plants_Shader.shader" />
@@ -253,6 +254,9 @@
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\DOTween.XML" />
     <None Include="Assets\Imported\Dark - Complete Horror UI\Shaders\UI Particle Additive.shader" />
+    <None Include="Assets\_VerticalSlice\Shaders\Dreamscape_Foliage.shader" />
+    <None Include="Assets\_VerticalSlice\Shaders\Dreamscape_Surface.shader" />
+    <None Include="Assets\_VerticalSlice\Prefabs\AN_Vegetation.shader" />
     <None Include="Assets\Imported\Dark - Complete Horror UI\Shaders\Fast UI Blur.shader" />
     <None Include="Assets\Efectos y Shaders\EffectProjectiles\packs\StylizedProjectilePack1\Tips &amp; DocumentationsStylizedProjectilePack1.txt" />
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
@@ -278,7 +282,9 @@
     <None Include="Assets\Imported\Dark - Complete Horror UI\Documentation\Documentation.txt" />
     <None Include="Assets\Imported\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Plants_Shader_VS.shader" />
     <None Include="Assets\Imported\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\_VerticalSlice\Shaders\Dreamscape_Grass.shader" />
     <None Include="Assets\Imported\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Flowers_Shader_VS.shader" />
+    <None Include="Assets\_VerticalSlice\Shaders\Dreamscape_Masked_Lit.shader" />
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\Imported\Lowpoly_Environments\Sources\Shaders\PT_Rock_Shader.shader" />
