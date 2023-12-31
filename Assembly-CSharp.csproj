@@ -144,6 +144,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Candela\DanceC.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\FunctionManager\Crow\CrowDirector.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\Leave.cs" />
+    <Compile Include="Assets\BA_AnimationEvent.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Editor Handlers\DarkUIEditorHandler.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\UIElementSound.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetIdle.cs" />
@@ -234,11 +235,10 @@
     <Compile Include="Assets\Imported\Toon Water URP\Scripts\PlanarReflectionsRenderer.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\HappyHitme.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\ChangeCamera.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\LightCookieMotion.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\BA_AnimationEvent.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\LightCookieMotion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />

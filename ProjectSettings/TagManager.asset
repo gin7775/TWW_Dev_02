@@ -19,6 +19,8 @@ TagManager:
   - Grass
   - MuppetPoints
   - Fader
+  - Spells
+  - Cine
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - Post-processing
   - Water
   - UI
-  - 
+  - Player
   - 
   - Lighting
   - Ground
