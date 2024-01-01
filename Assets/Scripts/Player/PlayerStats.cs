@@ -30,8 +30,13 @@ public class PlayerStats : MonoBehaviour
     private Animator anim;
 
     public Text healCountText;
+
+    public bool canMove = true;
+
     
 
+    public ParticleSystem healthParticle;
+    //public GameObject healthSpawn;
     void Start()
     {
         healLV = 1;
@@ -129,18 +134,27 @@ public class PlayerStats : MonoBehaviour
     {
         if (healInstances > 0)
         {
-            ControladorSonidos.Instance.EjecutarSonido(sfxHeal);
 
+            canMove = false; // Desactivar movimiento
+            anim.SetTrigger("Health");
+            StartCoroutine(EnableMovementAfterDelay(0.7f));
+            ControladorSonidos.Instance.EjecutarSonido(sfxHeal);
+            healthParticle.Play();
             currentHealth += 50;
             healInstances--;
             healthBar.UpdateMaskImage(currentHealth);
             UpdateHealCountUI();
             PlayerPrefs.SetInt("Health", currentHealth);
         }
-     
-        
        
+
         Debug.Log("Curaria");
+    }
+
+    private IEnumerator EnableMovementAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        canMove = true; // Reactivar movimiento
     }
 
     private void UpdateHealCountUI()

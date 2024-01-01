@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4688236698605644}
   - component: {fileID: 198549130386775260}
   - component: {fileID: 199073918619365828}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: flares
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4709,7 +4709,7 @@ GameObject:
   - component: {fileID: 54453457801900860}
   - component: {fileID: 114591203083495332}
   - component: {fileID: 8418537578416029007}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Plasma_PoisonGreen_Big_Projectile
   m_TagString: FX
   m_Icon: {fileID: 0}
@@ -9585,7 +9585,7 @@ GameObject:
   - component: {fileID: 4379512275324778}
   - component: {fileID: 198420552104652666}
   - component: {fileID: 199244700345298724}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14397,7 +14397,7 @@ GameObject:
   - component: {fileID: 4174209259039764}
   - component: {fileID: 198009678546141070}
   - component: {fileID: 199910756691384154}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: plasma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19119,7 +19119,7 @@ GameObject:
   - component: {fileID: 4729594727660978}
   - component: {fileID: 198916498872082188}
   - component: {fileID: 199914749240810662}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23931,7 +23931,7 @@ GameObject:
   - component: {fileID: 4259899786885656}
   - component: {fileID: 198956546110359946}
   - component: {fileID: 199041641609785352}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: electricArcs
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4180428946660220}
   - component: {fileID: 198303372467313058}
   - component: {fileID: 199942996821497456}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: plasmaSmokes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4706,7 +4706,7 @@ GameObject:
   - component: {fileID: 4060515698031734}
   - component: {fileID: 198452342326603458}
   - component: {fileID: 199316653113114562}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: decals_component
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9534,7 +9534,7 @@ GameObject:
   - component: {fileID: 4844291515055092}
   - component: {fileID: 198684288590568938}
   - component: {fileID: 199308648780220028}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: flarespikes_wide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14292,7 +14292,7 @@ GameObject:
   - component: {fileID: 4761476650304818}
   - component: {fileID: 198664724161334508}
   - component: {fileID: 199856956508844976}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: decal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19050,7 +19050,7 @@ GameObject:
   - component: {fileID: 4097759663606174}
   - component: {fileID: 198544712799717150}
   - component: {fileID: 199908586740075818}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ImpactSparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23727,7 +23727,7 @@ GameObject:
   - component: {fileID: 4056509416073274}
   - component: {fileID: 198045707595344914}
   - component: {fileID: 199030523284858108}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: glowFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28539,7 +28539,7 @@ GameObject:
   - component: {fileID: 4671913312853298}
   - component: {fileID: 198575766140904272}
   - component: {fileID: 199221004661597400}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: decal_heatedStrike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33298,7 +33298,7 @@ GameObject:
   - component: {fileID: 4656556257647508}
   - component: {fileID: 198713532783005510}
   - component: {fileID: 199013648126983650}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: glowFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38110,7 +38110,7 @@ GameObject:
   - component: {fileID: 4541196389373984}
   - component: {fileID: 198472063183687506}
   - component: {fileID: 199995385302582770}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: NormalHit
   m_TagString: FX
   m_Icon: {fileID: 0}

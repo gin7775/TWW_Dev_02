@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4000012572821648}
   - component: {fileID: 198000011708101332}
   - component: {fileID: 199000010259268804}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: flarespikes_wide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4824,7 +4824,7 @@ GameObject:
   - component: {fileID: 199000010420214726}
   - component: {fileID: 198000011976894484}
   - component: {fileID: 1780679022377462580}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AzulMuzle
   m_TagString: FX
   m_Icon: {fileID: 0}
@@ -9670,7 +9670,7 @@ GameObject:
   - component: {fileID: 4545407075813880}
   - component: {fileID: 198764458523837618}
   - component: {fileID: 199671105658853138}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14482,7 +14482,7 @@ GameObject:
   - component: {fileID: 4548502971608438}
   - component: {fileID: 198348001457635502}
   - component: {fileID: 199422977892658642}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: muzzleflare_Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19294,7 +19294,7 @@ GameObject:
   - component: {fileID: 4155687851258154}
   - component: {fileID: 198929805206714518}
   - component: {fileID: 199336881837701072}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

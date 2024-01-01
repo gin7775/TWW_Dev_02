@@ -243,6 +243,7 @@
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\_VerticalSlice\Shaders\Add_CenterGlow.shader" />
     <None Include="Assets\Imported\Toon Water URP\Functions\OtherLightsInfo.cginc" />
     <None Include="Assets\Imported\Lowpoly_Environments\Sources\Light cookie shader.shader" />
     <None Include="Assets\Imported\Lowpoly_Environments\Sources\Shaders\PT_Water_Shader_WebGl.shader" />
@@ -256,7 +257,7 @@
     <None Include="Assets\Imported\Dark - Complete Horror UI\Shaders\UI Particle Additive.shader" />
     <None Include="Assets\_VerticalSlice\Shaders\Dreamscape_Foliage.shader" />
     <None Include="Assets\_VerticalSlice\Shaders\Dreamscape_Surface.shader" />
-    <None Include="Assets\_VerticalSlice\Prefabs\AN_Vegetation.shader" />
+    <None Include="Assets\_VerticalSlice\Shaders\AN_Vegetation.shader" />
     <None Include="Assets\Imported\Dark - Complete Horror UI\Shaders\Fast UI Blur.shader" />
     <None Include="Assets\Efectos y Shaders\EffectProjectiles\packs\StylizedProjectilePack1\Tips &amp; DocumentationsStylizedProjectilePack1.txt" />
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />

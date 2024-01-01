@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
     void Update()
     {
       
-        if (!isDodging ) MovementDirection();
+        if (!isDodging && combatTrade.canMove) MovementDirection();
         Animations();
 
 
@@ -173,6 +173,7 @@ public class Player : MonoBehaviour
 
     public void MovementDirection()
     {
+        if (!combatTrade.canMove) return;
         Vector3 moveDirection = Vector3.forward * vertical + Vector3.right * horizontal;
 
       
