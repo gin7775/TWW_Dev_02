@@ -86,8 +86,8 @@ public class EnemyLock : MonoBehaviour
         Vector3 directionToLook = targetPosition - transform.position;
         directionToLook.y = 0; // Ignora la altura para mantener la rotación en el plano horizontal
         
-            Quaternion targetRotation = Quaternion.LookRotation(directionToLook);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        Quaternion targetRotation = Quaternion.LookRotation(directionToLook);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
        
     }
 

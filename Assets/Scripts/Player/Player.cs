@@ -70,7 +70,10 @@ public class Player : MonoBehaviour
     ComboAttackSystem comboAttackSystem;
     EnemyLock enemyLock;
     WeaponWheelController weaponWheelController;
+
+
     
+
     public bool IsAttacking { get; internal set; }
     public bool IsDodging { get; internal set; }
 
@@ -101,8 +104,20 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-      
-        if (!isDodging && combatTrade.canMove) MovementDirection();
+
+        animator.SetBool("isLockOn", enemyLock.isLockOnMode && enemyLock.currentTarget != null);
+
+        if (enemyLock.isLockOnMode && enemyLock.currentTarget != null)
+        {
+            FaceTarget();
+            MoveRelativeToTargetAndCamera();
+        }
+        else
+        {
+            if (!isDodging && combatTrade.canMove) MovementDirection();
+        }
+
+        UpdateAnimations();
         Animations();
 
 
@@ -124,18 +139,40 @@ public class Player : MonoBehaviour
     public void OnRoll(InputValue value)
     {
                                    
-            if(!isDodging && !comboAttackSystem.isAttacking && !spellOn && !isCooldownDodge)
-            {
-                StartCoroutine(Dodge());
+        if(!isDodging && !comboAttackSystem.isAttacking && !spellOn && !isCooldownDodge)
+        {
+            StartCoroutine(Dodge());
             ControladorSonidos.Instance.EjecutarSonido(sfxDash);
             isCooldownDodge = true;
-              cooldownTimerDodge = cooldownTimeDodge;
+            cooldownTimerDodge = cooldownTimeDodge;
         }
        
 
     }
+    private void MoveRelativeToTargetAndCamera()
+    {
+        Vector3 cameraForward = Camera.main.transform.forward;
+        Vector3 cameraRight = Camera.main.transform.right;
+        cameraForward.y = 0; // Ignorar la componente Y para mantener el movimiento en el plano horizontal
+        cameraRight.y = 0;
+        cameraForward.Normalize();
+        cameraRight.Normalize();
 
-   
+        // Calcula la dirección del movimiento basada en las entradas del jugador y la orientación de la cámara
+        Vector3 moveDirection = cameraForward * vertical + cameraRight * horizontal;
+        moveDirection.Normalize();
+
+        // Mueve el personaje
+        characterController.Move(moveDirection * playerSpeed * 0.8f * Time.deltaTime);
+    }
+
+    private void FaceTarget()
+    {
+        Vector3 directionToTarget = enemyLock.currentTarget.position - transform.position;
+        directionToTarget.y = 0;
+        Quaternion lookRotation = Quaternion.LookRotation(directionToTarget);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+    }
 
     public void OnRotate(InputValue input)
     {   
@@ -196,11 +233,34 @@ public class Player : MonoBehaviour
         direction = moveDirection;
     }
 
-    
-    
+
+   
+    private void UpdateAnimations()
+    {
+        Vector3 moveInput = new Vector3(horizontal, 0, vertical);
+        Vector3 cameraForward = Camera.main.transform.forward;
+        Vector3 cameraRight = Camera.main.transform.right;
+        cameraForward.y = 0; // Mantener el movimiento en el plano horizontal
+        cameraRight.y = 0;
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+
+        // Transformar las entradas de movimiento al espacio de la cámara
+        Vector3 moveDirection = cameraForward * moveInput.z + cameraRight * moveInput.x;
+
+        // Calcula las entradas relativas para el Animator
+        Vector3 localMove = transform.InverseTransformDirection(moveDirection);
+        float animHorizontal = localMove.x;
+        float animVertical = localMove.z;
+
+        animator.SetFloat("Horizontal", animHorizontal, 0.1f, Time.deltaTime);
+        animator.SetFloat("Vertical", animVertical, 0.1f, Time.deltaTime);
+    }
+
     public void Animations()
     {
-        animator.SetFloat("speed", characterController.velocity.sqrMagnitude / playerSpeed);
+       float speed = new Vector2(horizontal, vertical).magnitude;
+       animator.SetFloat("speed", speed);  
     }
 
     public void AttackSpeed()
@@ -272,26 +332,6 @@ public class Player : MonoBehaviour
 
         isDodging = false;
     }
-
-    private IEnumerator dashAttacking()
-    {
-
-        
-        float startTime = Time.time;
-        while (Time.time < startTime + dashTime)
-        {
-
-         characterController.Move(transform.forward * attackignDash * Time.deltaTime);
-
-          yield return null;
-        }
-
-
-       
-    }
-
-   
-
 
     public void OnMenu(InputValue input)
     {
