@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
 
         animator.SetBool("isLockOn", enemyLock.isLockOnMode && enemyLock.currentTarget != null);
 
-        if (enemyLock.isLockOnMode && enemyLock.currentTarget != null)
+        if (enemyLock.isLockOnMode && enemyLock.currentTarget != null && combatTrade.canMove)
         {
             FaceTarget();
             MoveRelativeToTargetAndCamera();
