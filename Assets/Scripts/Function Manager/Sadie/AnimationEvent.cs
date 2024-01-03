@@ -6,6 +6,9 @@ public class AnimationEvent : MonoBehaviour
 {
     public Transform[] proyectyleSpawns;
     public GameObject sadieHolder;
+    internal object animatorClipInfo;
+    internal string stringParameter;
+
     public void SpawnProyectile()
     {
 

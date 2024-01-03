@@ -137,7 +137,7 @@ public class PlayerStats : MonoBehaviour
 
             canMove = false; // Desactivar movimiento
             anim.SetTrigger("Health");
-            StartCoroutine(EnableMovementAfterDelay(0.3f));
+            StartCoroutine(EnableMovementAfterDelay(0.8f));
             ControladorSonidos.Instance.EjecutarSonido(sfxHeal);
             healthParticle.Play();
             currentHealth += 50;

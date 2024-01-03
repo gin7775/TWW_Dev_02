@@ -70,6 +70,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Window\SplashScreenManager.cs" />
     <Compile Include="Assets\Scripts\Function Manager\PlayerDamage.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\PerseguirStateFinalBoss.cs" />
+    <Compile Include="Assets\Invector\Footstep System\Scripts\Utils\vFootstepContainer.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetHitMe.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\ButtonAnimationFix.cs" />
@@ -83,7 +84,6 @@
     <Compile Include="Assets\Scripts\Behaviors\Candela\CandelaProyectiles.cs" />
     <Compile Include="Assets\Scripts\Function Manager\SpellMove.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\CanvasManager.cs" />
-    <Compile Include="Assets\Scripts\Player\FootstepScript.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\CandelaDeath.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Empresario\ContenedorEmpresario.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\GroundSlashDamage.cs" />
@@ -114,6 +114,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\LayoutGroupFix.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreAction.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHealBreak.cs" />
+    <Compile Include="Assets\Invector\Footstep System\Scripts\Utils\vBetterRandom.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Window\SplashScreenTitle.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManagerLogo.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\SliderManager.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Armore\Choice_Wait.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\RecuperacionCortesSalvajes.cs" />
+    <Compile Include="Assets\Invector\Footstep System\Scripts\vFootstep.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Window\MainPanelButton.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Puppet\Puppet.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\PanelInitUtil.cs" />
@@ -146,6 +148,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\Leave.cs" />
     <Compile Include="Assets\BA_AnimationEvent.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Editor Handlers\DarkUIEditorHandler.cs" />
+    <Compile Include="Assets\Invector\Footstep System\Scripts\vAudioSurfaceControl.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\UIElementSound.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetIdle.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\DanceB.cs" />
@@ -170,6 +173,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Lolazo\PlayerSustitute.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\MuerteStateMachine.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\PatrullaStateFinalBoss.cs" />
+    <Compile Include="Assets\Invector\Footstep System\Scripts\vFootstepMenuComponent.cs" />
     <Compile Include="Assets\Scripts\LucesPrimerNivel\ULightMotion.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\IdleStateFinalBoss.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\UIGradient.cs" />
@@ -197,10 +201,12 @@
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\Ataque1StateMachine.cs" />
     <Compile Include="Assets\Scripts\Traps\CrosBow.cs" />
     <Compile Include="Assets\Scripts\Keys &amp; Doors\Key.cs" />
+    <Compile Include="Assets\Invector\Footstep System\Scripts\vFootstepTrigger.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\CenterProyectile.cs" />
     <Compile Include="Assets\BA_HitMe.cs" />
     <Compile Include="Assets\BA_VerticalAtack.cs" />
     <Compile Include="Assets\Scripts\Interaction\Interaction.cs" />
+    <Compile Include="Assets\Invector\Footstep System\Scripts\vFootstepMaterialHandler.cs" />
     <Compile Include="Assets\Scripts\Sounds\SfxHolder.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\SwitchManager.cs" />
     <Compile Include="Assets\Scripts\Player\TakeWeapon.cs" />
@@ -220,6 +226,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManagerBackground.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\Hitted.cs" />
     <Compile Include="Assets\BosArmoreChoice.cs" />
+    <Compile Include="Assets\Invector\Footstep System\Scripts\vAudioSurface.cs" />
     <Compile Include="Assets\CrowMovementBehavior.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\UIParticleRenderer.cs" />
@@ -248,6 +255,7 @@
     <None Include="Assets\Imported\Lowpoly_Environments\Sources\Light cookie shader.shader" />
     <None Include="Assets\Imported\Lowpoly_Environments\Sources\Shaders\PT_Water_Shader_WebGl.shader" />
     <None Include="Assets\_VerticalSlice\Shaders\Dreamscape_Simple_Foliage.shader" />
+    <None Include="Assets\___www.unityassetcollection.com___.txt" />
     <None Include="Assets\Imported\Toon Water URP\README.txt" />
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Imported\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Plants_Shader.shader" />

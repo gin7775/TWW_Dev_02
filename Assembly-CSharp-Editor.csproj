@@ -60,6 +60,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Editor\Scripts\HorizontalSelectorEditor.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Editor\Scripts\ModalWindowManagerEditor.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Editor\Scripts\DropdownManagerEditor.cs" />
+    <Compile Include="Assets\Invector\Footstep System\Scripts\Editor\vAudioSurfaceEditor.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Editor\Scripts\SliderManagerEditor.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Editor\Scripts\ButtonManagerEditor.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Editor\Scripts\BackgroundFilterEditor.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Editor\Scripts\QualityManagerEditor.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Editor\Tools\ExtendedColorPicker.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Editor\Scripts\UIManagerEditor.cs" />
+    <Compile Include="Assets\Invector\Footstep System\Scripts\Editor\vFootstepEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Editor\DOTweenEditor.dll" />

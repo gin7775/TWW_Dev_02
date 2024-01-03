@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
     WeaponWheelController weaponWheelController;
 
 
-    
+    public ParticleSystem[] slash;
 
     public bool IsAttacking { get; internal set; }
     public bool IsDodging { get; internal set; }
@@ -365,15 +365,19 @@ public class Player : MonoBehaviour
     }
 
 
-    public void ActivarSlashDerecha()
+    public void ActivarSlash1()
     {
-        
-        slashObjDerecha.SetActive(true);
+
+        slash[0].Play();
     }
-    public void DesactivarSlashDerecha()
+    public void DesactivarSlash2()
     {
-       
-        slashObjDerecha.SetActive(false);
+
+        slash[1].Play();
+    }
+    public void ActivarSlash3()
+    {
+        slash[2].Play();
     }
   }
 
