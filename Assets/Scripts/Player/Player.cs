@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (!isDodging && combatTrade.canMove) MovementDirection();
+            if ( combatTrade.canMove) MovementDirection();
         }
 
         UpdateAnimations();
@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
     public void OnRoll(InputValue value)
     {
                                    
-        if(!isDodging && !comboAttackSystem.isAttacking && !spellOn && !isCooldownDodge)
+        if( comboAttackSystem.readyDash && !spellOn && !isCooldownDodge)
         {
             StartCoroutine(Dodge());
             ControladorSonidos.Instance.EjecutarSonido(sfxDash);
@@ -174,10 +174,7 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
     }
 
-    public void OnRotate(InputValue input)
-    {   
-       
-    }
+    
     
     public void OnMoveInput(float horizontal, float vertical)
     {
@@ -285,21 +282,12 @@ public class Player : MonoBehaviour
         
     }
 
-    //IEnumerator rotateSpellAtack()
-    //{
-    //    spellOn = true;
-
-    //    yield return new WaitForSeconds(0.4f);
-
-    //    spellOn = false;
-
-    //}
-
+    
     IEnumerator Dodge()
     {
         float t = 0;
         isDodging = true;
-
+        
         particleDash.Play();
         playerGraphics.DOScale(Vector3.zero, 0.2f);
 
@@ -331,6 +319,7 @@ public class Player : MonoBehaviour
         playerGraphics.DOScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f).SetEase(Ease.OutBack);
 
         isDodging = false;
+     
     }
 
     public void OnMenu(InputValue input)

@@ -22,9 +22,14 @@ public class ComboAttackSystem : MonoBehaviour
     public float moveDistancePerAttack2 = 2f;
     CharacterController characterController;
     Player player;
+
+    public bool readyDash;
     // Referencias a los sonidos
     public AudioClip[] attackSounds;
-
+    private bool isTriggerMovementActive = false;
+    private Vector3 moveVelocity;
+    private float moveTimer;
+    public AnimationCurve moveCurve;
     private void Awake()
     {
         DOTween.Init();
@@ -58,7 +63,7 @@ public class ComboAttackSystem : MonoBehaviour
             PerformAttack(comboStep);
         }
     }
-
+    
     private void PerformAttack(int step)
     {
 
@@ -83,7 +88,7 @@ public class ComboAttackSystem : MonoBehaviour
             {
                 comboStep = 0;
                 cooldownTimer = cooldownTime;
-
+                
             }
         }
     }
@@ -97,21 +102,25 @@ public class ComboAttackSystem : MonoBehaviour
         }
     }
 
-    public void TriggerMovement()
-    {
-        Vector3 targetPosition = transform.position + transform.forward * moveDistancePerAttack;
-        if (!Physics.Raycast(transform.position, transform.forward, moveDistancePerAttack))
+        public void TriggerMovement()
         {
-            transform.DOMove(targetPosition, comboMaxDelay).SetEase(Ease.OutExpo);
-        }
+         Vector3 targetPosition = transform.position + transform.forward * moveDistancePerAttack;
+         if (!Physics.Raycast(transform.position, transform.forward, moveDistancePerAttack))
+         {
+            moveVelocity = (targetPosition - transform.position) / comboMaxDelay;
+            moveTimer = 0f;
+            isTriggerMovementActive = true;
+         }
     }
 
-    public void TriggerMovementCombo3()
-    {
+        public void TriggerMovementCombo3()
+        {
         Vector3 targetPosition = transform.position + transform.forward * moveDistancePerAttack2;
         if (!Physics.Raycast(transform.position, transform.forward, moveDistancePerAttack2))
         {
-            transform.DOMove(targetPosition, comboMaxDelay).SetEase(Ease.OutExpo);
+            moveVelocity = (targetPosition - transform.position) / comboMaxDelay;
+            moveTimer = 0f;
+            isTriggerMovementActive = true;
         }
     }
 
@@ -126,7 +135,17 @@ public class ComboAttackSystem : MonoBehaviour
         {
             ResetCombo();
         }
-        
+        if (isTriggerMovementActive)
+        {
+            moveTimer += Time.deltaTime;
+            float moveFactor = moveCurve.Evaluate(moveTimer / comboMaxDelay);
+            characterController.Move(moveVelocity * moveFactor * Time.deltaTime);
+
+            if (moveTimer >= comboMaxDelay)
+            {
+                isTriggerMovementActive = false;
+            }
+        }
     }
 
     
@@ -186,5 +205,14 @@ public class ComboAttackSystem : MonoBehaviour
             isAttacking = false;
     }
 
+
+    public void ActiveDashBool1()
+    {
+        readyDash = true;
+    }
+    public void DisableDashBool1()
+    {
+        readyDash = false;
+    }
 }
 
