@@ -246,6 +246,10 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
+    <Compile Include="Assets\PatrullaTarik.cs" />
+    <Compile Include="Assets\ContainerTarik.cs" />
+    <Compile Include="Assets\AtaqueTarik.cs" />
+    <Compile Include="Assets\SaltarScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
