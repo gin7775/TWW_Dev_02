@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Empresario\EmpresarioScript.cs" />
     <Compile Include="Assets\Scripts\Function Manager\ActiveWeapon.cs" />
     <Compile Include="Assets\Scripts\Function Manager\DamageCollider.cs" />
+    <Compile Include="Assets\ContainerTarik.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\FunctionManager\Crow\SkullDamage.cs" />
     <Compile Include="Assets\Scripts\LucesPrimerNivel\LightMotion.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\ScrollForMore.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\DropdownManager.cs" />
     <Compile Include="Assets\Scripts\Interaction\GrassPosition.cs" />
     <Compile Include="Assets\BA_Shoot.cs" />
+    <Compile Include="Assets\AtaqueTarik.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\HappyParamet.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\Saddie.cs" />
     <Compile Include="Assets\Scripts\Player\SpellScript.cs" />
@@ -148,6 +150,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\Leave.cs" />
     <Compile Include="Assets\BA_AnimationEvent.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Editor Handlers\DarkUIEditorHandler.cs" />
+    <Compile Include="Assets\SaltarScript.cs" />
     <Compile Include="Assets\Imported\Invector\Footstep System\Scripts\vAudioSurfaceControl.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\UIElementSound.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetIdle.cs" />
@@ -234,6 +237,7 @@
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\BA_HorizontalAtack.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHealBehavior.cs" />
+    <Compile Include="Assets\PatrullaTarik.cs" />
     <Compile Include="Assets\BackLog\proyectile Testing\Scripts\Gun_Test.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\Behaviors\Crow\CrowActivator.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
@@ -246,10 +250,10 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\PatrullaTarik.cs" />
-    <Compile Include="Assets\ContainerTarik.cs" />
-    <Compile Include="Assets\AtaqueTarik.cs" />
-    <Compile Include="Assets\SaltarScript.cs" />
+    <Compile Include="Assets\AttackTarik.cs" />
+    <Compile Include="Assets\TarikEnemy.cs" />
+    <Compile Include="Assets\TarikProyectile.cs" />
+    <Compile Include="Assets\ExplosionDamage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />

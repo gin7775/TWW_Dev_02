@@ -35,8 +35,17 @@ public class SaltarScript : StateMachineBehaviour
     // Actualización del estado
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+
+        if (Vector3.Distance(animator.transform.position, playerTransform.position) > 10f)
+        {
+            animator.SetTrigger("Patrullaje");
+            container.animatorTarik.SetTrigger("Patrol");// Cambiar al estado de patrol
+            return; // Salir del método para evitar ejecutar el código restante
+        }
+
         if (!hasJumped && timer >= container.jumpDelay)
         {
+            container.animatorTarik.SetTrigger("Jump");
             Jump(animator.transform);
             hasJumped = true;
         }

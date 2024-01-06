@@ -92,10 +92,6 @@ public class DamageCollider : MonoBehaviour
         {
             Puppet puppet = other.GetComponent<Puppet>();
 
-
-
-
-            ;
             
             if (puppet != null)
             {
@@ -134,7 +130,16 @@ public class DamageCollider : MonoBehaviour
             }
         }
 
+        else if (other.tag == "Tarik")
+        {
+            TarikEnemy tarik = other.GetComponent<TarikEnemy>();
 
+            if (tarik != null)
+            {
+                tarik.TakeDamage(50);
+            }
+
+        }
     }
 
    

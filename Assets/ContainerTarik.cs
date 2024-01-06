@@ -16,13 +16,13 @@ public class ContainerTarik : MonoBehaviour
     public float angle = 45f;
     public float jumpTriggerDistance = 2f;
     public float jumpDelay = 1.0f;
-    
+    public Transform PlayerTransform;
     public bool isGrounded;
     public List<Transform> jumpPoints;
     public float jumpHeight;
     public float jumpDuration;
   
-  
+    public Animator animatorTarik;
 
     public IEnumerator ParabolicJump(Transform objectToMove, Vector3 destination)
     {
@@ -42,4 +42,6 @@ public class ContainerTarik : MonoBehaviour
 
         objectToMove.position = destination; // Asegúrate de que el objeto llegue al destino
     }
+
+   
 }

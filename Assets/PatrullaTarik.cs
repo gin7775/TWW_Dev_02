@@ -21,6 +21,7 @@ public class PatrullaTarik : StateMachineBehaviour
         {
             agent.SetDestination(container.waypoints[container.currentWaypointIndex].position);
         }
+        container.animatorTarik.SetTrigger("Patrol");
     }
 
     // Actualización del estado

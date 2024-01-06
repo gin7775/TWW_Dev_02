@@ -38,7 +38,7 @@ public class ProyectileDamage : MonoBehaviour
 
         else if (bobo == false)
         {
-            Debug.Log("Bobo que mira Bobo");
+            
             Destroy(this.gameObject);
 
         }

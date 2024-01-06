@@ -10,7 +10,7 @@ public class Puppet : MonoBehaviour
 {
 
     public Transform player;
-    public GameObject holder,playerReference;
+    public GameObject playerReference;
     public float waitingTime;
 
     public float currentHealth;
@@ -59,10 +59,7 @@ public class Puppet : MonoBehaviour
 
     }
 
-    public void LaunchProyectile()
-    {
-        GameObject toInstantiate= GameObject.Instantiate(holder);
-    }
+    
 
     public void TakeDamage(int damage)
     {
