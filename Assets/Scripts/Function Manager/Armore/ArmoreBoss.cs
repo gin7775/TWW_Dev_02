@@ -93,39 +93,39 @@ public class ArmoreBoss : MonoBehaviour
     Time.timeScale = 1f;
  }
  //Metodos de cambio de estado necesarios
- public void ArmoreWalk(int value)
+ public void AnimArmoreWalk(int value)
  {
     animArmore.SetFloat("Move", value);
  }
- public void ArmoreVertical()
+ public void AnimArmoreSmash()
  {
-    animArmore.SetTrigger("AtaqueVertical");
+    animArmore.SetTrigger("Smash");
  }
- public void ArmoreHorizontal()
+ public void AnimArmoreSwipe()
  {
-    animArmore.SetTrigger("AtaqueHorizontal");
+    animArmore.SetTrigger("Swipe");
 
  }
- public void ArmoreBlock()
+ public void AnimArmoreBlock()
  {
-    animArmore.SetTrigger("Block");
+    animArmore.SetTrigger("Shield");
 
  }
  public void ArmoreHitme()
  {
     iaArmore.SetTrigger("HitMe");
  }
- public void ArmoreHealBreack()
+ public void AnimArmoreShieldRelease()
  {
-    animArmore.SetTrigger("HealBreak");
+    animArmore.SetTrigger("ShieldRelease");
  }
  public void ArmoreIdle()
  {
     animArmore.SetTrigger("Idle");
  }
- public void AnimArmoreHeal()
+ public void AnimArmoreShieldCounter()
  {
-    animArmore.SetTrigger("Healing");
+    animArmore.SetTrigger("ShieldCounter");
  }
  public void AnimArmoreRecovery()
  {
