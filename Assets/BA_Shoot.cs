@@ -14,7 +14,7 @@ public class BA_Shoot : StateMachineBehaviour
         armoreAgent = animator.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         armore = animator.gameObject.GetComponent<ArmoreBoss>();
         player = armore.player;
-        armore.ArmoreHorizontal();
+        armore.AnimArmoreShoot();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

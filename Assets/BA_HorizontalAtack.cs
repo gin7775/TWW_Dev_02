@@ -15,7 +15,7 @@ public class BA_HorizontalAtack : StateMachineBehaviour
         armoreAgent = animator.gameObject.GetComponent<NavMeshAgent>();
         armore = animator.gameObject.GetComponent<ArmoreBoss>();
         player = armore.player;
-        armore.ArmoreHorizontal();
+        armore.AnimArmoreSwipe();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

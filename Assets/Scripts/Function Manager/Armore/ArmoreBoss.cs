@@ -127,9 +127,9 @@ public class ArmoreBoss : MonoBehaviour
  {
     animArmore.SetTrigger("ShieldCounter");
  }
- public void AnimArmoreRecovery()
+ public void AnimArmoreShoot()
  {
-    animArmore.SetTrigger("HealRecovery");
+    animArmore.SetTrigger("Shoot");
  }
  public void ArmoreAction()
  {
