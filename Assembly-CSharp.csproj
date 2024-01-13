@@ -254,6 +254,10 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
+    <Compile Include="Assets\BA_AnimSmash.cs" />
+    <Compile Include="Assets\BA_AnimSwipe.cs" />
+    <Compile Include="Assets\BA_AnimShoot.cs" />
+    <Compile Include="Assets\BA_AnimShield.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />

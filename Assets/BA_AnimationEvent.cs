@@ -42,5 +42,9 @@ public class BA_AnimationEvent : MonoBehaviour
 
     }
 
+    public void CounterDamage()
+    {
+        player.GetComponent<PlayerStats>().TakeDamage(30);
+    }
 
 }

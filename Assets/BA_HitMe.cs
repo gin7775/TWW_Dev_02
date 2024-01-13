@@ -17,7 +17,7 @@ public class BA_HitMe : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        hitTimer = 3;
+        hitTimer = 1.5f;
     }
 
 }

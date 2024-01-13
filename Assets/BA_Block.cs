@@ -19,7 +19,7 @@ public class BA_Block : StateMachineBehaviour
         blockTimer -= Time.deltaTime;
         if (blockTimer <= 0)
         {
-            animator.SetTrigger("CounterAtack");
+            armore.AnimArmoreShieldRelease();
         }
     }
 

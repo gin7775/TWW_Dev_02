@@ -59,7 +59,7 @@ public class ArmoreBoss : MonoBehaviour
     {
         //is bloquing
 
-        animArmore.SetTrigger("CounterAttack");
+        animArmore.SetTrigger("ShieldCounter");
         //animArmore.SetTrigger("Block");
         guardState = 1;
     }
@@ -75,7 +75,7 @@ public class ArmoreBoss : MonoBehaviour
         {
             Instantiate(vfxHitEffectFinish, vfxSpawn.transform.position, Quaternion.identity);
             poiseHealth = 0;
-            animArmore.SetTrigger("HealBreak");
+            animArmore.SetTrigger("ShieldRelease");
             guardState = 1;
 
         }
@@ -109,6 +109,7 @@ public class ArmoreBoss : MonoBehaviour
  public void AnimArmoreBlock()
  {
     animArmore.SetTrigger("Shield");
+
 
  }
  public void ArmoreHitme()
