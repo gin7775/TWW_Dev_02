@@ -36,6 +36,7 @@ public class BA_AnimationEvent : MonoBehaviour
 
     public void ImpactProyectile()
     {
+        //Crear vector 3 para subir 0,5 unidades el punto de instancia
 
         GameObject toInstantiate = Instantiate(holderImpactProyectile, weaponPoint.transform.position, Quaternion.identity);
 
