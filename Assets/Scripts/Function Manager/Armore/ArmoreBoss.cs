@@ -95,7 +95,7 @@ public class ArmoreBoss : MonoBehaviour
  //Metodos de cambio de estado necesarios
  public void AnimArmoreWalk(int value)
  {
-    animArmore.SetFloat("Move", value);
+    animArmore.SetFloat("Speed", value);
  }
  public void AnimArmoreSmash()
  {

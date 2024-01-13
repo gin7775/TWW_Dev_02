@@ -20,7 +20,7 @@ public class SceneInfo : MonoBehaviour
 
         GameManager.gameManager.SetPosition(playerSpawn[spawnIndex].transform);
 
-        audioManager.ChoseMusic(sceneMusic);
+        //audioManager.ChoseMusic(sceneMusic); Hasta utilizar el audio manager
 
 
     }

@@ -10,6 +10,7 @@ public class BA_Block : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         armore = animator.gameObject.GetComponent<ArmoreBoss>();
+        armore.AnimArmoreBlock();
 
     }
 

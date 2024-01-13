@@ -5,7 +5,7 @@ using UnityEngine;
 public class BA_VerticalAtack : StateMachineBehaviour
 {
     public float returnTimer = 5;
-    private Armore armore;
+    private ArmoreBoss armore;
     public GameObject player;
     private UnityEngine.AI.NavMeshAgent armoreAgent;
 
@@ -13,9 +13,9 @@ public class BA_VerticalAtack : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         armoreAgent = animator.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        armore = animator.gameObject.GetComponent<Armore>();
+        armore = animator.gameObject.GetComponent<ArmoreBoss>();
         player = armore.player;
-        armore.ArmoreVertical();
+        armore.AnimArmoreSmash();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

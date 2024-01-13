@@ -24,7 +24,7 @@ public class BA_Shoot : StateMachineBehaviour
         returnTimer -= Time.deltaTime;
         if (returnTimer <= 0)
         {
-            animator.SetTrigger("HitMe");
+            animator.SetTrigger("Action");
         }
     }
 
