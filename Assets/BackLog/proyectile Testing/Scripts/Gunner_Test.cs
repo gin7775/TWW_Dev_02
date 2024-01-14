@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gunner_Test : MonoBehaviour
 {
     public int shootNumber = 1;
-    public float fireSpeed = 0.1f;
+    public float fireSpeed = 1;
     public GameObject player, proyectile, target;
 
     public GameObject[] targets;
@@ -13,7 +13,7 @@ public class Gunner_Test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CircleGun();
+        //CircleGun();
     }
 
     // Update is called once per frame
@@ -34,11 +34,11 @@ public class Gunner_Test : MonoBehaviour
 
             targets[i].transform.position = new Vector3(this.transform.position.x + 2, this.transform.position.y, this.transform.position.z);
             targets[i].transform.RotateAround(this.transform.position, new Vector3(0, 1, 0), i * 360 / targets.Length);
-            targets[i].GetComponent<Gun_Test>().fireRate = fireSpeed;
+            targets[i].GetComponent<Gun_Test>().fireRate = fireSpeed*Time.deltaTime;
             targets[i].GetComponent<Gun_Test>().shoots = shootNumber;
 
 
         }
-        Destroy(this.gameObject,1);
+        //Destroy(this.gameObject,2f);
     }
 }

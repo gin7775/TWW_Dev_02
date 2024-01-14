@@ -38,10 +38,11 @@ public class BA_AnimationEvent : MonoBehaviour
     {
         //Crear vector 3 para subir 0,5 unidades el punto de instancia
 
-        GameObject toInstantiate = Instantiate(holderImpactProyectile, weaponPoint.transform.position, Quaternion.identity);
-
+        //GameObject toInstantiate = Instantiate(holderImpactProyectile, weaponPoint.transform.position, Quaternion.identity);
+        weaponPoint.GetComponent<Gunner_Test>().CircleGun();
 
     }
+    
 
     public void CounterDamage()
     {
