@@ -7,12 +7,16 @@ public class Gunner_Test : MonoBehaviour
     public int shootNumber = 1;
     public float fireSpeed = 1;
     public GameObject player, proyectile, target;
-
+    public SlashShooter shooter_;
     public GameObject[] targets;
+    public float slashDistance;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        //shooter_ = this.gameObject.GetComponent<SlashShooter>();
+        
         //CircleGun();
     }
 
@@ -34,6 +38,10 @@ public class Gunner_Test : MonoBehaviour
 
             targets[i].transform.position = new Vector3(this.transform.position.x + 2, this.transform.position.y, this.transform.position.z);
             targets[i].transform.RotateAround(this.transform.position, new Vector3(0, 1, 0), i * 360 / targets.Length);
+            /*shooter_ = targets[i].GetComponent<SlashShooter>();
+            shooter_.timeToFire = Time.time + 1 / shooter_.fireRate;
+            shooter_.destination = new Vector3(targets[i].transform.position.x, targets[i].transform.position.y, targets[i].transform.position.z + slashDistance)  ;
+            shooter_.ShootProjectile();*/
             targets[i].GetComponent<Gun_Test>().fireRate = fireSpeed*Time.deltaTime;
             targets[i].GetComponent<Gun_Test>().shoots = shootNumber;
 
