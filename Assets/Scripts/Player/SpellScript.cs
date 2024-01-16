@@ -41,7 +41,7 @@ public class SpellScript : MonoBehaviour
     {
         ManageCooldown();
 
-        dissolveProyectile = projectileImages[currentProjectileIndex].gameObject.GetComponent<DissolveProyectile>();
+        //dissolveProyectile = projectileImages[currentProjectileIndex].gameObject.GetComponent<DissolveProyectile>();
 
         SpellActivate();
 
@@ -104,7 +104,7 @@ public class SpellScript : MonoBehaviour
         currentMuzzleIndex = (currentMuzzleIndex + 1) % effectSpawnProjectile.Length;
 
         
-        UpdateProjectileUI();
+        //UpdateProjectileUI();
 
         dissolveProyectile.ResetDissolve();
 
@@ -112,16 +112,16 @@ public class SpellScript : MonoBehaviour
     }
 
 
-    private void UpdateProjectileUI()
-    {
-        for (int i = 0; i < projectileImages.Length; i++)
-        {
-            if (projectileImages[i] != null)
-            {
-                projectileImages[i].gameObject.SetActive(i == currentProjectileIndex);
-            }
-        }
-    }
+    //private void UpdateProjectileUI()
+    //{
+    //    for (int i = 0; i < projectileImages.Length; i++)
+    //    {
+    //        if (projectileImages[i] != null)
+    //        {
+    //            projectileImages[i].gameObject.SetActive(i == currentProjectileIndex);
+    //        }
+    //    }
+    //}
     public void SpellActivate()
     {
 
