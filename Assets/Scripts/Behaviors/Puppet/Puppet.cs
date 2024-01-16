@@ -66,7 +66,7 @@ public class Puppet : MonoBehaviour
         currentHealth -= damage;
 
         cinemachineImpulseSource.GenerateImpulse();
-        StartCoroutine(FrameFreeze(0.07f));
+        StartCoroutine(FrameFreeze(0.1f));
         ControladorSonidos.Instance.EjecutarSonido(sfxGolpe);
        
         Vector3 attackDirection = (player.position - transform.position).normalized;

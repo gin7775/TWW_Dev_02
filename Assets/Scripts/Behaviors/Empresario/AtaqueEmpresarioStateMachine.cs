@@ -39,7 +39,7 @@ public class AtaqueEmpresarioStateMachine : StateMachineBehaviour
 
         }
 
-        if (Vector3.Distance(empresario.transform.position, player.position) <= 3f)
+        if (Vector3.Distance(empresario.transform.position, player.position) <= 4f)
         {
             animator.SetTrigger("Correr");
 
