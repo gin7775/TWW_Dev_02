@@ -23,10 +23,8 @@ public class ContenedorEmpresario : MonoBehaviour
     public Transform spawnProyectile;
 
     public float coolDown;
-    public float coolDown2;
+   
 
-    public float cooldownTime2;
-    public float cooldownTime3;
     public bool coolDownAnim;
 
     public float coolDown3;

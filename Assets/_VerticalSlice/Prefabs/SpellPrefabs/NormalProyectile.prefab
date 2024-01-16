@@ -4709,6 +4709,7 @@ GameObject:
   - component: {fileID: 54453457801900860}
   - component: {fileID: 932601023905767579}
   - component: {fileID: 1496362116169266286}
+  - component: {fileID: 6378624011207720857}
   m_Layer: 12
   m_Name: NormalProyectile
   m_TagString: FX
@@ -9571,8 +9572,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.348667, y: 0.32957417, z: 0.49620518}
-  m_Center: {x: -0.009165955, y: 0.0046389787, z: 0.21126741}
+  m_Size: {x: 0.348667, y: 0.32957417, z: 0.442562}
+  m_Center: {x: -0.009165955, y: 0.0046389787, z: 0.23808911}
+--- !u!65 &6378624011207720857
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238843893459588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.44605252, y: 0.31620875, z: 0.51851225}
+  m_Center: {x: -0.012649387, y: 0.05695437, z: 0.27483064}
 --- !u!1 &1477706141410116
 GameObject:
   m_ObjectHideFlags: 0

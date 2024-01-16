@@ -198,6 +198,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\HorizontalSelector.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\UIDissolveEffect.cs" />
     <Compile Include="Assets\BackLog\proyectile Testing\Scripts\Gunner_Test.cs" />
+    <Compile Include="Assets\AttackRogue.cs" />
     <Compile Include="Assets\BA_AnimSwipe.cs" />
     <Compile Include="Assets\Scripts\Sounds\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\AnimationEvent.cs" />

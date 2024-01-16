@@ -45,5 +45,15 @@ public class SpellMove : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+         if (other.tag == "platformTrigger")
+        {
+            PlataformEffect plataform = other.GetComponent<PlataformEffect>();
 
+            Debug.Log("Detecta");
+
+            plataform.TriggerPlataforms();
+        }
+    }
 }
