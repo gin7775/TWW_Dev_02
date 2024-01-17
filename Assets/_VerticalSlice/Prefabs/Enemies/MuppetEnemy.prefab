@@ -779,8 +779,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 9065546130543422141}
+  - {fileID: 3460489508322765039}
   nextPosition: 0
   maxPosition: 2
   waitingTimeAttacking: 3
