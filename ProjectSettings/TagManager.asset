@@ -21,6 +21,9 @@ TagManager:
   - Fader
   - Spells
   - Cine
+  - Ground
+  - Tarik
+  - Armore
   layers:
   - Default
   - TransparentFX
