@@ -14,7 +14,7 @@ public class CorrerEmpresarioStateMachine : StateMachineBehaviour
         contenedorEmpresario = animator.gameObject.GetComponent<ContenedorEmpresario>();
         destination = animator.gameObject.GetComponent<EmpresarioScript>().player;
         contenedorEmpresario.animEmpresario.SetBool("Andar", true);
-        empresario.speed = 5f;
+        empresario.speed = 4f;
         contenedorEmpresario.coolDown = 2f;
     }
 
@@ -26,7 +26,7 @@ public class CorrerEmpresarioStateMachine : StateMachineBehaviour
 
         if(contenedorEmpresario.coolDownRun <= 0)
         {
-            empresario.speed = 3f;
+            empresario.speed = 2f;
             contenedorEmpresario.coolDownRun = 2f;
         }
        

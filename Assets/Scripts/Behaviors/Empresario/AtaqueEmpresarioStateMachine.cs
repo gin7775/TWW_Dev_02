@@ -33,7 +33,7 @@ public class AtaqueEmpresarioStateMachine : StateMachineBehaviour
 
         
 
-        if (Vector3.Distance(empresario.transform.position, player.position) >= 13f)
+        if (Vector3.Distance(empresario.transform.position, player.position) >= 9f)
         {
             animator.SetTrigger("Patrol");
 
@@ -50,7 +50,7 @@ public class AtaqueEmpresarioStateMachine : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        contenedorEmpresario.coolDown = 2f;
+        
 
     }
 

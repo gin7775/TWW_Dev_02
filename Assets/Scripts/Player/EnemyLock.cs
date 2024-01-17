@@ -28,6 +28,8 @@ public class EnemyLock : MonoBehaviour
     public GameObject targetGroup;
     public float rotationSpeed = 50;
 
+    public bool cameraSwitch = false;
+
     public Vector3 offset;
     [SerializeField]  private Animator cinemachineAnim;
     private void Awake()
@@ -40,17 +42,22 @@ public class EnemyLock : MonoBehaviour
         changeCamera = GameObject.Find("TargetGroup1").GetComponent<ChangeCamera>();
     }
 
+
+
     private void Update()
     {
         availableTargets = FindAvailableTargets();          //para buscar todos los enemigos dentro del radio de bloqueo y almacenarlos en el arreglo availableTargets
-
-        if(isLockOnMode == false)
+        if (cameraSwitch)
+        {
+            return; // No hagas nada si cameraSwitch está activado
+        }
+        if (isLockOnMode == false && cameraSwitch == false)
         {
             cinemachineAnim.Play("FollowCamera");
             markingObject.SetActive(false);
             
         }
-        if (availableTargets.Length == 0)
+        if (availableTargets.Length == 0 && cameraSwitch == false)
         {
             cinemachineAnim.Play("FollowCamera");
             isLockOnMode = false;

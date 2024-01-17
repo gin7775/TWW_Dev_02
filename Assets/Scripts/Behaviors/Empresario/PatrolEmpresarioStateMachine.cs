@@ -35,7 +35,7 @@ public class PatrolEmpresarioStateMachine : StateMachineBehaviour
         }
 
 
-        if (Vector3.Distance(empresario.transform.position, player.position) <= 13f)
+        if (Vector3.Distance(empresario.transform.position, player.position) <= 9f)
         {
             animator.SetTrigger("Ataque");
 
