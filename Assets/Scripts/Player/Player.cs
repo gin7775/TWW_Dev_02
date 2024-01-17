@@ -142,7 +142,7 @@ public class Player : MonoBehaviour
         if( comboAttackSystem.readyDash && !spellOn && !isCooldownDodge)
         {
             StartCoroutine(Dodge());
-            ControladorSonidos.Instance.EjecutarSonido(sfxDash);
+            MiFmod.Instance.Play("SFX_2d/Esquive");
             isCooldownDodge = true;
             cooldownTimerDodge = cooldownTimeDodge;
         }

@@ -15,13 +15,16 @@ MonoBehaviour:
   audioSource: {fileID: 8206458, guid: dfea19d1d34dd174d87195f78cb44ae7, type: 3}
   audioMixerGroup: {fileID: 24304546, guid: a63f18b704a1b874a8dad30baf0939e6, type: 2}
   TextureOrMaterialNames:
-  - footstep_metal
-  audioClips:
-  - {fileID: 8300000, guid: b39d500728efec2468983e463e16d719, type: 3}
-  - {fileID: 8300000, guid: 819a181928a16d64993eeba8d3b8c651, type: 3}
-  - {fileID: 8300000, guid: b0b8cdcf5e784624990a0d61b230fd3e, type: 3}
-  - {fileID: 8300000, guid: aa4a5fc2bf0743348943776816aa5a68, type: 3}
+  - floor_tiles_06
+  audioClips: []
   particleObject: {fileID: 0}
+  fmodEvents:
+  - Guid:
+      Data1: -674141854
+      Data2: 1184636262
+      Data3: 148372884
+      Data4: -13297127
+    Path: event:/Pasos_2d/PasoMetal1
   stepMark: {fileID: 0}
   stepLayer:
     serializedVersion: 2

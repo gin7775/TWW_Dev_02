@@ -15,11 +15,16 @@ MonoBehaviour:
   audioSource: {fileID: 8206458, guid: dfea19d1d34dd174d87195f78cb44ae7, type: 3}
   audioMixerGroup: {fileID: 24329260, guid: a63f18b704a1b874a8dad30baf0939e6, type: 2}
   TextureOrMaterialNames:
-  - GrassTexture
-  audioClips:
-  - {fileID: 8300000, guid: 77313b3ac9c75f545a7cce94bdc8c1a3, type: 3}
-  - {fileID: 8300000, guid: fe99b708869596346a35738043ba969f, type: 3}
+  - M_Tutorial1
+  audioClips: []
   particleObject: {fileID: 0}
+  fmodEvents:
+  - Guid:
+      Data1: -1474830534
+      Data2: 1339748230
+      Data3: 443259018
+      Data4: -750958987
+    Path: event:/Pasos_2d/PasoCesped1
   stepMark: {fileID: 0}
   stepLayer:
     serializedVersion: 2

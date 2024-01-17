@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using FMODUnity;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -11,7 +12,7 @@ namespace Invector.FootstepSystem
         public List<string> TextureOrMaterialNames;             // The tag on the surfaces that play these sounds.
         public List<AudioClip> audioClips;                      // The different clips that can be played on this surface.    
         public GameObject particleObject;
-
+        public List<EventReference> fmodEvents;
         private vBetterRandom randomSource = new vBetterRandom();       // For randomly reordering clips.   
 
         public GameObject stepMark;
@@ -63,28 +64,17 @@ namespace Invector.FootstepSystem
         /// <param name="footStepObject">Step object surface info</param>      
         protected virtual void PlaySound(FootstepObject footStepObject)
         {
-            // if there are no clips to play return.
-            if (audioClips == null || audioClips.Count == 0)
+            // Si no hay eventos de FMOD para reproducir, retorna.
+            if (fmodEvents == null || fmodEvents.Count == 0)
             {
                 return;
             }
 
-            AudioSource source = null;
-            if (audioSource != null)
-            {
-                source = Instantiate(audioSource, footStepObject.sender.position, Quaternion.identity);
-                source.transform.SetParent(vFootstepContainer.root, true);
-            }
-            if (audioSource)
-            {
-                if (audioMixerGroup != null)
-                {
-                    source.outputAudioMixerGroup = audioMixerGroup;
-                }
-            }
-            int index = randomSource.Next(audioClips.Count);
-            source.PlayOneShot(audioClips[index], footStepObject.volume);
-            Destroy(source.gameObject, timeToDestroyFootstep);
+            int index = randomSource.Next(fmodEvents.Count);
+            var instance = RuntimeManager.CreateInstance(fmodEvents[index]);
+            instance.set3DAttributes(RuntimeUtils.To3DAttributes(footStepObject.sender.position));
+            instance.start();
+            instance.release();
         }
 
         /// <summary>

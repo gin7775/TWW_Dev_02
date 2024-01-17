@@ -65,7 +65,7 @@ public class EmpresarioScript : MonoBehaviour
         StartCoroutine(FrameFreeze(0.1f));
 
 
-        ControladorSonidos.Instance.EjecutarSonido(sfxHit);
+        MiFmod.Instance.Play("SFX_2d/Herido");
         Vector3 attackDirection = (player.position - transform.position).normalized;
         Vector3 oppositeDirection = -attackDirection;
 

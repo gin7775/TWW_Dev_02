@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class ControladorSonidos : MonoBehaviour
 {
-    public static ControladorSonidos Instance;
+    // Lista de pistas de música de fondo
+    private List<string> pistasDeFondo = new List<string>
+    {
+        "SoundTrack/MusicaFondo",
+       
 
-    private AudioSource audioSource;
+    };
 
     private void Awake()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        audioSource = GetComponent<AudioSource>();
+        // Aquí puedes añadir cualquier lógica que necesites en Awake
     }
 
-    public void EjecutarSonido(AudioClip sonido)
+    public void Start()
     {
-        audioSource.PlayOneShot(sonido);
+        // Reproducir una pista aleatoria al inicio
+        ReproducirPistaAleatoria();
+    }
+
+    private void ReproducirPistaAleatoria()
+    {
+        int indiceAleatorio = Random.Range(0, pistasDeFondo.Count);
+        string pistaSeleccionada = pistasDeFondo[indiceAleatorio];
+
+        MiFmod.Instance.PlayFondo(pistaSeleccionada);
     }
 }

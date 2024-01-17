@@ -67,8 +67,8 @@ public class Puppet : MonoBehaviour
 
         cinemachineImpulseSource.GenerateImpulse();
         StartCoroutine(FrameFreeze(0.1f));
-        ControladorSonidos.Instance.EjecutarSonido(sfxGolpe);
-       
+        MiFmod.Instance.Play("SFX_2d/HeridoPuppet");
+
         Vector3 attackDirection = (player.position - transform.position).normalized;
     Vector3 oppositeDirection = -attackDirection;
 

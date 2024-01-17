@@ -114,7 +114,7 @@ public class PlayerStats : MonoBehaviour
 
         healthBar.UpdateMaskImage(currentHealth);
         anim.SetTrigger("Hurt");
-        ControladorSonidos.Instance.EjecutarSonido(sfxHurt);
+        MiFmod.Instance.Play("SFX_2d/Herido");
         PlayerPrefs.SetInt("Health",currentHealth);
 
         if(currentHealth <= 0)
@@ -138,7 +138,7 @@ public class PlayerStats : MonoBehaviour
             canMove = false; // Desactivar movimiento
             anim.SetTrigger("Health");
             StartCoroutine(EnableMovementAfterDelay(0.8f));
-            ControladorSonidos.Instance.EjecutarSonido(sfxHeal);
+            MiFmod.Instance.Play("SFX_2d/Curar");
             healthParticle.Play();
             currentHealth += 50;
             healInstances--;

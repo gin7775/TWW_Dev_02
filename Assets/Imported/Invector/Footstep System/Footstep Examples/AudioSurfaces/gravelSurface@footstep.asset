@@ -15,14 +15,17 @@ MonoBehaviour:
   audioSource: {fileID: 8206458, guid: dfea19d1d34dd174d87195f78cb44ae7, type: 3}
   audioMixerGroup: {fileID: 24300002, guid: a63f18b704a1b874a8dad30baf0939e6, type: 2}
   TextureOrMaterialNames:
-  - footstep_gravel
-  audioClips:
-  - {fileID: 8300000, guid: 36b2a5a7f988c3a49a8dcb97c82f3055, type: 3}
-  - {fileID: 8300000, guid: 325a507d48fda384fa119f766f5c51a7, type: 3}
-  - {fileID: 8300000, guid: 763ef6481f64ff044b076930e3e76ba2, type: 3}
-  - {fileID: 8300000, guid: 5cbf4dba6e3b40040938560663d850cc, type: 3}
+  - ProBuilder Default URP
+  audioClips: []
   particleObject: {fileID: 7592332085084678023, guid: d1ef58ecf23659244b2a1c7271662169,
     type: 3}
+  fmodEvents:
+  - Guid:
+      Data1: 2102092995
+      Data2: 1106421623
+      Data3: -501285246
+      Data4: -641965539
+    Path: event:/Pasos_2d/PasoConcreto1
   stepMark: {fileID: 184202, guid: b8cf3efdf419ad74f8c0f66ab6418371, type: 3}
   stepLayer:
     serializedVersion: 2

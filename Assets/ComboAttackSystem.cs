@@ -61,6 +61,15 @@ public class ComboAttackSystem : MonoBehaviour
 
             lastInputTime = Time.time;
             PerformAttack(comboStep);
+
+            if (comboStep == 1)
+            {
+                MiFmod.Instance.Play("SFX_2d/Ataque1");
+            }
+            if (comboStep == 2)
+            {
+                MiFmod.Instance.Play("SFX_2d/Ataque2");
+            }
         }
     }
     
@@ -164,7 +173,10 @@ public class ComboAttackSystem : MonoBehaviour
         animator.ResetTrigger("Attack3");
         animator.ResetTrigger("Move"); 
     }
-
+    public void ActiveSound3()
+    {
+        MiFmod.Instance.Play("SFX_2d/Ataque3");
+    }
     public void enableCollider()
     {
         damageCollider.SetActive(true);

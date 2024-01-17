@@ -12,6 +12,7 @@ public class TarikProyectile : MonoBehaviour
         // Comprobar si el proyectil ha chocado con el suelo
         if (other.gameObject.CompareTag("Ground")) // Asegúrate de que el suelo tenga el tag "Ground"
         {
+            MiFmod.Instance.Play("SFX_2d/Explosion_Enemigo_Tarik");
             InstantiateImpactParticle();
             Destroy(this.gameObject);
         }

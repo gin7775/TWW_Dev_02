@@ -264,6 +264,9 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\MiFmod.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\FireSound.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\FuenteFmod.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -1114,6 +1117,22 @@
     <ProjectReference Include="AllIn1SpriteShaderAssembly.csproj">
       <Project>{3E797E68-F3E4-02D7-4650-D551AADDBD46}</Project>
       <Name>AllIn1SpriteShaderAssembly</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnityResonanceEditor.csproj">
+      <Project>{9C9A5996-B690-A040-F10E-E00FE3528E57}</Project>
+      <Name>FMODUnityResonanceEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnity.csproj">
+      <Project>{0E33E254-39C7-4ADE-BD00-BB418B58743D}</Project>
+      <Name>FMODUnity</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnityEditor.csproj">
+      <Project>{2C2C05C8-5E1F-32A6-D665-511D36FA53BB}</Project>
+      <Name>FMODUnityEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnityResonance.csproj">
+      <Project>{52380A7D-79CF-C14D-158E-7C62BA335F52}</Project>
+      <Name>FMODUnityResonance</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

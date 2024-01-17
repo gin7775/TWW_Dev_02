@@ -1,0 +1,763 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9076777133009969698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3DSounds/Fuente
+  m_EditorClassIdentifier: 
+  Path: event:/3DSounds/Fuente
+  Guid:
+    Data1: 2028880032
+    Data2: 1341025013
+    Data3: 457419444
+    Data4: -1973819634
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 11400
+--- !u!114 &-6625726554177942819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/ExplosionProyectil
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/ExplosionProyectil
+  Guid:
+    Data1: 540156881
+    Data2: 1288994968
+    Data3: -490070624
+    Data4: 882639389
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 311
+--- !u!114 &-5541469212947701080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundTrack/MusicaFondo
+  m_EditorClassIdentifier: 
+  Path: event:/SoundTrack/MusicaFondo
+  Guid:
+    Data1: -1172890308
+    Data2: 1195901570
+    Data3: 1781425339
+    Data4: 1484803103
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 344000
+--- !u!114 &-5454715209480085317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundTrack/MusicaFondo2
+  m_EditorClassIdentifier: 
+  Path: event:/SoundTrack/MusicaFondo2
+  Guid:
+    Data1: 46595701
+    Data2: 1118775099
+    Data3: 1713515136
+    Data4: -527932547
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 40663
+--- !u!114 &-4299211403910156363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Plugins/FmodThings/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638411072579760095
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-2517338519648959434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/Esquive
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/Esquive
+  Guid:
+    Data1: -1890857216
+    Data2: 1304364075
+    Data3: -480431976
+    Data4: 2008789996
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 273
+--- !u!114 &-1966127882034099032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/Ataque1
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/Ataque1
+  Guid:
+    Data1: 192515883
+    Data2: 1286554237
+    Data3: -1440374082
+    Data4: -411813039
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 309
+--- !u!114 &-981635945958342035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/TirarProyectil
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/TirarProyectil
+  Guid:
+    Data1: -1629713645
+    Data2: 1225703965
+    Data3: -1817881441
+    Data4: 932290882
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 315
+--- !u!114 &-409588874415478192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/AtaqueMagico
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/AtaqueMagico
+  Guid:
+    Data1: -1959491555
+    Data2: 1309322413
+    Data3: -402101627
+    Data4: -1987567863
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3450
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 5224647552429060751}
+  - {fileID: -4299211403910156363}
+  EditorEvents:
+  - {fileID: -2517338519648959434}
+  - {fileID: 1920841144315421462}
+  - {fileID: 3742650895790946869}
+  - {fileID: 3525185540461040095}
+  - {fileID: 9046826749271022835}
+  - {fileID: -981635945958342035}
+  - {fileID: -409588874415478192}
+  - {fileID: -1966127882034099032}
+  - {fileID: 747735739539458249}
+  - {fileID: 2439767451437869647}
+  - {fileID: -5541469212947701080}
+  - {fileID: 4842172748953401529}
+  - {fileID: 6168928456993131834}
+  - {fileID: 4424598972076967514}
+  - {fileID: 5552080203861735094}
+  - {fileID: -5454715209480085317}
+  - {fileID: 5895880931065352626}
+  - {fileID: 8603140599307570984}
+  - {fileID: -9076777133009969698}
+  - {fileID: 4516701327561813299}
+  - {fileID: 3757400340528905974}
+  - {fileID: 3807800058197608808}
+  - {fileID: 913364490738362241}
+  - {fileID: -6625726554177942819}
+  - {fileID: 2278797595982874292}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: -4299211403910156363}
+  StringsBanks:
+  - {fileID: 5224647552429060751}
+  cacheTime: 638411072579790014
+  cacheVersion: 131609
+--- !u!114 &747735739539458249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/Explosion_Enemigo_Tarik
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/Explosion_Enemigo_Tarik
+  Guid:
+    Data1: -1970490573
+    Data2: 1248846862
+    Data3: -1330120295
+    Data4: 995184487
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1325
+--- !u!114 &913364490738362241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Pasos_2d/PasoConcreto1
+  m_EditorClassIdentifier: 
+  Path: event:/Pasos_2d/PasoConcreto1
+  Guid:
+    Data1: 2102092995
+    Data2: 1106421623
+    Data3: -501285246
+    Data4: -641965539
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 193
+--- !u!114 &1920841144315421462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundTrack/MusicaEntrarBoss
+  m_EditorClassIdentifier: 
+  Path: event:/SoundTrack/MusicaEntrarBoss
+  Guid:
+    Data1: 1348495108
+    Data2: 1290819327
+    Data3: 1994780351
+    Data4: 797391161
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 30000
+--- !u!114 &2278797595982874292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/Pulsador
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/Pulsador
+  Guid:
+    Data1: 2117650499
+    Data2: 1203529223
+    Data3: -589788512
+    Data4: 481850481
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9090
+--- !u!114 &2439767451437869647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Pasos_2d/PasoCesped1
+  m_EditorClassIdentifier: 
+  Path: event:/Pasos_2d/PasoCesped1
+  Guid:
+    Data1: -1474830534
+    Data2: 1339748230
+    Data3: 443259018
+    Data4: -750958987
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 440
+--- !u!114 &3525185540461040095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/Herido
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/Herido
+  Guid:
+    Data1: 1802845193
+    Data2: 1245400467
+    Data3: -779522667
+    Data4: -230565473
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 371
+--- !u!114 &3742650895790946869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundTrack/BomboTemplo
+  m_EditorClassIdentifier: 
+  Path: event:/SoundTrack/BomboTemplo
+  Guid:
+    Data1: 162469126
+    Data2: 1340656417
+    Data3: -2146322291
+    Data4: 582576459
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 72166
+--- !u!114 &3757400340528905974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/Curar
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/Curar
+  Guid:
+    Data1: -484462671
+    Data2: 1250124142
+    Data3: -493188705
+    Data4: -1992405381
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1497
+--- !u!114 &3807800058197608808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/Ataque3
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/Ataque3
+  Guid:
+    Data1: 1351180479
+    Data2: 1269192889
+    Data3: -1903044217
+    Data4: -2007022262
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 404
+--- !u!114 &4424598972076967514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/HeridoTarik
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/HeridoTarik
+  Guid:
+    Data1: -229995932
+    Data2: 1252588361
+    Data3: 293716609
+    Data4: -2067210599
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 548
+--- !u!114 &4516701327561813299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/HeridoPuppet
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/HeridoPuppet
+  Guid:
+    Data1: 1730228642
+    Data2: 1207640889
+    Data3: -965129599
+    Data4: -701384033
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 522
+--- !u!114 &4842172748953401529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3DSounds/Fire
+  m_EditorClassIdentifier: 
+  Path: event:/3DSounds/Fire
+  Guid:
+    Data1: 1802527806
+    Data2: 1291980520
+    Data3: 1325371797
+    Data4: 1826420599
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1210
+--- !u!114 &5224647552429060751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Plugins/FmodThings/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638411072579790014
+  FileSizes:
+  - Name: 
+    Value: 2088
+  Exists: 1
+--- !u!114 &5552080203861735094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/PuertaBloqueda
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/PuertaBloqueda
+  Guid:
+    Data1: 1690065265
+    Data2: 1321717154
+    Data3: 1176207019
+    Data4: 180979811
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 618
+--- !u!114 &5895880931065352626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundTrack/MusicaEntrarBoss2
+  m_EditorClassIdentifier: 
+  Path: event:/SoundTrack/MusicaEntrarBoss2
+  Guid:
+    Data1: 390849155
+    Data2: 1131092475
+    Data3: -1416816457
+    Data4: -593560351
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 38000
+--- !u!114 &6168928456993131834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Pasos_2d/PasoMetal1
+  m_EditorClassIdentifier: 
+  Path: event:/Pasos_2d/PasoMetal1
+  Guid:
+    Data1: -674141854
+    Data2: 1184636262
+    Data3: 148372884
+    Data4: -13297127
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 267
+--- !u!114 &8603140599307570984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundTrack/MusicaFondo3
+  m_EditorClassIdentifier: 
+  Path: event:/SoundTrack/MusicaFondo3
+  Guid:
+    Data1: -1765817459
+    Data2: 1084188866
+    Data3: 728148389
+    Data4: -1514036154
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 41739
+--- !u!114 &9046826749271022835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/Ataque2
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/Ataque2
+  Guid:
+    Data1: 319571475
+    Data2: 1285226076
+    Data3: 1441637019
+    Data4: -35421987
+  Banks:
+  - {fileID: -4299211403910156363}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 370

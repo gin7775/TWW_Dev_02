@@ -153,7 +153,7 @@ public class SpellScript : MonoBehaviour
             // Instancia el proyectil actual
             vfx = Instantiate(proyectiles[currentProjectileIndex], firePoint.transform.position, this.transform.rotation);
             effectSpawn = Instantiate(effectSpawnProjectile[currentMuzzleIndex], firePoint.transform.position, this.transform.rotation);
-            ControladorSonidos.Instance.EjecutarSonido(sfxShoot);
+            MiFmod.Instance.Play("SFX_2d/TirarProyectil");
 
             Destroy(vfx, 2);
             Destroy(effectSpawn, 2);

@@ -9,11 +9,11 @@ public class PlataformEffect : MonoBehaviour
     public bool switchState,colliderBlocker;
     public GameObject [] asignedPlataforms1;
     public GameObject[] asignedPlataforms2;
-    public AudioSource activeSound;
+    
 
     void Start()
     {
-        activeSound = this.GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -66,15 +66,15 @@ public class PlataformEffect : MonoBehaviour
         if (stateFunction == 1)
         {
             SwitchPlatforms();
-            activeSound.pitch = 1f;
+           
         }
         else if (stateFunction == 2)
         {
             Active();
-            activeSound.pitch = 0.6f;
+            
 
         }
-        activeSound.Play();
+        MiFmod.Instance.Play("SFX_2d/Pulsador");
     }
 
     /*
