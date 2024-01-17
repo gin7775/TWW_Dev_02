@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Happynes\SumoningStars.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Armore\CloceUpChange.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Events\TimedEvent.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\FireSound.cs" />
     <Compile Include="Assets\Scripts\Function Manager\ProyectileDamage.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Window\SplashScreenManager.cs" />
     <Compile Include="Assets\Scripts\Function Manager\PlayerDamage.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\BackgroundFilter.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\LaunchURL.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SaddieHeath.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\MiFmod.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Input\GamepadScrollEvent.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\armoreActivateBehavior.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Empresario\EmpresarioScript.cs" />
@@ -143,7 +145,6 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Window\MainPanelButton.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Puppet\Puppet.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\PanelInitUtil.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogManager.cs" />
     <Compile Include="Assets\WeaponWheelController.cs" />
     <Compile Include="Assets\Scripts\Sounds\ControladorSonidos.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Assets\Scripts\Function Manager\Input.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\ProjectileBossFinal.cs" />
     <Compile Include="Assets\Scripts\Sounds\Sound.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\FuenteFmod.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Lolazo\PlayerSustitute.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\MuerteStateMachine.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\PatrullaStateFinalBoss.cs" />
@@ -225,6 +227,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreVerticalBehavior.cs" />
     <Compile Include="Assets\BackLog\proyectile Testing\Scripts\Holder.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\AtaqueTornadoStateMachine.cs" />
+    <Compile Include="Assets\Animation\Controllers\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Sounds\SfxInstance.cs" />
     <Compile Include="Assets\Scripts\Player\SpellDamage.cs" />
     <Compile Include="Assets\BA_AnimShoot.cs" />
@@ -264,9 +267,6 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\MiFmod.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\FireSound.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\FuenteFmod.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -575,20 +575,8 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.15f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Burst.Unsafe">
-      <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil.Mdb">
-      <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil">
-      <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Cecil.Rocks">
-      <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\DOTween.dll</HintPath>
@@ -598,6 +586,18 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+      <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Mdb">
+      <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil">
+      <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+      <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.15f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -1114,21 +1114,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="AllIn1SpriteShaderAssembly.csproj">
-      <Project>{3E797E68-F3E4-02D7-4650-D551AADDBD46}</Project>
-      <Name>AllIn1SpriteShaderAssembly</Name>
-    </ProjectReference>
     <ProjectReference Include="FMODUnityResonanceEditor.csproj">
       <Project>{9C9A5996-B690-A040-F10E-E00FE3528E57}</Project>
       <Name>FMODUnityResonanceEditor</Name>
     </ProjectReference>
-    <ProjectReference Include="FMODUnity.csproj">
-      <Project>{0E33E254-39C7-4ADE-BD00-BB418B58743D}</Project>
-      <Name>FMODUnity</Name>
+    <ProjectReference Include="AllIn1SpriteShaderAssembly.csproj">
+      <Project>{3E797E68-F3E4-02D7-4650-D551AADDBD46}</Project>
+      <Name>AllIn1SpriteShaderAssembly</Name>
     </ProjectReference>
     <ProjectReference Include="FMODUnityEditor.csproj">
       <Project>{2C2C05C8-5E1F-32A6-D665-511D36FA53BB}</Project>
       <Name>FMODUnityEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnity.csproj">
+      <Project>{0E33E254-39C7-4ADE-BD00-BB418B58743D}</Project>
+      <Name>FMODUnity</Name>
     </ProjectReference>
     <ProjectReference Include="FMODUnityResonance.csproj">
       <Project>{52380A7D-79CF-C14D-158E-7C62BA335F52}</Project>

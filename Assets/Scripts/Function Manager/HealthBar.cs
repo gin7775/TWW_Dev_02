@@ -33,10 +33,7 @@ public class HealthBar : MonoBehaviour
         {
             maskImage.sprite = maskSprites[3]; // Máscara aún más dañada
         }
-        else if (currentHealth < 25 && currentHealth > 0)
-        {
-            maskImage.sprite = maskSprites[4]; // Máscara casi rota
-        }
+        
     }
 
     public void BreakMask()

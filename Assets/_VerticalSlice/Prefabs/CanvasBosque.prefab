@@ -2016,7 +2016,7 @@ RectTransform:
   - {fileID: 8595849502022978791}
   - {fileID: 7977893096933875605}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
