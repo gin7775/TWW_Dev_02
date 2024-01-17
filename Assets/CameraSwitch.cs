@@ -5,13 +5,12 @@ using UnityEngine;
 public class CameraSwitch : MonoBehaviour
 {
     [SerializeField] private Animator cinemachineAnim;
+    [SerializeField] private string enterAnimName = "CameraTrigger1"; // Nombre de animación al entrar
+    [SerializeField] private string exitAnimName = "FollowCamera"; // Nombre de animación al salir
     private EnemyLock enemyLock;
-
-    
 
     private void Start()
     {
-        // Suponiendo que EnemyLock está en el objeto con tag "Player"
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
@@ -28,9 +27,9 @@ public class CameraSwitch : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            enemyLock.cameraSwitch = true; // Activar cameraSwitch en EnemyLock
-            cinemachineAnim.Play("CameraTrigger1");
-            Debug.Log("Camera1");
+            enemyLock.cameraSwitch = true;
+            cinemachineAnim.Play(enterAnimName);
+            Debug.Log(enterAnimName);
         }
     }
 
@@ -38,8 +37,8 @@ public class CameraSwitch : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            enemyLock.cameraSwitch = false; // Desactivar cameraSwitch en EnemyLock
-            cinemachineAnim.Play("FollowCamera");
+            enemyLock.cameraSwitch = false;
+            cinemachineAnim.Play(exitAnimName);
         }
     }
 
