@@ -33,12 +33,13 @@ public class PlayerStats : MonoBehaviour
 
     public bool canMove = true;
 
-    
-
+    public bool invensible;
+    private const float InvincibilityDuration = 0.5f;
     public ParticleSystem healthParticle;
     //public GameObject healthSpawn;
     void Start()
     {
+        invensible = false;
         healLV = 1;
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         UpdateHealCountUI();
@@ -109,25 +110,38 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth = currentHealth - damage;
-        currentHealth = Mathf.Max(currentHealth, 0);
-
-        healthBar.UpdateMaskImage(currentHealth);
-        anim.SetTrigger("Hurt");
-        MiFmod.Instance.Play("SFX_2d/Herido");
-        PlayerPrefs.SetInt("Health",currentHealth);
-
-        if(currentHealth <= 0)
+        if (!invensible)
         {
-            currentHealth = 0;
-           
-            anim.SetTrigger("Death");
-            PlayerPrefs.SetInt("firstHeal", 1);
-            PlayerPrefs.DeleteKey("Health");
-            PlayerPrefs.DeleteKey("firstHeal");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            
+            currentHealth -= damage;
+            currentHealth = Mathf.Max(currentHealth, 0);
+            healthBar.UpdateMaskImage(currentHealth);
+            anim.SetTrigger("Hurt");
+            MiFmod.Instance.Play("SFX_2d/Herido");
+            PlayerPrefs.SetInt("Health", currentHealth);
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+
+                anim.SetTrigger("Death");
+                PlayerPrefs.SetInt("firstHeal", 1);
+                PlayerPrefs.DeleteKey("Health");
+                PlayerPrefs.DeleteKey("firstHeal");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            else
+            {
+                StartCoroutine(BecomeInvincibleForTime(InvincibilityDuration));
+            }
         }
+    }
+
+    
+    public IEnumerator BecomeInvincibleForTime(float time)
+    {
+        invensible = true;
+        yield return new WaitForSeconds(time);
+        invensible = false;
     }
 
     public void HealPlease()

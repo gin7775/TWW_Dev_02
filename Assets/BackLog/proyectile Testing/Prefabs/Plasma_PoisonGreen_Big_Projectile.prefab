@@ -9559,7 +9559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e2f9f1aed9671d4f845163f4a80d923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 10
   fireRate: 4
   sfxExplosion: {fileID: 0}
   hitEffect: {fileID: 1000012903210382, guid: 8b56da22c6bc71744b3a938c65d79323, type: 3}
@@ -9588,7 +9588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6414bf80a9b9b554d841879a4f2137e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 10
   bobo: 0
   boboTimer: 1.5
   startTimer: 1.5
