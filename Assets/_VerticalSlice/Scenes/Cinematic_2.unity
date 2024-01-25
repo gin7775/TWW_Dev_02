@@ -628,7 +628,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.10169192, y: -0.020920543, z: 0.009385317, w: 0.99455166}
+  m_LocalRotation: {x: -0.1016919, y: -0.020920513, z: 0.009385324, w: 0.99455166}
   m_LocalPosition: {x: 6.2220707, y: -4.60925, z: -22.458643}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1406,7 +1406,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7790698, y: 1}
+    m_SensorSize: {x: 1.7768079, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1422,7 +1422,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547271479}
-  m_LocalRotation: {x: 0.14846219, y: 0.35678834, z: -0.05754336, w: 0.9205161}
+  m_LocalRotation: {x: 0.14846222, y: 0.35678837, z: -0.057543363, w: 0.9205161}
   m_LocalPosition: {x: -10.983001, y: 7.2375965, z: -19.782337}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1877,6 +1877,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144436492009960562, guid: 6deb6082cb0d6a442bc191c35e3fbf40,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9014295320747650015, guid: 6deb6082cb0d6a442bc191c35e3fbf40,
         type: 3}
