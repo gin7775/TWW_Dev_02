@@ -35,7 +35,7 @@ public class BA_Shoot : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        armoreAgent.speed = speed;
+        armoreAgent.speed = 4;
         returnTimer = 5;
     }
 }

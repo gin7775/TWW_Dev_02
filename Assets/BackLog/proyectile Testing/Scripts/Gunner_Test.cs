@@ -10,6 +10,8 @@ public class Gunner_Test : MonoBehaviour
     public SlashShooter shooter_;
     public GameObject[] targets;
     public float slashDistance;
+    public Vector3 proyectilePos;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,15 +31,15 @@ public class Gunner_Test : MonoBehaviour
     {
         for (int i = 0; i < 10;i++)
         {
-            GameObject x = Instantiate(target, this.transform.position, Quaternion.identity);
+            GameObject x = Instantiate(target, proyectilePos, Quaternion.identity);
             targets[i] = x;
         }
 
         for(int i = 0; i < targets.Length;i++)
         {
 
-            targets[i].transform.position = new Vector3(this.transform.position.x + 2, this.transform.position.y, this.transform.position.z);
-            targets[i].transform.RotateAround(this.transform.position, new Vector3(0, 1, 0), i * 360 / targets.Length);
+            targets[i].transform.position = new Vector3(proyectilePos.x + 2, proyectilePos.y, proyectilePos.z);
+            targets[i].transform.RotateAround(proyectilePos, new Vector3(0, 1, 0), i * 360 / targets.Length);
             /*shooter_ = targets[i].GetComponent<SlashShooter>();
             shooter_.timeToFire = Time.time + 1 / shooter_.fireRate;
             shooter_.destination = new Vector3(targets[i].transform.position.x, targets[i].transform.position.y, targets[i].transform.position.z + slashDistance)  ;

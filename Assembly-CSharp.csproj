@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreDeathBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\UI\UiMenuInicial.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\CandelaProyectiles.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\BosTriger.cs" />
     <Compile Include="Assets\Scripts\Function Manager\SpellMove.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\CanvasManager.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\CandelaDeath.cs" />
@@ -267,7 +268,6 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\BosTriger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />

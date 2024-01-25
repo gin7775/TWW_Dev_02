@@ -34,7 +34,7 @@ public class BA_Block : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         armore.guardState = 1;
-        BA_Agent.speed = speedStart;
+        BA_Agent.speed = 4;
         blockTimer = 4;
     }
 
