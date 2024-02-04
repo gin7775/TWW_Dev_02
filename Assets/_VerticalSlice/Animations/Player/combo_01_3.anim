@@ -55896,7 +55896,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.7
+  - time: 0.53333336
     functionName: DisableBool
     data: 
     objectReferenceParameter: {fileID: 0}

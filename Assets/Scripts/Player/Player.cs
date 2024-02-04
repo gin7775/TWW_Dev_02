@@ -71,9 +71,10 @@ public class Player : MonoBehaviour
     EnemyLock enemyLock;
     WeaponWheelController weaponWheelController;
 
-
+    private Vector3 gravityVelocity;
     public ParticleSystem[] slash;
 
+    public float gravity = -9.81f;
     public bool IsAttacking { get; internal set; }
     public bool IsDodging { get; internal set; }
 
@@ -120,7 +121,7 @@ public class Player : MonoBehaviour
         UpdateAnimations();
         Animations();
 
-
+        ApplyGravity();
         AttackSpeed();
                
         
@@ -148,6 +149,27 @@ public class Player : MonoBehaviour
         }
        
 
+    }
+
+    private void ApplyGravity()
+    {
+        if (characterController.isGrounded && gravityVelocity.y < 0)
+        {
+            gravityVelocity.y = -2f; // Asegura que el personaje toque el suelo
+        }
+        else
+        {
+            // Aplica la gravedad al personaje si no está en el suelo
+            gravityVelocity.y += gravity * gravityMultiplier * Time.deltaTime;
+        }
+
+        characterController.Move(gravityVelocity * Time.deltaTime);
+
+        // Si el personaje está en el suelo, resetea la velocidad de gravedad para evitar acumulación
+        if (characterController.isGrounded)
+        {
+            gravityVelocity.y = 0;
+        }
     }
     private void MoveRelativeToTargetAndCamera()
     {
