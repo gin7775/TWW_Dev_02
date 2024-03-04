@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
         
         menu = GameObject.Find("UIMenu").GetComponent<PauseMenu>();
         playerInput = new PlayerInput();
-        weaponWheelController = GameObject.Find("WeaponWheel").GetComponent<WeaponWheelController>();
+        //weaponWheelController = GameObject.Find("WeaponWheel").GetComponent<WeaponWheelController>();
         comboAttackSystem = GetComponent<ComboAttackSystem>();
         spellScript = GetComponent<SpellScript>();
        
@@ -292,10 +292,10 @@ public class Player : MonoBehaviour
         {
             playerSpeed = 4.5f;
         }
-      
+
     }
 
-   
+
     public void OnHeal(InputValue input)
     {
         Debug.Log("Curaria");

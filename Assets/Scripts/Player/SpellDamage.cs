@@ -75,6 +75,17 @@ public class SpellDamage : MonoBehaviour
                 puppet.TakeDamage(25);
             }
         }
+        else if (other.tag == "Tarik")
+        {
+            Puppet puppet = other.GetComponent<Puppet>();
+
+            Debug.Log("Detecta al menos");
+
+            if (puppet != null)
+            {
+                puppet.TakeDamage(25);
+            }
+        }
         else if (other.tag == "Empresario")
         {
             EmpresarioScript puppet = other.GetComponent<EmpresarioScript>();

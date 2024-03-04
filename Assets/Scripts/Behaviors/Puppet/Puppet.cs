@@ -70,11 +70,11 @@ public class Puppet : MonoBehaviour
         MiFmod.Instance.Play("SFX_2d/HeridoPuppet");
 
         Vector3 attackDirection = (player.position - transform.position).normalized;
-    Vector3 oppositeDirection = -attackDirection;
+       Vector3 oppositeDirection = -attackDirection;
 
     // Instanciar el VFX de sangre en la dirección opuesta
       Instantiate(vfxHitEffect, vfxSpawn.transform.position, Quaternion.identity);
-      Instantiate(vfxBlood, vfxSpawnBlood.transform.position, Quaternion.LookRotation(oppositeDirection));
+      //Instantiate(vfxBlood, vfxSpawnBlood.transform.position, Quaternion.LookRotation(oppositeDirection));
         ApplyKnockback();
 
         contenedorPuppet.animPuppet.SetTrigger("Hit");
