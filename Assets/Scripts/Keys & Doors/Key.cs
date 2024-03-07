@@ -17,6 +17,7 @@ public class Key : MonoBehaviour
             keyLock = true;
             other.gameObject.GetComponent<Player>().collectedKeys++;
             Destroy(this.gameObject);
+            MiFmod.Instance.Play("SFX_2d/Key");
         }
     }
 }

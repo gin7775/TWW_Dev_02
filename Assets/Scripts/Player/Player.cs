@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
         //weaponWheelController = GameObject.Find("WeaponWheel").GetComponent<WeaponWheelController>();
         comboAttackSystem = GetComponent<ComboAttackSystem>();
         spellScript = GetComponent<SpellScript>();
-       
+      
         //animSlash = GetComponentInChildren<Animator>();
         DOTween.Init();
        
@@ -134,6 +134,8 @@ public class Player : MonoBehaviour
                 isCooldownDodge = false;
             }
         }
+
+
     }
 
    
@@ -351,7 +353,7 @@ public class Player : MonoBehaviour
             menu.GameIsPaused = true;
             if(menu.GameIsPaused == true)
             {
-
+                playerInput.Disable();
                 menu.Pause();
 
             }
@@ -359,7 +361,7 @@ public class Player : MonoBehaviour
             {
 
                 menu.Resume();
-
+                playerInput.Enable();
             }
 
         }

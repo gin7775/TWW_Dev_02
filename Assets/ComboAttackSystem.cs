@@ -87,11 +87,7 @@ public class ComboAttackSystem : MonoBehaviour
 
             animator.SetTrigger($"Attack{step}");
 
-            PlayAttackSound(step - 1);
-
-           
-        
-
+  
             // Reinicia el combo después del tercer ataque
             if (step == 3)
             {
@@ -102,14 +98,7 @@ public class ComboAttackSystem : MonoBehaviour
         }
     }
 
-    private void PlayAttackSound(int index)
-    {
-        if (attackSounds != null && attackSounds.Length > index)
-        {
-            audioSource.clip = attackSounds[index];
-            audioSource.Play();
-        }
-    }
+    
 
         public void TriggerMovement()
         {

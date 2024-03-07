@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using System.Text;
+
 
 namespace Michsky.UI.Dark
 {
@@ -61,7 +63,7 @@ namespace Michsky.UI.Dark
                 Debug.LogError("<b>[Horizontal Selector]</b> Cannot initalize the object due to missing resources.", this);
                 return;
             }
-
+            
             SetupSelector();
             UpdateContentLayout();
 
@@ -357,7 +359,7 @@ namespace Michsky.UI.Dark
                 }
             }
         }
-
+       
         public void UpdateContentLayout()
         {
             if (contentLayout != null)

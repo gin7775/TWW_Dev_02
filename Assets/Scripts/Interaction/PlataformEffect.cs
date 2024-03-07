@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlataformEffect : MonoBehaviour
 {
-   // Animator animator;
+    // Animator animator;
     public int stateFunction;
-    public bool switchState,colliderBlocker;
-    public GameObject [] asignedPlataforms1;
+    public bool switchState, colliderBlocker;
+    public GameObject[] asignedPlataforms1;
     public GameObject[] asignedPlataforms2;
-    
+    // Agrega un array con los nombres de los SFX que quieres reproducir
+    public string[] sfxNames;
+
 
     void Start()
     {
@@ -74,7 +76,12 @@ public class PlataformEffect : MonoBehaviour
             
 
         }
-        MiFmod.Instance.Play("SFX_2d/Pulsador");
+
+        if (sfxNames.Length > 0)
+        {
+            int index = Random.Range(0, sfxNames.Length); // Selecciona un índice aleatorio
+            MiFmod.Instance.Play(sfxNames[index]); // Reproduce el SFX seleccionado
+        }
     }
 
     /*
