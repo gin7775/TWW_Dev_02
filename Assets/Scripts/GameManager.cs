@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
+    public SceneInfo SceneInfo;
     public float transitionTime;
     public static GameManager gameManager;
     public GameObject[] playerSpawn;
@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         spawnIndex = 0;
+        SceneInfo = FindObjectOfType<SceneInfo>();
     }
 
     private void Awake()
@@ -61,6 +62,10 @@ public class GameManager : MonoBehaviour
 
         player.transform.position = pos.position;
 
+    }
+    public void Death()
+    {
+        SceneInfo.deathScene();
     }
 
     IEnumerator Loadlevel(int index)

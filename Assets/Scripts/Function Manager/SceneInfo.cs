@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class SceneInfo : MonoBehaviour
 {
 
-    public int sceneIndex,spawnIndex,nextIndex,sceneMusic;
-    
+    public int sceneIndex,spawnIndex,nextIndex,controlPoint,sceneMusic;
+    public int[] controlPoints;
     public GameObject[] playerSpawn;
     private SoundManager audioManager;
 
@@ -39,5 +39,11 @@ public class SceneInfo : MonoBehaviour
             GameManager.gameManager.NextScene(sceneIndex);
 
         }
+    }
+    public void deathScene()
+    {
+        nextIndex = controlPoint;
+        GameManager.gameManager.spawnIndex = nextIndex;
+        GameManager.gameManager.NextScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

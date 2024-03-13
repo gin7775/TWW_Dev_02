@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
+    public SceneInfo thisScene;
     public int healthLevel = 10;
 
     public int atFirst = 1;
@@ -43,7 +44,7 @@ public class PlayerStats : MonoBehaviour
         healLV = 1;
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         UpdateHealCountUI();
-
+        thisScene = GetComponent<SceneInfo>();
         maxHealth = SetMaxHealthFromHealthLevel();
         if (PlayerPrefs.HasKey("HealLV"))
         {
@@ -127,7 +128,8 @@ public class PlayerStats : MonoBehaviour
                 PlayerPrefs.SetInt("firstHeal", 1);
                 PlayerPrefs.DeleteKey("Health");
                 PlayerPrefs.DeleteKey("firstHeal");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                GameManager.gameManager.Death();
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
             else
             {
