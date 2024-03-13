@@ -7,7 +7,7 @@ public class SceneInfo : MonoBehaviour
 {
 
     public int sceneIndex,spawnIndex,nextIndex,controlPoint,sceneMusic;
-    public int[] controlPoints;
+    //public int[] controlPoints;
     public GameObject[] playerSpawn;
     private SoundManager audioManager;
 

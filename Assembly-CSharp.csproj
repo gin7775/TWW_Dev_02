@@ -235,6 +235,7 @@
     <Compile Include="Assets\Scripts\Player\SpellDamage.cs" />
     <Compile Include="Assets\BA_AnimShoot.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\Ballerinas.cs" />
+    <Compile Include="Assets\Scripts\Function Manager\ControlPoint.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\BattleStartCandela.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieA2.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\CortesSalvajes.cs" />
@@ -270,7 +271,6 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\Scripts\Function Manager\ControlPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />

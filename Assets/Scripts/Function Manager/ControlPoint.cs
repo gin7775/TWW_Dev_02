@@ -10,13 +10,17 @@ public class ControlPoint : MonoBehaviour
 
     private void Start()
     {
-        SceneInfo = FindObjectOfType<SceneInfo>();
+        //SceneInfo = FindObjectOfType<SceneInfo>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        SceneInfo.controlPoint = pointIndex;
-        Destroy(this.gameObject);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            SceneInfo.controlPoint = pointIndex;
+            Debug.Log("El punto de control es " + SceneInfo.controlPoint);
+            Destroy(this.gameObject, 1.3f);
+        }
+        
     }
 }
