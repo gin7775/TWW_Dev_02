@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject movementInput;
     public GameObject player;
+  
     
     void Start()
     {
@@ -27,8 +28,10 @@ public class PauseMenu : MonoBehaviour
         
         movementInput.GetComponent<Input>().enabled = true;
 
-
-        //player.gameObject.GetComponentInParent<GameObject>().SetActive(true);
+        player.GetComponent<ComboAttackSystem>().enabled = true;
+        playerInput.UI.Disable();
+        playerInput.CharacterControls.Enable();
+        playerInput.PlayerActions.Enable();
     }
 
     public void Pause()
@@ -39,9 +42,12 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
       
         movementInput.GetComponent<Input>().enabled = false;
+        playerInput.UI.Enable();
+        playerInput.CharacterControls.Disable();
+        playerInput.PlayerActions.Disable();
 
-      
-        //player.gameObject.GetComponentInParent<GameObject>().SetActive(false);
+
+
     }
 
 

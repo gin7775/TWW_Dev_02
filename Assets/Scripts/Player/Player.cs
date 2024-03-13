@@ -353,15 +353,15 @@ public class Player : MonoBehaviour
             menu.GameIsPaused = true;
             if(menu.GameIsPaused == true)
             {
-                playerInput.Disable();
+                
                 menu.Pause();
-
+                
             }
             else
             {
 
                 menu.Resume();
-                playerInput.Enable();
+               
             }
 
         }
