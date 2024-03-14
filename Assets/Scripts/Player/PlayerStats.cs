@@ -37,10 +37,12 @@ public class PlayerStats : MonoBehaviour
     public bool invensible;
     private const float InvincibilityDuration = 0.5f;
     public ParticleSystem healthParticle;
+    Player player;
     //public GameObject healthSpawn;
     void Start()
     {
         invensible = false;
+        player = GetComponent<Player>();
         healLV = 1;
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         UpdateHealCountUI();
@@ -111,7 +113,7 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (!invensible)
+        if (!invensible && !player.isDodging)
         {
             currentHealth -= damage;
             currentHealth = Mathf.Max(currentHealth, 0);

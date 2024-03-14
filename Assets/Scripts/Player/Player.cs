@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     private float dodgeTimer;
     [SerializeField] private AnimationCurve dodgeCurve;
     public ParticleSystem particleDash;
+    
 
     [Header("Spell Casting")]
     public bool spellOn;
@@ -74,6 +75,7 @@ public class Player : MonoBehaviour
 
     private Vector3 gravityVelocity;
     public ParticleSystem[] slash;
+
 
     public float gravity = -9.81f;
     public bool IsAttacking { get; internal set; }
@@ -137,6 +139,7 @@ public class Player : MonoBehaviour
         }
 
 
+        
     }
 
    
