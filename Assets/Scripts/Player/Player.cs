@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
     private PauseMenu menu;
     private PlayerInput playerInput;
     public GameObject Inventory;
+    
 
     [Header("Miscellaneous")]
     public Animator animSlash;
@@ -142,7 +143,7 @@ public class Player : MonoBehaviour
     public void OnRoll(InputValue value)
     {
                                    
-        if( comboAttackSystem.readyDash && !spellOn && !isCooldownDodge)
+        if( comboAttackSystem.readyDash && !spellOn && !isCooldownDodge && !comboAttackSystem.isOnMenu)
         {
             StartCoroutine(Dodge());
             MiFmod.Instance.Play("SFX_2d/Esquive");
@@ -301,8 +302,11 @@ public class Player : MonoBehaviour
     public void OnHeal(InputValue input)
     {
         Debug.Log("Curaria");
-       
-        combatTrade.HealPlease();
+        if (!comboAttackSystem.isOnMenu)
+        {
+            combatTrade.HealPlease();
+        }
+        
         
     }
 
@@ -351,6 +355,7 @@ public class Player : MonoBehaviour
         if (input.isPressed)
         {
             menu.GameIsPaused = true;
+            comboAttackSystem.isOnMenu = true;
             if(menu.GameIsPaused == true)
             {
                 
@@ -361,7 +366,8 @@ public class Player : MonoBehaviour
             {
 
                 menu.Resume();
-               
+                comboAttackSystem.isOnMenu = false;
+
             }
 
         }

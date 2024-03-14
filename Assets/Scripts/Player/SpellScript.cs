@@ -25,15 +25,16 @@ public class SpellScript : MonoBehaviour
     DissolveProyectile dissolveProyectile;
     private bool isDissolving = false;
     public GameObject[] projectileImages;
+    ComboAttackSystem comboAttackSystem;
     void Start()
     {
         animator = GetComponent<Animator>();
         player = GetComponent<Player>();
         enemyLock = GetComponent<EnemyLock>();
 
-       // dissolveProyectile = projectileImages[currentProjectileIndex].gameObject.GetComponent<DissolveProyectile>();
+        // dissolveProyectile = projectileImages[currentProjectileIndex].gameObject.GetComponent<DissolveProyectile>();
 
-        
+        comboAttackSystem = GetComponent<ComboAttackSystem>();
     }
 
     // Update is called once per frame
@@ -64,14 +65,14 @@ public class SpellScript : MonoBehaviour
 
     public void OnRotate(InputValue input)
     {
-        if (!isCooldown && !player.spellOn)
+        if (!isCooldown && !player.spellOn && !comboAttackSystem.isOnMenu)
         {
             animator.SetTrigger("Spell");
            
             StartCoroutine(waitInstantiate());
         }
 
-        if (player.spellOn && !player.isAttacking && !player.isDodging)
+        if (player.spellOn && !player.isAttacking && !player.isDodging && !comboAttackSystem.isOnMenu)
         {
 
             RotatePlayer();
@@ -81,17 +82,17 @@ public class SpellScript : MonoBehaviour
 
     public void OnChangeProyectile(InputValue input)
     {
-        if (isDissolving)
-            return;
+        //if (isDissolving)
+        //    return;
 
-        isDissolving = true;
+        //isDissolving = true;
        
-        if (dissolveProyectile != null)
-        {
-            dissolveProyectile.StartDissolve();
-        }
+        //if (dissolveProyectile != null)
+        //{
+        //    dissolveProyectile.StartDissolve();
+        //}
        
-        dissolveProyectile.OnDissolveComplete += HandleDissolveComplete;
+        //dissolveProyectile.OnDissolveComplete += HandleDissolveComplete;
     }
 
     private void HandleDissolveComplete()

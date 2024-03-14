@@ -28,10 +28,8 @@ public class PauseMenu : MonoBehaviour
         
         movementInput.GetComponent<Input>().enabled = true;
 
-        player.GetComponent<ComboAttackSystem>().enabled = true;
-        playerInput.UI.Disable();
-        playerInput.CharacterControls.Enable();
-        playerInput.PlayerActions.Enable();
+        player.GetComponent<ComboAttackSystem>().isOnMenu = false;
+       
     }
 
     public void Pause()
@@ -42,10 +40,8 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
       
         movementInput.GetComponent<Input>().enabled = false;
-        playerInput.UI.Enable();
-        playerInput.CharacterControls.Disable();
-        playerInput.PlayerActions.Disable();
 
+        player.GetComponent<ComboAttackSystem>().isOnMenu = true;
 
 
     }

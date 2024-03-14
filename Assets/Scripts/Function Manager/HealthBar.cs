@@ -17,7 +17,7 @@ public class HealthBar : MonoBehaviour
     public void UpdateMaskImage(int currentHealth)
     {
        
-        if (currentHealth == 100)
+        if (currentHealth >= 100)
         {
             maskImage.sprite = maskSprites[0]; // Máscara completa
         }

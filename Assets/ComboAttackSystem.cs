@@ -30,6 +30,7 @@ public class ComboAttackSystem : MonoBehaviour
     private Vector3 moveVelocity;
     private float moveTimer;
     public AnimationCurve moveCurve;
+    public bool isOnMenu = false;
     private void Awake()
     {
         DOTween.Init();
@@ -43,7 +44,7 @@ public class ComboAttackSystem : MonoBehaviour
 
     public void OnAttack(InputValue input)
     {
-        if (input.isPressed && (cooldownTimer <= 0) && !player.spellOn && !player.isDodging)
+        if (input.isPressed && (cooldownTimer <= 0) && !player.spellOn && !player.isDodging && !isOnMenu)
         {
             isAttacking = true;
             if (Time.time - lastInputTime < comboMaxDelay + gracePeriod)
