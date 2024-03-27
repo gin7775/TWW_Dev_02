@@ -30,19 +30,21 @@ public class Puppet : MonoBehaviour
     ContenedorPuppet contenedorPuppet;
 
     public Slider sliderVida;
-
-   [SerializeField] private AudioClip sfxGolpe;
+    public List<SkinnedMeshRenderer> skinnedMeshRenderers = new List<SkinnedMeshRenderer>();
+    [SerializeField] private AudioClip sfxGolpe;
 
     public float knockbackDistance = 1.5f;
     public float knockbackDuration = 0.3f; // Duración del retroceso
     public float angulo;
-    
+    public float blinkIntensity;
+    public float blinkDuration;
+    float blinkTimer;
 
     // Start is called before the first frame update
     void Start()
     {
         playerReference = GameObject.FindGameObjectWithTag("Player");
-        
+       
         cinemachineImpulseSource = this.GetComponent<CinemachineImpulseSource>();
         DOTween.Init();
         contenedorPuppet = this.GetComponent<ContenedorPuppet>();
@@ -64,7 +66,10 @@ public class Puppet : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
+        foreach (var renderer in skinnedMeshRenderers)
+        {
+            StartCoroutine(BlinkEffect(renderer));
+        }
         cinemachineImpulseSource.GenerateImpulse();
         StartCoroutine(FrameFreeze(0.1f));
         MiFmod.Instance.Play("SFX_2d/HeridoPuppet");
@@ -95,7 +100,25 @@ public class Puppet : MonoBehaviour
 
         Time.timeScale = 1f;
     }
-
+    private IEnumerator BlinkEffect(SkinnedMeshRenderer renderer)
+    {
+        float endTime = Time.time + blinkDuration;
+        while (Time.time < endTime)
+        {
+            float lerp = Mathf.Clamp01((endTime - Time.time) / blinkDuration);
+            float intensity = (lerp * blinkIntensity) + 1;
+            renderer.material.color = Color.white * intensity;
+            yield return null;
+        }
+        renderer.material.color = Color.white;
+    }
+    public void StartBlinkEffects()
+    {
+        foreach (var renderer in skinnedMeshRenderers)
+        {
+            StartCoroutine(BlinkEffect(renderer));
+        }
+    }
     private void ApplyKnockback()
     {
         Vector3 directionToPlayer = (player.position - transform.position).normalized;

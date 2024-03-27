@@ -30,8 +30,11 @@ public class EmpresarioScript : MonoBehaviour
     public Slider sliderVida;
     public float knockbackDistance = 1.5f;
     public float knockbackDuration = 0.3f; // Duración del retroceso
-   
 
+    public List<SkinnedMeshRenderer> skinnedMeshRenderers = new List<SkinnedMeshRenderer>();
+
+    public float blinkIntensity;
+    public float blinkDuration;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +66,10 @@ public class EmpresarioScript : MonoBehaviour
 
         cinemachineImpulseSource.GenerateImpulse();
         StartCoroutine(FrameFreeze(0.1f));
-
+        foreach (var renderer in skinnedMeshRenderers)
+        {
+            StartCoroutine(BlinkEffect(renderer));
+        }
 
         MiFmod.Instance.Play("SFX_2d/Herido");
         Vector3 attackDirection = (player.position - transform.position).normalized;
@@ -72,7 +78,7 @@ public class EmpresarioScript : MonoBehaviour
         // Instanciar el VFX de sangre en la dirección opuesta
         Instantiate(vfxHitEffect, vfxSpawn.transform.position, Quaternion.identity);
         Instantiate(vfxBlood, vfxSpawnBlood.transform.position, Quaternion.LookRotation(oppositeDirection));
-
+        ApplyKnockback();
         contenedorEmpresario.animEmpresario.SetTrigger("ataque");
 
         if (currentHealth <= 0)
@@ -99,5 +105,25 @@ public class EmpresarioScript : MonoBehaviour
 
         // Animar el movimiento de retroceso
         transform.DOMove(knockbackPosition, knockbackDuration).SetEase(Ease.OutExpo);
+    }
+
+    private IEnumerator BlinkEffect(SkinnedMeshRenderer renderer)
+    {
+        float endTime = Time.time + blinkDuration;
+        while (Time.time < endTime)
+        {
+            float lerp = Mathf.Clamp01((endTime - Time.time) / blinkDuration);
+            float intensity = (lerp * blinkIntensity) + 1;
+            renderer.material.color = Color.white * intensity;
+            yield return null;
+        }
+        renderer.material.color = Color.white;
+    }
+    public void StartBlinkEffects()
+    {
+        foreach (var renderer in skinnedMeshRenderers)
+        {
+            StartCoroutine(BlinkEffect(renderer));
+        }
     }
 }

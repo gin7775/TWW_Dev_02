@@ -38,11 +38,19 @@ public class PlayerStats : MonoBehaviour
     private const float InvincibilityDuration = 0.5f;
     public ParticleSystem healthParticle;
     Player player;
+
+    public float blinkIntensity;
+    public float blinkDuration;
+    float blinkTimer;
+   
+    public List<SkinnedMeshRenderer> skinnedMeshRenderers = new List<SkinnedMeshRenderer>();
+
     //public GameObject healthSpawn;
     void Start()
     {
         invensible = false;
         player = GetComponent<Player>();
+       
         healLV = 1;
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         UpdateHealCountUI();
@@ -96,11 +104,29 @@ public class PlayerStats : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-
+    public void StartBlinkEffects()
+    {
+        foreach (var renderer in skinnedMeshRenderers)
+        {
+            StartCoroutine(BlinkEffect(renderer));
+        }
+    }
     // Update is called once per frame
     void Update()
     {
        
+    }
+    private IEnumerator BlinkEffect(SkinnedMeshRenderer renderer)
+    {
+        float endTime = Time.time + blinkDuration;
+        while (Time.time < endTime)
+        {
+            float lerp = Mathf.Clamp01((endTime - Time.time) / blinkDuration);
+            float intensity = (lerp * blinkIntensity) + 1;
+            renderer.material.color = Color.white * intensity;
+            yield return null;
+        }
+        renderer.material.color = Color.white;
     }
 
     private int SetMaxHealthFromHealthLevel()
@@ -116,12 +142,16 @@ public class PlayerStats : MonoBehaviour
         if (!invensible && !player.isDodging)
         {
             currentHealth -= damage;
+            foreach (var renderer in skinnedMeshRenderers)
+            {
+                StartCoroutine(BlinkEffect(renderer));
+            }
             currentHealth = Mathf.Max(currentHealth, 0);
             healthBar.UpdateMaskImage(currentHealth);
             anim.SetTrigger("Hurt");
             MiFmod.Instance.Play("SFX_2d/Herido");
             PlayerPrefs.SetInt("Health", currentHealth);
-
+            blinkTimer = blinkDuration;
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
