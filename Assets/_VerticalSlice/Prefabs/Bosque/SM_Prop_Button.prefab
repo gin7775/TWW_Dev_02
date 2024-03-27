@@ -164,8 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateFunction: 1
-  switchState: 0
-  colliderBlocker: 0
   asignedPlataforms1:
   - {fileID: 0}
   asignedPlataforms2: []
@@ -173,3 +171,7 @@ MonoBehaviour:
   - SFX_2d/Pulsador
   - SFX_2d/Pulsador2
   - SFX_2d/Pulsador3
+  switchState: 0
+  colliderBlocker: 0
+  emissiveRenderers:
+  - {fileID: 7544662035091426515}

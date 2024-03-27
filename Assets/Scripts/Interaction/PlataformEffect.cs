@@ -4,109 +4,98 @@ using UnityEngine;
 
 public class PlataformEffect : MonoBehaviour
 {
-    // Animator animator;
     public int stateFunction;
-    public bool switchState, colliderBlocker;
     public GameObject[] asignedPlataforms1;
     public GameObject[] asignedPlataforms2;
-    // Agrega un array con los nombres de los SFX que quieres reproducir
-    public string[] sfxNames;
-
-
+    public string[] sfxNames; // Array con los nombres de los SFX
+    public bool switchState, colliderBlocker; // switchState controla el estado actual, colliderBlocker previene más activaciones
+    public Renderer[] emissiveRenderers;
     void Start()
     {
-        
+        // Opcionalmente, puedes inicializar algo aquí
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Si necesitas chequear algo cada frame, harías aquí
     }
 
-    public void SwitchPlatforms()
-    {
-        if (switchState == false)
-        {
-            for (int i = 0; i < asignedPlataforms1.Length; i++)
-            {
-                asignedPlataforms1[i].GetComponent<Animator>().SetTrigger("Active");
-            }
-            for (int i = 0; i < asignedPlataforms2.Length; i++)
-            {
-                asignedPlataforms1[i].GetComponent<Animator>().SetTrigger("InActive");
-            }
-            switchState = true;
-
-        }
-        else
-        {
-            for (int i = 0; i < asignedPlataforms1.Length; i++)
-            {
-                asignedPlataforms1[i].GetComponent<Animator>().SetTrigger("InActive");
-            }
-            for (int i = 0; i < asignedPlataforms2.Length; i++)
-            {
-                asignedPlataforms1[i].GetComponent<Animator>().SetTrigger("Active");
-            }
-            switchState = false;
-        }
-        
-
-    }
-    public void Active()
-    {
-        for (int i = 0; i < asignedPlataforms1.Length; i++)
-        {
-            asignedPlataforms1[i].GetComponent<Animator>().SetTrigger("Active");
-        }
-        
-    }
     public void TriggerPlataforms()
     {
+        // Si el collider ya fue bloqueado, no hacer nada
+        if (colliderBlocker) return;
 
         if (stateFunction == 1)
         {
             SwitchPlatforms();
-           
         }
         else if (stateFunction == 2)
         {
             Active();
-            
-
         }
 
+        // Reproducir un SFX aleatorio si hay alguno asignado
         if (sfxNames.Length > 0)
         {
-            int index = Random.Range(0, sfxNames.Length); // Selecciona un índice aleatorio
-            MiFmod.Instance.Play(sfxNames[index]); // Reproduce el SFX seleccionado
+            int index = Random.Range(0, sfxNames.Length);
+            MiFmod.Instance.Play(sfxNames[index]);
+        }
+
+        // Después de la primera activación, prevenir futuras activaciones
+        colliderBlocker = true;
+
+        // Apaga el material emisivo para los objetos asignados
+        TurnOffEmissiveMaterial(1);
+    }
+
+    public void SwitchPlatforms()
+    {
+        if (!switchState)
+        {
+            foreach (GameObject platform in asignedPlataforms1)
+            {
+                platform.GetComponent<Animator>().SetTrigger("Active");
+            }
+            foreach (GameObject platform in asignedPlataforms2)
+            {
+                platform.GetComponent<Animator>().SetTrigger("Inactive");
+            }
+            switchState = true;
+        }
+        else
+        {
+            foreach (GameObject platform in asignedPlataforms1)
+            {
+                platform.GetComponent<Animator>().SetTrigger("Inactive");
+            }
+            foreach (GameObject platform in asignedPlataforms2)
+            {
+                platform.GetComponent<Animator>().SetTrigger("Active");
+            }
+            switchState = false;
         }
     }
 
-    /*
-    public void plataformEffect()
+    public void Active()
     {
-        GameObject.FindGameObjectWithTag("Plataform").GetComponent<Animator>().SetBool("Effect", true);
-
-
+        foreach (GameObject platform in asignedPlataforms1)
+        {
+            platform.GetComponent<Animator>().SetTrigger("Active");
+        }
     }
-    public void plataformEffect1()
+
+    // Método para apagar el material emisivo
+    public void TurnOffEmissiveMaterial(int materialIndex)
     {
-        GameObject.Find("Plataform1").GetComponent<Animator>().SetBool("Effect1", true);
-
-
+        foreach (Renderer rend in emissiveRenderers)
+        {
+            if (rend != null && rend.materials.Length > materialIndex && rend.materials[materialIndex].HasProperty("_EmissionColor"))
+            {
+                Material[] mats = rend.materials; // Obtén todos los materiales
+                mats[materialIndex].SetColor("_EmissionColor", Color.red); // Modifica el color emisivo del material específico
+                rend.materials = mats; // Reasigna el array de materiales modificado al renderer
+            }
+        }
     }
-    public void plataformEffect2()
-    {
-        GameObject.Find("Plataform2").GetComponent<Animator>().SetBool("Effect2", true);
-
-
-    }
-    public void plataformEffect3()
-    {
-        GameObject.Find("Plataform3").GetComponent<Animator>().SetBool("Effect3", true);
-
-
-    }*/
+    
 }
