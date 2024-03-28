@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7685432183444360662}
   - component: {fileID: 7685432183444360657}
   - component: {fileID: 8411128857908234130}
+  - component: {fileID: 4176785107194413410}
   m_Layer: 11
   m_Name: RogueEnemy 1
   m_TagString: Empresario
@@ -160,6 +161,7 @@ MonoBehaviour:
     type: 3}
   vfxSpawn: {fileID: 3829397981974454295}
   vfxSpawnBlood: {fileID: 7685432183832604526}
+  healthBarCanvas: {fileID: 3829397981887144780}
   vfxBlood: {fileID: 3494938215533653876, guid: 11cc1dced0594854f84375d2219fe0c4,
     type: 3}
   sfxHit: {fileID: 8300000, guid: d5f41be1ce3ee2d4a82d9a5881168c37, type: 3}
@@ -235,6 +237,19 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0, y: 0.3, z: 0}
+--- !u!114 &4176785107194413410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2166925195365311340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fb15303a8f82947857c3d5005ab416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarCanvas: {fileID: 3829397981887144780}
 --- !u!1 &3829397980155789519
 GameObject:
   m_ObjectHideFlags: 0

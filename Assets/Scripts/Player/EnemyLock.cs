@@ -29,9 +29,11 @@ public class EnemyLock : MonoBehaviour
     public float rotationSpeed = 50;
 
     public bool cameraSwitch = false;
-
+    private Transform previousTarget = null;
     public Vector3 offset;
     [SerializeField]  private Animator cinemachineAnim;
+
+    Puppet puppet;
     private void Awake()
     {
      
@@ -40,6 +42,7 @@ public class EnemyLock : MonoBehaviour
     private void Start()
     {
         changeCamera = GameObject.Find("TargetGroup1").GetComponent<ChangeCamera>();
+      
     }
 
 
@@ -56,6 +59,7 @@ public class EnemyLock : MonoBehaviour
             cinemachineAnim.Play("FollowCamera");
             markingObject.SetActive(false);
             
+
         }
         if (availableTargets.Length == 0 && cameraSwitch == false)
         {
@@ -71,10 +75,39 @@ public class EnemyLock : MonoBehaviour
             if (currentTarget != null)
             {
                 markingObject.SetActive(true);
+                
                 markingObject.transform.position = mainCamera.WorldToScreenPoint(currentTarget.transform.position + offset);
+
             }
-           
+            if (previousTarget != currentTarget)
+            {
+                if (previousTarget != null)
+                {
+                    // Desactiva la barra de vida del objetivo previo.
+                    var healthManager = previousTarget.GetComponent<EnemyHealthBarManager>();
+                    if (healthManager != null)
+                        healthManager.DeactivateHealthBar();
+                }
+                if (currentTarget != null)
+                {
+                    // Activa la barra de vida del nuevo objetivo.
+                    var healthManager = currentTarget.GetComponent<EnemyHealthBarManager>();
+                    if (healthManager != null)
+                        healthManager.ActivateHealthBar();
+                }
+                previousTarget = currentTarget;
+            }
         }
+        else
+        {
+            if (previousTarget != null)
+            {
+                var healthManager = previousTarget.GetComponent<EnemyHealthBarManager>();
+                healthManager.DeactivateHealthBar();
+                previousTarget = null;
+            }
+        }
+       
 
         if (isLockOnMode && currentTarget != null)
         {
@@ -150,7 +183,7 @@ public class EnemyLock : MonoBehaviour
         UnlockTarget();         //Se llama a UnlockTarget() primero para asegurarse de que cualquier objetivo anterior se desbloquee.
         isLockOnMode = true;
         currentTarget = target;
-        
+
        
 
         if (currentTarget != null)
@@ -170,7 +203,7 @@ public class EnemyLock : MonoBehaviour
 
             isLockOnMode = false;
             currentTarget = null;
-
+           
             markingObject.SetActive(false);
         }
     }

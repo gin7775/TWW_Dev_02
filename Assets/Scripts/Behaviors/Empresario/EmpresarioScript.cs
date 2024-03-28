@@ -19,7 +19,7 @@ public class EmpresarioScript : MonoBehaviour
 
     public GameObject vfxSpawn;
     public GameObject vfxSpawnBlood;
-
+    public GameObject healthBarCanvas;
     public GameObject vfxBlood;
     private CinemachineImpulseSource cinemachineImpulseSource;
 
@@ -41,7 +41,7 @@ public class EmpresarioScript : MonoBehaviour
         playerReference = GameObject.FindGameObjectWithTag("Player");
         DOTween.Init();
         cinemachineImpulseSource = this.GetComponent<CinemachineImpulseSource>();
-        
+        StartCoroutine(UpdateSliderOrientation());
         contenedorEmpresario = this.GetComponent<ContenedorEmpresario>();
         player = playerReference.transform;
     }
@@ -126,4 +126,20 @@ public class EmpresarioScript : MonoBehaviour
             StartCoroutine(BlinkEffect(renderer));
         }
     }
+
+    IEnumerator UpdateSliderOrientation()
+    {
+        while (true)
+        {
+            // Copia la rotación de la cámara, pero mantiene el `Slider` orientado horizontalmente respecto al suelo.
+            Quaternion cameraRotation = Camera.main.transform.rotation;
+            cameraRotation.x = 0; // Neutraliza la rotación en X
+            cameraRotation.z = 0; // Neutraliza la rotación en Z
+
+            sliderVida.transform.rotation = cameraRotation;
+
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
 }

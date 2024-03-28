@@ -29,6 +29,8 @@ public class Puppet : MonoBehaviour
 
     ContenedorPuppet contenedorPuppet;
 
+    public GameObject healthBarCanvas;
+
     public Slider sliderVida;
     public List<SkinnedMeshRenderer> skinnedMeshRenderers = new List<SkinnedMeshRenderer>();
     [SerializeField] private AudioClip sfxGolpe;
@@ -44,7 +46,7 @@ public class Puppet : MonoBehaviour
     void Start()
     {
         playerReference = GameObject.FindGameObjectWithTag("Player");
-       
+        StartCoroutine(UpdateSliderOrientation());
         cinemachineImpulseSource = this.GetComponent<CinemachineImpulseSource>();
         DOTween.Init();
         contenedorPuppet = this.GetComponent<ContenedorPuppet>();
@@ -127,5 +129,20 @@ public class Puppet : MonoBehaviour
         // Animar el movimiento de retroceso
         transform.DOMove(knockbackPosition, knockbackDuration).SetEase(Ease.OutExpo); 
     }
+    IEnumerator UpdateSliderOrientation()
+    {
+        while (true)
+        {
+            // Copia la rotación de la cámara, pero mantiene el `Slider` orientado horizontalmente respecto al suelo.
+            Quaternion cameraRotation = Camera.main.transform.rotation;
+            cameraRotation.x = 0; // Neutraliza la rotación en X
+            cameraRotation.z = 0; // Neutraliza la rotación en Z
 
+            sliderVida.transform.rotation = cameraRotation;
+
+            yield return new WaitForSeconds(0.01f); 
+        }
+    }
+
+   
 }
