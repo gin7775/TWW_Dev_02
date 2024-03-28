@@ -226,6 +226,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\SwitchManager.cs" />
     <Compile Include="Assets\Scripts\Player\TakeWeapon.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreVerticalBehavior.cs" />
+    <Compile Include="Assets\EnemyHealthBarManager.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\SettingsController.cs" />
     <Compile Include="Assets\BackLog\proyectile Testing\Scripts\Holder.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\AtaqueTornadoStateMachine.cs" />
@@ -271,7 +272,6 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\EnemyHealthBarManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
