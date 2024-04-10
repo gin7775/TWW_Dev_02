@@ -34,7 +34,7 @@ public class ArmoreBoss : MonoBehaviour
 // Update is called once per frame
  void Update()
  {
-   // slider.value = currentHealth;
+    slider.value = currentHealth;
  }
  public void TakeDamage(int damage)
  {
