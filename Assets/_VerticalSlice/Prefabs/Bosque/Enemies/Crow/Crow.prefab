@@ -140,7 +140,7 @@ MonoBehaviour:
   crowSkull: {fileID: 7907578694503546103}
   player: {fileID: 0}
   crowHolder: {fileID: 0}
-  animationCrow: {fileID: 0}
+  animationCrow: {fileID: 808840590249087301}
   IAanimator: {fileID: 0}
   directorIA: {fileID: 0}
 --- !u!95 &7602600263200585978

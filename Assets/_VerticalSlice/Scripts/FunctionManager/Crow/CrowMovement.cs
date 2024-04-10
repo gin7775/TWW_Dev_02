@@ -22,8 +22,8 @@ public class CrowMovement : MonoBehaviour
     {
         index = 0;
         currentTarget = targets[index];
+        IAanimator = this.gameObject.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
-       
         
 
     }
