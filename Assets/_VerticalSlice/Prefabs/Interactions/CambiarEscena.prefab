@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6407875102708017484
 BoxCollider:
@@ -58,4 +58,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46de06a0b3508c14eb5fe071ed5eb338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 1
+  endTest: 1
+  sceneIndex: 3
+  spawnIndex: 0
+  nextIndex: 0
+  controlPoint: 0
+  sceneMusic: 1
+  playerSpawn:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  TestText: {fileID: 0}

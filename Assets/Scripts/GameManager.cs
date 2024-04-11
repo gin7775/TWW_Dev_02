@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] playerSpawn;
     private GameObject player;
     public int spawnIndex;
-    private Animator fader;
+    public Animator fader;
 
     void Start()
     {

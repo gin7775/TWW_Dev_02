@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_VerticalSlice/Scenes/BosqueTutorial.unity
     guid: afda642deb8c56346a52ba8e4bedd25f
-  - enabled: 1
+  - enabled: 0
     path: Assets/_VerticalSlice/Scenes/BosqueTutorial 2.unity
     guid: 83001d264457b6c4eb3141ebeeb20879
   - enabled: 0
