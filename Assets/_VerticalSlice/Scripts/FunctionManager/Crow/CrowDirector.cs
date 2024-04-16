@@ -22,7 +22,7 @@ public class CrowDirector : MonoBehaviour
         {
             if (Random.Range(0, 2) >= 1)
             {
-                maskChange();
+                MaskChange();
             }
             maskTimer = Random.Range(5f, 9f);
         }
@@ -35,14 +35,19 @@ public class CrowDirector : MonoBehaviour
             crowsPack[i].GetComponent<CrowMovement>().IAMoveCall();
         }
     }
-    public void maskChange()
+    public void MaskChange()
     {
         crowIndex = Random.Range(0, crowsPack.Length);//Revisar el valor excluido
         if (crowsPack[crowIndex] != null)
         {
 
           crowSkull.transform.position = crowsPack[crowIndex].transform.position;
+            crowSkull.GetComponent<SkullDamage>().atatchedCrow = crowsPack[crowIndex];
 
+        }
+        else
+        {
+            MaskChange();
         }
 
     }

@@ -22,6 +22,7 @@ public class SkullDamage : MonoBehaviour
     { 
     
         atatchedCrow.GetComponent<Animator>().SetTrigger("Muerte");
+        directorIa.MaskChange();
 
        // colocar al final de la animacion de muerte del cuervo directorIa.maskChange();
     

@@ -257,6 +257,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\UIParticleRenderer.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\FunctionManager\Crow\CrowMovement.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\FunctionManager\VideoPlayer\Cinematic_1.cs" />
     <Compile Include="Assets\TarikProyectile.cs" />
     <Compile Include="Assets\BA_HorizontalAtack.cs" />
     <Compile Include="Assets\VFX\Slash\SlashShooter.cs" />
@@ -274,7 +275,6 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetNavigation.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\FunctionManager\VideoPlayer\Cinematic_1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
