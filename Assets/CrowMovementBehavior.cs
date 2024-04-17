@@ -13,6 +13,8 @@ public class CrowMovementBehavior : StateMachineBehaviour
         crow = animator.gameObject.GetComponent<CrowMovement>();
         crowSkull = crow.crowSkull;
         player = crow.player;
+        animation = crow.animationCrow;
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

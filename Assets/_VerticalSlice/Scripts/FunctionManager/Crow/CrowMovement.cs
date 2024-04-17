@@ -10,7 +10,7 @@ public class CrowMovement : MonoBehaviour
     public float[] targetPositions = { 0,0,0,2,3};
     public float[] newPositions = { 0, 0, 0 ,2,3};
     public float[] positions = { 0, 0, 0, 2, 3 };
-    public float speed;
+    public float speed,activateDistance;
     public float posX,posY,posZ;
     public int index;
     public GameObject crowSkull,player,crowHolder;

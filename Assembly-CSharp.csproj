@@ -71,9 +71,9 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Window\SplashScreenManager.cs" />
     <Compile Include="Assets\Scripts\Function Manager\PlayerDamage.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\PerseguirStateFinalBoss.cs" />
-    <Compile Include="Assets\BA_AnimSmash.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_AnimSmash.cs" />
     <Compile Include="Assets\Imported\Invector\Footstep System\Scripts\Utils\vFootstepContainer.cs" />
-    <Compile Include="Assets\BA_Return.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_Return.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetHitMe.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\ButtonAnimationFix.cs" />
@@ -133,7 +133,7 @@
     <Compile Include="Assets\_VerticalSlice\Scripts\UI\SetQuality.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\DropdownManager.cs" />
     <Compile Include="Assets\Scripts\Interaction\GrassPosition.cs" />
-    <Compile Include="Assets\BA_Shoot.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_Shoot.cs" />
     <Compile Include="Assets\AtaqueTarik.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\HappyParamet.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\Saddie.cs" />
@@ -149,14 +149,14 @@
     <Compile Include="Assets\Scripts\Dialog\DialogManager.cs" />
     <Compile Include="Assets\WeaponWheelController.cs" />
     <Compile Include="Assets\Scripts\Sounds\ControladorSonidos.cs" />
-    <Compile Include="Assets\BA_AnimShield.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_AnimShield.cs" />
     <Compile Include="Assets\Scripts\Interaction\PlataformEffect.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\DanceC.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\FunctionManager\Crow\CrowDirector.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\Leave.cs" />
-    <Compile Include="Assets\BA_AnimationEvent.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_AnimationEvent.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Editor Handlers\DarkUIEditorHandler.cs" />
     <Compile Include="Assets\SaltarScript.cs" />
     <Compile Include="Assets\Imported\Invector\Footstep System\Scripts\vAudioSurfaceControl.cs" />
@@ -194,7 +194,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManager.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
-    <Compile Include="Assets\BA_Block.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_Block.cs" />
     <Compile Include="Assets\Scripts\Traps\LaserScript.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\EditorDemoPositionFix.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
@@ -205,7 +205,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\UIDissolveEffect.cs" />
     <Compile Include="Assets\BackLog\proyectile Testing\Scripts\Gunner_Test.cs" />
     <Compile Include="Assets\AttackRogue.cs" />
-    <Compile Include="Assets\BA_AnimSwipe.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_AnimSwipe.cs" />
     <Compile Include="Assets\Scripts\Sounds\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\AnimationEvent.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieA1.cs" />
@@ -219,8 +219,8 @@
     <Compile Include="Assets\Scripts\Keys &amp; Doors\Key.cs" />
     <Compile Include="Assets\Imported\Invector\Footstep System\Scripts\vFootstepTrigger.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\CenterProyectile.cs" />
-    <Compile Include="Assets\BA_HitMe.cs" />
-    <Compile Include="Assets\BA_VerticalAtack.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_HitMe.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_VerticalAtack.cs" />
     <Compile Include="Assets\Scripts\Interaction\Interaction.cs" />
     <Compile Include="Assets\Imported\Invector\Footstep System\Scripts\vFootstepMaterialHandler.cs" />
     <Compile Include="Assets\Scripts\Sounds\SfxHolder.cs" />
@@ -235,7 +235,7 @@
     <Compile Include="Assets\_VerticalSlice\Scripts\UI\TriggersTutorial.cs" />
     <Compile Include="Assets\Scripts\Sounds\SfxInstance.cs" />
     <Compile Include="Assets\Scripts\Player\SpellDamage.cs" />
-    <Compile Include="Assets\BA_AnimShoot.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_AnimShoot.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\Ballerinas.cs" />
     <Compile Include="Assets\Scripts\Function Manager\ControlPoint.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\BattleStartCandela.cs" />
@@ -249,7 +249,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Events\PointerEnterEvents.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManagerBackground.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\Hitted.cs" />
-    <Compile Include="Assets\BosArmoreChoice.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Armore\BosArmoreChoice.cs" />
     <Compile Include="Assets\Imported\Invector\Footstep System\Scripts\vAudioSurface.cs" />
     <Compile Include="Assets\CrowMovementBehavior.cs" />
     <Compile Include="Assets\TarikEnemy.cs" />
@@ -259,7 +259,7 @@
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\FunctionManager\VideoPlayer\Cinematic_1.cs" />
     <Compile Include="Assets\TarikProyectile.cs" />
-    <Compile Include="Assets\BA_HorizontalAtack.cs" />
+    <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_HorizontalAtack.cs" />
     <Compile Include="Assets\VFX\Slash\SlashShooter.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHealBehavior.cs" />
     <Compile Include="Assets\PatrullaTarik.cs" />
