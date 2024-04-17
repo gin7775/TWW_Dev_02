@@ -57,7 +57,7 @@ public class CrowMovement : MonoBehaviour
         transform.position = new Vector3(posX, posY, posZ);
         if (Vector3.Distance(transform.position, currentTarget.position) <= 1)
         {
-            IAShoot();
+            IAChoice();
             index++;
 
         }
@@ -82,7 +82,13 @@ public class CrowMovement : MonoBehaviour
         IAanimator.SetTrigger("Shoot");
 
       }
-      public void CrowShoot()
+    public void IAChoice()
+    {
+
+        IAanimator.SetTrigger("Chooce");
+
+    }
+    public void CrowShoot()
       {
         GameObject toInstanciate = Instantiate(crowHolder, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity);
         toInstanciate.GetComponent<Holder>().SetGun(1, 0.01f, 5, true);
