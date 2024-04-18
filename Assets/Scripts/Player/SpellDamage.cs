@@ -77,13 +77,13 @@ public class SpellDamage : MonoBehaviour
         }
         else if (other.tag == "Tarik")
         {
-            Puppet puppet = other.GetComponent<Puppet>();
+            TarikEnemy tarikEnemy = other.GetComponent<TarikEnemy>();
 
             Debug.Log("Detecta al menos");
 
-            if (puppet != null)
+            if (tarikEnemy != null)
             {
-                puppet.TakeDamage(25);
+                tarikEnemy.TakeDamage(25);
             }
         }
         else if (other.tag == "Empresario")
