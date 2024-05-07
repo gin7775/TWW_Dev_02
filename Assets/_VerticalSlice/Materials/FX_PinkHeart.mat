@@ -255,7 +255,7 @@ Material:
     - _Reflection_Tint: {r: 399.8183, g: 399.8183, b: 399.8183, a: 0}
     - _RefractionTint: {r: 170.89003, g: 170.89003, b: 170.89003, a: 0}
     - _Refraction_Intensity_Tint: {r: 2.4144738, g: 0, b: 0, a: 1}
-    - _Refraction_Tint: {r: 24.988638, g: 8.455143, b: 0, a: 0}
+    - _Refraction_Tint: {r: 0.8944319, g: 24.988638, b: 0, a: 0}
     - _Tranlucense_Center: {r: 1, g: 0.24056602, b: 0.9006271, a: 0}
     - _Tranlucense_Edge: {r: 1, g: 0, b: 0.6114955, a: 0}
     - _Translucense_Center: {r: 4, g: 1.0039216, b: 1.4745098, a: 0}

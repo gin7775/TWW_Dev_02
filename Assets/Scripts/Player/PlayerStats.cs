@@ -217,6 +217,7 @@ public class PlayerStats : MonoBehaviour
     {
         healLV++;
         healInstances++;
+        UpdateHealCountUI();
         PlayerPrefs.SetInt("HealLV",healLV);
         Debug.Log("Tiene de instancias" + PlayerPrefs.GetInt("HealLV"));
 
