@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4141835255787701196}
   - component: {fileID: 8364470380938645899}
+  - component: {fileID: 138127616}
   m_Layer: 0
   m_Name: Hld_frostSmash
   m_TagString: Untagged
@@ -48,8 +49,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c216a2cd200b12f46a92fb31023df190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circleProyectile: {fileID: 9123784617035225194, guid: ef8fc017c54376343ac54b4a3cf1a200,
+    type: 3}
+  circleNumberMax: 5
+  circleCount: 0
+  circles: []
   Player: {fileID: 0}
   Guns: []
+  needPlayer: 0
+--- !u!95 &138127616
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141835255787701197}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a25b664147a4cd0448338789e64e4b49, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4141835255848191945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78,6 +105,16 @@ PrefabInstance:
       propertyPath: toPlayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 327987903732378958, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
+      propertyPath: cantShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372435996710213996, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
       propertyPath: m_RootOrder
@@ -86,7 +123,7 @@ PrefabInstance:
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
@@ -96,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
@@ -185,6 +222,16 @@ PrefabInstance:
       propertyPath: toPlayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 327987903732378958, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
+      propertyPath: cantShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372435996710213996, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
       propertyPath: m_RootOrder
@@ -193,7 +240,7 @@ PrefabInstance:
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
@@ -287,6 +334,16 @@ PrefabInstance:
       propertyPath: fireRate
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 327987903732378958, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
+      propertyPath: cantShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372435996710213996, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
       propertyPath: m_RootOrder
@@ -295,7 +352,7 @@ PrefabInstance:
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.71
       objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
@@ -305,7 +362,7 @@ PrefabInstance:
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
@@ -389,6 +446,16 @@ PrefabInstance:
       propertyPath: fireRate
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 327987903732378958, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
+      propertyPath: cantShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372435996710213996, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
       propertyPath: m_RootOrder
@@ -407,7 +474,7 @@ PrefabInstance:
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.56
       objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}

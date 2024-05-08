@@ -100,7 +100,7 @@ public class ArmoreBoss : MonoBehaviour
     public void SecodFace()
     {
         armoreAnimScript = animArmore.gameObject.GetComponent<BA_AnimationEvent>();
-        armoreAnimScript.holderProyectile1
+        armoreAnimScript.holderProyectile1 = Holder_2;
     }
  //Metodos de cambio de estado necesarios
  public void AnimArmoreWalk(int value)
