@@ -105,6 +105,8 @@ public class Player : MonoBehaviour
        
         Keyframe dodgeLastFrame = dodgeCurve[dodgeCurve.length - 1];   
         dodgeTimer = dodgeLastFrame.time;
+        cooldownTimerDodge = 0.5f;
+
     }
     void Update()
     {
