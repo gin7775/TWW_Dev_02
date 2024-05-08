@@ -12,6 +12,7 @@ public class Gun_Test : MonoBehaviour
     public float speed = 3;
     public Rigidbody rb;
     public bool toPlayer;
+    public bool cantShoot;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -20,15 +21,20 @@ public class Gun_Test : MonoBehaviour
 
     IEnumerator Shooting()
     {
-        if (toPlayer == true)
+        if (cantShoot == false)
         {
-            transform.LookAt(player.transform.position);
+            if (toPlayer == true)
+            {
+                transform.LookAt(player.transform.position);
+            }
+            GameObject x = Instantiate(projectile, this.transform.position, Quaternion.identity);
+            rb = x.GetComponent<Rigidbody>();
+            localReference = this.transform.forward;
+            rb.AddForce(localReference * speed, ForceMode.VelocityChange);
+            shoots--;
+            Debug.Log("Dispara");
         }
-        GameObject x = Instantiate(projectile,this.transform.position,Quaternion.identity);
-        rb = x.GetComponent<Rigidbody>();
-        localReference = this.transform.forward;
-        rb.AddForce(localReference * speed, ForceMode.VelocityChange);
-        shoots--;
+        
         yield return new WaitForSeconds(fireRate);
         if(shoots > 0)
         {
@@ -39,4 +45,5 @@ public class Gun_Test : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    
 }

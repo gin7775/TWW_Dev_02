@@ -11,7 +11,7 @@ public class ArmoreBoss : MonoBehaviour
  public Animator iaArmore, animArmore;
  public int guardState;
  public GameObject player, Holder_1, Holder_2;
-
+    public BA_AnimationEvent armoreAnimScript;   
 
  public GameObject vfxHitEffect;
 
@@ -46,6 +46,11 @@ public class ArmoreBoss : MonoBehaviour
 
         Instantiate(vfxHitEffect, vfxSpawn.transform.position, Quaternion.identity);
         currentHealth -= damage;
+
+            if (currentHealth <= maxHealth/2)
+            {
+                SecodFace();
+            }
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -92,6 +97,11 @@ public class ArmoreBoss : MonoBehaviour
 
     Time.timeScale = 1f;
  }
+    public void SecodFace()
+    {
+        armoreAnimScript = animArmore.gameObject.GetComponent<BA_AnimationEvent>();
+
+    }
  //Metodos de cambio de estado necesarios
  public void AnimArmoreWalk(int value)
  {
