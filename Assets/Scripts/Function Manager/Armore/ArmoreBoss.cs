@@ -23,9 +23,12 @@ public class ArmoreBoss : MonoBehaviour
 
  private CinemachineImpulseSource cinemachineImpulseSource;
 
+    public bool secondFaceNow;
+
 // Start is called before the first frame update
  void Start()
  {
+        secondFaceNow = false;
     guardState = 1;
     player = GameObject.FindGameObjectWithTag("Player");
     cinemachineImpulseSource = this.GetComponent<CinemachineImpulseSource>();
@@ -101,6 +104,7 @@ public class ArmoreBoss : MonoBehaviour
     {
         armoreAnimScript = animArmore.gameObject.GetComponent<BA_AnimationEvent>();
         armoreAnimScript.holderProyectile1 = Holder_2;
+        secondFaceNow = true;
     }
  //Metodos de cambio de estado necesarios
  public void AnimArmoreWalk(int value)
