@@ -22,7 +22,7 @@ public class EnemyLock : MonoBehaviour
     public bool isLockOnMode = false;
     
     private float scrollValue;
-    ColliderBoss colliderBoss;
+   
     public InputActionReference inputLock;
 
     public GameObject targetGroup;
@@ -42,7 +42,7 @@ public class EnemyLock : MonoBehaviour
     private void Start()
     {
         changeCamera = GameObject.Find("TargetGroup1").GetComponent<ChangeCamera>();
-      colliderBoss = GameObject.Find("Colliderr").GetComponent<ColliderBoss>();
+    
     }
 
 
@@ -81,14 +81,14 @@ public class EnemyLock : MonoBehaviour
             }
             if (previousTarget != currentTarget )
             {
-                if (previousTarget != null &&  colliderBoss.noLock == false)
+                if (previousTarget != null )
                 {
                     // Desactiva la barra de vida del objetivo previo.
                     var healthManager = previousTarget.GetComponent<EnemyHealthBarManager>();
                     if (healthManager != null)
                         healthManager.DeactivateHealthBar();
                 }
-                if (currentTarget != null && colliderBoss.noLock == false)
+                if (currentTarget != null )
                 {
                     // Activa la barra de vida del nuevo objetivo.
                     var healthManager = currentTarget.GetComponent<EnemyHealthBarManager>();
@@ -100,7 +100,7 @@ public class EnemyLock : MonoBehaviour
         }
         else
         {
-            if (previousTarget != null && colliderBoss.noLock == false)
+            if (previousTarget != null )
             {
                 var healthManager = previousTarget.GetComponent<EnemyHealthBarManager>();
                 healthManager.DeactivateHealthBar();
