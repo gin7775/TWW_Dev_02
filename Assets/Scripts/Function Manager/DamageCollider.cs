@@ -36,7 +36,7 @@ public class DamageCollider : MonoBehaviour
 
          if (other.tag == "Armore")
         {
-            Armore armore = other.GetComponent<Armore>();
+            ArmoreBoss armore = other.GetComponent<ArmoreBoss>();
 
             Debug.Log("Detecta al menos");
 

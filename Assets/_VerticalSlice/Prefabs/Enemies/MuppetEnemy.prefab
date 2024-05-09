@@ -513,7 +513,7 @@ Transform:
   - {fileID: 665870859}
   - {fileID: 682874499}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5026180432449800382
 Animator:
@@ -636,8 +636,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 9065546130543422141}
+  - {fileID: 3460489508322765039}
   nextPosition: 0
   maxPosition: 2
   waitingTimeAttacking: 3

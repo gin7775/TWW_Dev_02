@@ -22,7 +22,7 @@ public class EnemyLock : MonoBehaviour
     public bool isLockOnMode = false;
     
     private float scrollValue;
-
+    ColliderBoss colliderBoss;
     public InputActionReference inputLock;
 
     public GameObject targetGroup;
@@ -42,7 +42,7 @@ public class EnemyLock : MonoBehaviour
     private void Start()
     {
         changeCamera = GameObject.Find("TargetGroup1").GetComponent<ChangeCamera>();
-      
+      colliderBoss = GameObject.Find("Colliderr").GetComponent<ColliderBoss>();
     }
 
 
@@ -67,7 +67,7 @@ public class EnemyLock : MonoBehaviour
             isLockOnMode = false;
         }
 
-        if (isLockOnMode == true)
+        if (isLockOnMode == true )
         {
             cinemachineAnim.Play("TargetCamera");
 
@@ -79,16 +79,16 @@ public class EnemyLock : MonoBehaviour
                 markingObject.transform.position = mainCamera.WorldToScreenPoint(currentTarget.transform.position + offset);
 
             }
-            if (previousTarget != currentTarget)
+            if (previousTarget != currentTarget )
             {
-                if (previousTarget != null)
+                if (previousTarget != null &&  colliderBoss.noLock == false)
                 {
                     // Desactiva la barra de vida del objetivo previo.
                     var healthManager = previousTarget.GetComponent<EnemyHealthBarManager>();
                     if (healthManager != null)
                         healthManager.DeactivateHealthBar();
                 }
-                if (currentTarget != null)
+                if (currentTarget != null && colliderBoss.noLock == false)
                 {
                     // Activa la barra de vida del nuevo objetivo.
                     var healthManager = currentTarget.GetComponent<EnemyHealthBarManager>();
@@ -100,7 +100,7 @@ public class EnemyLock : MonoBehaviour
         }
         else
         {
-            if (previousTarget != null)
+            if (previousTarget != null && colliderBoss.noLock == false)
             {
                 var healthManager = previousTarget.GetComponent<EnemyHealthBarManager>();
                 healthManager.DeactivateHealthBar();
