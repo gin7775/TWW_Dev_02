@@ -129,7 +129,6 @@ public class Player : MonoBehaviour
         ApplyGravity();
         AttackSpeed();
 
-        PlayerDie();
 
         if (isCooldownDodge)
         {
@@ -315,21 +314,7 @@ public class Player : MonoBehaviour
         
     }
 
-    public void PlayerDie()
-    {
-        if (transform.gameObject.transform.position.y < 0.1)
-        {
-
-            PlayerStats playerStats = this.GetComponent<PlayerStats>();
-
-            if (playerStats != null)
-            {
-                playerStats.TakeDamage(25);
-                Debug.Log("Has tocado");
-            }
-        }
-
-    }
+   
 
     IEnumerator Dodge()
     {
