@@ -107,6 +107,10 @@ public class ArmoreBoss : MonoBehaviour
         secondFaceNow = true;
         Holder_1.SetActive(true);
     }
+    public void EndFace()
+    {
+        Holder_1.SetActive(false);
+    }
  //Metodos de cambio de estado necesarios
  public void AnimArmoreWalk(int value)
  {

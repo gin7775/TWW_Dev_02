@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class BA_Shoot : StateMachineBehaviour
 {
-    public float returnTimer = 5;
+    public float returnTimer = 3;
     public float speed;
     private ArmoreBoss armore;
     public GameObject player;
@@ -36,6 +36,6 @@ public class BA_Shoot : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         armoreAgent.speed = 4;
-        returnTimer = 5;
+        returnTimer = 3;
     }
 }
