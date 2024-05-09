@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DownLimitDeath : MonoBehaviour
 {
@@ -30,8 +31,9 @@ public class DownLimitDeath : MonoBehaviour
 
                 if (playerStats != null)
                 {
-                    playerStats.TakeDamage(10000);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                     Debug.Log("Has tocado");
+
                 }
 
             }
