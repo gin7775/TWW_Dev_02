@@ -166,13 +166,13 @@ public class Player : MonoBehaviour
         }
         else
         {
-            // Aplica la gravedad al personaje si no est· en el suelo
+            // Aplica la gravedad al personaje si no estÅEen el suelo
             gravityVelocity.y += gravity * gravityMultiplier * Time.deltaTime;
         }
 
         characterController.Move(gravityVelocity * Time.deltaTime);
 
-        // Si el personaje est· en el suelo, resetea la velocidad de gravedad para evitar acumulaciÛn
+        // Si el personaje estÅEen el suelo, resetea la velocidad de gravedad para evitar acumulaciÛn
         if (characterController.isGrounded)
         {
             gravityVelocity.y = 0;
