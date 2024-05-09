@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/_VerticalSlice/Scenes/BosqueTutorial 2.unity
     guid: 83001d264457b6c4eb3141ebeeb20879
   - enabled: 1
-    path: Assets/BackLog/Scenes/BossFinal.unity
-    guid: c4a233d645916e345be0956f7b7f1f95
+    path: Assets/_VerticalSlice/Scenes/BosRoom_1.unity
+    guid: 56671977074b79f4a9b78230ae1e2a33
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
@@ -86,6 +86,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_VerticalSlice/Scenes/BossHapyness 1.unity
     guid: d3d49716cc43c6b4e8a57f842bde88ce
+  - enabled: 0
+    path: Assets/BackLog/Scenes/BossFinal.unity
+    guid: c4a233d645916e345be0956f7b7f1f95
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c982fa5c459bbd94eba1a579fabc03a5,
       type: 2}
