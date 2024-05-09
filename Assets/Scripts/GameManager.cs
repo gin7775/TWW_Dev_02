@@ -65,11 +65,13 @@ public class GameManager : MonoBehaviour
     }
     public void Death()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         SceneInfo.deathScene();
     }
 
     IEnumerator Loadlevel(int index)
     {
+        //SceneManager.LoadScene(index);
 
         fader.SetTrigger("Fade");
 
