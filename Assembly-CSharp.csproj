@@ -185,6 +185,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Happynes\HappyActionBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Input.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\ProjectileBossFinal.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\FunctionManager\DownLimitDeath.cs" />
     <Compile Include="Assets\Scripts\Sounds\Sound.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\FuenteFmod.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Lolazo\PlayerSustitute.cs" />
@@ -279,7 +280,6 @@
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\CrowChoice.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\FunctionManager\DownLimitDeath.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />

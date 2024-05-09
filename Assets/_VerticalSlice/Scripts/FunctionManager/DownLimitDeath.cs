@@ -11,6 +11,8 @@ public class DownLimitDeath : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerStats = player.GetComponent<PlayerStats>();
+        StartCoroutine(MirarDistancia());
+
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class DownLimitDeath : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(3);
+        StartCoroutine(MirarDistancia());
 
     }
 }
