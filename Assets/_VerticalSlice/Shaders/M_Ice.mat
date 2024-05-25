@@ -79,6 +79,6 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _FresnelColor: {r: 0.013053239, g: 0.38109332, b: 0.5188679, a: 1}
-    - _IceColor: {r: 0.92697936, g: 1.6994622, b: 3.6886053, a: 0}
+    - _IceColor: {r: 0, g: 0.71474284, b: 2.5552053, a: 1}
     - _IceTiling: {r: 4, g: 4, b: 0, a: 0}
   m_BuildTextureStacks: []

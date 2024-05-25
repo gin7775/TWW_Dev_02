@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2283860894070305861}
   - component: {fileID: 4550642894921494223}
   - component: {fileID: 4453605840443657116}
+  - component: {fileID: -5153521163315400642}
+  - component: {fileID: 2057951688798758211}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Turret
@@ -45,7 +47,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4625385983188942897}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4934853147773907883, guid: 396dcf2973fbdba498f536bde43d1b1d, type: 3}
 --- !u!23 &4625385983188942899
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e6e29129df9ff945b3a11defde0e98d, type: 2}
+  - {fileID: 2100000, guid: 6d633975c0309ea469e6da0c7caf9e10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,6 +148,39 @@ MonoBehaviour:
   bobo: 0
   boboTimer: 1.5
   startTimer: 1.5
+--- !u!95 &-5153521163315400642
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625385983188942897}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 823a37eb066481b4c82fff6ff6195dde, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2057951688798758211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625385983188942897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3031249e1b0b14b4aa331cbc1e680ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 140
 --- !u!1 &6491142871404482271
 GameObject:
   m_ObjectHideFlags: 0

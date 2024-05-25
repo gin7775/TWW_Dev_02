@@ -38,7 +38,7 @@ public class PlayerStats : MonoBehaviour
     private const float InvincibilityDuration = 0.5f;
     public ParticleSystem healthParticle;
     Player player;
-
+    private CinemachineImpulseSource cinemachineImpulseSource;
     public float blinkIntensity;
     public float blinkDuration;
     float blinkTimer;
@@ -50,7 +50,7 @@ public class PlayerStats : MonoBehaviour
     {
         invensible = false;
         player = GetComponent<Player>();
-       
+        cinemachineImpulseSource = this.GetComponent<CinemachineImpulseSource>();
         healLV = 1;
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         UpdateHealCountUI();
@@ -150,6 +150,7 @@ public class PlayerStats : MonoBehaviour
             healthBar.UpdateMaskImage(currentHealth);
             anim.SetTrigger("Hurt");
             MiFmod.Instance.Play("SFX_2d/Herido");
+            cinemachineImpulseSource.GenerateImpulse();
             PlayerPrefs.SetInt("Health", currentHealth);
             blinkTimer = blinkDuration;
             if (currentHealth <= 0)

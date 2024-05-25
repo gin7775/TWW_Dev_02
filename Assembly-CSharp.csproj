@@ -279,10 +279,14 @@
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\CrowChoice.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
+    <Compile Include="Assets\RotateObject.cs" />
+    <Compile Include="Assets\NormalSpeed.cs" />
+    <Compile Include="Assets\ActivarPuente.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Blink\Art\Textures\StylizedIceTextures\README.txt" />
     <None Include="Assets\_VerticalSlice\Shaders\Add_CenterGlow.shader" />
     <None Include="Assets\Imported\Toon Water URP\Functions\OtherLightsInfo.cginc" />
     <None Include="Assets\Imported\Lowpoly_Environments\Sources\Light cookie shader.shader" />
