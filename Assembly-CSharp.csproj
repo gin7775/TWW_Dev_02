@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Candela\CandelaProyectiles.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\BosTriger.cs" />
     <Compile Include="Assets\Scripts\Function Manager\SpellMove.cs" />
+    <Compile Include="Assets\NormalSpeed.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\Curacion.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\CanvasManager.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\CandelaDeath.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Puppet\ContenedorPuppet.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\Ripple.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\ExitToSystem.cs" />
+    <Compile Include="Assets\RotateObject.cs" />
     <Compile Include="Assets\Scripts\Function Manager\GroundSlash.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\IdleB.cs" />
     <Compile Include="Assets\AttackTarik.cs" />
@@ -223,6 +225,7 @@
     <Compile Include="Assets\Imported\Invector\Footstep System\Scripts\vFootstepTrigger.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Happynes\CenterProyectile.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_HitMe.cs" />
+    <Compile Include="Assets\ActivarPuente.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_VerticalAtack.cs" />
     <Compile Include="Assets\Scripts\Interaction\Interaction.cs" />
     <Compile Include="Assets\Imported\Invector\Footstep System\Scripts\vFootstepMaterialHandler.cs" />
@@ -234,6 +237,7 @@
     <Compile Include="Assets\_VerticalSlice\Scripts\SettingsController.cs" />
     <Compile Include="Assets\BackLog\proyectile Testing\Scripts\Holder.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\AtaqueTornadoStateMachine.cs" />
+    <Compile Include="Assets\activePlataform.cs" />
     <Compile Include="Assets\Animation\Controllers\PlayerInput.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\UI\TriggersTutorial.cs" />
     <Compile Include="Assets\Scripts\Sounds\SfxInstance.cs" />
@@ -279,9 +283,6 @@
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\CrowChoice.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\RotateObject.cs" />
-    <Compile Include="Assets\NormalSpeed.cs" />
-    <Compile Include="Assets\ActivarPuente.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />

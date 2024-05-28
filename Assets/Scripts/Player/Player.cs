@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip sfxSlash;
 
     [Header("UI and Input")]
-    private PauseMenu menu;
+    public PauseMenu menu;
     private PlayerInput playerInput;
     public GameObject Inventory;
     
@@ -85,11 +85,14 @@ public class Player : MonoBehaviour
     {       
             playerGraphics = GameObject.FindGameObjectWithTag("Player").transform;
         enemyLock = GetComponent<EnemyLock>();
+
         
     }
 
     private void Start()
     {
+        comboAttackSystem = GetComponent<ComboAttackSystem>();
+
         combatTrade = this.gameObject.GetComponent<PlayerStats>();
         characterController = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
@@ -97,7 +100,7 @@ public class Player : MonoBehaviour
         menu = GameObject.Find("UIMenu").GetComponent<PauseMenu>();
         playerInput = new PlayerInput();
         //weaponWheelController = GameObject.Find("WeaponWheel").GetComponent<WeaponWheelController>();
-        comboAttackSystem = GetComponent<ComboAttackSystem>();
+      
         spellScript = GetComponent<SpellScript>();
       
         //animSlash = GetComponentInChildren<Animator>();
@@ -291,6 +294,11 @@ public class Player : MonoBehaviour
 
     public void AttackSpeed()
     {
+        if (comboAttackSystem == null)
+        {
+            Debug.LogError("comboAttackSystem is not set.");
+            return;
+        }
         if (comboAttackSystem.isAttacking)
         {
             playerSpeed = 0;
