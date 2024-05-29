@@ -9,7 +9,8 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     public bool startedDialog,dialogLocker,healAtEnd;
     public float dialogSpeed;
-
+    public int sentenceCount;
+    public int[] cameraIndexes;
     private void Start()
     {
         dialogLocker = false;

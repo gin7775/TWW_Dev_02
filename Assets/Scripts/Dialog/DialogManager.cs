@@ -15,6 +15,7 @@ public class DialogManager : MonoBehaviour
     private int textIndex;
     public string currentSentence;
     public Animator textAnim;
+    
 
     private void Awake()
     {
@@ -81,6 +82,14 @@ public class DialogManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         currentSentence = sentence;
+        currentTrigger.sentenceCount++;
+        //Cambiar camara aqui 
+        /*
+        if (currentcamera != currentTrigger.cameraIndexes[currentTrigger.sentenceCount])
+        {
+         currentcamera = currentTrigger.cameraIndexes[currentTrigger.sentenceCount]
+         
+        }*/
         Debug.Log(sentence);
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
