@@ -43,10 +43,12 @@ public class ArmoreBoss : MonoBehaviour
  {
     if (guardState == 1)
     {
+
         Debug.Log("recibiria daño");
         cinemachineImpulseSource.GenerateImpulse();
+        MiFmod.Instance.Play("SFX_2d/RecibirDañoBoss");
         StartCoroutine(FrameFreeze(0.05f));
-
+            
         Instantiate(vfxHitEffect, vfxSpawn.transform.position, Quaternion.identity);
         currentHealth -= damage;
 

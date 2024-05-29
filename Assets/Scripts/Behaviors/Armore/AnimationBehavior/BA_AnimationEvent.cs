@@ -52,4 +52,25 @@ public class BA_AnimationEvent : MonoBehaviour
         player.GetComponent<PlayerStats>().TakeDamage(30);
     }
 
+
+    public void playAnimationProtectilAttack()
+    {
+        MiFmod.Instance.Play("SFX_2d/SonidoProyectilesBoss");
+    }
+    public void playAnimationHorizontalAttack()
+    {
+        MiFmod.Instance.Play("SFX_2d/MazazoBoss");
+    }
+    public void playAnimationVerticalAttack()
+    {
+        MiFmod.Instance.Play("SFX_2d/ContraataqueBoss");
+    }
+    public void playAnimationShieldRelease()
+    {
+        MiFmod.Instance.Play("SFX_2d/ShieldReleaseBoss");
+    }
+    public void playAnimationTaparseEscudo()
+    {
+        MiFmod.Instance.Play("SFX_2d/TaparseConEscudoBoss");
+    }
 }
