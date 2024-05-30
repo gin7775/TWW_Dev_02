@@ -29,6 +29,7 @@ public class CameraSwitch : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Entars");
             enemyLock.cameraSwitch = true;
             cinemachineAnim.Play(enterAnimName);
             Debug.Log(enterAnimName);
