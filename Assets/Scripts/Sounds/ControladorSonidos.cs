@@ -42,7 +42,7 @@ public class ControladorSonidos : MonoBehaviour
     void ReproducirBossMusic()
     {
        
-        if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 5 )
+        if ( SceneManager.GetActiveScene().buildIndex == 5 )
         {
             MiFmod.Instance.PlayFondo("SoundTrack/MusicaFondo2");
 

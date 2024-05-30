@@ -10,7 +10,7 @@ public class ActiveMusicBoss : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))            
         {
-           
+            MiFmod.Instance.PlayFondo("SoundTrack/Boss Theme");
             activeSoundBoss = true;
 
         }
