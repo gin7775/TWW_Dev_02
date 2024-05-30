@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ArmoreBoss : MonoBehaviour 
 { 
  public int maxHealth, currentHealth, poiseHealth;
+    public Animator trapToRelease;
     public float speed;
  public Animator iaArmore, animArmore;
  public int guardState;
