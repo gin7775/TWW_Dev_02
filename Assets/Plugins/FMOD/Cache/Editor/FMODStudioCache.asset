@@ -162,6 +162,87 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 371
+--- !u!114 &-6318175485912864593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/Curar 2
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/Curar 2
+  Guid:
+    Data1: 1094584769
+    Data2: 1325205534
+    Data3: 2030079659
+    Data4: 552478050
+  Banks:
+  - {fileID: 4004235139065048727}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 940
+--- !u!114 &-5870932843922887146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/ShieldReleaseBoss
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/ShieldReleaseBoss
+  Guid:
+    Data1: 1120500998
+    Data2: 1108302851
+    Data3: 908409216
+    Data4: 1324343754
+  Banks:
+  - {fileID: 4004235139065048727}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 790
+--- !u!114 &-4954683320395510421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/SonidoProyectilesBoss
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/SonidoProyectilesBoss
+  Guid:
+    Data1: -1575735449
+    Data2: 1145522353
+    Data3: 1861793157
+    Data4: 1206095540
+  Banks:
+  - {fileID: 4004235139065048727}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2500
 --- !u!114 &-4893287494618321650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,10 +312,10 @@ MonoBehaviour:
   Path: Assets/Plugins/FmodThings/Desktop/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638495111290219031
+  lastModified: 638526308510369283
   FileSizes:
   - Name: 
-    Value: 2198
+    Value: 2612
   Exists: 1
 --- !u!114 &-4160710390463778010
 MonoBehaviour:
@@ -317,6 +398,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 522
+--- !u!114 &-1853541319647605309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/SFX_2d/RecibirDa\xF1oBoss"
+  m_EditorClassIdentifier: 
+  Path: "event:/SFX_2d/RecibirDa\xF1oBoss"
+  Guid:
+    Data1: -1354622978
+    Data2: 1093987764
+    Data3: -1798469987
+    Data4: 1027598684
+  Banks:
+  - {fileID: 4004235139065048727}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1450
 --- !u!114 &-1278160050828592256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,12 +523,20 @@ MonoBehaviour:
   - {fileID: -4811620448031037485}
   - {fileID: 6643561106831754806}
   - {fileID: 5372290707943799189}
+  - {fileID: -5870932843922887146}
+  - {fileID: 5596750976406737225}
+  - {fileID: -4954683320395510421}
+  - {fileID: 7203039710403203384}
+  - {fileID: 1118553405408674507}
+  - {fileID: 8232826967123179453}
+  - {fileID: -6318175485912864593}
+  - {fileID: -1853541319647605309}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4004235139065048727}
   StringsBanks:
   - {fileID: -4731076581853090904}
-  cacheTime: 638495111290219031
+  cacheTime: 638526308510369283
   cacheVersion: 131609
 --- !u!114 &5819269126627489
 MonoBehaviour:
@@ -476,6 +592,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 311
+--- !u!114 &1118553405408674507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/MazazoBoss
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/MazazoBoss
+  Guid:
+    Data1: -246674564
+    Data2: 1328161836
+    Data3: 1277987766
+    Data4: -1764063466
+  Banks:
+  - {fileID: 4004235139065048727}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1474
 --- !u!114 &1933483156976928340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,7 +688,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FmodThings/Desktop/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638495111290219031
+  lastModified: 638526308510333943
   FileSizes: []
   Exists: 1
 --- !u!114 &4655492498384773644
@@ -656,6 +799,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 41739
+--- !u!114 &5596750976406737225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SoundTrack/Boss Theme
+  m_EditorClassIdentifier: 
+  Path: event:/SoundTrack/Boss Theme
+  Guid:
+    Data1: 2125451084
+    Data2: 1166621364
+    Data3: 93722036
+    Data4: -672294362
+  Banks:
+  - {fileID: 4004235139065048727}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 164322
 --- !u!114 &6054325953871067536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,6 +934,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3360
+--- !u!114 &7203039710403203384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/ContraataqueBoss
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/ContraataqueBoss
+  Guid:
+    Data1: 857599605
+    Data2: 1248093977
+    Data3: 192886951
+    Data4: 629429535
+  Banks:
+  - {fileID: 4004235139065048727}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1580
 --- !u!114 &7857881385307001265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,7 +1014,34 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 40663
+  Length: 186618
+--- !u!114 &8232826967123179453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_2d/TaparseConEscudoBoss
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_2d/TaparseConEscudoBoss
+  Guid:
+    Data1: 442824062
+    Data2: 1165863892
+    Data3: 142640036
+    Data4: -2032138715
+  Banks:
+  - {fileID: 4004235139065048727}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4300
 --- !u!114 &8878807177949201109
 MonoBehaviour:
   m_ObjectHideFlags: 0

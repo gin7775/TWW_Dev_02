@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControladorSonidos : MonoBehaviour
 {
+    ActiveMusicBoss activeMusicBoss;
     // Lista de pistas de música de fondo
     private List<string> pistasDeFondo = new List<string>
     {
@@ -19,9 +21,11 @@ public class ControladorSonidos : MonoBehaviour
 
     public void Start()
     {
-        // Reproducir una pista aleatoria al inicio
+        
+        ReproducirBossMusic();
         ReproducirPistaAleatoria();
     }
+
 
     private void ReproducirPistaAleatoria()
     {
@@ -30,4 +34,15 @@ public class ControladorSonidos : MonoBehaviour
 
         MiFmod.Instance.PlayFondo(pistaSeleccionada);
     }
+
+    void ReproducirBossMusic()
+    {
+       
+        if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 5 )
+        {
+            MiFmod.Instance.PlayFondo("SoundTrack/MusicaFondo2");
+
+        }
+    }
+
 }
