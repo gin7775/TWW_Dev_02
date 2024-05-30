@@ -29,10 +29,14 @@ public class ControladorSonidos : MonoBehaviour
 
     private void ReproducirPistaAleatoria()
     {
-        int indiceAleatorio = Random.Range(0, pistasDeFondo.Count);
-        string pistaSeleccionada = pistasDeFondo[indiceAleatorio];
+        if(SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            int indiceAleatorio = Random.Range(0, pistasDeFondo.Count);
+            string pistaSeleccionada = pistasDeFondo[indiceAleatorio];
 
-        MiFmod.Instance.PlayFondo(pistaSeleccionada);
+            MiFmod.Instance.PlayFondo(pistaSeleccionada);
+        }
+          
     }
 
     void ReproducirBossMusic()
@@ -45,4 +49,5 @@ public class ControladorSonidos : MonoBehaviour
         }
     }
 
+    
 }

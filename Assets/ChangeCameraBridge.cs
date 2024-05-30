@@ -25,26 +25,26 @@ public class ChangeCameraBridge : MonoBehaviour
    
    
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            mainCamera.orthographic = false;
-            Camera.main.ResetProjectionMatrix();
-            Debug.Log(mainCamera.orthographic);
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player"))
+    //    {
+            
+    //        Camera.main.ResetProjectionMatrix();
+    //        Debug.Log(mainCamera.orthographic);
 
-        }
-
-
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            mainCamera.orthographic = true;
+    //    }
 
 
-        }
-    }
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player"))
+    //    {
+    //        mainCamera.orthographic = true;
+
+
+    //    }
+    //}
 }
