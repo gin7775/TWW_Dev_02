@@ -11,7 +11,7 @@ public class ArmoreBoss : MonoBehaviour
     public float speed;
  public Animator iaArmore, animArmore;
  public int guardState;
- public GameObject player, Holder_1, Holder_2;
+ public GameObject player, Holder_1, Holder_2,musicRadius;
     public BA_AnimationEvent armoreAnimScript;   
 
  public GameObject vfxHitEffect;
@@ -113,6 +113,8 @@ public class ArmoreBoss : MonoBehaviour
     public void EndFace()
     {
         Holder_1.SetActive(false);
+        Destroy(musicRadius);
+        MiFmod.Instance.StopFondo();
     }
  //Metodos de cambio de estado necesarios
  public void AnimArmoreWalk(int value)
