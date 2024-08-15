@@ -284,8 +284,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Aim"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""8792a8bc-b2fd-489e-a163-60d2a2811955"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MouseAim"",
+                    ""type"": ""Button"",
+                    ""id"": ""ec805669-7d40-4fc6-afc3-fe04a0d26873"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -352,7 +361,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""423c481c-4e5e-493e-a650-474322333693"",
                     ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Rotate"",
@@ -503,59 +512,37 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""dc67e389-638d-45f3-a1d0-da907132734f"",
-                    ""path"": ""2DVector"",
+                    ""name"": """",
+                    ""id"": ""e7514660-717d-4381-b2f8-0b90cc78a0c9"",
+                    ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": true,
+                    ""action"": ""ChangeLock"",
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""a3a4f64c-c0c9-46c9-8fdb-6c9b6127ae5e"",
-                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""name"": """",
+                    ""id"": ""d94d10bd-422c-411f-a31a-e9f12b8fb1e0"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Aim"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""da3e7ad9-58fb-4747-a018-f4b2a3b2a877"",
-                    ""path"": ""<Gamepad>/rightStick/down"",
-                    ""interactions"": """",
+                    ""name"": """",
+                    ""id"": ""cc5a8ce5-2bd0-4e24-9299-6dafb2ae697a"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Press(pressPoint=0.1,behavior=2)"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Aim"",
+                    ""action"": ""MouseAim"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""cec05cd7-b119-4849-ac9d-9b6494206309"",
-                    ""path"": ""<Gamepad>/rightStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""90bab437-22d3-44e0-99ae-171b721906cd"",
-                    ""path"": ""<Gamepad>/rightStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1097,6 +1084,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_PlayerActions_ChangeProyectile = m_PlayerActions.FindAction("ChangeProyectile", throwIfNotFound: true);
         m_PlayerActions_Inventory = m_PlayerActions.FindAction("Inventory", throwIfNotFound: true);
         m_PlayerActions_Aim = m_PlayerActions.FindAction("Aim", throwIfNotFound: true);
+        m_PlayerActions_MouseAim = m_PlayerActions.FindAction("MouseAim", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1222,6 +1210,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_ChangeProyectile;
     private readonly InputAction m_PlayerActions_Inventory;
     private readonly InputAction m_PlayerActions_Aim;
+    private readonly InputAction m_PlayerActions_MouseAim;
     public struct PlayerActionsActions
     {
         private @PlayerInput m_Wrapper;
@@ -1239,6 +1228,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @ChangeProyectile => m_Wrapper.m_PlayerActions_ChangeProyectile;
         public InputAction @Inventory => m_Wrapper.m_PlayerActions_Inventory;
         public InputAction @Aim => m_Wrapper.m_PlayerActions_Aim;
+        public InputAction @MouseAim => m_Wrapper.m_PlayerActions_MouseAim;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1287,6 +1277,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Aim.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAim;
+                @MouseAim.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnMouseAim;
+                @MouseAim.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnMouseAim;
+                @MouseAim.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnMouseAim;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -1330,6 +1323,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
+                @MouseAim.started += instance.OnMouseAim;
+                @MouseAim.performed += instance.OnMouseAim;
+                @MouseAim.canceled += instance.OnMouseAim;
             }
         }
     }
@@ -1459,6 +1455,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnChangeProyectile(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
+        void OnMouseAim(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -434,6 +434,15 @@ public class Player : MonoBehaviour
     {
         slash[2].Play();
     }
-  }
+
+    public void SpeedPlayer()
+    {
+        playerSpeed = 0;
+    }
+    public void SpeedPlayer2()
+    {
+        playerSpeed = 4.5f;
+    }
+}
 
 

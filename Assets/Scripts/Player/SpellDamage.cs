@@ -4,20 +4,40 @@ using UnityEngine;
 
 public class SpellDamage : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public string playerLayerName = "Player";
+
     void Start()
     {
-        
+        // Obtener el número de capa correspondiente al nombre de la capa del jugador
+        int playerLayer = LayerMask.NameToLayer(playerLayerName);
+        int projectileLayer = gameObject.layer;
+
+        // Ignorar colisiones entre la capa del jugador y la capa del proyectil
+        Physics.IgnoreLayerCollision(projectileLayer, playerLayer);
+
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        // Verifica si la colisión es con la capa "Player"
+        if (collision.gameObject.layer == LayerMask.NameToLayer(playerLayerName))
+        {
+            return; // Ignorar la colisión si es con la capa del jugador
+        }
+
+        // Aquí puedes manejar otras colisiones si es necesario
     }
+
+
 
     private void OnTriggerEnter(Collider other)
     {
+
+        if (other.gameObject.layer == LayerMask.NameToLayer(playerLayerName))
+        {
+            return; // Ignorar la colisión si es con la capa del jugador
+        }
         if (other.tag == "Armore")
         {
             ArmoreBoss armore = other.GetComponent<ArmoreBoss>();
