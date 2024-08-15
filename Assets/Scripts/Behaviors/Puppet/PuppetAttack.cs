@@ -37,7 +37,7 @@ public class PuppetAttack : StateMachineBehaviour
         //Realiza la animación de atacar                    
         if (contenedorPuppet.waitingTimeAttacking <= 0)
         {
-          animator.SetTrigger("Hitme");
+            animator.SetTrigger("Hitme");
             contenedorPuppet.animPuppet.SetBool("Attack", false);
 
             contenedorPuppet.animPuppet.SetBool("Idle", true);

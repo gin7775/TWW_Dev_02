@@ -41,10 +41,11 @@ public class Puppet : MonoBehaviour
     public float blinkIntensity;
     public float blinkDuration;
     float blinkTimer;
-
+    Animator animPuppet;
     // Start is called before the first frame update
     void Start()
     {
+        animPuppet = GetComponent<Animator>();
         playerReference = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(UpdateSliderOrientation());
         cinemachineImpulseSource = this.GetComponent<CinemachineImpulseSource>();
@@ -85,7 +86,7 @@ public class Puppet : MonoBehaviour
         ApplyKnockback();
 
         contenedorPuppet.animPuppet.SetTrigger("Hit");
-
+        animPuppet.SetTrigger("Navigation");
         if (currentHealth <= 0)
         {
             currentHealth = 0;

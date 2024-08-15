@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     private float vertical;
     private Vector3 direction;
     public bool isMovementPressed;
-
+    public float angleDifferenceRotation;
     [Header("Combat")]
     public PlayerStats combatTrade;
     public float slashCoooldown;
@@ -210,10 +210,11 @@ public class Player : MonoBehaviour
     
     public void OnMoveInput(float horizontal, float vertical)
     {
-        this.vertical = vertical;
-        this.horizontal = horizontal;
-        isMovementPressed = horizontal != 0 || vertical != 0 ;
-        
+        Vector3 inputDirection = new Vector3(horizontal, 0, vertical).normalized;
+        this.vertical = inputDirection.z;
+        this.horizontal = inputDirection.x;
+        isMovementPressed = inputDirection.magnitude > 0;
+
     }
     public void OnInteract(InputValue input) 
     {
@@ -240,24 +241,39 @@ public class Player : MonoBehaviour
     public void MovementDirection()
     {
         if (!combatTrade.canMove) return;
-        Vector3 moveDirection = Vector3.forward * vertical + Vector3.right * horizontal;
 
-      
+        // Normaliza la entrada de movimiento
+        Vector3 inputDirection = new Vector3(horizontal, 0, vertical).normalized;
+        Vector3 moveDirection = Vector3.forward * inputDirection.z + Vector3.right * inputDirection.x;
 
-        Vector3 cameraForward = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up);          //Necesitamos el vector que tiene la camara 
-
+        // Calcula la dirección de la cámara en el plano horizontal
+        Vector3 cameraForward = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up);
         Quaternion rotationToCamera = Quaternion.LookRotation(cameraForward, Vector3.up);
-        
+
+        // Aplica la rotación de la cámara al movimiento
         moveDirection = rotationToCamera * moveDirection;
-                           
 
-        if(moveDirection != Vector3.zero &&!spellOn)
+        // Comprueba si hay un movimiento de entrada
+        if (moveDirection != Vector3.zero && !spellOn)
         {
+            // Calcula la rotación deseada
             Quaternion rotationToMoveDirection = Quaternion.LookRotation(moveDirection);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationToMoveDirection, rotationSpeed * Time.deltaTime);
-        }
-   
 
+            // Calcula la diferencia de ángulo
+            float angleDifference = Quaternion.Angle(transform.rotation, rotationToMoveDirection);
+
+            // Ajusta la velocidad de rotación según la diferencia de ángulo
+            float adjustedRotationSpeed = rotationSpeed;
+            if (angleDifference > angleDifferenceRotation) // Umbral para giro rápido, puedes ajustar este valor
+            {
+                adjustedRotationSpeed *= 5f; 
+            }
+
+            // Rota el personaje hacia la dirección deseada
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationToMoveDirection, adjustedRotationSpeed * Time.deltaTime);
+        }
+
+        // Mueve el personaje
         characterController.Move(moveDirection * playerSpeed * Time.deltaTime);
         direction = moveDirection;
     }
@@ -288,8 +304,15 @@ public class Player : MonoBehaviour
 
     public void Animations()
     {
-       float speed = new Vector2(horizontal, vertical).magnitude;
-       animator.SetFloat("speed", speed);  
+        // Calcula la magnitud del vector de entrada
+        float targetSpeed = new Vector2(horizontal, vertical).magnitude;
+
+        // Suaviza el cambio de la velocidad usando Lerp
+        float currentSpeed = animator.GetFloat("speed");
+        float smoothSpeed = Mathf.Lerp(currentSpeed, targetSpeed, 0.15f); // 0.1f es el factor de suavizado
+
+        // Establece el valor suavizado en el Animator
+        animator.SetFloat("speed", smoothSpeed);
     }
 
     public void AttackSpeed()
