@@ -91,44 +91,49 @@ public class SpellScript : MonoBehaviour
 
     public void OnMouseAim(InputValue input)
     {
+        // Verifica si el botón del mouse está siendo presionado
         if (input.isPressed)
         {
-            
+            // Si el botón está presionado, indicar que se está apuntando con el mouse
             isAimingWithMouse = true;
+            // Y también indicar que el botón derecho del mouse está siendo mantenido presionado
             isRightMouseHeld = true;
-            isAimingWithJoystick = false; 
+            // Asegurar que el joystick no está siendo usado para apuntar simultáneamente
+            isAimingWithJoystick = false;
 
-            
+            // Si la cruceta no está activa, activarla para que se muestre en la pantalla
             if (crosshair != null && !crosshair.activeSelf)
             {
                 crosshair.SetActive(true);
             }
 
-            UpdateCrosshair(); 
+            // Actualizar la posición de la cruceta basada en la posición actual del cursor del mouse
+            UpdateCrosshair();
         }
-        else
+        else  // En caso de que el botón del mouse haya sido soltado
         {
-         
+            // Verificar que el botón derecho del mouse había sido presionado previamente
             if (isRightMouseHeld)
             {
-               
+                // Iniciar la corutina que maneja el disparo del proyectil
                 StartCoroutine(FireProjectile());
 
-                // Desactivar la cruceta
+                // Desactivar la cruceta ya que el disparo ha sido realizado y el botón del mouse soltado
                 if (crosshair != null && crosshair.activeSelf)
                 {
                     crosshair.SetActive(false);
                 }
 
+                // Restablecer los indicadores para señalar que ya no se está apuntando con el mouse
                 isAimingWithMouse = false;
-                isRightMouseHeld = false; 
+                isRightMouseHeld = false;
             }
         }
     }
 
     public void OnRotate(InputValue input)
     {
-        if (input.isPressed && !isCooldown)
+        if (input.isPressed && !isCooldown && isAimingWithJoystick )
         {
             StartCoroutine(FireProjectile()); // Disparar cuando se presiona el botón de disparo en el mando
         }
@@ -188,39 +193,39 @@ public class SpellScript : MonoBehaviour
 
     IEnumerator FireProjectile()
     {
+
         if (isCooldown)
             yield break;  // Si todavía está en cooldown, no disparar
 
         isCooldown = true;  // Iniciar el cooldown
         cooldownTimer = cooldownTime;  // Reiniciar el temporizador del cooldown
 
-        animator.SetTrigger("Spell");
+        //if (isAimingWithMouse)
+        //{
+        //    UpdateCrosshair();  // Asegúrate de que la cruceta esté actualizada con la última posición del mouse
+        //}
 
+        animator.SetTrigger("Spell");
         playerStats.canMove = false;
 
-        // 1. Rotar el jugador hacia la dirección de la cruceta
+        // Asegurarte de que la dirección del disparo use la posición actual de la cruceta
         Vector3 targetPosition = crosshair.transform.position;
-        targetPosition.y = transform.position.y; // Mantener al jugador en su altura actual
+        targetPosition.y = transform.position.y; // Asegurarse de que el disparo sea horizontal
         Vector3 aimDir = (targetPosition - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(aimDir);
 
-        // 2. Esperar un momento antes de disparar 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.2f);  // Pequeña espera para sincronizar con la animación
 
-        // 3. Lanzar el proyectil
         if (firePoint != null)
         {
-            // Calcular la dirección del proyectil hacia la cruceta pero manteniendo la altura del firePoint
             Vector3 projectileDirection = (new Vector3(crosshair.transform.position.x, firePoint.transform.position.y, crosshair.transform.position.z) - firePoint.transform.position).normalized;
-
-            // Crear el proyectil en la posición del firePoint y rotarlo hacia la dirección calculada
             GameObject vfx = Instantiate(proyectiles[0], firePoint.transform.position, Quaternion.LookRotation(projectileDirection));
-
-            Destroy(vfx, 2); // Destruir el proyectil después de 2 segundos
+            Destroy(vfx, 2);  // Limpiar el proyectil después de 2 segundos para evitar sobrecarga de memoria
         }
 
         playerStats.canMove = true;
+        isCooldown = false;  // Restablecer el estado de cooldown
 
-        
+
     }
 }
