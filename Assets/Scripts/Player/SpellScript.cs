@@ -118,15 +118,7 @@ public class SpellScript : MonoBehaviour
                 // Iniciar la corutina que maneja el disparo del proyectil
                 StartCoroutine(FireProjectile());
 
-                // Desactivar la cruceta ya que el disparo ha sido realizado y el botón del mouse soltado
-                if (crosshair != null && crosshair.activeSelf)
-                {
-                    crosshair.SetActive(false);
-                }
-
-                // Restablecer los indicadores para señalar que ya no se está apuntando con el mouse
-                isAimingWithMouse = false;
-                isRightMouseHeld = false;
+               
             }
         }
     }
@@ -207,7 +199,7 @@ public class SpellScript : MonoBehaviour
 
         animator.SetTrigger("Spell");
         playerStats.canMove = false;
-
+        UpdateCrosshair();
         // Asegurarte de que la dirección del disparo use la posición actual de la cruceta
         Vector3 targetPosition = crosshair.transform.position;
         targetPosition.y = transform.position.y; // Asegurarse de que el disparo sea horizontal
@@ -225,6 +217,15 @@ public class SpellScript : MonoBehaviour
 
         playerStats.canMove = true;
         isCooldown = false;  // Restablecer el estado de cooldown
+                             // Desactivar la cruceta ya que el disparo ha sido realizado y el botón del mouse soltado
+        if (crosshair != null && crosshair.activeSelf)
+        {
+            crosshair.SetActive(false);
+        }
+
+        // Restablecer los indicadores para señalar que ya no se está apuntando con el mouse
+        isAimingWithMouse = false;
+        isRightMouseHeld = false;
 
 
     }
