@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ProBuilder Default URP
-  m_Shader: {fileID: -6465566751694194690, guid: fe0c503f2136afb47bd547803b04a232,
+  m_Shader: {fileID: -6465566751694194690, guid: c42acfc7b1582de479a18ed099ed21a3,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -80,11 +80,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoBase:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8365f958156be40489172a544e4c4cd2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoFill:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: ba28c358339c0b3488220eb2b720d730, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -120,11 +120,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HeightBase:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 92425e0c15cf87b4783f7cf347bd371a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HeightFill:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3e91c6d5688bd3f40874de036cf1bb2c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -136,11 +136,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalBase:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8892eec809ffb674980aabdc52ddcfe2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Fill:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b922fd56fb8a5174a932306a500b291a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -215,6 +215,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _Mode: 0
+    - _NormalFloat: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
