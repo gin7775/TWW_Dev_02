@@ -5,12 +5,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EmpresarioScript : MonoBehaviour
+public class EmpresarioScript : MonoBehaviour, IEnemyFreezable
 {
     public Transform player;
     public GameObject holder, playerReference;
     public float waitingTime;
-
+    //HIELO
+    public bool IsFreezable => isFreezable;
+    public bool isFreezable = true;
+    private bool isFrozen = false;
+    //HIELO 
     public float currentHealth;
 
     public GameObject vfxHitEffect;
@@ -58,6 +62,22 @@ public class EmpresarioScript : MonoBehaviour
     public void LaunchProyectile()
     {
         GameObject toInstantiate = GameObject.Instantiate(holder);
+    }
+
+    public void Freeze(float freezeDuration)
+    {
+        if (!isFreezable || isFrozen) return;
+
+        isFrozen = true;
+        Debug.Log("Se congela empresario");
+        StartCoroutine(Unfreeze(freezeDuration));
+    }
+
+    private IEnumerator Unfreeze(float freezeDuration)
+    {
+        yield return new WaitForSeconds(freezeDuration);
+        Debug.Log("Se Descongela empresario");
+        isFrozen = false;
     }
 
     public void TakeDamage(int damage)

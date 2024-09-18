@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
         
         menu = GameObject.Find("UIMenu").GetComponent<PauseMenu>();
         playerInput = new PlayerInput();
-        //weaponWheelController = GameObject.Find("WeaponWheel").GetComponent<WeaponWheelController>();
+        weaponWheelController = GameObject.Find("WeaponWheel").GetComponent<WeaponWheelController>();
       
         spellScript = GetComponent<SpellScript>();
       
@@ -415,6 +415,7 @@ public class Player : MonoBehaviour
         {
            
             weaponWheelController.weaponWheelSelected = ! weaponWheelController.weaponWheelSelected;
+
         }
 
     }

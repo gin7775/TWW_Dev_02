@@ -325,7 +325,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16343726052985153}
   m_LocalRotation: {x: 0.029647145, y: 0.49413997, z: 0.056273144, w: -0.86705256}
-  m_LocalPosition: {x: 0.01408797, y: 0.49656796, z: -0.01045814}
+  m_LocalPosition: {x: 0.01408797, y: 0.49656647, z: -0.010455205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -585,8 +585,8 @@ MonoBehaviour:
   cooldownTime: 0.8
   proyectiles:
   - {fileID: 1238843893459588, guid: 44b0798f8b718d8438a4e83ab28d42a2, type: 3}
-  - {fileID: 1238843893459588, guid: 918ff3ea946d5bc42920f6a004bca98a, type: 3}
   - {fileID: 1238843893459588, guid: 7b4b488721e2ac54a873cf71cd131a14, type: 3}
+  - {fileID: 1238843893459588, guid: 918ff3ea946d5bc42920f6a004bca98a, type: 3}
   effectSpawnProjectile:
   - {fileID: 1000012903210382, guid: 4952a84eb0a54d1499a7b15512792645, type: 3}
   - {fileID: 1000012903210382, guid: 333af583f4c104e4bae5f88877d2cebb, type: 3}
@@ -594,6 +594,7 @@ MonoBehaviour:
   crosshair: {fileID: 505520694}
   crosshairRadius: 1.1
   mainCamera: {fileID: 0}
+  isCooldown: 0
   rotation1: 180
 --- !u!114 &1098614515342553418
 MonoBehaviour:

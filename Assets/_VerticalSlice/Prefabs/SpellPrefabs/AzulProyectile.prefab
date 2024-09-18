@@ -4709,6 +4709,8 @@ GameObject:
   - component: {fileID: 54453457801900860}
   - component: {fileID: 114591203083495332}
   - component: {fileID: 5105633923714000659}
+  - component: {fileID: 7364285252394039993}
+  - component: {fileID: 5334784184327581859}
   m_Layer: 12
   m_Name: AzulProyectile
   m_TagString: FX
@@ -9573,6 +9575,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.30005187, y: 0.25076142, z: 0.49244055}
   m_Center: {x: -0.03581217, y: -0.0129675865, z: 0.19549479}
+--- !u!114 &7364285252394039993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238843893459588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 890f2d1f4895fb6408fa357e093ff74b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLayerName: Player
+  freezeDurationEnemy: 3
+  freezeDurationObject: 7
+  projectileID: 2
+--- !u!65 &5334784184327581859
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238843893459588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3561073, y: 0.3, z: 0.51076657}
+  m_Center: {x: -0.031389378, y: 0, z: 0.19949016}
 --- !u!1 &1477706141410116
 GameObject:
   m_ObjectHideFlags: 0

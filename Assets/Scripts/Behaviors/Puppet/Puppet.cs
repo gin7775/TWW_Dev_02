@@ -3,10 +3,11 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Puppet : MonoBehaviour
+public class Puppet : MonoBehaviour, IEnemyFreezable
 {
 
     public Transform player;
@@ -28,13 +29,13 @@ public class Puppet : MonoBehaviour
     private CinemachineImpulseSource cinemachineImpulseSource;
 
     ContenedorPuppet contenedorPuppet;
-
+    NavMeshAgent agent;
     public GameObject healthBarCanvas;
 
     public Slider sliderVida;
     public List<SkinnedMeshRenderer> skinnedMeshRenderers = new List<SkinnedMeshRenderer>();
     [SerializeField] private AudioClip sfxGolpe;
-
+    public Rigidbody puppetRigidbody;
     public float knockbackDistance = 1.5f;
     public float knockbackDuration = 0.3f; // Duración del retroceso
     public float angulo;
@@ -42,9 +43,14 @@ public class Puppet : MonoBehaviour
     public float blinkDuration;
     float blinkTimer;
     Animator animPuppet;
+    private bool isFrozen = false;
+    public bool isFreezable = true;
+
+    public bool IsFreezable => isFreezable;
     // Start is called before the first frame update
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
         animPuppet = GetComponent<Animator>();
         playerReference = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(UpdateSliderOrientation());
@@ -63,8 +69,30 @@ public class Puppet : MonoBehaviour
         angulo = this.transform.localEulerAngles.y;
 
     }
+    // Método para Congelar al enemigo
+    public void Freeze(float freezeDuration)
+    {
+        if (!isFreezable || isFrozen) return;  // No congelar si no es congelable o ya está congelado
 
-    
+        isFrozen = true;
+        animPuppet.enabled = false;  // Detener la animación
+        puppetRigidbody.isKinematic = true;  // Desactivar la física
+        agent.speed = 0f;
+        contenedorPuppet.animPuppet.SetBool("Freeze", true);
+        StartCoroutine(Unfreeze(freezeDuration));
+    }
+
+    // Método para descongelar al enemigo
+    private IEnumerator Unfreeze(float freezeDuration)
+    {
+        yield return new WaitForSeconds(freezeDuration);
+
+        animPuppet.enabled = true;  // Reactivar la animación
+        puppetRigidbody.isKinematic = false;
+        contenedorPuppet.animPuppet.SetBool("Freeze", false);
+        agent.speed = 2f;
+        isFrozen = false;
+    }
 
     public void TakeDamage(int damage)
     {

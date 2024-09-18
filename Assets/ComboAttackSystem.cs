@@ -22,7 +22,7 @@ public class ComboAttackSystem : MonoBehaviour
     public float moveDistancePerAttack2 = 2f;
     CharacterController characterController;
     Player player;
-
+    WeaponWheelController weaponWheelController;
     public bool readyDash;
     // Referencias a los sonidos
     public AudioClip[] attackSounds;
@@ -30,6 +30,7 @@ public class ComboAttackSystem : MonoBehaviour
     private Vector3 moveVelocity;
     private float moveTimer;
     public AnimationCurve moveCurve;
+    SpellScript spellScript;
     public bool isOnMenu = false;
     private void Awake()
     {
@@ -41,10 +42,15 @@ public class ComboAttackSystem : MonoBehaviour
         player = GetComponent<Player>();
     
     }
+    private void Start()
+    {
+        weaponWheelController = GameObject.Find("WeaponWheel").GetComponent<WeaponWheelController>();
+        spellScript = GetComponent<SpellScript>();
+    }
 
     public void OnAttack(InputValue input)
     {
-        if (input.isPressed && (cooldownTimer <= 0) && !player.spellOn && !player.isDodging && !isOnMenu)
+        if (input.isPressed && (cooldownTimer <= 0) && !player.spellOn && !player.isDodging && !isOnMenu && !weaponWheelController.weaponWheelSelected && !spellScript.isCooldown)
         {
             isAttacking = true;
             if (Time.time - lastInputTime < comboMaxDelay + gracePeriod)

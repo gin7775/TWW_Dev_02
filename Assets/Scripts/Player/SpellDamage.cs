@@ -5,7 +5,11 @@ using UnityEngine;
 public class SpellDamage : MonoBehaviour
 {
     public string playerLayerName = "Player";
+    public float freezeDurationEnemy = 2f; // Duración del congelamiento de enemigos
+    public float freezeDurationObject = 7f; // Duración del congelamiento de objetos
 
+    // ID del proyectil (se lo asignará el SpellScript al crear el proyectil)
+    public int projectileID = 0;
     void Start()
     {
         // Obtener el número de capa correspondiente al nombre de la capa del jugador
@@ -33,6 +37,7 @@ public class SpellDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
 
         if (other.gameObject.layer == LayerMask.NameToLayer(playerLayerName))
         {
@@ -84,6 +89,27 @@ public class SpellDamage : MonoBehaviour
             }
         }
 
+        if (other.gameObject.layer == LayerMask.NameToLayer(playerLayerName)) return;  // Ignorar la colisión con el jugador
+
+        if (projectileID == 2)  // Solo el proyectil de hielo (ID 2) puede congelar
+        {
+            if (other.CompareTag("Freezable"))  // Objeto congelable
+            {
+                FreezeObject(other.gameObject, freezeDurationObject);
+            }
+            else
+            {
+                // buscamos la interfaz IEnemyFreezable
+                IEnemyFreezable freezableEnemy = other.GetComponent<IEnemyFreezable>();
+                if (freezableEnemy != null && freezableEnemy.IsFreezable)
+                {
+                    freezableEnemy.Freeze(freezeDurationEnemy);
+                    Debug.Log("Enemigo congelado");
+                }
+            }
+        }
+
+
         else if (other.tag == "Puppet")
         {
             Puppet puppet = other.GetComponent<Puppet>();
@@ -127,5 +153,19 @@ public class SpellDamage : MonoBehaviour
             plataform.TriggerPlataforms();
         }
        
+
+
+
+    }
+
+    // Método para congelar un objeto
+    private void FreezeObject(GameObject obj, float duration)
+    {
+        FrezeableObject freezable = obj.GetComponent<FrezeableObject>();
+        if (freezable != null)
+        {
+            freezable.Freeze(duration);  // Llamar al método Freeze del objeto
+        }
+        else return;
     }
 }
