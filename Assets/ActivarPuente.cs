@@ -12,7 +12,7 @@ public class ActivarPuente : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
 
-            puenteAnim.SetTrigger("Activar");
+            puenteAnim.SetTrigger("Action");
 
 
         }

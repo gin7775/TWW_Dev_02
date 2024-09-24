@@ -50,7 +50,7 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        agent = this.GetComponent<NavMeshAgent>();
         animPuppet = GetComponent<Animator>();
         playerReference = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(UpdateSliderOrientation());
@@ -64,7 +64,7 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
     void Update()
     {
         sliderVida.value = currentHealth;
-
+       
 
         angulo = this.transform.localEulerAngles.y;
 
@@ -75,10 +75,14 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
         if (!isFreezable || isFrozen) return;  // No congelar si no es congelable o ya está congelado
 
         isFrozen = true;
-        animPuppet.enabled = false;  // Detener la animación
-        puppetRigidbody.isKinematic = true;  // Desactivar la física
         agent.speed = 0f;
-        contenedorPuppet.animPuppet.SetBool("Freeze", true);
+        // Congelar el estado actual del Animator
+        AnimatorStateInfo currentAnimatorState = contenedorPuppet.animPuppet.GetCurrentAnimatorStateInfo(0); // Capturamos el estado actual
+        contenedorPuppet.animPuppet.Play(currentAnimatorState.fullPathHash, -1, currentAnimatorState.normalizedTime); // Forzamos a reproducir el estado actual en el frame que está
+        contenedorPuppet.animPuppet.speed = 0f;  // Pausar la animación completamente
+        
+
+        // Iniciar el temporizador para descongelar
         StartCoroutine(Unfreeze(freezeDuration));
     }
 
@@ -86,11 +90,11 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
     private IEnumerator Unfreeze(float freezeDuration)
     {
         yield return new WaitForSeconds(freezeDuration);
+        agent.speed = 2;
+        // Reactivar la animación ajustando la velocidad de vuelta a la normalidad
+        contenedorPuppet.animPuppet.speed = 1f;
+        // Restablecer la velocidad del agente a su valor original
 
-        animPuppet.enabled = true;  // Reactivar la animación
-        puppetRigidbody.isKinematic = false;
-        contenedorPuppet.animPuppet.SetBool("Freeze", false);
-        agent.speed = 2f;
         isFrozen = false;
     }
 
