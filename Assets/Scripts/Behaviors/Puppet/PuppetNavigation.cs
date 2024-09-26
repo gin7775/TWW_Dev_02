@@ -1,8 +1,7 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
+using System.Collections;
 
 public class PuppetNavigation : StateMachineBehaviour
 {
@@ -32,8 +31,8 @@ public class PuppetNavigation : StateMachineBehaviour
     // OnStateUpdate es llamado en cada frame mientras está en este estado
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        // Si no está atacando, el agente se mueve normalmente
-        if (!isDashing)
+        // Asegurarnos de que el NavMeshAgent esté activo y en una superficie NavMesh
+        if (!isDashing && puppet.enabled && puppet.isOnNavMesh)
         {
             puppet.speed = 2f;
             puppet.destination = destination.position;
@@ -98,12 +97,16 @@ public class PuppetNavigation : StateMachineBehaviour
             // Reactivar el NavMeshAgent después del dash
             puppet.enabled = true;
 
-            // Actualizar la posición del NavMeshAgent para que esté sincronizado
-            puppet.Warp(dashTargetPosition);
+            // Asegurarse de que el NavMeshAgent esté sobre el NavMesh antes de Warp
+            if (puppet.isOnNavMesh)
+            {
+                // Actualizar la posición del NavMeshAgent para que esté sincronizado
+                puppet.Warp(dashTargetPosition);
+            }
 
             // Transicionar al estado de ataque o continuar con el comportamiento
             animator.SetTrigger("Attack");
-          
+
             puppet.speed = 2f;
             isDashing = false;
             contenedorPuppet.animPuppet.SetBool("Walk", false);

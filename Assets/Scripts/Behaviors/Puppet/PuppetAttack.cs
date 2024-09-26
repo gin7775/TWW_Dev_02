@@ -16,9 +16,10 @@ public class PuppetAttack : StateMachineBehaviour
         destination = animator.gameObject.GetComponent<Puppet>().player;
         contenedorPuppet = animator.gameObject.GetComponent<ContenedorPuppet>();
 
-        // Detener el NavMeshAgent inmediatamente al entrar en el estado
-        puppet.isStopped = true;
-
+        if (puppet.enabled && puppet.isOnNavMesh)
+        {
+            puppet.isStopped = true; // Detener el movimiento del agente durante el ataque
+        }
         // Iniciar la corrutina para esperar 1 segundo antes de pasar a navegación
         puppet.gameObject.GetComponent<MonoBehaviour>().StartCoroutine(WaitBeforeNavigation(animator));
     }
@@ -47,8 +48,11 @@ public class PuppetAttack : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        // Reactivar el NavMeshAgent cuando salga del estado
-        puppet.isStopped = false;
+        if (puppet.enabled && puppet.isOnNavMesh)
+        {
+            puppet.isStopped = false; // Reanudar el movimiento del agente
+        }
+
 
         // Reiniciar el tiempo de ataque si es necesario
         contenedorPuppet.waitingTimeAttacking = 3f;
