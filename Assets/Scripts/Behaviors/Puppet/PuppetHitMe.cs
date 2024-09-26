@@ -14,7 +14,7 @@ public class PuppetHitMe : StateMachineBehaviour
         puppet = animator.gameObject.GetComponent<NavMeshAgent>();
         contenedorPuppet = animator.gameObject.GetComponent<ContenedorPuppet>();
 
-        //contenedorPuppet.animPuppet.SetBool("Idle",true);
+        
        
     }
 

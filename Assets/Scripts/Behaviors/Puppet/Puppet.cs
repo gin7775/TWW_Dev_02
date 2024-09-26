@@ -126,7 +126,10 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
             Destroy(this.gameObject, 0.3f);
             Instantiate(vfxHitEffectFinish, vfxSpawn.transform.position, Quaternion.identity);
         }
+
+
     }
+
 
     private IEnumerator FrameFreeze(float duration)
     {
@@ -156,12 +159,27 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
     }
     private void ApplyKnockback()
     {
+        // Desactivar temporalmente el NavMeshAgent
+        agent.enabled = false;
+
+        // Calcular la dirección y posición del knockback
         Vector3 directionToPlayer = (player.position - transform.position).normalized;
         Vector3 knockbackPosition = transform.position - directionToPlayer * knockbackDistance;
 
-        // Animar el movimiento de retroceso
-        transform.DOMove(knockbackPosition, knockbackDuration).SetEase(Ease.OutExpo); 
+        // Aplicar el knockback con DOTween y luego reactivar el NavMeshAgent
+        transform.DOMove(knockbackPosition, knockbackDuration).SetEase(Ease.OutExpo).OnComplete(() =>
+        {
+            // Reactivar el NavMeshAgent después del knockback
+            agent.enabled = true;
+
+            // Sincronizar la posición del NavMeshAgent con la nueva posición tras el knockback
+            agent.Warp(transform.position);
+
+            // Restablecer el comportamiento normal (seguir al jugador, etc.)
+            agent.SetDestination(player.position);
+        });
     }
+
     IEnumerator UpdateSliderOrientation()
     {
         while (true)
@@ -176,6 +194,8 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
             yield return new WaitForSeconds(0.01f); 
         }
     }
+
+
 
    
 }

@@ -1,14 +1,24 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using DG.Tweening;
 
 public class PuppetNavigation : StateMachineBehaviour
 {
     public Transform destination;
     NavMeshAgent puppet;
     ContenedorPuppet contenedorPuppet;
-    public float distance;
+    public float stopDistance = 1f; // Distancia para detenerse antes de atacar
+    public float dashDistance = 5f; // Distancia fija del dash
+    public float maxDashDistance = 7f; // Distancia máxima permitida para el dash
+    public float dashSpeed = 10f; // Velocidad del dash
+    public float dashDuration = 0.3f; // Duración del dash
+    public float stopTimeBeforeAttack = 0.5f; // Tiempo de pausa antes del ataque
+
+    private bool isDashing = false; // Controla si el enemigo está haciendo el dash
+    private Vector3 dashTargetPosition; // Posición hacia donde se hará el dash
+
+    // OnStateEnter es llamado al entrar en este estado
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         puppet = animator.gameObject.GetComponent<NavMeshAgent>();
@@ -16,34 +26,90 @@ public class PuppetNavigation : StateMachineBehaviour
         contenedorPuppet = animator.gameObject.GetComponent<ContenedorPuppet>();
         contenedorPuppet.animPuppet.SetBool("Walk", true);
     }
+
+    // OnStateUpdate es llamado en cada frame mientras está en este estado
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        puppet.speed = 1.5f;
-        puppet.destination = destination.position;
-        if (Vector3.Distance(puppet.transform.position, destination.position) <= distance)
+        // Si no está atacando, el agente se mueve normalmente
+        if (!isDashing)
         {
-            animator.SetTrigger("Attack");
-            contenedorPuppet.animPuppet.SetTrigger("Attack");
-           
+            puppet.speed = 2f;
+            puppet.destination = destination.position;
+
+            // Si el enemigo está a la distancia de ataque (1 metro)
+            if (Vector3.Distance(puppet.transform.position, destination.position) <= stopDistance)
+            {
+                puppet.isStopped = true; // Detener el agente de navegación
+                puppet.gameObject.GetComponent<MonoBehaviour>().StartCoroutine(PauseAndAttack(animator));
+            }
         }
     }
-    
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    // Corrutina para detenerse y luego hacer el desplazamiento de ataque
+    private IEnumerator PauseAndAttack(Animator animator)
+    {
+        float elapsedTime = 0f;
+
+        // Mientras transcurre el tiempo de espera, seguir mirando al jugador
+        while (elapsedTime < stopTimeBeforeAttack)
+        {
+            // Calcular la dirección hacia el jugador
+            Vector3 directionToPlayer = (destination.position - puppet.transform.position).normalized;
+
+            // Rotar al enemigo para que mire hacia el jugador
+            puppet.transform.rotation = Quaternion.LookRotation(directionToPlayer);
+
+            // Incrementar el tiempo transcurrido
+            elapsedTime += Time.deltaTime;
+
+            // Esperar al siguiente frame
+            yield return null;
+        }
+
+        // Calcular la distancia al jugador
+        float distanceToPlayer = Vector3.Distance(puppet.transform.position, destination.position);
+
+        // Calcular la dirección hacia el jugador
+        Vector3 directionToPlayerDash = (destination.position - puppet.transform.position).normalized;
+
+        // Si la distancia al jugador es mayor que la distancia máxima del dash, limitamos el dash
+        if (distanceToPlayer > maxDashDistance)
+        {
+            dashTargetPosition = puppet.transform.position + directionToPlayerDash * maxDashDistance;
+        }
+        else
+        {
+            dashTargetPosition = puppet.transform.position + directionToPlayerDash * Mathf.Min(dashDistance, distanceToPlayer);
+        }
+
+        // Rotar al enemigo para que mire hacia el jugador justo antes del dash
+        puppet.transform.rotation = Quaternion.LookRotation(directionToPlayerDash);
+
+        // Desactivar temporalmente el NavMeshAgent para evitar conflictos con DOTween
+        puppet.enabled = false;
+
+        // Iniciar el dash hacia la posición calculada
+        isDashing = true;
+        puppet.transform.DOMove(dashTargetPosition, dashDuration).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            // Reactivar el NavMeshAgent después del dash
+            puppet.enabled = true;
+
+            // Actualizar la posición del NavMeshAgent para que esté sincronizado
+            puppet.Warp(dashTargetPosition);
+
+            // Transicionar al estado de ataque o continuar con el comportamiento
+            animator.SetTrigger("Attack");
+            contenedorPuppet.animPuppet.SetBool("Attack", false);
+            puppet.speed = 2f;
+            isDashing = false;
+        });
+    }
+
+    // OnStateExit es llamado cuando el estado termina
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         contenedorPuppet.animPuppet.SetBool("Walk", false);
+        isDashing = false; // Resetear el ataque si sale del estado
     }
-
-    // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
-
-    // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
 }

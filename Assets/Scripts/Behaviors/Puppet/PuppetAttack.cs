@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,61 +6,51 @@ public class PuppetAttack : StateMachineBehaviour
 {
     NavMeshAgent puppet;
     public Transform destination;
-  
     ContenedorPuppet contenedorPuppet;
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+
+    private float waitAfterAttackDuration = 1f; // Tiempo de espera en este estado
+
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         puppet = animator.gameObject.GetComponent<NavMeshAgent>();
         destination = animator.gameObject.GetComponent<Puppet>().player;
         contenedorPuppet = animator.gameObject.GetComponent<ContenedorPuppet>();
 
-        
+        // Detener el NavMeshAgent inmediatamente al entrar en el estado
+        puppet.isStopped = true;
 
+        // Iniciar la corrutina para esperar 1 segundo antes de pasar a navegación
+        puppet.gameObject.GetComponent<MonoBehaviour>().StartCoroutine(WaitBeforeNavigation(animator));
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    // OnStateUpdate es llamado cada frame mientras está en este estado
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        puppet.speed = 2f;
-
-        puppet.destination = destination.position;
-
-        contenedorPuppet.waitingTimeAttacking -= Time.deltaTime;
-
-      
-
-
-
-
-        //Realiza la animación de atacar                    
-        if (contenedorPuppet.waitingTimeAttacking <= 0)
+        // Asegurarse de que el enemigo esté siempre mirando al jugador
+        if (destination != null)
         {
-            animator.SetTrigger("Hitme");
-            contenedorPuppet.animPuppet.SetBool("Attack", false);
-
-            contenedorPuppet.animPuppet.SetBool("Idle", true);
-
-
-
+            Vector3 directionToPlayer = (destination.position - puppet.transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(directionToPlayer.x, 0, directionToPlayer.z)); // Ignorar la rotación en el eje Y
+            puppet.transform.rotation = Quaternion.Slerp(puppet.transform.rotation, lookRotation, Time.deltaTime * 5f); // Ajustar la velocidad de rotación
         }
-
-
-
     }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    // Corrutina para esperar 1 segundo antes de volver a la navegación
+    private IEnumerator WaitBeforeNavigation(Animator animator)
+    {
+        // Pausa de 1 segundo en este estado
+        yield return new WaitForSeconds(waitAfterAttackDuration);
+
+        // Volver al estado de navegación
+        animator.SetTrigger("Navigation");
+    }
+
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // Reactivar el NavMeshAgent cuando salga del estado
+        puppet.isStopped = false;
 
-        //if (contenedorPuppet.projectilesLock == true)
-        //{
-        //    Instantiate(contenedorPuppet.projectiles, animator.transform.position, Quaternion.identity);
-
-        //    contenedorPuppet.projectilesLock = false;
-        //}
-
+        // Reiniciar el tiempo de ataque si es necesario
         contenedorPuppet.waitingTimeAttacking = 3f;
     }
-
 }
