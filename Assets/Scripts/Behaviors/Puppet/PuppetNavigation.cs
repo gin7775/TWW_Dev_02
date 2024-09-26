@@ -1,7 +1,8 @@
-using System.Collections;
-using UnityEngine;
-using UnityEngine.AI;
 using DG.Tweening;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.AI;
+using UnityEngine;
 
 public class PuppetNavigation : StateMachineBehaviour
 {
@@ -17,6 +18,7 @@ public class PuppetNavigation : StateMachineBehaviour
 
     private bool isDashing = false; // Controla si el enemigo está haciendo el dash
     private Vector3 dashTargetPosition; // Posición hacia donde se hará el dash
+    private Coroutine attackCoroutine; // Referencia a la corrutina para poder detenerla
 
     // OnStateEnter es llamado al entrar en este estado
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -40,7 +42,10 @@ public class PuppetNavigation : StateMachineBehaviour
             if (Vector3.Distance(puppet.transform.position, destination.position) <= stopDistance)
             {
                 puppet.isStopped = true; // Detener el agente de navegación
-                puppet.gameObject.GetComponent<MonoBehaviour>().StartCoroutine(PauseAndAttack(animator));
+                if (attackCoroutine == null)
+                {
+                    attackCoroutine = puppet.gameObject.GetComponent<MonoBehaviour>().StartCoroutine(PauseAndAttack(animator));
+                }
             }
         }
     }
@@ -49,7 +54,8 @@ public class PuppetNavigation : StateMachineBehaviour
     private IEnumerator PauseAndAttack(Animator animator)
     {
         float elapsedTime = 0f;
-
+        contenedorPuppet.animPuppet.SetTrigger("Attack");
+        puppet.enabled = false;
         // Mientras transcurre el tiempo de espera, seguir mirando al jugador
         while (elapsedTime < stopTimeBeforeAttack)
         {
@@ -85,9 +91,6 @@ public class PuppetNavigation : StateMachineBehaviour
         // Rotar al enemigo para que mire hacia el jugador justo antes del dash
         puppet.transform.rotation = Quaternion.LookRotation(directionToPlayerDash);
 
-        // Desactivar temporalmente el NavMeshAgent para evitar conflictos con DOTween
-        puppet.enabled = false;
-
         // Iniciar el dash hacia la posición calculada
         isDashing = true;
         puppet.transform.DOMove(dashTargetPosition, dashDuration).SetEase(Ease.Linear).OnComplete(() =>
@@ -100,9 +103,12 @@ public class PuppetNavigation : StateMachineBehaviour
 
             // Transicionar al estado de ataque o continuar con el comportamiento
             animator.SetTrigger("Attack");
-            contenedorPuppet.animPuppet.SetBool("Attack", false);
+          
             puppet.speed = 2f;
             isDashing = false;
+            contenedorPuppet.animPuppet.SetBool("Walk", false);
+            // Resetear la referencia de la corrutina
+            attackCoroutine = null;
         });
     }
 
@@ -111,5 +117,16 @@ public class PuppetNavigation : StateMachineBehaviour
     {
         contenedorPuppet.animPuppet.SetBool("Walk", false);
         isDashing = false; // Resetear el ataque si sale del estado
+        attackCoroutine = null; // Asegurarse de resetear la corrutina al salir
+    }
+
+    // Método para detener la corrutina desde otro lugar, como el knockback
+    public void StopAttackCoroutine()
+    {
+        if (attackCoroutine != null)
+        {
+            puppet.gameObject.GetComponent<MonoBehaviour>().StopCoroutine(attackCoroutine);
+            attackCoroutine = null;
+        }
     }
 }

@@ -45,7 +45,7 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
     Animator animPuppet;
     private bool isFrozen = false;
     public bool isFreezable = true;
-
+    PuppetNavigation puppetNavigation;
     public bool IsFreezable => isFreezable;
     // Start is called before the first frame update
     void Start()
@@ -58,6 +58,7 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
         DOTween.Init();
         contenedorPuppet = this.GetComponent<ContenedorPuppet>();
         player = playerReference.transform;
+        puppetNavigation = animPuppet.GetBehaviour<PuppetNavigation>();
     }
 
     // Update is called once per frame
@@ -161,6 +162,9 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
     {
         // Desactivar temporalmente el NavMeshAgent
         agent.enabled = false;
+
+        // Detener la corrutina de ataque si está activa
+        puppetNavigation.StopAttackCoroutine();
 
         // Calcular la dirección y posición del knockback
         Vector3 directionToPlayer = (player.position - transform.position).normalized;
