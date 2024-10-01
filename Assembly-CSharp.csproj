@@ -70,6 +70,7 @@
     <Compile Include="Assets\_VerticalSlice\Scripts\FireSound.cs" />
     <Compile Include="Assets\Scripts\Function Manager\ProyectileDamage.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Window\SplashScreenManager.cs" />
+    <Compile Include="Assets\ActiveSlashMuppet.cs" />
     <Compile Include="Assets\Scripts\Function Manager\PlayerDamage.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\PerseguirStateFinalBoss.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_AnimSmash.cs" />
@@ -287,7 +288,6 @@
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\CrowChoice.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\ActiveSlashMuppet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
