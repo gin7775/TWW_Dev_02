@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2209063339017455010
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 6
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Magic_Ice
+  m_Shader: {fileID: -6465566751694194690, guid: 4be2ec9c51eb3224f98ffd4f8a179702,
+    type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Emission:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Ice_Normals:
+        m_Texture: {fileID: 2800000, guid: 9894419be9d7fe244aca6de2d25184da, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalFromTexture_390a7f952b0244b68ddae3ff776b1235_Texture_0:
+        m_Texture: {fileID: 2800000, guid: 9894419be9d7fe244aca6de2d25184da, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Alpha: 1
+    - _FresnelPOwer: 0.24
+    - _Normal_Offset: 1.18
+    - _Normal_Strenght: 0.41
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _Refract_Strenght: 0.18
+    m_Colors:
+    - _Emmision: {r: 0, g: 5.767773, b: 16.94838, a: 0}
+    - _Emmisivie_tint: {r: 0.01223745, g: 0.47621214, b: 0.51886785, a: 1}
+    - _IceColor: {r: 1.530528, g: 4.591049, b: 4.842865, a: 1}
+    - _Ice_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Speed: {r: 0.01, g: 0.001, b: 0, a: 0}
+  m_BuildTextureStacks: []
