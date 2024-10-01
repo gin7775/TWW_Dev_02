@@ -17,7 +17,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3050
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -109,14 +109,14 @@ Material:
     - Vector1_2520DE87: 0.1
     - Vector1_48C004F6: 3
     - Vector1_575FDCB0: 0.571
-    - Vector1_5B35BF2: 2.48
-    - Vector1_5F10D5CF: 0.62
+    - Vector1_5B35BF2: 0
+    - Vector1_5F10D5CF: 0.525
     - Vector1_79CD236A: 3
-    - Vector1_8D7584D8: 0.077
+    - Vector1_8D7584D8: 1
     - Vector1_AD7F7343: 0.19
-    - Vector1_BA283AB7: 0.6
+    - Vector1_BA283AB7: 1.19
     - Vector1_BC31787F: 2.12
-    - Vector1_D8127884: 0.794
+    - Vector1_D8127884: 0.715
     - Vector1_DD6C0587: 2.87
     - _AlphaClip: 0
     - _Blend: 0
@@ -131,8 +131,8 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _QueueControl: 1
-    - _QueueOffset: 0
+    - _QueueControl: 0
+    - _QueueOffset: 50
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -142,8 +142,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_89D2C634: {r: 6.8831816, g: 2.9550831, b: 0.2522632, a: 0}
-    - Color_E29E6C60: {r: 45.254833, g: 4.7916884, b: 0.70987976, a: 0}
+    - Color_89D2C634: {r: 6.8831816, g: 2.9550831, b: 0.2522632, a: 1}
+    - Color_E29E6C60: {r: 45.254833, g: 4.7916884, b: 0.70987976, a: 1}
     - Vector2_4373CA46: {r: 0, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
