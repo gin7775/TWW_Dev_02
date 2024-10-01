@@ -47,6 +47,8 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
     public bool isFreezable = true;
     PuppetNavigation puppetNavigation;
     public bool IsFreezable => isFreezable;
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -198,8 +200,6 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
             yield return new WaitForSeconds(0.01f); 
         }
     }
-
-
 
    
 }
