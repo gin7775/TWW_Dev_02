@@ -50,7 +50,7 @@ public class ComboAttackSystem : MonoBehaviour
 
     public void OnAttack(InputValue input)
     {
-        if (input.isPressed && (cooldownTimer <= 0) && !player.spellOn && !player.isDodging && !isOnMenu && !weaponWheelController.weaponWheelSelected && !spellScript.isCooldown)
+        if (input.isPressed && (cooldownTimer <= 0) && !player.spellOn && !player.isDodging && !isOnMenu && !weaponWheelController.weaponWheelSelected )
         {
             isAttacking = true;
             if (Time.time - lastInputTime < comboMaxDelay + gracePeriod)

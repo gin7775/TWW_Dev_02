@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI; // Asegúrate de incluir esto
 
 public class WeaponWheelController : MonoBehaviour
 {
@@ -6,8 +7,9 @@ public class WeaponWheelController : MonoBehaviour
     public bool weaponWheelSelected = false;  // Controla si el Weapon Wheel está activo
 
     public GameObject[] weaponIcons;  // Array de GameObjects para los íconos de las armas
+    public Image[] cooldownImages;    // Array para las imágenes de cooldown de cada arma (relleno radial)
     public int weaponID = 1;  // El ID actual del arma seleccionada (1 por defecto para el proyectil básico)
-
+    private int currentProjectileIndex;
     private WeaponWheelButton currentSelectedButton;  // Referencia al botón actualmente seleccionado
     public SpellScript spellScript;  // Referencia al script de disparo
 
@@ -30,10 +32,13 @@ public class WeaponWheelController : MonoBehaviour
         {
             anim.SetBool("OpenWeaponWheel", false);
         }
+
+        // Actualizar los cooldowns visuales
+        UpdateCooldownVisuals();
     }
 
     // Método para actualizar los íconos según el weaponID
-    private void UpdateWeaponIcon()
+    public void UpdateWeaponIcon()
     {
         // Desactivar todos los íconos
         for (int i = 0; i < weaponIcons.Length; i++)
@@ -51,36 +56,42 @@ public class WeaponWheelController : MonoBehaviour
     // Método para manejar la selección de un botón
     public void SelectButton(WeaponWheelButton button)
     {
-        // Solo permite la selección si el Weapon Wheel está abierto
-        if (!weaponWheelSelected)
-        {
-            Debug.Log("Weapon Wheel no está abierto, no se puede cambiar de ítem.");
-            return;
-        }
+        if (!weaponWheelSelected) return;
 
-        // Si el botón actual ya está seleccionado y el jugador hace clic nuevamente, lo deselecciona
         if (currentSelectedButton == button)
         {
             button.Deselected();
             currentSelectedButton = null;
-            weaponID = 1;  // Restablece el weaponID al proyectil básico (1)
-            spellScript.SetProjectile(weaponID);  // Restablece al proyectil por defecto
-            UpdateWeaponIcon();  // Actualiza los íconos
+            weaponID = 1;
+            spellScript.SetProjectile(weaponID);
+            UpdateWeaponIcon();
         }
         else
         {
-            // Si hay otro botón seleccionado, lo deselecciona
-            if (currentSelectedButton != null)
-            {
-                currentSelectedButton.Deselected();
-            }
+            if (currentSelectedButton != null) currentSelectedButton.Deselected();
 
-            // Selecciona el nuevo botón
             currentSelectedButton = button;
             currentSelectedButton.Selected();
-            weaponID = button.ID;  // Actualiza el ID del arma seleccionada
-            spellScript.SetProjectile(weaponID);  // Cambia el proyectil en el SpellScript
-            UpdateWeaponIcon();  // Actualiza los íconos
+            weaponID = button.ID;
+            spellScript.SetProjectile(weaponID); // Cambia el proyectil usando el nuevo método
+            UpdateWeaponIcon();
+        }
+    }
+
+    // Método para actualizar los visuales de cooldown en cada arma
+    private void UpdateCooldownVisuals()
+    {
+        for (int i = 0; i < cooldownImages.Length; i++)
+        {
+            if (i < spellScript.projectileCooldownTimers.Length)
+            {
+                // Asume que el cooldown es 0 cuando está disponible (complete el círculo)
+                float cooldown = spellScript.projectileCooldownTimers[i];
+                float maxCooldown = spellScript.projectileCooldownTimes[i];
+
+                // Calcular el fillAmount basado en el progreso del cooldown
+                cooldownImages[i].fillAmount = 1 - Mathf.Clamp01(cooldown / maxCooldown);
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ Material:
   m_ValidKeywords:
   - FADE_ON
   - OUTBASE8DIR_ON
+  - SHAKEUV_ON
   - WAVEUV_ON
   m_InvalidKeywords:
   - ETC1_EXTERNAL_ALPHA
@@ -113,7 +114,7 @@ Material:
     - _EditorDrawers: 7
     - _FadeAmount: 0
     - _FadeBurnGlow: 1
-    - _FadeBurnTransition: 0.075
+    - _FadeBurnTransition: 0.01
     - _FadeBurnWidth: 0.033
     - _FishEyeUvAmount: 0
     - _FlickerAlpha: 0
@@ -203,7 +204,7 @@ Material:
     - _ShadowAlpha: 0.5
     - _ShadowX: 0.1
     - _ShadowY: -0.05
-    - _ShakeUvSpeed: 6.9
+    - _ShakeUvSpeed: 16.6
     - _ShakeUvX: 0.49
     - _ShakeUvY: 0.28
     - _ShineGlow: 0.4
@@ -212,10 +213,10 @@ Material:
     - _ShineWidth: 0.249
     - _TextureScrollXSpeed: 1
     - _TextureScrollYSpeed: 0
-    - _TwistUvAmount: 1.82
-    - _TwistUvPosX: 0.5
-    - _TwistUvPosY: 0.5
-    - _TwistUvRadius: 0.75
+    - _TwistUvAmount: 3.14
+    - _TwistUvPosX: 1
+    - _TwistUvPosY: 0.509
+    - _TwistUvRadius: 3
     - _WaveAmount: 1.6
     - _WaveSpeed: 8.5
     - _WaveStrength: 11.5
@@ -223,7 +224,7 @@ Material:
     - _WaveY: 0.469
     - _ZTestMode: 4
     - _ZWrite: 0
-    - _ZoomUvAmount: 0.89
+    - _ZoomUvAmount: 1.78
     m_Colors:
     - _AlphaOutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

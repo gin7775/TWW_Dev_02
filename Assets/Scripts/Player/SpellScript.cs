@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
@@ -6,10 +8,11 @@ using UnityEngine.Windows;
 public class SpellScript : MonoBehaviour
 {
     [Header("Configuraciones de Disparo")]
-    public GameObject firePoint; // Punto desde donde se dispara el proyectil
-    public float cooldownTime = 1.0f; // Tiempo de recarga entre disparos
-    public GameObject[] proyectiles; // Array de proyectiles
-    public GameObject[] effectSpawnProjectile; // Efectos visuales del disparo
+    public GameObject firePoint;
+    public GameObject[] proyectiles;
+    public GameObject[] effectSpawnProjectile;
+
+    private int currentProjectileIndex = 0;
 
     [Header("Configuraciones de la Cruceta")]
     public GameObject crosshair; // GameObject para la cruceta
@@ -30,6 +33,13 @@ public class SpellScript : MonoBehaviour
     private GameObject selectedProjectile;
     ComboAttackSystem comboAttackSystem;
 
+    [Header("Cooldown de Proyectiles")]
+    public float[] projectileCooldownTimes; // Cooldown específico para cada proyectil
+    public float[] projectileCooldownTimers; // El temporizador que cuenta el tiempo restante para cada proyectil
+    private bool[] isProjectileOnCooldown;
+    public TextMeshProUGUI cooldownIndicator;
+
+    WeaponWheelController wheelController;
     void Start()
     {
         comboAttackSystem = GetComponent<ComboAttackSystem>();
@@ -37,6 +47,13 @@ public class SpellScript : MonoBehaviour
         animator = GetComponent<Animator>();
         player = GetComponent<Player>();
         playerStats = GetComponent<PlayerStats>();
+        wheelController = GameObject.Find("WeaponWheel").GetComponent<WeaponWheelController>();
+        int projectileCount = proyectiles.Length;
+        isProjectileOnCooldown = new bool[projectileCount];
+        projectileCooldownTimers = new float[projectileCount];
+
+        selectedProjectile = proyectiles[0];
+
         if (crosshair != null)
         {
             crosshair.SetActive(false); // Cruceta oculta al inicio
@@ -46,22 +63,29 @@ public class SpellScript : MonoBehaviour
 
     void Update()
     {
-        ManageCooldown();
+        ManageCooldowns();
+       
         UpdateCrosshair();
     }
 
-    private void ManageCooldown()
+    private void ManageCooldowns()
     {
-        if (isCooldown)
+        // Este bucle mantiene el cooldown activo aunque no estés usando el proyectil actualmente
+        for (int i = 0; i < proyectiles.Length; i++)
         {
-            cooldownTimer -= Time.deltaTime;
-            if (cooldownTimer <= 0f)
+            if (isProjectileOnCooldown[i])
             {
-                isCooldown = false;
+                projectileCooldownTimers[i] -= Time.deltaTime;
+                if (projectileCooldownTimers[i] <= 0f)
+                {
+                    isProjectileOnCooldown[i] = false; // Resetear el cooldown
+                    projectileCooldownTimers[i] = 0f;
+                }
             }
         }
     }
 
+   
     public void OnAim(InputValue input)
     {
         aimDirection = input.Get<Vector2>(); // Obtiene la dirección del joystick derecho
@@ -105,14 +129,21 @@ public class SpellScript : MonoBehaviour
             // Asegurar que el joystick no está siendo usado para apuntar simultáneamente
             isAimingWithJoystick = false;
 
-            // Si la cruceta no está activa, activarla para que se muestre en la pantalla
-            if (crosshair != null && !crosshair.activeSelf)
+            int projectileID = System.Array.IndexOf(proyectiles, selectedProjectile);
+
+            // Verifica si el proyectil está en cooldown, si es así, no mostrar la cruceta
+            if (projectileCooldownTimers[projectileID] <= 0f)
             {
-                crosshair.SetActive(true);
+                // Si la cruceta no está activa, activarla para que se muestre en la pantalla
+                if (crosshair != null && !crosshair.activeSelf)
+                {
+                    crosshair.SetActive(true);
+                }
+
+                // Actualizar la posición de la cruceta basada en la posición actual del cursor del mouse
+                UpdateCrosshair();
             }
 
-            // Actualizar la posición de la cruceta basada en la posición actual del cursor del mouse
-            UpdateCrosshair();
         }
         else  // En caso de que el botón del mouse haya sido soltado
         {
@@ -190,11 +221,18 @@ public class SpellScript : MonoBehaviour
     IEnumerator FireProjectile()
     {
 
-        if (isCooldown)
-            yield break;
+        int projectileID = System.Array.IndexOf(proyectiles, selectedProjectile);
 
-        isCooldown = true;
-        cooldownTimer = cooldownTime;
+        // Verificar si el proyectil está en cooldown
+        if (isProjectileOnCooldown[projectileID])
+        {
+            Debug.Log("Proyectil en cooldown.");
+            yield break;
+        }
+
+        // Establecer el cooldown del proyectil
+        isProjectileOnCooldown[projectileID] = true;
+        projectileCooldownTimers[projectileID] = projectileCooldownTimes[projectileID];
 
         animator.SetTrigger("Spell");
         playerStats.canMove = false;
@@ -216,14 +254,12 @@ public class SpellScript : MonoBehaviour
             SpellDamage spellDamage = vfx.GetComponent<SpellDamage>();
             if (spellDamage != null)
             {
-                int projectileID = System.Array.IndexOf(proyectiles, selectedProjectile) + 1;
-                spellDamage.projectileID = projectileID;
+                spellDamage.projectileID = projectileID + 1; // Almacenar el ID del proyectil
             }
             Destroy(vfx, 2);  // Limpiar el proyectil después de 2 segundos
         }
 
         playerStats.canMove = true;
-        isCooldown = false;
 
         if (crosshair != null && crosshair.activeSelf)
         {
@@ -232,19 +268,72 @@ public class SpellScript : MonoBehaviour
 
         isAimingWithMouse = false;
         isRightMouseHeld = false;
-
-
     }
 
     public void SetProjectile(int weaponID)
     {
+        // Cambiar entre proyectiles
         if (weaponID > 0 && weaponID <= proyectiles.Length)
         {
-            selectedProjectile = proyectiles[weaponID - 1];  // Cambia al proyectil correspondiente
+            selectedProjectile = proyectiles[weaponID - 1];
+            currentProjectileIndex = weaponID - 1; // Actualiza el índice actual
         }
         else
         {
-            selectedProjectile = proyectiles[0];  // Proyectil básico por defecto
+            selectedProjectile = proyectiles[0];
+            currentProjectileIndex = 0; // Reinicia al primer proyectil
         }
     }
+
+    public void OnScrollUp(InputValue input)
+    {
+        if (input.isPressed)
+        {
+            ScrollUp();
+        }
+    }
+
+    // Método para manejar el scroll hacia abajo
+    public void OnScrollDown(InputValue input)
+    {
+        if (input.isPressed)
+        {
+            ScrollDown();
+        }
+    }
+
+    // Función que realiza el scroll hacia arriba
+    private void ScrollUp()
+    {
+        currentProjectileIndex--; // Restamos para ir hacia arriba
+
+        if (currentProjectileIndex < 0)
+        {
+            currentProjectileIndex = proyectiles.Length - 1; // Si llegamos al final, volvemos al último proyectil
+        }
+
+        // Actualizar el ID del arma en el Weapon Wheel
+        wheelController.weaponID = currentProjectileIndex + 1; // Asegúrate de que el ID sea correcto (1-indexado)
+        wheelController.UpdateWeaponIcon(); // Actualizar el ícono en la UI
+        SetProjectile(currentProjectileIndex + 1); // Actualiza el proyectil
+        Debug.Log("Proyectil seleccionado: " + selectedProjectile.name);
+    }
+
+    // Función que realiza el scroll hacia abajo
+    private void ScrollDown()
+    {
+        currentProjectileIndex++; // Sumamos para ir hacia abajo
+
+        if (currentProjectileIndex >= proyectiles.Length)
+        {
+            currentProjectileIndex = 0; // Si llegamos al final, volvemos al primer proyectil
+        }
+
+        // Actualizar el ID del arma en el Weapon Wheel
+        wheelController.weaponID = currentProjectileIndex + 1; // Asegúrate de que el ID sea correcto (1-indexado)
+        wheelController.UpdateWeaponIcon(); // Actualizar el ícono en la UI
+        SetProjectile(currentProjectileIndex + 1); // Actualiza el proyectil
+        Debug.Log("Proyectil seleccionado: " + selectedProjectile.name);
+    }
+
 }

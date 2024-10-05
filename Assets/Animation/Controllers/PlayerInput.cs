@@ -299,6 +299,24 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ScrollUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""57441774-6db3-4af4-8c42-d3f58998a0a4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ScrollDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""d66725c1-5bf7-4d2e-a151-1d21556aa15a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -552,6 +570,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MouseAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ece9502-c459-4fb9-8e6d-cc04650fede3"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScrollUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13d535f1-b1b6-4e77-a95e-b3927d033b52"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScrollDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1052,6 +1092,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_PlayerActions_Inventory = m_PlayerActions.FindAction("Inventory", throwIfNotFound: true);
         m_PlayerActions_Aim = m_PlayerActions.FindAction("Aim", throwIfNotFound: true);
         m_PlayerActions_MouseAim = m_PlayerActions.FindAction("MouseAim", throwIfNotFound: true);
+        m_PlayerActions_ScrollUp = m_PlayerActions.FindAction("ScrollUp", throwIfNotFound: true);
+        m_PlayerActions_ScrollDown = m_PlayerActions.FindAction("ScrollDown", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1178,6 +1220,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_Inventory;
     private readonly InputAction m_PlayerActions_Aim;
     private readonly InputAction m_PlayerActions_MouseAim;
+    private readonly InputAction m_PlayerActions_ScrollUp;
+    private readonly InputAction m_PlayerActions_ScrollDown;
     public struct PlayerActionsActions
     {
         private @PlayerInput m_Wrapper;
@@ -1196,6 +1240,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Inventory => m_Wrapper.m_PlayerActions_Inventory;
         public InputAction @Aim => m_Wrapper.m_PlayerActions_Aim;
         public InputAction @MouseAim => m_Wrapper.m_PlayerActions_MouseAim;
+        public InputAction @ScrollUp => m_Wrapper.m_PlayerActions_ScrollUp;
+        public InputAction @ScrollDown => m_Wrapper.m_PlayerActions_ScrollDown;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1247,6 +1293,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @MouseAim.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnMouseAim;
                 @MouseAim.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnMouseAim;
                 @MouseAim.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnMouseAim;
+                @ScrollUp.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnScrollUp;
+                @ScrollUp.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnScrollUp;
+                @ScrollUp.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnScrollUp;
+                @ScrollDown.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnScrollDown;
+                @ScrollDown.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnScrollDown;
+                @ScrollDown.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnScrollDown;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -1293,6 +1345,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @MouseAim.started += instance.OnMouseAim;
                 @MouseAim.performed += instance.OnMouseAim;
                 @MouseAim.canceled += instance.OnMouseAim;
+                @ScrollUp.started += instance.OnScrollUp;
+                @ScrollUp.performed += instance.OnScrollUp;
+                @ScrollUp.canceled += instance.OnScrollUp;
+                @ScrollDown.started += instance.OnScrollDown;
+                @ScrollDown.performed += instance.OnScrollDown;
+                @ScrollDown.canceled += instance.OnScrollDown;
             }
         }
     }
@@ -1423,6 +1481,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnInventory(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnMouseAim(InputAction.CallbackContext context);
+        void OnScrollUp(InputAction.CallbackContext context);
+        void OnScrollDown(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
