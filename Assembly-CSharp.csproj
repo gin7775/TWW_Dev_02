@@ -53,7 +53,7 @@
     <UnityVersion>2022.1.15f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\BlurManager.cs" />
@@ -113,7 +113,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Empresario\CorrerEmpresarioStateMachine.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Manager\UIManagerImage.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\ButtonManager.cs" />
-    <Compile Include="Assets\BackLog\proyectile Testing\Scripts\Projectile_Test.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scenes\Testing\proyectile Testing\Scripts\Projectile_Test.cs" />
     <Compile Include="Assets\Scripts\Function Manager\MoveTornado.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Events\PressKeyEvent.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Puppet\ContenedorPuppet.cs" />
@@ -214,7 +214,7 @@
     <Compile Include="Assets\Scripts\Function Manager\sceneActivator.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\HorizontalSelector.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\UIDissolveEffect.cs" />
-    <Compile Include="Assets\BackLog\proyectile Testing\Scripts\Gunner_Test.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scenes\Testing\proyectile Testing\Scripts\Gunner_Test.cs" />
     <Compile Include="Assets\AttackRogue.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_AnimSwipe.cs" />
     <Compile Include="Assets\Scripts\Sounds\SoundManager.cs" />
@@ -241,7 +241,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreVerticalBehavior.cs" />
     <Compile Include="Assets\EnemyHealthBarManager.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\SettingsController.cs" />
-    <Compile Include="Assets\BackLog\proyectile Testing\Scripts\Holder.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scenes\Testing\proyectile Testing\Scripts\Holder.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\AtaqueTornadoStateMachine.cs" />
     <Compile Include="Assets\activePlataform.cs" />
     <Compile Include="Assets\Animation\Controllers\PlayerInput.cs" />
@@ -276,7 +276,7 @@
     <Compile Include="Assets\VFX\Slash\SlashShooter.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHealBehavior.cs" />
     <Compile Include="Assets\PatrullaTarik.cs" />
-    <Compile Include="Assets\BackLog\proyectile Testing\Scripts\Gun_Test.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scenes\Testing\proyectile Testing\Scripts\Gun_Test.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\Behaviors\Crow\CrowActivator.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Input\ScrollRectElement.cs" />
@@ -621,6 +621,18 @@
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
       <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.15f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.15f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.15f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.15f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.15f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
