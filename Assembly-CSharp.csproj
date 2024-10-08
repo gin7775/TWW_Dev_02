@@ -289,6 +289,7 @@
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\CrowChoice.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scenes\Testing\proyectile Testing\Prefabs\FlameEnemy\Scripts\RotateSimple.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
