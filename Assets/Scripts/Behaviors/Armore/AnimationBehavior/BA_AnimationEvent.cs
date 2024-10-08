@@ -6,6 +6,9 @@ public class BA_AnimationEvent : MonoBehaviour
 {
     public GameObject holderProyectile1, holderProyectile2, holderImpactProyectile,weaponPoint,player,alturaMarker;
     public Vector3 proyectilePos;
+
+    public GameObject VfxSmokeExplosionWave, VfxSmokeExplosionPieces, VfxSmokeExplosionFount, VfxSmokeSweepWave, VfxSmokeSweepPieces, VfxSmokeWalk;
+    public Transform SmokeExplosionPosition, SmokeWavePosition, SmokeWalkPositionLeft, SmokeWalkPositionRight;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,5 +75,27 @@ public class BA_AnimationEvent : MonoBehaviour
     public void playAnimationTaparseEscudo()
     {
         MiFmod.Instance.Play("SFX_2d/TaparseConEscudoBoss");
+    }
+
+
+    public void PlayParticleExplosion()
+    {
+        Instantiate(VfxSmokeExplosionWave, SmokeExplosionPosition); 
+        Instantiate(VfxSmokeExplosionPieces, SmokeExplosionPosition); 
+        Instantiate(VfxSmokeExplosionFount, SmokeExplosionPosition);
+    }
+    public void PlayParticleSweep()
+    {
+        
+        Instantiate(VfxSmokeSweepPieces, SmokeWavePosition);
+        Instantiate(VfxSmokeSweepWave, SmokeWavePosition);
+    }
+    public void PlayParticleWalkRight()
+    {
+        Instantiate(VfxSmokeWalk, SmokeWalkPositionRight);
+    }
+    public void PlayParticleWalkLeft()
+    {
+        Instantiate(VfxSmokeWalk, SmokeWalkPositionLeft);
     }
 }
