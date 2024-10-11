@@ -8,7 +8,7 @@ using Cinemachine.PostFX;
 using UnityEngine.UI;
 
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour, IDataPersistence
 {
     public SceneInfo thisScene;
     public int healthLevel = 10;
@@ -96,7 +96,7 @@ public class PlayerStats : MonoBehaviour
 
        
 
-        Debug.Log("Guardado esta" + PlayerPrefs.GetInt("Health") + "y tiene de vida" + currentHealth);
+        //Debug.Log("Guardado esta" + PlayerPrefs.GetInt("Health") + "y tiene de vida" + currentHealth);
         healInstances = healLV;
     }
 
@@ -238,5 +238,15 @@ public class PlayerStats : MonoBehaviour
         Debug.Log("Tiene de instancias" + PlayerPrefs.GetInt("HealLV"));
 
 
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        this.currentHealth = gameData.currentHealth;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.currentHealth = this.currentHealth;
     }
 }

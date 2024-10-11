@@ -4,43 +4,49 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class SceneInfo : MonoBehaviour
+public class SceneInfo : MonoBehaviour, IDataPersistence
 {
     public bool endTest;
-    public int sceneIndex,spawnIndex,nextIndex,controlPoint,sceneMusic;
+    public int sceneIndex, spawnIndex, nextIndex, controlPoint, sceneMusic, sceneSvaeActiva;
     //public int[] controlPoints;
+    public DataPersistenceManager dataPersistenceManager;
     public GameObject[] playerSpawn;
     private SoundManager audioManager;
     public TextMeshPro TestText;
     
-    // Start is called before the first frame update
     void Start()
     {
-        audioManager = FindObjectOfType<SoundManager>();
-        GameManager.gameManager.playerSpawn = playerSpawn;
-        spawnIndex = GameManager.gameManager.spawnIndex;
+        Debug.Log(GameManager.gameManager.death);
+        if (!GameManager.gameManager.death)
+        {
+            dataPersistenceManager = DataPersistenceManager.instance;
+            GameManager.gameManager.sceneIndexGameManager = sceneIndex;
+            GameManager.gameManager.SetPosition(playerSpawn[controlPoint].transform);
+            dataPersistenceManager.LoadGame();
 
-        GameManager.gameManager.SetPosition(playerSpawn[spawnIndex].transform);
+        }
+        audioManager = FindObjectOfType<SoundManager>();
 
         //audioManager.ChoseMusic(sceneMusic); Hasta utilizar el audio manager
         TestText.text = "";
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
     private void OnTriggerEnter(Collider other)
     {
-       
-        if(other.tag == "Player")
+
+        if (other.tag == "Player")
         {
             if (endTest == false)
             {
+                GameManager.gameManager.death = false;
+                Debug.Log("Estoy entrando al colider de sceneInfo");
                 GameManager.gameManager.spawnIndex = nextIndex;
-                GameManager.gameManager.NextScene(sceneIndex);
+                GameManager.gameManager.NextScene(sceneIndex + 1);
             }
             else
             {
@@ -52,8 +58,6 @@ public class SceneInfo : MonoBehaviour
     public void deathScene()
     {
         nextIndex = controlPoint;
-        GameManager.gameManager.spawnIndex = nextIndex;
-        GameManager.gameManager.NextScene(SceneManager.GetActiveScene().buildIndex);
     }
     IEnumerator EndTest()
     {
@@ -62,5 +66,24 @@ public class SceneInfo : MonoBehaviour
         yield return new WaitForSeconds(GameManager.gameManager.transitionTime+3);
         Application.Quit();
 
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        sceneIndex = gameData.sceneIndex;
+        GameManager.gameManager.sceneIndexGameManager = sceneIndex;
+        controlPoint = gameData.spawnPointIndex;
+        GameManager.gameManager.spawnIndex = controlPoint;
+        GameManager.gameManager.SetPosition(playerSpawn[GameManager.gameManager.spawnIndex].transform);
+
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.spawnPointIndex = controlPoint;
+        data.sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        data.death = false;
+        data.newGame = false;
+        GameManager.gameManager.death = false;
     }
 }

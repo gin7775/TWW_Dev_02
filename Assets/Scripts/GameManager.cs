@@ -7,15 +7,21 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public SceneInfo SceneInfo;
+    public int sceneIndexGameManager;
     public float transitionTime;
     public static GameManager gameManager;
     public GameObject[] playerSpawn;
     private GameObject player;
     public int spawnIndex;
     public Animator fader;
+    public bool death;
+    public bool newGame;
+    public DataPersistenceManager dataPersistenceManager;
 
     void Start()
     {
+        dataPersistenceManager = DataPersistenceManager.instance;
+        newGame = true;
         transitionTime = 1f;
         fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -65,8 +71,8 @@ public class GameManager : MonoBehaviour
     }
     public void Death()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        SceneInfo.deathScene();
+        death = true;
+        NextScene(sceneIndexGameManager);
     }
 
     IEnumerator Loadlevel(int index)
@@ -78,14 +84,20 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(index);
+        if (death || newGame)
+        {
+            newGame = false;
+            dataPersistenceManager.LoadGame();
+            SceneInfo.deathScene();
+        }
 
         if (SceneManager.GetActiveScene().buildIndex == index)
         {
             playerSpawn = GameObject.FindGameObjectsWithTag("PlayerSpawn");
 
 
-
         }
+        death = false;
 
     }
 }
