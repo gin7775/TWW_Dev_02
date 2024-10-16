@@ -34,7 +34,8 @@ public class DataPersistenceManager : MonoBehaviour
         //}
         if (instance != null)
         {
-            Debug.LogError("More than one data persistence manager finding on the scene");
+            //Debug.LogError("More than one data persistence manager finding on the scene");
+            
         }
         else if (gameData != null && gameData.death)
         {
@@ -63,6 +64,7 @@ public class DataPersistenceManager : MonoBehaviour
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         if (instance.gameData == null || GameManager.gameManager.death || instance.gameData.newGame)
         {
+            
             LoadGame();
         }
     }
@@ -90,6 +92,7 @@ public class DataPersistenceManager : MonoBehaviour
     }
     public void SaveGame()
     {
+        Debug.Log("Guarda");
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.SaveData(ref gameData);

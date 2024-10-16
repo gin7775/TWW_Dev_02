@@ -17,7 +17,7 @@ public class ControlPoint : MonoBehaviour
     {
         canTriger = true;
         dataPersistenceManager = DataPersistenceManager.instance;
-        SceneInfo = FindObjectOfType<SceneInfo>();
+        //SceneInfo = FindObjectOfType<SceneInfo>();
         //SceneInfo = FindObjectOfType<SceneInfo>();
     }
 
@@ -25,6 +25,8 @@ public class ControlPoint : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            
+           // Debug.Log("Estoy en collider");
             if (UnityEngine.Input.GetKeyDown(saveKey))
             {
                 SceneInfo.controlPoint = pointIndex;
