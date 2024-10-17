@@ -159,6 +159,38 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_03bbac66e39d42b691c9e29a164c2252_Out_0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_0d3fe173f9ec4c1ead5f9fc34987762a_Out_0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_625c154ebeb94200bacf9c048c0a7e79_Out_0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_a5d956fcb3fc4519a1726c6d791bf74d_Out_0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_af153cad1a4d49b4937ae04eb1c98dfa_Out_0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_af8bbfb44d8f4f4f877249a0e1f83cad_Out_0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_b2c77bac431d4d5f9ea5d09034e5a206_Out_0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_cc662553a46b4c05b2f33798cbc307ba_Out_0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ThirdTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -215,7 +247,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _Mode: 0
-    - _NormalFloat: 0
+    - _NormalFloat: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
