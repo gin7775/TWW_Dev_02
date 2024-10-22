@@ -7,8 +7,8 @@ public class BA_AnimationEvent : MonoBehaviour
     public GameObject holderProyectile1, holderProyectile2, holderImpactProyectile,weaponPoint,player,alturaMarker;
     public Vector3 proyectilePos;
 
-    public GameObject VfxSmokeExplosionWave, VfxSmokeExplosionPieces, VfxSmokeExplosionFount, VfxSmokeSweepWave, VfxSmokeSweepPieces, VfxSmokeWalk;
-    public Transform SmokeExplosionPosition, SmokeWavePosition, SmokeWalkPositionLeft, SmokeWalkPositionRight;
+    public GameObject VfxSmokeExplosionWave, VfxExplosionWave, VfxExplosionBars, VfxSmokeExplosionPieces, VfxSmokeExplosionFount, VfxSmokeSweepWave, VfxSmokeSweepPieces, VfxSmokeWalk, VfxSlashAdd, VfxSlashAlp, VfxSlashTrail, VfxShield;
+    public Transform SmokeExplosionPosition, SmokeWavePosition, SmokeWalkPositionLeft, SmokeWalkPositionRight, SlashAttackPosition, ShieldDefensePosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -83,12 +83,19 @@ public class BA_AnimationEvent : MonoBehaviour
         Instantiate(VfxSmokeExplosionWave, SmokeExplosionPosition); 
         Instantiate(VfxSmokeExplosionPieces, SmokeExplosionPosition); 
         Instantiate(VfxSmokeExplosionFount, SmokeExplosionPosition);
+        Instantiate(VfxExplosionWave, SmokeExplosionPosition);
+        Instantiate(VfxExplosionBars, SmokeExplosionPosition);
+
     }
     public void PlayParticleSweep()
     {
         
         Instantiate(VfxSmokeSweepPieces, SmokeWavePosition);
         Instantiate(VfxSmokeSweepWave, SmokeWavePosition);
+
+        Instantiate(VfxSlashAlp, SlashAttackPosition);
+        Instantiate(VfxSlashAdd, SlashAttackPosition);
+
     }
     public void PlayParticleWalkRight()
     {
@@ -97,5 +104,21 @@ public class BA_AnimationEvent : MonoBehaviour
     public void PlayParticleWalkLeft()
     {
         Instantiate(VfxSmokeWalk, SmokeWalkPositionLeft);
+    }
+    public void StartTrail()
+    {
+        VfxSlashTrail.SetActive(true);
+    }
+    public void StopTrail()
+    {
+        VfxSlashTrail.SetActive(false);
+    }
+    public void ShieldOn()
+    {
+        Instantiate(VfxShield, ShieldDefensePosition);
+    }
+    public void ShieldOff()
+    {
+
     }
 }
