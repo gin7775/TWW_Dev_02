@@ -17,8 +17,7 @@ public class ControlPoint : MonoBehaviour
     {
         canTriger = true;
         dataPersistenceManager = DataPersistenceManager.instance;
-        //SceneInfo = FindObjectOfType<SceneInfo>();
-        //SceneInfo = FindObjectOfType<SceneInfo>();
+        SceneInfo = FindObjectOfType<SceneInfo>();
     }
 
     private void OnTriggerStay(Collider other)

@@ -16,7 +16,7 @@ public class SceneInfo : MonoBehaviour, IDataPersistence
     
     void Start()
     {
-        Debug.Log(GameManager.gameManager.death);
+        //Debug.Log(GameManager.gameManager.death);
         if (!GameManager.gameManager.death)
         {
             dataPersistenceManager = DataPersistenceManager.instance;
@@ -28,7 +28,7 @@ public class SceneInfo : MonoBehaviour, IDataPersistence
         audioManager = FindObjectOfType<SoundManager>();
 
         //audioManager.ChoseMusic(sceneMusic); Hasta utilizar el audio manager
-        TestText.text = "";
+        //TestText.text = "";
 
     }
 
@@ -36,25 +36,7 @@ public class SceneInfo : MonoBehaviour, IDataPersistence
     {
         
     }
-    private void OnTriggerEnter(Collider other)
-    {
-
-        if (other.tag == "Player")
-        {
-            if (endTest == false)
-            {
-                GameManager.gameManager.death = false;
-                Debug.Log("Estoy entrando al colider de sceneInfo");
-                GameManager.gameManager.spawnIndex = nextIndex;
-                GameManager.gameManager.NextScene(sceneIndex + 1);
-            }
-            else
-            {
-                StartCoroutine(EndTest());
-            }
-
-        }
-    }
+    
     public void deathScene()
     {
         nextIndex = controlPoint;
