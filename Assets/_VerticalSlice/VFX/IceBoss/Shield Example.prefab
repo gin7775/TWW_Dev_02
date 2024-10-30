@@ -4836,6 +4836,7 @@ GameObject:
   - component: {fileID: 7236597001244305126}
   - component: {fileID: 7236597001244305125}
   - component: {fileID: 3355680638076372034}
+  - component: {fileID: -2624077122937496971}
   m_Layer: 0
   m_Name: Shield Example
   m_TagString: Untagged
@@ -4944,6 +4945,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &-2624077122937496971
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7236597001244305131}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8842ff654b20b9741be88cef94a3e279, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8842ff654b20b9741be88cef94a3e279, type: 2}
+  - {fileID: 7400000, guid: 9514aaf4e69204b4484a9facf3b5724b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &7236597002421975449
 GameObject:
   m_ObjectHideFlags: 0

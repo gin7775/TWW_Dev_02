@@ -9,6 +9,7 @@ public class BA_AnimationEvent : MonoBehaviour
 
     public GameObject VfxSmokeExplosionWave, VfxExplosionWave, VfxExplosionBars, VfxSmokeExplosionPieces, VfxSmokeExplosionFount, VfxSmokeSweepWave, VfxSmokeSweepPieces, VfxSmokeWalk, VfxSlashAdd, VfxSlashAlp, VfxSlashTrail, VfxShield;
     public Transform SmokeExplosionPosition, SmokeWavePosition, SmokeWalkPositionLeft, SmokeWalkPositionRight, SlashAttackPosition, ShieldDefensePosition;
+    public Animator animShield;
     // Start is called before the first frame update
     void Start()
     {
@@ -115,10 +116,12 @@ public class BA_AnimationEvent : MonoBehaviour
     }
     public void ShieldOn()
     {
-        Instantiate(VfxShield, ShieldDefensePosition);
+        //Instantiate(VfxShield, ShieldDefensePosition);
+        animShield.Play("ShieldOn");
     }
     public void ShieldOff()
     {
-
+        Debug.Log("Off se llama");
+        animShield.Play("ShieldOff");
     }
 }
