@@ -146,8 +146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 35
   bobo: 0
-  boboTimer: 1.5
-  startTimer: 1.5
+  boboTimer: 0.5
+  startTimer: 0.5
 --- !u!95 &-5153521163315400642
 Animator:
   serializedVersion: 4
