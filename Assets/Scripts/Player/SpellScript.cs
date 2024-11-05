@@ -1,21 +1,19 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Windows;
 
 public class SpellScript : MonoBehaviour
 {
     [Header("Configuraciones de Disparo")]
     public GameObject firePoint;
-    public GameObject[] proyectiles;
-    public GameObject[] effectSpawnProjectile;
+    public GameObject[] proyectiles; // Arreglo de proyectiles
+    public GameObject[] effectSpawnProjectile; // Efectos a spawnear con los proyectiles
 
     private int currentProjectileIndex = 0;
 
     [Header("Configuraciones de la Cruceta")]
-    public GameObject crosshair; // GameObject para la cruceta
+    public GameObject[] crosshairObjects; // Arreglo de GameObjects para la cruceta
     public float crosshairRadius = 2.0f; // Radio del círculo alrededor del jugador
     public Camera mainCamera; // Cámara principal
 
@@ -31,15 +29,15 @@ public class SpellScript : MonoBehaviour
     private bool isRightMouseHeld = false; // Para saber si se mantiene presionado el botón derecho del mouse
     private bool isAimingWithJoystick = false; // Para saber si se está apuntando con el joystick
     private GameObject selectedProjectile;
-    ComboAttackSystem comboAttackSystem;
+    private ComboAttackSystem comboAttackSystem;
 
     [Header("Cooldown de Proyectiles")]
     public float[] projectileCooldownTimes; // Cooldown específico para cada proyectil
     public float[] projectileCooldownTimers; // El temporizador que cuenta el tiempo restante para cada proyectil
     private bool[] isProjectileOnCooldown;
-    public TextMeshProUGUI cooldownIndicator;
 
-    WeaponWheelController wheelController;
+    private WeaponWheelController wheelController;
+
     void Start()
     {
         comboAttackSystem = GetComponent<ComboAttackSystem>();
@@ -54,23 +52,21 @@ public class SpellScript : MonoBehaviour
 
         selectedProjectile = proyectiles[0];
 
-        if (crosshair != null)
+        if (crosshairObjects.Length > 0)
         {
-            crosshair.SetActive(false); // Cruceta oculta al inicio
-            crosshair.transform.rotation = Quaternion.Euler(90, 0, 0); // Establece la rotación fija inicial de la cruceta (mirando hacia adelante)
+            DeactivateAllCrosshairs(); // Desactiva todas las crucetas al inicio
+            
         }
     }
 
     void Update()
     {
-        ManageCooldowns();
-       
-        UpdateCrosshair();
+        ManageCooldowns(); // Manejo de cooldowns
+        UpdateCrosshair(); // Actualización de la posición de la cruceta
     }
 
     private void ManageCooldowns()
     {
-        // Este bucle mantiene el cooldown activo aunque no estés usando el proyectil actualmente
         for (int i = 0; i < proyectiles.Length; i++)
         {
             if (isProjectileOnCooldown[i])
@@ -85,7 +81,6 @@ public class SpellScript : MonoBehaviour
         }
     }
 
-   
     public void OnAim(InputValue input)
     {
         aimDirection = input.Get<Vector2>(); // Obtiene la dirección del joystick derecho
@@ -95,101 +90,84 @@ public class SpellScript : MonoBehaviour
             isAimingWithMouse = false; // Desactivar la entrada del mouse si se usa el joystick
             isAimingWithJoystick = true;
 
-            // Convertir la dirección del joystick a un vector en el espacio del mundo
             lastAimDirection = mainCamera.transform.right * aimDirection.x + mainCamera.transform.forward * aimDirection.y;
             lastAimDirection.y = 0; // Mantener la cruceta en el plano horizontal
             lastAimDirection.Normalize(); // Normalizar para obtener solo la dirección
 
-            if (crosshair != null && !crosshair.activeSelf)
+            if (crosshairObjects.Length > 0 && !crosshairObjects[currentProjectileIndex].activeSelf)
             {
-                crosshair.SetActive(true); // Mostrar la cruceta
+                ActivateCrosshair(currentProjectileIndex); // Mostrar la cruceta
             }
         }
         else
         {
-            lastAimDirection = Vector3.zero; // Reseteamos la dirección cuando no se está moviendo el joystick
+            lastAimDirection = Vector3.zero;
             isAimingWithJoystick = false;
 
-            if (crosshair != null && crosshair.activeSelf && !isAimingWithMouse)
+            if (crosshairObjects.Length > 0 && crosshairObjects[currentProjectileIndex].activeSelf && !isAimingWithMouse)
             {
-                crosshair.SetActive(false); // Ocultar la cruceta si no se está usando el mouse
+                DeactivateAllCrosshairs(); // Ocultar la cruceta si no se está usando el mouse
             }
         }
     }
 
     public void OnMouseAim(InputValue input)
     {
-        // Verifica si el botón del mouse está siendo presionado
         if (input.isPressed && !comboAttackSystem.isAttacking && !isCooldown && !player.isDodging)
         {
-            // Si el botón está presionado, indicar que se está apuntando con el mouse
             isAimingWithMouse = true;
-            // Y también indicar que el botón derecho del mouse está siendo mantenido presionado
             isRightMouseHeld = true;
-            // Asegurar que el joystick no está siendo usado para apuntar simultáneamente
             isAimingWithJoystick = false;
 
             int projectileID = System.Array.IndexOf(proyectiles, selectedProjectile);
 
-            // Verifica si el proyectil está en cooldown, si es así, no mostrar la cruceta
             if (projectileCooldownTimers[projectileID] <= 0f)
             {
-                // Si la cruceta no está activa, activarla para que se muestre en la pantalla
-                if (crosshair != null && !crosshair.activeSelf)
+                if (crosshairObjects.Length > 0 && !crosshairObjects[currentProjectileIndex].activeSelf)
                 {
-                    crosshair.SetActive(true);
+                    ActivateCrosshair(currentProjectileIndex);
                 }
-
-                // Actualizar la posición de la cruceta basada en la posición actual del cursor del mouse
                 UpdateCrosshair();
             }
 
         }
-        else  // En caso de que el botón del mouse haya sido soltado
+        else
         {
-            // Verificar que el botón derecho del mouse había sido presionado previamente
             if (isRightMouseHeld)
             {
-                // Iniciar la corutina que maneja el disparo del proyectil
                 StartCoroutine(FireProjectile());
-
-               
             }
         }
     }
 
-    public void OnRotate(InputValue input) //USANDO EL MANDO INPUT
+    public void OnRotate(InputValue input)
     {
-        if (input.isPressed && !isCooldown && isAimingWithJoystick && !comboAttackSystem.isAttacking )
+        if (input.isPressed && !isCooldown && isAimingWithJoystick && !comboAttackSystem.isAttacking)
         {
-            StartCoroutine(FireProjectile()); // Disparar cuando se presiona el botón de disparo en el mando
+            StartCoroutine(FireProjectile());
         }
     }
 
     private void UpdateCrosshair()
     {
-        if (crosshair == null || mainCamera == null)
+        if (crosshairObjects.Length == 0 || mainCamera == null)
             return;
 
-        if (lastAimDirection != Vector3.zero || isAimingWithMouse) // Actualizar si la dirección es válida o se usa el mouse
+        if (lastAimDirection != Vector3.zero || isAimingWithMouse)
         {
             Vector3 newCrosshairPosition;
 
             if (isAimingWithMouse)
             {
-                // Obtener la posición del mouse en un plano horizontal a la altura del jugador
                 Plane playerPlane = new Plane(Vector3.up, transform.position);
                 Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
                 if (playerPlane.Raycast(ray, out float distance))
                 {
                     Vector3 hitPoint = ray.GetPoint(distance);
-
-                    // Calcular la dirección desde el jugador hacia la posición del mouse
                     Vector3 directionFromPlayerToMouse = (hitPoint - transform.position).normalized;
-                    directionFromPlayerToMouse.y = 0; // Mantener la cruceta en el plano horizontal
+                    directionFromPlayerToMouse.y = 0;
 
-                    // Calcular la nueva posición de la cruceta en un círculo alrededor del jugador
                     newCrosshairPosition = transform.position + directionFromPlayerToMouse * crosshairRadius;
                 }
                 else
@@ -199,72 +177,58 @@ public class SpellScript : MonoBehaviour
             }
             else
             {
-                // Calcular la nueva posición de la cruceta en un círculo alrededor del jugador
                 newCrosshairPosition = transform.position + lastAimDirection * crosshairRadius;
-                newCrosshairPosition.y = transform.position.y; // Mantener la cruceta al nivel del jugador
+                newCrosshairPosition.y = transform.position.y;
             }
 
-            // Actualizar la posición de la cruceta
-            crosshair.transform.position = newCrosshairPosition;
-
-            // Rotar la cruceta para que mire hacia la dirección que apunta, incluyendo la dirección vertical
-            Quaternion lookRotation = Quaternion.LookRotation(lastAimDirection != Vector3.zero ? lastAimDirection : crosshair.transform.position - transform.position);
-
-            // Modificar solo la rotación en el eje X para mantenerla en 90 grados
+            // Actualizar la posición de la cruceta activa
+            crosshairObjects[currentProjectileIndex].transform.position = newCrosshairPosition;
+            Quaternion lookRotation = Quaternion.LookRotation(lastAimDirection != Vector3.zero ? lastAimDirection : crosshairObjects[currentProjectileIndex].transform.position - transform.position);
             lookRotation = Quaternion.Euler(90, lookRotation.eulerAngles.y, lookRotation.eulerAngles.z + rotation1);
-
-            // Aplicar la rotación final a la cruceta
-            crosshair.transform.rotation = lookRotation;
+            crosshairObjects[currentProjectileIndex].transform.rotation = lookRotation;
         }
     }
 
     IEnumerator FireProjectile()
     {
-
         int projectileID = System.Array.IndexOf(proyectiles, selectedProjectile);
 
-        // Verificar si el proyectil está en cooldown
         if (isProjectileOnCooldown[projectileID])
         {
             Debug.Log("Proyectil en cooldown.");
             yield break;
         }
 
-        // Establecer el cooldown del proyectil
         isProjectileOnCooldown[projectileID] = true;
         projectileCooldownTimers[projectileID] = projectileCooldownTimes[projectileID];
 
         animator.SetTrigger("Spell");
-        playerStats.canMove = false;
+        playerStats.canMove = false; // Deshabilitar movimiento durante el lanzamiento
         UpdateCrosshair();
 
-        Vector3 targetPosition = crosshair.transform.position;
+        Vector3 targetPosition = crosshairObjects[currentProjectileIndex].transform.position;
         targetPosition.y = transform.position.y;
         Vector3 aimDir = (targetPosition - transform.position).normalized;
         transform.rotation = Quaternion.LookRotation(aimDir);
 
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.25f); // Espera un tiempo antes de lanzar el proyectil
 
         if (firePoint != null)
         {
-            Vector3 projectileDirection = (new Vector3(crosshair.transform.position.x, firePoint.transform.position.y, crosshair.transform.position.z) - firePoint.transform.position).normalized;
-
-            // Instanciar el proyectil seleccionado
+            Vector3 projectileDirection = (new Vector3(crosshairObjects[currentProjectileIndex].transform.position.x, firePoint.transform.position.y, crosshairObjects[currentProjectileIndex].transform.position.z) - firePoint.transform.position).normalized;
             GameObject vfx = Instantiate(selectedProjectile, firePoint.transform.position, Quaternion.LookRotation(projectileDirection));
+
             SpellDamage spellDamage = vfx.GetComponent<SpellDamage>();
             if (spellDamage != null)
             {
-                spellDamage.projectileID = projectileID + 1; // Almacenar el ID del proyectil
+                spellDamage.projectileID = projectileID + 1; // Asignar el ID del proyectil
             }
-            Destroy(vfx, 2);  // Limpiar el proyectil después de 2 segundos
+            Destroy(vfx, 2); // Destruir el proyectil después de 2 segundos
         }
 
-        playerStats.canMove = true;
+        playerStats.canMove = true; // Rehabilitar movimiento
 
-        if (crosshair != null && crosshair.activeSelf)
-        {
-            crosshair.SetActive(false);
-        }
+        DeactivateAllCrosshairs(); // Ocultar la cruceta después de lanzar
 
         isAimingWithMouse = false;
         isRightMouseHeld = false;
@@ -283,6 +247,9 @@ public class SpellScript : MonoBehaviour
             selectedProjectile = proyectiles[0];
             currentProjectileIndex = 0; // Reinicia al primer proyectil
         }
+
+        
+       
     }
 
     public void OnScrollUp(InputValue input)
@@ -336,4 +303,17 @@ public class SpellScript : MonoBehaviour
         Debug.Log("Proyectil seleccionado: " + selectedProjectile.name);
     }
 
+    private void ActivateCrosshair(int index)
+    {
+        DeactivateAllCrosshairs(); // Desactiva todas las crucetas
+        crosshairObjects[index].SetActive(true); // Activa la cruceta correspondiente al proyectil seleccionado
+    }
+
+    private void DeactivateAllCrosshairs()
+    {
+        foreach (var crosshair in crosshairObjects)
+        {
+            crosshair.SetActive(false); // Desactiva cada cruceta en el arreglo
+        }
+    }
 }
