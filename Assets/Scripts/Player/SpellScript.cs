@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class SpellScript : MonoBehaviour
 {
@@ -37,6 +38,10 @@ public class SpellScript : MonoBehaviour
     private bool[] isProjectileOnCooldown;
 
     private WeaponWheelController wheelController;
+
+    public Material fireMaterial;
+    public Material swordMaterial;
+    public float  intensity = 2.0f;
 
     void Start()
     {
@@ -234,6 +239,8 @@ public class SpellScript : MonoBehaviour
         isRightMouseHeld = false;
     }
 
+  
+
     public void SetProjectile(int weaponID)
     {
         // Cambiar entre proyectiles
@@ -248,10 +255,47 @@ public class SpellScript : MonoBehaviour
             currentProjectileIndex = 0; // Reinicia al primer proyectil
         }
 
-        
-       
+
+        ChangeFireColorBasedOnProjectile(currentProjectileIndex, intensity);
     }
 
+    private void ChangeFireColorBasedOnProjectile(int projectileIndex, float intensity)
+    {
+        if (fireMaterial != null)
+        {
+            Color newColor;
+            Color buttomColor;
+            Color swordColor;
+            switch (projectileIndex)
+            {
+                case 0:
+                    newColor = new Color(11.8f, 0.1727885f, 16.50127f); //Morado
+                    buttomColor = new Color(1.826875f, 0.0f, 3.379695f);
+                    swordColor = new Color(12.4586f, 0f, 18.16482f);
+                    break;
+                case 1:
+                    newColor = new Color(0f, 11.98431f, 11.41961f); // Azul HDR
+                    buttomColor = new Color(0f, 1.396078f, 2.996078f);
+                    swordColor = new Color(0f, 15.21063f, 18.16482f);
+                    break;
+                case 2:
+                    newColor = new Color(13f, 0f, 0f); // Rojo HDR
+                    buttomColor = new Color(6.422235f, 0.06724853f, 0f);
+                    swordColor = new Color(24f, 0f, 0f);
+                    break;
+                default:
+                    newColor = new Color(11.8f, 0.1727885f, 16.50127f); //Morado
+                    buttomColor = new Color(1.826875f, 0.0f, 3.379695f);
+                    swordColor = new Color(12.4586f, 0f, 18.16482f);
+                    break;
+            }
+            newColor *= intensity;
+            // Asegúrate de que "_Color" es el nombre correcto del parámetro en tu shader
+            fireMaterial.SetColor("_Color", newColor);
+            fireMaterial.SetColor("_ButtomColor",buttomColor);
+            swordMaterial.SetColor("_EmissionColor", swordColor);
+        }
+    }
     public void OnScrollUp(InputValue input)
     {
         if (input.isPressed)
