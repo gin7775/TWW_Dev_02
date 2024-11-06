@@ -72,8 +72,8 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _ButtomColor: {r: 1.826875, g: 0, b: 3.379695, a: 1}
-    - _Color: {r: 17.7, g: 0.25918275, b: 24.751905, a: 1.5}
+    - _ButtomColor: {r: 6.422235, g: 0.06724853, b: 0, a: 1}
+    - _Color: {r: 19.5, g: 0, b: 0, a: 1.5}
     - _DistortionSpeed: {r: 0, g: -0.3, b: 0, a: 0}
     - _DistortionTiling: {r: 2, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
