@@ -7,7 +7,7 @@ using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using DG.Tweening;
-
+using UnityEngine.EventSystems;
 public class Player : MonoBehaviour
 {
 
@@ -81,6 +81,8 @@ public class Player : MonoBehaviour
     public bool IsAttacking { get; internal set; }
     public bool IsDodging { get; internal set; }
 
+    public GameObject firstGameObjectWheel;
+
     private void Awake()
     {       
             playerGraphics = GameObject.FindGameObjectWithTag("Player").transform;
@@ -150,7 +152,7 @@ public class Player : MonoBehaviour
     public void OnRoll(InputValue value)
     {
                                    
-        if( comboAttackSystem.readyDash && !spellOn && !isCooldownDodge && !comboAttackSystem.isOnMenu)
+        if( comboAttackSystem.readyDash && !spellOn && !isCooldownDodge && !comboAttackSystem.isOnMenu && !weaponWheelController.weaponWheelSelected)
         {
             StartCoroutine(Dodge());
             MiFmod.Instance.Play("SFX_2d/Esquive");
@@ -415,6 +417,7 @@ public class Player : MonoBehaviour
         {
            
             weaponWheelController.weaponWheelSelected = ! weaponWheelController.weaponWheelSelected;
+            EventSystem.current.SetSelectedGameObject(firstGameObjectWheel);
 
         }
 

@@ -12,7 +12,7 @@ public class WeaponWheelController : MonoBehaviour
     private int currentProjectileIndex;
     private WeaponWheelButton currentSelectedButton;  // Referencia al botón actualmente seleccionado
     public SpellScript spellScript;  // Referencia al script de disparo
-
+    public bool blueProyectileActive = false;
     void Start()
     {
         // Asegurar que el ícono del proyectil predeterminado (ID 1) esté activo al inicio
@@ -57,8 +57,13 @@ public class WeaponWheelController : MonoBehaviour
     public void SelectButton(WeaponWheelButton button)
     {
         if (!weaponWheelSelected) return;
+        if (!spellScript.ProjectilesUnlocked && button.ID > 1)
+        {
+            Debug.Log("Los proyectiles especiales aún no están desbloqueados.");
+            return;
+        }
 
-        if (currentSelectedButton == button)
+        if (currentSelectedButton == button )
         {
             button.Deselected();
             currentSelectedButton = null;

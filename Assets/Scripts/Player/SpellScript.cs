@@ -36,12 +36,15 @@ public class SpellScript : MonoBehaviour
     public float[] projectileCooldownTimes; // Cooldown específico para cada proyectil
     public float[] projectileCooldownTimers; // El temporizador que cuenta el tiempo restante para cada proyectil
     private bool[] isProjectileOnCooldown;
-
+     public bool ProjectilesUnlocked = false;
     private WeaponWheelController wheelController;
 
     public Material fireMaterial;
     public Material swordMaterial;
     public float  intensity = 2.0f;
+
+    PauseMenu pauseMenu;
+
 
     void Start()
     {
@@ -51,6 +54,7 @@ public class SpellScript : MonoBehaviour
         player = GetComponent<Player>();
         playerStats = GetComponent<PlayerStats>();
         wheelController = GameObject.Find("WeaponWheel").GetComponent<WeaponWheelController>();
+        pauseMenu = GameObject.Find("UIMenu").GetComponent<PauseMenu>();
         int projectileCount = proyectiles.Length;
         isProjectileOnCooldown = new bool[projectileCount];
         projectileCooldownTimers = new float[projectileCount];
@@ -90,7 +94,7 @@ public class SpellScript : MonoBehaviour
     {
         aimDirection = input.Get<Vector2>(); // Obtiene la dirección del joystick derecho
 
-        if (aimDirection.magnitude > 0.1f) // Si el joystick está suficientemente desviado
+        if (aimDirection.magnitude > 0.1f && !wheelController.weaponWheelSelected) // Si el joystick está suficientemente desviado
         {
             isAimingWithMouse = false; // Desactivar la entrada del mouse si se usa el joystick
             isAimingWithJoystick = true;
@@ -118,7 +122,7 @@ public class SpellScript : MonoBehaviour
 
     public void OnMouseAim(InputValue input)
     {
-        if (input.isPressed && !comboAttackSystem.isAttacking && !isCooldown && !player.isDodging)
+        if (input.isPressed && !comboAttackSystem.isAttacking && !isCooldown && !player.isDodging && !wheelController.weaponWheelSelected)
         {
             isAimingWithMouse = true;
             isRightMouseHeld = true;
@@ -147,7 +151,7 @@ public class SpellScript : MonoBehaviour
 
     public void OnRotate(InputValue input)
     {
-        if (input.isPressed && !isCooldown && isAimingWithJoystick && !comboAttackSystem.isAttacking)
+        if (input.isPressed && !isCooldown && isAimingWithJoystick && !comboAttackSystem.isAttacking && !wheelController.weaponWheelSelected)
         {
             StartCoroutine(FireProjectile());
         }
@@ -243,6 +247,11 @@ public class SpellScript : MonoBehaviour
 
     public void SetProjectile(int weaponID)
     {
+        if (!ProjectilesUnlocked && weaponID > 1)
+        {
+            Debug.Log("Los proyectiles especiales aún no están desbloqueados.");
+            weaponID = 1; // Forzar la selección del proyectil básico
+        }
         // Cambiar entre proyectiles
         if (weaponID > 0 && weaponID <= proyectiles.Length)
         {
@@ -290,7 +299,7 @@ public class SpellScript : MonoBehaviour
                     break;
             }
             newColor *= intensity;
-            // Asegúrate de que "_Color" es el nombre correcto del parámetro en tu shader
+            
             fireMaterial.SetColor("_Color", newColor);
             fireMaterial.SetColor("_ButtomColor",buttomColor);
             swordMaterial.SetColor("_EmissionColor", swordColor);
@@ -298,7 +307,7 @@ public class SpellScript : MonoBehaviour
     }
     public void OnScrollUp(InputValue input)
     {
-        if (input.isPressed)
+        if (input.isPressed && !pauseMenu.GameIsPaused && ProjectilesUnlocked)
         {
             ScrollUp();
         }
@@ -307,7 +316,7 @@ public class SpellScript : MonoBehaviour
     // Método para manejar el scroll hacia abajo
     public void OnScrollDown(InputValue input)
     {
-        if (input.isPressed)
+        if (input.isPressed && !pauseMenu.GameIsPaused && ProjectilesUnlocked)
         {
             ScrollDown();
         }
@@ -316,6 +325,7 @@ public class SpellScript : MonoBehaviour
     // Función que realiza el scroll hacia arriba
     private void ScrollUp()
     {
+        if (!ProjectilesUnlocked) return;
         currentProjectileIndex--; // Restamos para ir hacia arriba
 
         if (currentProjectileIndex < 0)
@@ -333,6 +343,7 @@ public class SpellScript : MonoBehaviour
     // Función que realiza el scroll hacia abajo
     private void ScrollDown()
     {
+        if (!ProjectilesUnlocked) return;
         currentProjectileIndex++; // Sumamos para ir hacia abajo
 
         if (currentProjectileIndex >= proyectiles.Length)
@@ -359,5 +370,11 @@ public class SpellScript : MonoBehaviour
         {
             crosshair.SetActive(false); // Desactiva cada cruceta en el arreglo
         }
+    }
+
+    public void UnlockSpecialProjectiles()
+    {
+        ProjectilesUnlocked = true;
+        Debug.Log("Proyectiles especiales desbloqueados.");
     }
 }
