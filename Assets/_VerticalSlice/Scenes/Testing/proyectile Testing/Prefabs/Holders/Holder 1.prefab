@@ -48,8 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c216a2cd200b12f46a92fb31023df190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circleProyectile: {fileID: 0}
+  circleNumberMax: 0
+  circleCount: 0
+  circles: []
   Player: {fileID: 0}
   Guns: []
+  needPlayer: 0
 --- !u!1001 &4141835255848191945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77,6 +82,11 @@ PrefabInstance:
         type: 3}
       propertyPath: toPlayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372435996710213996, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
@@ -180,6 +190,11 @@ PrefabInstance:
       propertyPath: toPlayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2372435996710213996, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
       propertyPath: m_RootOrder
@@ -277,6 +292,11 @@ PrefabInstance:
       propertyPath: fireRate
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2372435996710213996, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
       propertyPath: m_RootOrder
@@ -373,6 +393,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fireRate
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372435996710213996, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}

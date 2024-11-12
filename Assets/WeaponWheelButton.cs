@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class WeaponWheelButton : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class WeaponWheelButton : MonoBehaviour
     {
         // Llama al controlador para manejar la selección del botón
         controller.SelectButton(this);
+        EventSystem.current.SetSelectedGameObject(this.gameObject);
     }
 
     void Start()

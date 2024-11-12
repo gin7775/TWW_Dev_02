@@ -64,6 +64,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 171
+    - _Dissolve: -0.11
     - _FresnelPOwer: 0.24
     - _Fressnel_Strenght: 2
     - _Normal_Offset: 1.18
@@ -79,6 +80,6 @@ Material:
     - _Fresnel_Color: {r: 1, g: 1, b: 1, a: 1}
     - _IceColor: {r: 0, g: 1.9089305, b: 6.510719, a: 1}
     - _Ice_Tiling: {r: 1, g: 1, b: 0, a: 0}
-    - _Speed: {r: 0.01, g: 0.001, b: 0, a: 0}
+    - _Speed: {r: 0.01, g: -0.03, b: 0, a: 0}
     - _Tilling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

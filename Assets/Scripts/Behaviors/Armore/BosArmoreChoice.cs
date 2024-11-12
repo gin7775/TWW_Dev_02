@@ -10,18 +10,27 @@ public class BosArmoreChoice : StateMachineBehaviour
     public GameObject player;
     private NavMeshAgent armoreAgent;
     public bool healOnce = true;
+    //De momento el temporizador es 5
+    public float distanceTimer,startTimer ;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         armoreAgent = animator.gameObject.GetComponent<NavMeshAgent>();
         armore = animator.gameObject.GetComponent<ArmoreBoss>();
         player = armore.player;
         aproachIterator = Random.Range(1, 4);
+        distanceTimer = 5f;
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         armoreAgent.destination = player.transform.position;
         armore.AnimArmoreWalk(1);
+        distanceTimer -= Time.deltaTime;
+        if (distanceTimer <= 0)
+        {
+            distanceTimer = 5f;
+            aproachIterator = 1;
+        }
         if (armoreAgent.remainingDistance <= 2.1f)
         {
             if (armoreAgent.remainingDistance <= 1.3f)
@@ -65,6 +74,7 @@ public class BosArmoreChoice : StateMachineBehaviour
                 
                 healOnce = false;
                 animator.SetTrigger("Shoot");
+
             }
         }
     }

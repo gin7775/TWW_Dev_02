@@ -39981,7 +39981,7 @@ ParticleSystem:
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
         ctime1: 3277
-        ctime2: 7325
+        ctime2: 7517
         ctime3: 9830
         ctime4: 0
         ctime5: 0
@@ -43581,7 +43581,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 0
+  scalingMode: 1
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -48041,7 +48041,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03fd84cf49a935f47a37a95ea69ab88e, type: 2}
+  - {fileID: 2100000, guid: 1064651efca5db84a9f472bcd5f9fad2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -53033,7 +53033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4097316381241926
 Transform:
   m_ObjectHideFlags: 0
@@ -57633,8 +57633,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03fd84cf49a935f47a37a95ea69ab88e, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: b8022b2fe8d03c9449fcfaff559ea00b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -62605,7 +62604,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.5634503e+28, y: 1.8e-43, z: 0, w: 3.59e-43}
+  m_BoundingSphereOverride: {x: 1.7e-44, y: 4.3505e-41, z: 6e-44, w: 2.524355e-29}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -72198,7 +72197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4853535508610664
 Transform:
   m_ObjectHideFlags: 0

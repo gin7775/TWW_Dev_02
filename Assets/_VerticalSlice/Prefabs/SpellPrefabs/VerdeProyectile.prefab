@@ -1176,7 +1176,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 0, g: 1, b: 0.006896496, a: 1}
+        key1: {r: 1, g: 0.09936343, b: 0, a: 1}
         key2: {r: 0.77254903, g: 0.55483437, b: 0.08627453, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9587,6 +9587,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLayerName: Player
+  freezeDurationEnemy: 2
+  freezeDurationObject: 7
+  projectileID: 0
 --- !u!1 &1477706141410116
 GameObject:
   m_ObjectHideFlags: 0
@@ -10789,10 +10792,10 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.911359, b: 0.7205882, a: 1}
-        key1: {r: 0.2872211, g: 0.7058823, b: 0, a: 1}
-        key2: {r: 0, g: 0.2647059, b: 0.0018255431, a: 0}
-        key3: {r: 0, g: 0.2530048, b: 1, a: 0}
+        key0: {r: 1, g: 0, b: 0.040816307, a: 1}
+        key1: {r: 0.6509434, g: 0.11223162, b: 0, a: 1}
+        key2: {r: 0.26666668, g: 0, b: 0.0025131227, a: 0}
+        key3: {r: 0.26666668, g: 0, b: 0.0025131227, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -10800,7 +10803,7 @@ ParticleSystem:
         ctime0: 386
         ctime1: 20817
         ctime2: 38357
-        ctime3: 37972
+        ctime3: 38357
         ctime4: 0
         ctime5: 0
         ctime6: 0
@@ -15601,8 +15604,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0.5441177, b: 0.04878296, a: 0}
-        key1: {r: 0, g: 0.5441177, b: 0.04878296, a: 0.5647059}
+        key0: {r: 0.54509807, g: 0.055395376, b: 0, a: 0}
+        key1: {r: 0.54509807, g: 0.0254127, b: 0, a: 0.5647059}
         key2: {r: 0, g: 0.2647059, b: 0.0018255431, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -20283,8 +20286,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.6330629, g: 1, b: 0.60294116, a: 0}
-        key1: {r: 0.6330629, g: 1, b: 0.60294116, a: 1}
+        key0: {r: 1, g: 0.23137254, b: 0.26183173, a: 0}
+        key1: {r: 1, g: 0.23137254, b: 0.24630122, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
