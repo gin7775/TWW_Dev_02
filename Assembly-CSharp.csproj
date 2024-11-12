@@ -230,6 +230,7 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Input\GamepadChecker.cs" />
     <Compile Include="Assets\Scripts\Function Manager\SceneInfo.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\BlurChecker.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\SceneChanges\CambiarEscena1.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\Ataque1StateMachine.cs" />
     <Compile Include="Assets\Scripts\Traps\CrosBow.cs" />
     <Compile Include="Assets\Scripts\Keys &amp; Doors\Key.cs" />
@@ -294,7 +295,6 @@
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\CrowChoice.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\SceneChanges\CambiarEscena1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />

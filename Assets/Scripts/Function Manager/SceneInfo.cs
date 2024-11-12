@@ -16,7 +16,6 @@ public class SceneInfo : MonoBehaviour, IDataPersistence
     
     void Start()
     {
-        //Debug.Log(GameManager.gameManager.death);
         if (!GameManager.gameManager.death)
         {
             dataPersistenceManager = DataPersistenceManager.instance;
@@ -26,9 +25,6 @@ public class SceneInfo : MonoBehaviour, IDataPersistence
 
         }
         audioManager = FindObjectOfType<SoundManager>();
-
-        //audioManager.ChoseMusic(sceneMusic); Hasta utilizar el audio manager
-        //TestText.text = "";
 
     }
 
