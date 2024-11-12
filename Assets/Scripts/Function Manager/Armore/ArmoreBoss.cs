@@ -60,10 +60,11 @@ public class ArmoreBoss : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            MiFmod.Instance.StopFondo();
             animArmore.SetTrigger("Death");
             Instantiate(vfxHitEffectFinish, vfxSpawn.transform.position, Quaternion.identity);
             iaArmore.SetTrigger("Death");
-
+            
         }
     }
     else if (guardState == 2)

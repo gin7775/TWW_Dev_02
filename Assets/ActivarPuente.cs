@@ -13,6 +13,7 @@ public class ActivarPuente : MonoBehaviour
         {
 
             puenteAnim.SetTrigger("Action");
+            MiFmod.Instance.PlayFondo("SoundTrack/Boss Theme");
 
 
         }
