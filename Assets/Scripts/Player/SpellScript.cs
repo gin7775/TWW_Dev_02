@@ -45,10 +45,12 @@ public class SpellScript : MonoBehaviour
 
     PauseMenu pauseMenu;
 
+    private EnemyLock enemyLock;
 
     void Start()
     {
         comboAttackSystem = GetComponent<ComboAttackSystem>();
+        enemyLock = GetComponent<EnemyLock>();
         selectedProjectile = proyectiles[0];
         animator = GetComponent<Animator>();
         player = GetComponent<Player>();
@@ -162,10 +164,19 @@ public class SpellScript : MonoBehaviour
         if (crosshairObjects.Length == 0 || mainCamera == null)
             return;
 
-        if (lastAimDirection != Vector3.zero || isAimingWithMouse)
-        {
-            Vector3 newCrosshairPosition;
+        Vector3 newCrosshairPosition;
 
+        // Si estamos en LockOn, la cruceta debe seguir al enemigo
+        if (enemyLock != null && enemyLock.isLockOnMode && enemyLock.currentTarget != null)
+        {
+            Vector3 directionToEnemy = (enemyLock.currentTarget.position - transform.position).normalized;
+            directionToEnemy.y = 0; // Mantener la dirección en el plano horizontal
+
+            newCrosshairPosition = transform.position + directionToEnemy * crosshairRadius; // Colocamos la cruceta en la dirección del enemigo
+        }
+        else
+        {
+            // Si no estamos en LockOn, la cruceta sigue el joystick o el ratón
             if (isAimingWithMouse)
             {
                 Plane playerPlane = new Plane(Vector3.up, transform.position);
@@ -175,27 +186,35 @@ public class SpellScript : MonoBehaviour
                 {
                     Vector3 hitPoint = ray.GetPoint(distance);
                     Vector3 directionFromPlayerToMouse = (hitPoint - transform.position).normalized;
-                    directionFromPlayerToMouse.y = 0;
+                    directionFromPlayerToMouse.y = 0; // Asegurarse de que solo se mueva en el plano horizontal
 
                     newCrosshairPosition = transform.position + directionFromPlayerToMouse * crosshairRadius;
                 }
                 else
                 {
-                    return;
+                    return; // Si no se puede calcular la posición del ratón, no hacemos nada
                 }
             }
             else
             {
+                // Si no estamos en modo LockOn, la cruceta sigue la dirección del joystick
                 newCrosshairPosition = transform.position + lastAimDirection * crosshairRadius;
-                newCrosshairPosition.y = transform.position.y;
+                newCrosshairPosition.y = transform.position.y; // Mantener la altura del jugador
             }
+        }
 
-            // Actualizar la posición de la cruceta activa
-            crosshairObjects[currentProjectileIndex].transform.position = newCrosshairPosition;
-            Quaternion lookRotation = Quaternion.LookRotation(lastAimDirection != Vector3.zero ? lastAimDirection : crosshairObjects[currentProjectileIndex].transform.position - transform.position);
-            lookRotation = Quaternion.Euler(90, lookRotation.eulerAngles.y, lookRotation.eulerAngles.z + rotation1);
+        // Actualizar la posición de la cruceta
+        crosshairObjects[currentProjectileIndex].transform.position = newCrosshairPosition;
+
+        // Verificar si la dirección no es cero antes de aplicar LookRotation
+        Vector3 directionToCrosshair = newCrosshairPosition - transform.position;
+        if (directionToCrosshair != Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(directionToCrosshair);
+            lookRotation = Quaternion.Euler(90, lookRotation.eulerAngles.y + rotation1, lookRotation.eulerAngles.z);
             crosshairObjects[currentProjectileIndex].transform.rotation = lookRotation;
         }
+
     }
 
     IEnumerator FireProjectile()
@@ -215,22 +234,39 @@ public class SpellScript : MonoBehaviour
         playerStats.canMove = false; // Deshabilitar movimiento durante el lanzamiento
         UpdateCrosshair();
 
-        Vector3 targetPosition = crosshairObjects[currentProjectileIndex].transform.position;
-        targetPosition.y = transform.position.y;
+        Vector3 targetPosition;
+
+        // Si estamos en modo LockOn, usamos el enemigo bloqueado
+        if (enemyLock != null && enemyLock.isLockOnMode && enemyLock.currentTarget != null)
+        {
+            targetPosition = enemyLock.currentTarget.position; // Dirección hacia el enemigo bloqueado
+        }
+        else
+        {
+            // Si no estamos en LockOn, usamos la cruceta
+            targetPosition = crosshairObjects[currentProjectileIndex].transform.position;
+        }
+
+        targetPosition.y = transform.position.y; // Mantener la altura constante
+
+        // Calculamos la dirección del disparo hacia el objetivo
         Vector3 aimDir = (targetPosition - transform.position).normalized;
-        transform.rotation = Quaternion.LookRotation(aimDir);
+        transform.rotation = Quaternion.LookRotation(aimDir); // Rotamos hacia el objetivo
 
         yield return new WaitForSeconds(0.25f); // Espera un tiempo antes de lanzar el proyectil
 
         if (firePoint != null)
         {
-            Vector3 projectileDirection = (new Vector3(crosshairObjects[currentProjectileIndex].transform.position.x, firePoint.transform.position.y, crosshairObjects[currentProjectileIndex].transform.position.z) - firePoint.transform.position).normalized;
+            // Calculamos la dirección final del proyectil, manteniendo la altura del firePoint
+            Vector3 projectileDirection = (new Vector3(targetPosition.x, firePoint.transform.position.y, targetPosition.z) - firePoint.transform.position).normalized;
+
+            // Instanciamos el proyectil en la posición del firePoint y lo orientamos hacia el objetivo
             GameObject vfx = Instantiate(selectedProjectile, firePoint.transform.position, Quaternion.LookRotation(projectileDirection));
 
             SpellDamage spellDamage = vfx.GetComponent<SpellDamage>();
             if (spellDamage != null)
             {
-                spellDamage.projectileID = projectileID + 1; // Asignar el ID del proyectil
+                spellDamage.projectileID = projectileID + 1; // Asignamos el ID del proyectil
             }
             Destroy(vfx, 2); // Destruir el proyectil después de 2 segundos
         }

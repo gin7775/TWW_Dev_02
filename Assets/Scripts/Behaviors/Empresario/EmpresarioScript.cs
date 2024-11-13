@@ -22,9 +22,9 @@ public class EmpresarioScript : MonoBehaviour, IEnemyFreezable
     public GameObject vfxHitEffectFinish;
 
     public GameObject vfxSpawn;
-    public GameObject vfxSpawnBlood;
+    
     public GameObject healthBarCanvas;
-    public GameObject vfxBlood;
+    
     private CinemachineImpulseSource cinemachineImpulseSource;
 
     [SerializeField] private AudioClip sfxHit;
@@ -92,12 +92,12 @@ public class EmpresarioScript : MonoBehaviour, IEnemyFreezable
         }
 
         MiFmod.Instance.Play("SFX_2d/Herido");
-        Vector3 attackDirection = (player.position - transform.position).normalized;
-        Vector3 oppositeDirection = -attackDirection;
+       
+       
 
         // Instanciar el VFX de sangre en la dirección opuesta
         Instantiate(vfxHitEffect, vfxSpawn.transform.position, Quaternion.identity);
-        Instantiate(vfxBlood, vfxSpawnBlood.transform.position, Quaternion.LookRotation(oppositeDirection));
+       
         ApplyKnockback();
         contenedorEmpresario.animEmpresario.SetTrigger("ataque");
 

@@ -27,16 +27,28 @@ public class Gun_Test : MonoBehaviour
             {
                 transform.LookAt(player.transform.position);
             }
-            GameObject x = Instantiate(projectile, this.transform.position, Quaternion.identity);
+
+            // Instanciar el proyectil en la posición y rotación inicial
+            GameObject x = Instantiate(projectile, transform.position, Quaternion.identity);
             rb = x.GetComponent<Rigidbody>();
-            localReference = this.transform.forward;
+
+            // Obtener la dirección de disparo
+            localReference = transform.forward;
+
+            // Apuntar el proyectil en la dirección de disparo
+            x.transform.rotation = Quaternion.LookRotation(localReference);
+
+            // Aplicar fuerza en la dirección de disparo
             rb.AddForce(localReference * speed, ForceMode.VelocityChange);
+
+            // Disminuir el número de disparos restantes
             shoots--;
-            Debug.Log("Dispara");
+            
         }
-        
+
         yield return new WaitForSeconds(fireRate);
-        if(shoots > 0)
+
+        if (shoots > 0)
         {
             StartCoroutine(Shooting());
         }

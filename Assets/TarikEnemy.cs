@@ -64,7 +64,7 @@ public class TarikEnemy : MonoBehaviour
         currentHealth -= damage;
 
         cinemachineImpulseSource.GenerateImpulse();
-        StartCoroutine(FrameFreeze(0.07f));
+        StartCoroutine(FrameFreeze(0.1f));
         MiFmod.Instance.Play("SFX_2d/HeridoTarik");
 
         Vector3 attackDirection = (player.position - transform.position).normalized;

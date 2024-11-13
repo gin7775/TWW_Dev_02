@@ -45,9 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c216a2cd200b12f46a92fb31023df190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circleProyectile: {fileID: 0}
+  circleNumberMax: 0
+  circleCount: 0
+  circles: []
   Player: {fileID: 0}
   Guns:
   - {fileID: 0}
+  needPlayer: 0
 --- !u!1001 &4141835255848191945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78,10 +83,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 327987903732378958, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
+      propertyPath: cantShoot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 327987903732378958, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
       propertyPath: projectile
       value: 
       objectReference: {fileID: 1238843893459588, guid: 0d589ddd2ed60394784c5add357069fa,
         type: 3}
+    - target: {fileID: 2372435996710213996, guid: 296428af58a62354d9b64355b8533d69,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4299771112945668232, guid: 296428af58a62354d9b64355b8533d69,
         type: 3}
       propertyPath: m_RootOrder
@@ -142,7 +157,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target (10)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8224858611026761480, guid: 296428af58a62354d9b64355b8533d69, type: 3}
+    - {fileID: 8720626537041448347, guid: 296428af58a62354d9b64355b8533d69, type: 3}
+    - {fileID: 2372435996710213996, guid: 296428af58a62354d9b64355b8533d69, type: 3}
+    - {fileID: 297030562666931002, guid: 296428af58a62354d9b64355b8533d69, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 296428af58a62354d9b64355b8533d69, type: 3}
 --- !u!4 &202972265855948609 stripped

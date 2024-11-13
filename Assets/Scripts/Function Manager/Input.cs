@@ -29,7 +29,7 @@ public class Input : MonoBehaviour
 
     private bool b_input;
 
-    
+   
     private void Awake()
     {
         playerInput = new PlayerInput();
@@ -51,7 +51,7 @@ public class Input : MonoBehaviour
         
         
     }
-
+   
     private void OnDisable()
     {
         playerInput.CharacterControls.Disable();

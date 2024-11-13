@@ -35,6 +35,7 @@ public class SpellMove : MonoBehaviour
        if(hitEffect != null)
         {
             var HitVFX = Instantiate(hitEffect, pos, rot);
+            Debug.Log(collision.gameObject.name);
             MiFmod.Instance.Play("SFX_2d/ExplosionProyectil");
             Destroy(HitVFX, 2);
         }

@@ -53,7 +53,7 @@
     <UnityVersion>2022.1.15f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\BlurManager.cs" />
@@ -84,7 +84,6 @@
     <Compile Include="Assets\ComboAttackSystem.cs" />
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\CameraSwitch2.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\DataPersistence\Data\GameData.cs" />
     <Compile Include="Assets\Scripts\Function Manager\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreDeathBehavior.cs" />
     <Compile Include="Assets\Scripts\Function Manager\UI\UiMenuInicial.cs" />
@@ -128,7 +127,6 @@
     <Compile Include="Assets\Scripts\Behaviors\Empresario\AtaqueEmpresarioStateMachine.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Others\LayoutGroupFix.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreAction.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\DataPersistence\FileDataHandler.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHealBreak.cs" />
     <Compile Include="Assets\Imported\Invector\Footstep System\Scripts\Utils\vBetterRandom.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
@@ -169,12 +167,10 @@
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\Leave.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_AnimationEvent.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Editor Handlers\DarkUIEditorHandler.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\DataPersistence\IDataPersistence.cs" />
     <Compile Include="Assets\SaltarScript.cs" />
     <Compile Include="Assets\Imported\Invector\Footstep System\Scripts\vAudioSurfaceControl.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\UI Elements\UIElementSound.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Puppet\PuppetIdle.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\DataPersistence\DataPersistenceManager.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\DanceB.cs" />
     <Compile Include="Assets\Scripts\Keys &amp; Doors\Door.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Empresario\PatrolEmpresarioStateMachine.cs" />
@@ -199,6 +195,7 @@
     <Compile Include="Assets\_VerticalSlice\Scripts\FrezeableObject.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\FunctionManager\DownLimitDeath.cs" />
     <Compile Include="Assets\Scripts\Sounds\Sound.cs" />
+    <Compile Include="Assets\ActiveProyectile.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\FuenteFmod.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Lolazo\PlayerSustitute.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\MuerteStateMachine.cs" />
@@ -230,7 +227,6 @@
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Input\GamepadChecker.cs" />
     <Compile Include="Assets\Scripts\Function Manager\SceneInfo.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Rendering\BlurChecker.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\SceneChanges\CambiarEscena1.cs" />
     <Compile Include="Assets\Scripts\Behaviors\BossFinal\Ataque1StateMachine.cs" />
     <Compile Include="Assets\Scripts\Traps\CrosBow.cs" />
     <Compile Include="Assets\Scripts\Keys &amp; Doors\Key.cs" />
@@ -295,7 +291,11 @@
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\CrowChoice.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\ActiveProyectile.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\DataPersistence\IDataPersistence.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\DataPersistence\Data\GameData.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\DataPersistence\FileDataHandler.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\SceneChanges\CambiarEscena1.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\DataPersistence\DataPersistenceManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
