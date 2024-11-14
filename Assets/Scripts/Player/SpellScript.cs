@@ -31,7 +31,8 @@ public class SpellScript : MonoBehaviour
     private bool isAimingWithJoystick = false; // Para saber si se está apuntando con el joystick
     private GameObject selectedProjectile;
     private ComboAttackSystem comboAttackSystem;
-
+    public float slopeThreshold = 10f;
+    public LayerMask groundLayerMask;
     [Header("Cooldown de Proyectiles")]
     public float[] projectileCooldownTimes; // Cooldown específico para cada proyectil
     public float[] projectileCooldownTimers; // El temporizador que cuenta el tiempo restante para cada proyectil
@@ -46,6 +47,8 @@ public class SpellScript : MonoBehaviour
     PauseMenu pauseMenu;
 
     private EnemyLock enemyLock;
+
+    
 
     void Start()
     {
@@ -203,18 +206,33 @@ public class SpellScript : MonoBehaviour
             }
         }
 
+        // Proyectar un Raycast hacia abajo desde la posición calculada usando la capa de suelo
+        RaycastHit hit;
+        Vector3 crosshairHeightAdjusted = newCrosshairPosition;
+
+        if (Physics.Raycast(newCrosshairPosition + Vector3.up * 10, Vector3.down, out hit, 20f, groundLayerMask))
+        {
+            // Calcula el ángulo del terreno en el punto de impacto
+            float slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+
+            // Solo ajusta la altura si la pendiente excede el umbral
+            if (slopeAngle > slopeThreshold)
+            {
+                crosshairHeightAdjusted.y = hit.point.y + 0.2f; // Añadir un pequeño margen sobre el terreno inclinado
+            }
+        }
+
         // Actualizar la posición de la cruceta
-        crosshairObjects[currentProjectileIndex].transform.position = newCrosshairPosition;
+        crosshairObjects[currentProjectileIndex].transform.position = crosshairHeightAdjusted;
 
         // Verificar si la dirección no es cero antes de aplicar LookRotation
-        Vector3 directionToCrosshair = newCrosshairPosition - transform.position;
+        Vector3 directionToCrosshair = crosshairHeightAdjusted - transform.position;
         if (directionToCrosshair != Vector3.zero)
         {
             Quaternion lookRotation = Quaternion.LookRotation(directionToCrosshair);
             lookRotation = Quaternion.Euler(90, lookRotation.eulerAngles.y + rotation1, lookRotation.eulerAngles.z);
             crosshairObjects[currentProjectileIndex].transform.rotation = lookRotation;
         }
-
     }
 
     IEnumerator FireProjectile()

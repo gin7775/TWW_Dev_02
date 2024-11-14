@@ -589,7 +589,7 @@ Transform:
   - {fileID: 2545442090555514324}
   - {fileID: 399660320}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1098614515342553415
 CapsuleCollider:
@@ -656,9 +656,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 4.5
-  rotationSpeed: 450
+  rotationSpeed: 400
   isMovementPressed: 0
-  angleDifferenceRotation: 60
+  angleDifferenceRotation: 70
   combatTrade: {fileID: 0}
   slashCoooldown: 0.6
   attackignDash: 3
@@ -723,6 +723,7 @@ MonoBehaviour:
   - {fileID: 2336120832011315812}
   - {fileID: 2545442090555514315}
   gravity: -1.3
+  firstGameObjectWheel: {fileID: 0}
 --- !u!114 &1098614515342553414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,11 +753,16 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   isCooldown: 0
   rotation1: 180
+  slopeThreshold: 3
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
   projectileCooldownTimes:
-  - 2
+  - 1
   - 5
   - 10
   projectileCooldownTimers: []
+  ProjectilesUnlocked: 0
   fireMaterial: {fileID: 2100000, guid: 6570c0663e6a89b4ebde771bfcfc2df0, type: 2}
   swordMaterial: {fileID: 2100000, guid: 4fae5b14f37d53e4c8868febb2f3ec56, type: 2}
   intensity: 1.5

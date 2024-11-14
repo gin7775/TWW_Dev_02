@@ -36,7 +36,7 @@ public class ProyectileDamage : MonoBehaviour
             {
                 // Instancia la partícula en la posición de colisión
                 GameObject hitParticle = Instantiate(hitParticlePrefab, transform.position, Quaternion.identity);
-
+                Debug.Log(other.name + "Colisiona con el player");
                 // Orienta la partícula en la dirección del proyectil
                 hitParticle.transform.rotation = Quaternion.LookRotation(transform.forward);
 

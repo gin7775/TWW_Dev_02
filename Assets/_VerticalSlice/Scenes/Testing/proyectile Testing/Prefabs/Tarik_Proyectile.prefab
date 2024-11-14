@@ -4707,9 +4707,9 @@ GameObject:
   - component: {fileID: 199187720539646952}
   - component: {fileID: 198228151580939694}
   - component: {fileID: 54453457801900860}
-  - component: {fileID: 8418537578416029007}
   - component: {fileID: 1854031677570097184}
   - component: {fileID: -3541227291307054898}
+  - component: {fileID: 7289774659358584442}
   m_Layer: 12
   m_Name: Tarik_Proyectile
   m_TagString: FX
@@ -9540,25 +9540,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
---- !u!65 &8418537578416029007
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1238843893459588}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.8089574, y: 0.68939847, z: 0.8202759}
-  m_Center: {x: 0.01965305, y: 0.046364214, z: 0.17473195}
 --- !u!114 &1854031677570097184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9590,6 +9577,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 8
+--- !u!135 &7289774659358584442
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238843893459588}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6904146
+  m_Center: {x: 0.021061145, y: -0.029038036, z: 0.17034963}
 --- !u!1 &1331927736720676
 GameObject:
   m_ObjectHideFlags: 0

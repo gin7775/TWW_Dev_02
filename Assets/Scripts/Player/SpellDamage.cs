@@ -136,7 +136,7 @@ public class SpellDamage : MonoBehaviour
         {
             EmpresarioScript puppet = other.GetComponent<EmpresarioScript>();
 
-            Debug.Log("Detecta al menos");
+            Debug.Log(other.name + "hit empresario");
 
             if (puppet != null)
             {
