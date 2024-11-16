@@ -34,13 +34,15 @@ public class TarikEnemy : MonoBehaviour
     public float knockbackDistance = 1.5f;
     public float knockbackDuration = 0.3f; // Duración del retroceso
     public float angulo;
-
+    public List<SkinnedMeshRenderer> skinnedMeshRenderers = new List<SkinnedMeshRenderer>();
+    public float blinkIntensity;
+    public float blinkDuration;
 
     // Start is called before the first frame update
     void Start()
     {
         playerReference = GameObject.FindGameObjectWithTag("Player");
-
+        StartCoroutine(UpdateSliderOrientation());
         cinemachineImpulseSource = this.GetComponent<CinemachineImpulseSource>();
         DOTween.Init();
         contenedorTarik = this.GetComponent<ContainerTarik>();
@@ -75,6 +77,10 @@ public class TarikEnemy : MonoBehaviour
         Instantiate(vfxBlood, vfxSpawnBlood.transform.position, Quaternion.LookRotation(oppositeDirection));
         ApplyKnockback();
 
+        foreach (var renderer in skinnedMeshRenderers)
+        {
+            StartCoroutine(BlinkEffect(renderer));
+        }
         contenedorTarik.animatorTarik.SetTrigger("Hit");
 
         if (currentHealth <= 0)
@@ -101,5 +107,40 @@ public class TarikEnemy : MonoBehaviour
 
         // Animar el movimiento de retroceso
         transform.DOMove(knockbackPosition, knockbackDuration).SetEase(Ease.OutExpo);
+    }
+
+    private IEnumerator BlinkEffect(SkinnedMeshRenderer renderer)
+    {
+        float endTime = Time.time + blinkDuration;
+        while (Time.time < endTime)
+        {
+            float lerp = Mathf.Clamp01((endTime - Time.time) / blinkDuration);
+            float intensity = (lerp * blinkIntensity) + 1;
+            renderer.material.color = Color.white * intensity;
+            yield return null;
+        }
+        renderer.material.color = Color.white;
+    }
+    public void StartBlinkEffects()
+    {
+        foreach (var renderer in skinnedMeshRenderers)
+        {
+            StartCoroutine(BlinkEffect(renderer));
+        }
+    }
+
+    IEnumerator UpdateSliderOrientation()
+    {
+        while (true)
+        {
+            // Copia la rotación de la cámara, pero mantiene el `Slider` orientado horizontalmente respecto al suelo.
+            Quaternion cameraRotation = Camera.main.transform.rotation;
+            cameraRotation.x = 0; // Neutraliza la rotación en X
+            cameraRotation.z = 0; // Neutraliza la rotación en Z
+
+            sliderVida.transform.rotation = cameraRotation;
+
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }
