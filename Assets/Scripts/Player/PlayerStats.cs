@@ -24,7 +24,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
     public int enemyCount;
 
     public HealthBar healthBar;
-
+   
     public CinemachineVolumeSettings[] volumeSettings;
     [SerializeField] private AudioClip sfxHeal;
     [SerializeField] private AudioClip sfxHurt;
@@ -49,6 +49,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
     void Start()
     {
         invensible = false;
+        
         player = GetComponent<Player>();
         cinemachineImpulseSource = this.GetComponent<CinemachineImpulseSource>();
         healLV = 1;
@@ -239,6 +240,8 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
 
 
     }
+
+    
 
     public void LoadData(GameData gameData)
     {
