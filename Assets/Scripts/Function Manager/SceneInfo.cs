@@ -16,14 +16,13 @@ public class SceneInfo : MonoBehaviour, IDataPersistence
     
     void Start()
     {
-        if (!GameManager.gameManager.death)
-        {
-            dataPersistenceManager = DataPersistenceManager.instance;
-            GameManager.gameManager.sceneIndexGameManager = sceneIndex;
+        //if (!GameManager.gameManager.death)
+        //{
+        dataPersistenceManager = DataPersistenceManager.instance;
+        GameManager.gameManager.sceneIndexGameManager = sceneIndex;
             GameManager.gameManager.SetPosition(playerSpawn[GameManager.gameManager.spawnIndex].transform);
             dataPersistenceManager.LoadGame();
-
-        }
+        //}
         audioManager = FindObjectOfType<SoundManager>();
 
     }

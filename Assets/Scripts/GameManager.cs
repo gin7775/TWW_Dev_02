@@ -21,11 +21,20 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         dataPersistenceManager = DataPersistenceManager.instance;
-        //newGame = true;
+        newGame = true;
         transitionTime = 1f;
         fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         SceneInfo = FindObjectOfType<SceneInfo>();
+    }
+
+    private void Update()
+    {
+        if (SceneInfo == null)
+        {
+            SceneInfo = FindObjectOfType<SceneInfo>();
+            playerSpawn = SceneInfo.playerSpawn;
+        }
     }
 
     private void Awake()
@@ -34,19 +43,16 @@ public class GameManager : MonoBehaviour
         {
             gameManager = this;
             DontDestroyOnLoad(this);
-
         }
         else if (gameManager != this)
         {
             Destroy(gameObject);
-
         }
     }
 
 
     public void GameStart()
     {
-
         NextScene(1);
     }
 

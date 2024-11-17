@@ -45,7 +45,8 @@ public class ControlPoint : MonoBehaviour
     {
         if (isInTrigger && value.isPressed) // Solo si está dentro del trigger y la tecla fue presionada
         {
-            SceneInfo.controlPoint = pointIndex; // Actualiza el controlPoint en SceneInfo
+            SceneInfo.controlPoint = pointIndex;
+            GameManager.gameManager.spawnIndex = pointIndex;// Actualiza el controlPoint en SceneInfo
             dataPersistenceManager.SaveGame(); // Guarda el juego
             Debug.Log("Juego guardado en el punto de control: " + pointIndex);
 

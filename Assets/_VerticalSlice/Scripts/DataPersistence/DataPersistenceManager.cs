@@ -22,15 +22,18 @@ public class DataPersistenceManager : MonoBehaviour
     public static DataPersistenceManager instance { get; private set; }
     private void Awake()
     {
-        if (gameData != null && gameData.death)
+        if(instance != null)
+        {
+            Destroy(gameObject);
+        }
+        if (gameData == null)
         {
             instance = this;
             DontDestroyOnLoad(this);
         }
         else
         {
-            instance = this;
-            DontDestroyOnLoad(this);
+            Destroy(gameObject);
         }
 
         name = "Nuevo DataPersistence";
