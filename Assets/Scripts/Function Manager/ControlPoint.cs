@@ -8,10 +8,13 @@ public class ControlPoint : MonoBehaviour
 {
     public bool canTriger;
     public SceneInfo SceneInfo;
-    private string saveKey = "f";
+    
     public DataPersistenceManager dataPersistenceManager;
-    //Se usa para decirle al scene info cual es este punto 
+
+    // Se usa para decirle al SceneInfo cuál es este punto 
     public int pointIndex;
+    private bool isInTrigger = false;
+    public GameObject panelSave;
 
     private void Start()
     {
@@ -24,16 +27,28 @@ public class ControlPoint : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            
-           // Debug.Log("Estoy en collider");
-            if (UnityEngine.Input.GetKeyDown(saveKey))
-            {
-                SceneInfo.controlPoint = pointIndex;
-                dataPersistenceManager.SaveGame();
-                Debug.Log("La tecla F ha sido presionada y por tanto el juego salvado");
-
-            }
+            panelSave.SetActive(true);
+            isInTrigger = true; // Marca que el jugador está dentro del trigger
         }
-        
+    }
+
+    public void OnInteract(InputValue value)
+    {
+        // Detecta si la tecla F fue presionada
+        if (isInTrigger && value.isPressed) // Solo si está dentro del trigger y la tecla fue presionada
+        {
+            SceneInfo.controlPoint = pointIndex; // Actualiza el controlPoint
+            dataPersistenceManager.SaveGame(); // Guarda el juego
+            Debug.Log("Juego guardado en el punto de control: " + pointIndex);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            panelSave.SetActive(false);
+            isInTrigger = false; // Marca que el jugador salió del trigger
+        }
     }
 }
