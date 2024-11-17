@@ -118,7 +118,7 @@ public class BA_AnimationEvent : MonoBehaviour
     {
         //Instantiate(VfxShield, ShieldDefensePosition);
         animShield.Play("ShieldOn");
-        Instantiate(VfxShieldSecondary, VfxShieldPosition);
+        //Instantiate(VfxShieldSecondary, VfxShieldPosition);
     }
     public void ShieldOff()
     {
