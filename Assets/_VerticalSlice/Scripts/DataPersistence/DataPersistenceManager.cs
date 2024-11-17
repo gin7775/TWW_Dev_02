@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using DG.Tweening.Core.Easing;
 using System.Data;
+using Michsky.UI.Dark;
 
 public class DataPersistenceManager : MonoBehaviour
 {
@@ -21,24 +22,6 @@ public class DataPersistenceManager : MonoBehaviour
     public static DataPersistenceManager instance { get; private set; }
     private void Awake()
     {
-
-        //if (instance == null || instance == this)
-        //{
-        //    instance = this;
-        //    DontDestroyOnLoad(this);
-
-        //}
-        //else if (instance != this)
-        //{
-        //    Destroy(gameObject);
-        //}
-
-        //if (instance != null)
-        //{
-        //    //Debug.LogError("More than one data persistence manager finding on the scene");
-            
-        //}
-        //else 
         if (gameData != null && gameData.death)
         {
             instance = this;
@@ -51,12 +34,6 @@ public class DataPersistenceManager : MonoBehaviour
         }
 
         name = "Nuevo DataPersistence";
-        //if(instance != null)
-        //{
-        //    Debug.LogError("More than one data persistence manager finding on the scene");
-        //}
-        //instance = this;
-        //DontDestroyOnLoad(this);
 
     }
 
@@ -66,7 +43,6 @@ public class DataPersistenceManager : MonoBehaviour
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         if (instance.gameData == null || GameManager.gameManager.death || instance.gameData.newGame)
         {
-            
             LoadGame();
         }
     }

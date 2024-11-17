@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public SceneInfo SceneInfo;
     public int sceneIndexGameManager;
     public float transitionTime;
-    public static GameManager gameManager;
+    public static GameManager gameManager { get; private set; }
     public GameObject[] playerSpawn;
     private GameObject player;
     public int spawnIndex;
@@ -21,11 +21,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         dataPersistenceManager = DataPersistenceManager.instance;
-        newGame = true;
+        //newGame = true;
         transitionTime = 1f;
         fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
-        spawnIndex = 0;
         SceneInfo = FindObjectOfType<SceneInfo>();
     }
 

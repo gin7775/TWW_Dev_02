@@ -20,7 +20,7 @@ public class SceneInfo : MonoBehaviour, IDataPersistence
         {
             dataPersistenceManager = DataPersistenceManager.instance;
             GameManager.gameManager.sceneIndexGameManager = sceneIndex;
-            GameManager.gameManager.SetPosition(playerSpawn[controlPoint].transform);
+            GameManager.gameManager.SetPosition(playerSpawn[GameManager.gameManager.spawnIndex].transform);
             dataPersistenceManager.LoadGame();
 
         }
