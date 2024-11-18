@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72bfb7e7a573f042ae202d8e418f197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossArmore: {fileID: 0}
+  trapRelease: {fileID: 0}
 --- !u!114 &-5652308728088845603
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -305,6 +307,8 @@ MonoBehaviour:
   aproachIterator: 0
   player: {fileID: 0}
   healOnce: 1
+  distanceTimer: 0
+  startTimer: 0
 --- !u!1102 &-562415212857405183
 AnimatorState:
   serializedVersion: 6
@@ -578,6 +582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockTimer: 4
   speedStart: 0
+  player: {fileID: 0}
 --- !u!1102 &5819130014048735102
 AnimatorState:
   serializedVersion: 6
