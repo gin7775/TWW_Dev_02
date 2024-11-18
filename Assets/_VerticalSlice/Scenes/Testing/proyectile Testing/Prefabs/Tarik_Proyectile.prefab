@@ -4712,7 +4712,7 @@ GameObject:
   - component: {fileID: 7289774659358584442}
   m_Layer: 12
   m_Name: Tarik_Proyectile
-  m_TagString: FX
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9544,7 +9544,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 4
   m_CollisionDetection: 1
 --- !u!114 &1854031677570097184
 MonoBehaviour:

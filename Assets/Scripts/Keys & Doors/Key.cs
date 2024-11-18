@@ -5,6 +5,7 @@ using UnityEngine;
 public class Key : MonoBehaviour
 {
     public bool keyLock;
+   // public Animator animator;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class Key : MonoBehaviour
             other.gameObject.GetComponent<Player>().collectedKeys++;
             Destroy(this.gameObject);
             MiFmod.Instance.Play("SFX_2d/Key");
+            //animator.SetTrigger("Active");
         }
     }
 }

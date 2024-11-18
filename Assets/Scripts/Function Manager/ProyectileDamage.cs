@@ -27,7 +27,7 @@ public class ProyectileDamage : MonoBehaviour
 
         // Si colisiona con el jugador
         if (playerStats != null)
-        {
+       {
             playerStats.TakeDamage(damage);
             Debug.Log("Has tocado");
 

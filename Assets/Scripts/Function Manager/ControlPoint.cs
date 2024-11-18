@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class ControlPoint : MonoBehaviour
 {
     public SceneInfo SceneInfo;
-    public DataPersistenceManager dataPersistenceManager;
+    //public DataPersistenceManager dataPersistenceManager;
 
     // Punto de control asociado a este script
     public int pointIndex;
@@ -22,7 +22,7 @@ public class ControlPoint : MonoBehaviour
 
     private void Start()
     {
-        dataPersistenceManager = DataPersistenceManager.instance;
+       // dataPersistenceManager = GameManager.gameManager.dataPersistenceManager;
         SceneInfo = FindObjectOfType<SceneInfo>();
 
         // Restaura el efecto de fuego si este checkpoint es el último guardado
@@ -47,11 +47,12 @@ public class ControlPoint : MonoBehaviour
         {
             SceneInfo.controlPoint = pointIndex;
             GameManager.gameManager.spawnIndex = pointIndex;// Actualiza el controlPoint en SceneInfo
-            dataPersistenceManager.SaveGame(); // Guarda el juego
+            //dataPersistenceManager.SaveGame(); // Guarda el juego
             Debug.Log("Juego guardado en el punto de control: " + pointIndex);
 
             // Activa el fuego en este checkpoint y desactiva en el anterior
             ActivateFireEffect();
+            //GameManager.gameManager.dataPersistenceManager.SaveGame();
         }
     }
 
