@@ -5680,7 +5680,7 @@ MonoBehaviour:
 
     3D ARTIST <b>[PABLO DE LA LLAVE]</b>'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 52cb95421939b3343ade2a7579e71c06, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc31e56a4af728944a870632cd3d6dac, type: 2}
   m_sharedMaterial: {fileID: 21307179227807236, guid: 52cb95421939b3343ade2a7579e71c06,
     type: 2}
   m_fontSharedMaterials: []
@@ -5745,7 +5745,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &622373307
@@ -7836,7 +7836,7 @@ MonoBehaviour:
     LEAD ARTIST <b>[DANIEL
     DE TENA]</b>'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 52cb95421939b3343ade2a7579e71c06, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc31e56a4af728944a870632cd3d6dac, type: 2}
   m_sharedMaterial: {fileID: 21307179227807236, guid: 52cb95421939b3343ade2a7579e71c06,
     type: 2}
   m_fontSharedMaterials: []
@@ -7901,7 +7901,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &864601483
@@ -14481,7 +14481,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: DIRECTED  BY <b>[GIANMARCOS ALFONSO]</b>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 52cb95421939b3343ade2a7579e71c06, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc31e56a4af728944a870632cd3d6dac, type: 2}
   m_sharedMaterial: {fileID: 21307179227807236, guid: 52cb95421939b3343ade2a7579e71c06,
     type: 2}
   m_fontSharedMaterials: []
@@ -14546,7 +14546,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1394881291
@@ -23311,7 +23311,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: <b>[Apolonir]</b> PRESENTS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 52cb95421939b3343ade2a7579e71c06, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc31e56a4af728944a870632cd3d6dac, type: 2}
   m_sharedMaterial: {fileID: 21307179227807236, guid: 52cb95421939b3343ade2a7579e71c06,
     type: 2}
   m_fontSharedMaterials: []
@@ -23376,7 +23376,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2099183316
