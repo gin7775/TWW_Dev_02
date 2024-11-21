@@ -22,16 +22,12 @@ public class DataPersistenceManager : MonoBehaviour
     public static DataPersistenceManager instance { get; private set; }
     private void Awake()
     {
-        if(instance != null)
-        {
-            Destroy(gameObject);
-        }
-        if (gameData == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(this);
         }
-        else
+        else if (instance != this)
         {
             Destroy(gameObject);
         }
@@ -68,6 +64,7 @@ public class DataPersistenceManager : MonoBehaviour
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
         {
             dataPersistence.LoadData(gameData);
+
         }
         // TODO: Enviar la data a todos los scripts necesarios
     }
@@ -80,11 +77,6 @@ public class DataPersistenceManager : MonoBehaviour
         }
         dataHandler.Save(gameData);
     }
-
-    //private void OnApplicationQuit()
-    //{
-    //    SaveGame();
-    //}
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {

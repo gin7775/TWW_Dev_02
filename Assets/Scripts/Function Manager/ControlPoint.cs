@@ -47,12 +47,12 @@ public class ControlPoint : MonoBehaviour
         {
             SceneInfo.controlPoint = pointIndex;
             GameManager.gameManager.spawnIndex = pointIndex;// Actualiza el controlPoint en SceneInfo
+            GameManager.gameManager.dataPersistenceManager.SaveGame();
             //dataPersistenceManager.SaveGame(); // Guarda el juego
             Debug.Log("Juego guardado en el punto de control: " + pointIndex);
 
             // Activa el fuego en este checkpoint y desactiva en el anterior
             ActivateFireEffect();
-            //GameManager.gameManager.dataPersistenceManager.SaveGame();
         }
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         dataPersistenceManager = DataPersistenceManager.instance;
-        newGame = true;
+        death = false;
         transitionTime = 1f;
         fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -76,7 +77,7 @@ public class GameManager : MonoBehaviour
     }
     public void Death()
     {
-        death = true;
+        gameManager.death = true;
         NextScene(sceneIndexGameManager);
     }
 
@@ -88,9 +89,13 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(transitionTime);
 
-        SceneManager.LoadScene(index);
+        if (!death)
+        {
+            SceneManager.LoadScene(index);
+        }
         if (death || newGame)
         {
+            SceneManager.LoadScene(sceneIndexGameManager);
             newGame = false;
             dataPersistenceManager.LoadGame();
             SceneInfo.deathScene();
