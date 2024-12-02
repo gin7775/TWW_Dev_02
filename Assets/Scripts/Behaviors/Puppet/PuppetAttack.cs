@@ -24,10 +24,10 @@ public class PuppetAttack : StateMachineBehaviour
         puppet.gameObject.GetComponent<MonoBehaviour>().StartCoroutine(WaitBeforeNavigation(animator));
     }
 
-    // OnStateUpdate es llamado cada frame mientras est· en este estado
+    // OnStateUpdate es llamado cada frame mientras estÅEen este estado
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        // Asegurarse de que el enemigo estÈ siempre mirando al jugador
+        // Asegurarse de que el enemigo estÅEsiempre mirando al jugador
         if (destination != null)
         {
             Vector3 directionToPlayer = (destination.position - puppet.transform.position).normalized;

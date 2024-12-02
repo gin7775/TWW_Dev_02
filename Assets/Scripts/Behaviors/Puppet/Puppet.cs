@@ -75,13 +75,13 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
     // MÈtodo para Congelar al enemigo
     public void Freeze(float freezeDuration)
     {
-        if (!isFreezable || isFrozen) return;  // No congelar si no es congelable o ya est· congelado
+        if (!isFreezable || isFrozen) return;  // No congelar si no es congelable o ya estÅEcongelado
 
         isFrozen = true;
         agent.speed = 0f;
         // Congelar el estado actual del Animator
         AnimatorStateInfo currentAnimatorState = contenedorPuppet.animPuppet.GetCurrentAnimatorStateInfo(0); // Capturamos el estado actual
-        contenedorPuppet.animPuppet.Play(currentAnimatorState.fullPathHash, -1, currentAnimatorState.normalizedTime); // Forzamos a reproducir el estado actual en el frame que est·
+        contenedorPuppet.animPuppet.Play(currentAnimatorState.fullPathHash, -1, currentAnimatorState.normalizedTime); // Forzamos a reproducir el estado actual en el frame que estÅE
         contenedorPuppet.animPuppet.speed = 0f;  // Pausar la animaciÛn completamente
         
 
@@ -165,7 +165,7 @@ public class Puppet : MonoBehaviour, IEnemyFreezable
         // Desactivar temporalmente el NavMeshAgent
         agent.enabled = false;
 
-        // Detener la corrutina de ataque si est· activa
+        // Detener la corrutina de ataque si estÅEactiva
         puppetNavigation.StopAttackCoroutine();
 
         // Calcular la direcciÛn y posiciÛn del knockback

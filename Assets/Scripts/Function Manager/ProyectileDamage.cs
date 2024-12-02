@@ -31,13 +31,13 @@ public class ProyectileDamage : MonoBehaviour
             playerStats.TakeDamage(damage);
             Debug.Log("Has tocado");
 
-            // Crear la partícula de impacto orientada en la dirección del proyectil
+            // Crear la partú€ula de impacto orientada en la dirección del proyectil
             if (hitParticlePrefab != null)
             {
-                // Instancia la partícula en la posición de colisión
+                // Instancia la partú€ula en la posición de colisión
                 GameObject hitParticle = Instantiate(hitParticlePrefab, transform.position, Quaternion.identity);
                 Debug.Log(other.name + "Colisiona con el player");
-                // Orienta la partícula en la dirección del proyectil
+                // Orienta la partú€ula en la dirección del proyectil
                 hitParticle.transform.rotation = Quaternion.LookRotation(transform.forward);
 
                 Destroy(this.gameObject);
