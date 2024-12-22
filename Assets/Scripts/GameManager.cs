@@ -33,8 +33,15 @@ public class GameManager : MonoBehaviour
     {
         if (SceneInfo == null)
         {
-            SceneInfo = FindObjectOfType<SceneInfo>();
-            playerSpawn = SceneInfo.playerSpawn;
+            try
+            {
+                SceneInfo = FindObjectOfType<SceneInfo>();
+                playerSpawn = SceneInfo.playerSpawn;
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 
@@ -60,7 +67,7 @@ public class GameManager : MonoBehaviour
     public void NextScene(int scene)
     {
 
-        if(fader == null)
+        if (fader == null)
         {
             fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<Animator>();
 
@@ -112,5 +119,5 @@ public class GameManager : MonoBehaviour
     }
 }
 
-    
+
 

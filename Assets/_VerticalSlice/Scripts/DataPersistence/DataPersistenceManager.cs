@@ -13,11 +13,11 @@ public class DataPersistenceManager : MonoBehaviour
     [SerializeField] private string fileName;
     [SerializeField] private bool useEncryption;
 
+    //public bool needLoad;
     private GameData gameData;
-
+    private bool isNewGame;
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
-    public string name;
 
     public static DataPersistenceManager instance { get; private set; }
     private void Awake()
@@ -31,16 +31,16 @@ public class DataPersistenceManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        name = "Nuevo DataPersistence";
+        //name = "Nuevo DataPersistence";
 
     }
 
     private void Start()
     {
+        //needLoad = false;
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        if (instance.gameData == null || GameManager.gameManager.death || instance.gameData.newGame)
+        if (GameManager.gameManager.death || instance.gameData.newGame)
         {
             LoadGame();
         }
@@ -49,16 +49,24 @@ public class DataPersistenceManager : MonoBehaviour
     public void NewGame()
     {
         this.gameData = new GameData();
+        this.isNewGame = true;
         this.SaveGame();
     }
+
+    public void UpdateFileName(int i)
+    {
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, $"SAVE_{i}.game", useEncryption);
+    }
+
     public void LoadGame()
     {
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         this.gameData = dataHandler.Load();
         // TODO: Cargar cualquier dato desde un archivo de data handler
         if(this.gameData == null)
         {
-            NewGame();
-            Debug.Log("EStoy entrando a crear una nueva data del juego");
+            //NewGame();
+            Debug.Log("Primera llamada");
         }
 
         foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
@@ -71,11 +79,22 @@ public class DataPersistenceManager : MonoBehaviour
     public void SaveGame()
     {
         Debug.Log("Guarda");
-        foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
+        if (this.isNewGame)
         {
-            dataPersistence.SaveData(ref gameData);
+            this.isNewGame = false;
+            dataHandler.CheckAndCreateSaveFile(ref gameData);
+
         }
-        dataHandler.Save(gameData);
+        
+        else
+        {
+            this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+            foreach (IDataPersistence dataPersistence in dataPersistenceObjects)
+            {
+                dataPersistence.SaveData(ref gameData);
+            }
+            dataHandler.Save(gameData);
+        }
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()

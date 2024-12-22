@@ -21,12 +21,9 @@ public class FileDataHandler
 
     public FileDataHandler(string dataDirPath, string dataFilePath, bool useEncryption)
     {
-        //System.Random random = new System.Random();
-        //this.seed = random.Next();
         this.dataDirPath = dataDirPath;
         this.dataFileName = dataFilePath;
         this.useEncryption = useEncryption;
-        //this.encryptionWord = GenerateEncryptionWord(10, seed);
     }
 
     public GameData Load()
@@ -35,9 +32,9 @@ public class FileDataHandler
 
         GameData loadedData = null;
 
-        if(File.Exists(fullPath))
+        if (File.Exists(fullPath))
         {
-            try 
+            try
             {
                 string dataToLoad = "";
                 using (FileStream stream = new FileStream(fullPath, FileMode.Open))
@@ -48,14 +45,14 @@ public class FileDataHandler
                     }
                 }
 
-                if(useEncryption)
+                if (useEncryption)
                 {
                     dataToLoad = EncryptDecrypt(dataToLoad);
                 }
 
                 loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
-            } 
-            catch(Exception e) 
+            }
+            catch (Exception e)
             {
                 Debug.LogError("No fue posible cargar el archivo de data desde: " + fullPath + '\n' + e);
             }
@@ -86,9 +83,53 @@ public class FileDataHandler
                 }
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Debug.LogError("Ocurrió un error al salvar los datos " + fullPath + "\n" + e);
+        }
+    }
+
+    public void CheckAndCreateSaveFile(ref GameData data)
+    {
+        string fileNameTemplate = "SAVE_{0}.game";
+        int maxIndex = 4;
+        string availableFileName = null;
+        for (int i = 1; i <= maxIndex; i++)
+        {
+            string fileName = string.Format(fileNameTemplate, i);
+            string fullPath = Path.Combine(dataDirPath, fileName);
+            if (!File.Exists(fullPath))
+            {
+                availableFileName = fileName;
+                this.dataFileName = fileName;
+                data.saveId = i;
+                break;
+            }
+        }
+        if (availableFileName != null)
+        {
+            string fullPath = Path.Combine(dataDirPath, availableFileName);
+            Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
+
+            string dataToStore = JsonUtility.ToJson(data, true);
+
+            if (useEncryption)
+            {
+                dataToStore = EncryptDecrypt(dataToStore);
+            }
+
+            using (FileStream stream = new FileStream(fullPath, FileMode.Create))
+            {
+                using (StreamWriter writer = new StreamWriter(stream))
+                {
+                    writer.Write(dataToStore);
+                }
+            }
+            data = Load();
+        }
+        else
+        {
+            Debug.LogWarning("Todos los archivos SAVE_1 a SAVE_4 ya existen.");
         }
     }
 

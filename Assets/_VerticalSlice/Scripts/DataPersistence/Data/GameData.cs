@@ -12,6 +12,9 @@ public class GameData
     public int sceneIndex;
     public bool death;
     public bool newGame;
+    public int chapter;
+    public int perCnt;
+    public int saveId;
     public GameData() { 
         this.deathCount = 0;
         this.currentHealth = 100;
@@ -20,5 +23,8 @@ public class GameData
         this.sceneIndex = 1;
         this.death = false;
         this.newGame = true;
+        this.chapter = 0;
+        this.perCnt = 0;
+        this.saveId = 1;
     }
 }
