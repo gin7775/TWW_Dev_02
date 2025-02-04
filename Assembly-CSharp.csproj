@@ -167,6 +167,7 @@
     <Compile Include="Assets\Imported\Plugins\DotWeen\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Candela\DanceC.cs" />
     <Compile Include="Assets\_VerticalSlice\Scripts\FunctionManager\Crow\CrowDirector.cs" />
+    <Compile Include="Assets\_VerticalSlice\Scripts\DescriptionLoader.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Ballerinas\Leave.cs" />
     <Compile Include="Assets\Scripts\Behaviors\Armore\AnimationBehavior\BA_AnimationEvent.cs" />
     <Compile Include="Assets\Imported\Dark - Complete Horror UI\Scripts\Editor Handlers\DarkUIEditorHandler.cs" />
@@ -297,7 +298,6 @@
     <Compile Include="Assets\Scripts\Behaviors\Armore\armoreHorizontalBehavior.cs" />
     <Compile Include="Assets\CrowChoice.cs" />
     <Compile Include="Assets\Scripts\Function Manager\Sadie\SadieAtackAnim2.cs" />
-    <Compile Include="Assets\_VerticalSlice\Scripts\DescriptionLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
